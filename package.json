@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "git": "^0.1.5"
+  },
+  "name": "portfolio",
+  "version": "1.0.0",
+  "main": "index.md",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

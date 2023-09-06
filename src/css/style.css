@@ -1,0 +1,15 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rebeccapurple;
+    color: white;
+   
+}
+
+a { 
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
