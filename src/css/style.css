@@ -13,3 +13,38 @@ a:hover {
     color: #333333;
     text-decoration: underline;
 }
+
+/* Spinner */
+#main-content {
+    display: hidden;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.25rem;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: transparent transparent transparent currentColor;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+    display: none;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% { 
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 

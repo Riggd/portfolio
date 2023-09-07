@@ -1,5 +1,6 @@
 ---
-title: Project 2
+title: Angi
+role: Design
 ---
 
 Some content probably an image also

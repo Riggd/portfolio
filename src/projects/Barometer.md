@@ -1,0 +1,10 @@
+---
+title: Barometer
+client: Barometer
+client-url: https://www.thebarometer.co/landing/
+role: Design
+---
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F28SLlDSPRXWhrwzDxovlGO%2FBarometer%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D1-10993%26viewport%3D680%252C560%252C0.1%26t%3DcOaUH203PNesl4KF-1%26scaling%3Dscale-down%26starting-point-node-id%3D1%253A10993%26mode%3Ddesign" allowfullscreen></iframe>
+
+<a href="{{ client-url }}" target="_blank">View on VMS</a>
