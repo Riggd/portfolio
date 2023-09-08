@@ -1,11 +1,17 @@
 ---
-title: Hello World
+title: Derek Onay's Portfolio
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
 
-Dratz you found me... I mean glad you're here. 
+# Hey there, I'm Derek
 
-I'm Derek, a product designer based in Indianapolis, IN. I enjoy designing accessibile and delightful experiences on the internet. 
+#### Product designer, researcher, and tinkerer based in Indianapolis, IN. I enjoy designing accessibile and delightful experiences on the internet. 
+
+#### Previously, I was a Product Designer & Product Manager at <a href="https://innovatemap.com" target="_blank">Innovatemap</a>, helping pre-seed through Series B founders with product strategy and design to bring their visions to life.  Prior to that, I was a Lead Designer at <a href="https://carebridgehealth.com/" target="_blank">CareBridge</a>, responsible for delivering mobile apps for home health services.
+
 
 {% include "projectslist.njk" %}
+
+{% include "companieslist.njk" %}
+

@@ -1,5 +1,6 @@
 ---
 title: Barometer
+description: "This is some description."
 client: Barometer
 client-url: https://www.thebarometer.co/landing/
 role: Design

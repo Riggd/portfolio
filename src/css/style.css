@@ -1,7 +1,58 @@
+.company-list {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 48px;
+}
+.company-list img {
+    align-self: center;
+    flex: 0 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .company-list img {
+        width: calc(100%/6);
+        height: calc(100%/6);
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .company-list img {
+        width: calc(100%/4);
+        height: calc(100%/4);
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .company-list img {
+        width: calc(100%/3);
+        height: calc(100%/3);
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    .company-list img {
+        width: calc(100%/2);
+        height: calc(100%/2);
+    }
+}
+
+@media screen  and (max-width: 320px) {
+    .company-list img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: rebeccapurple;
-    color: white;
+    font-family: 'Fira Sans', sans-serif;
+    /* Try Editorial new & black & white site with color pop (nameless.today)*/
+    background-color: #0F0F0F;
+    color: #FFFAEF;
    
 }
 
@@ -10,9 +61,31 @@ a {
     text-decoration: none;
 }
 a:hover {
-    color: #333333;
     text-decoration: underline;
 }
+
+footer a {
+    color: white;
+    transition: 250ms ease-in-out;
+    box-shadow: inset 0px -4px 0 #4A8299;
+    text-decoration: none;
+}
+
+footer a:hover {
+    box-shadow: inset 0px -16px 0 #4A8299;
+    text-decoration: none;
+}
+
+.logo-grey {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.logo-grey:hover {
+    -webkit-filter: none !important;
+    filter: none !important;
+}
+
 
 /* Spinner */
 #main-content {

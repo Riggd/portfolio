@@ -1,5 +1,6 @@
 ---
 title: Wellkind
+description: "This is some description."
 client: VMS BioMarketing
 client-url: https://www.pm360online.com/pm360-2022-innovative-product-wellkind-from-vms-biomarketing/
 test-content: 

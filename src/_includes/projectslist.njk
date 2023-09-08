@@ -1,3 +1,19 @@
-{% for project in collections.projects %}
-- [{{ project.data.title }}]({{ project.url }})
-{% endfor %}
+<div class="projects-container">
+    <h2>Projects</h2>
+    <h4>Here's a couple cool things I've gotten to help build in my !</h4>
+    <div class="projects-grid">
+        {% for project in collections.projects %}
+            <div class="project-card" onclick="location.href='{{project.url}}'">
+                <div class="project-header">
+                    <i class="fa-regular fa-folder-open folder-icon"></i>
+                    <div class="small-icons">
+                        <a href={{project.client-url}}><i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+                <h3>{{project.data.title}}</h3>
+                <p>{{project.data.description}}</p>
+                <a href="{{project.url}}" class="cta-btn">Read more</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
