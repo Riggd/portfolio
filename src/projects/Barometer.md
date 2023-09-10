@@ -5,6 +5,7 @@ client: Barometer
 client-url: https://www.thebarometer.co/landing/
 roles: 
     - Product Design Lead
+    - PM Support
 team: 
     - Jake Trowbridge, Product Manager
     - Patricia Song, Design Support

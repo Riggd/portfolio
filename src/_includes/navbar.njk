@@ -1,20 +1,19 @@
 <header>
     <nav class="nav">
-        <div class="content" style="display: flex;">
-            <!-- Logo -->
-            <div class="nav-left" stlye="display: inline-block;">
-                <a class="brand" href="/" title="{{ home }}">
-                    <img src="/assets/logo-test.png" alt="LOGO" width="auto" height="36">
-                    {{ data.title[lang] or data.title[data.languages[0]] }}
-                </a>
-            </div>
-            <div class="nav-right" stlye="display: inline-block;">
-                <!-- Pages -->
-                <div class="tabs">
-                    <a href="/">Home</a>
-                    <a href="/process">Process</a>
-                    <a href="/resume">Resume</a>
-                </div>
+        <!-- Logo -->
+        <div class="nav-left">
+            <a class="brand" href="/" title="{{ home }}">
+                <img src="/assets/logo-test.png" alt="LOGO" width="auto" height="36">
+                {{ data.title[lang] or data.title[data.languages[0]] }}
+            </a>
+        </div>
+        
+        <div class="nav-right">
+            <!-- Pages -->
+            <div class="tabs">
+                <a href="/">Home</a>
+                <a href="/process">Process</a>
+                <a href="/resume">Resume</a>
             </div>
         </div>
     </nav>

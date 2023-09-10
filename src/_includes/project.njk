@@ -2,11 +2,10 @@
 layout: base.njk
 section: project
 ---
-
-<h1> {{ title }} </h1>
+<div class="project-pageheader">
+    <h1> {{ title }} </h1>
+    <a href="/">← Back to Home</a>
+</div>
 
 <div>{{ layoutContent | safe }}</div>
 
-<nav>
-    <a href="/">← Back to Home</a>
-</nav>

@@ -7,7 +7,6 @@ templateEngineOverride: njk,md
 <div class="hero-section">
 
 {% include "hero-content.njk" %}
-
 </div>
 
 {% include "projectslist.njk" %}

@@ -1,18 +1,23 @@
 <div class="projects-container">
-    <h2>Projects</h2>
-    <h4>Here's a couple cool things I've gotten to help build in my !</h4>
+
+## Featured Projects
+#### Here's a couple cool things I've gotten to help build in my career!
     <div class="projects-grid">
-        {% for project in collections.projects %}
+        {%- for project in collections.projects -%}
             <div class="project-card" onclick="location.href='{{project.url}}'">
                 <div class="content">
                     <div class="project-header">
                         <img src="https://placehold.co/320x200/EEE/31343C" width="320" height="200" alt="Placehold" class="header-image">
 ## {{project.data.title}}
                     </div>
+                    <div class="tag-list">
+                        {%- for role in project.data.roles -%}                     
+                            <span class="project-tag">{{ role }}</span>
+                        {%- endfor -%}
+                    </div>
                     <p>{{project.data.description}}</p>
-                    <i class="fa-regular fa-sparkles"></i>
                 </div>
             </div>
-        {% endfor %}
+        {%- endfor -%}
     </div>
 </div>
