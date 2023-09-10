@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "markdown-it-attrs": "^4.1.6"
   },
   "name": "portfolio",
   "version": "1.0.0",

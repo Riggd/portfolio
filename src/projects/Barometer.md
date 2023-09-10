@@ -1,9 +1,9 @@
 ---
 title: Barometer
-description: "This is some description."
+description: "AI-powered podcast insights to optimize digital audio advertising spend. Barometer helps brands and publishers improve the ROI on their marketing and advertisement budgets."
 client: Barometer
 client-url: https://www.thebarometer.co/landing/
-role: 
+roles: 
     - Product Design Lead
 team: 
     - Jake Trowbridge, Product Manager
@@ -13,6 +13,11 @@ team:
 ### Role 
 {% for role in roles %}
 - {{ role }}
+{% endfor %}
+
+### Team 
+{% for member in team %}
+- {{ member }}
 {% endfor %}
 
 ### Problem

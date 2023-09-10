@@ -53,8 +53,79 @@ body {
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
     background-color: #0F0F0F;
     color: #FFFAEF;
-   
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;  
 }
+
+.name-gradient {
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background: linear-gradient(130deg, #327AAD, #C23CC5);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Projects List */
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.project-card {
+    flex-basis: 48%;
+    background: #222;
+    border-radius: 16px;
+    margin: 8px;
+    overflow: hidden;
+
+}
+
+.project-card img {
+    transition: transform .5s ease-in-out;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+@media screen  and (max-width: 600px) {
+    body {
+        max-width: 600px;;
+    }
+    
+    .project-card {
+        flex-basis: 100%;
+        margin: 24px 0;
+    }
+}
+
+.project-card .content {
+    padding: 24px;
+}
+
+
+/* Project Screenshots */
+.old-new-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.old-new-container img {
+    width: 50%;
+}
+
+.old-new-container img:first-child {
+    width: 80%;
+}
+
 
 a { 
     color: white;
