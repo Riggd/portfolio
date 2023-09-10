@@ -12,7 +12,7 @@ body {
     background: linear-gradient(65deg, #000, #0F161C, #0B1D1F, #1A2C2E, #0D1216, #000, #1A2C2E);
     background-size: 400% 400%;
     height: 100vh;
-    animation: animate 20s ease infinite;
+    animation: animate 30s ease infinite;
     min-height: 100vh;
 }
 
@@ -270,8 +270,8 @@ strong {
 }
 
 .logo-grey {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
 }
 
 .logo-grey:hover {
@@ -298,10 +298,10 @@ strong {
 
 a { 
     color: white;
-    text-decoration: none;
+    font-weight: 400;
 }
 a:hover {
-    text-decoration: underline;
+    font-weight: 400;
 }
 
 /* Footer */
