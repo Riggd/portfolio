@@ -3,6 +3,7 @@ title: Event Leaderboard Twitch Extension
 description: "An extension of the core erena product to provide a better esports fan expereince, by bringing the content directly to the streams people are watching."
 problem: ""
 client: eFuse
+logo: efuse.png
 client-url: https://www.efuse.gg/
 roles: [ Product Design Lead, Research Support ]
 team:

@@ -4,11 +4,12 @@ layout: "base.njk"
 templateEngineOverride: njk,md
 ---
 
-# I'm a big believer that everyone working on the team has something to bring to the table to create a great product. 
+# My Design Process
+## I'm a big believer that everyone working on the team has something to bring to the table to create a great product. 
 
 I take an **understanding-first** approach to product design. Understanding dictates diving deep into the root-cause and problem we are attmepting to solve through design. My goal with product design is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing.
 
-# That's great Derek, but what does that mean?
+## That's great Derek, but what does that mean?
 
 I collaborate with product and engineering through out the entire product development lifecycle to ensure companies are building the best solution to any problem they are having. Defining contstraints early, testing often, and sharing knowledge is key to any successful product. 
 

@@ -2,6 +2,7 @@
 title: Wellkind
 description: "The Wellkind app empowers patients by helping them navigate the uncertainty of their treatment and supports better outcomes by providing the information and motivation needed to drive sustained behavior change."
 client: VMS BioMarketing
+logo: wellkind-white.png
 client-url: https://www.pm360online.com/pm360-2022-innovative-product-wellkind-from-vms-biomarketing/
 roles:
     - Product Design Lead
