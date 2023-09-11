@@ -9,10 +9,10 @@ body {
     background-color: rba(0,0,0,.25);
     color: #FFFAEF;
 
-    background: linear-gradient(65deg, #000, #0F161C, #0B1D1F, #1A2C2E, #0D1216, #000, #1A2C2E);
+    background: linear-gradient(65deg, #1A2C2E, #000, #0F161C, #1A2C2E, #0D1216, #000, #1A2C2E);
     background-size: 400% 400%;
     height: 100vh;
-    animation: animate 30s ease infinite;
+    animation: animate 20s ease infinite;
     min-height: 100vh;
 }
 
@@ -74,6 +74,14 @@ strong {
     align-items: center;
 }
 
+.home-title {
+    margin-bottom: 0;
+}
+.home-subtitle {
+    font-weight: 300;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 0;
+}
 
 /* .name-gradient {
     -webkit-text-fill-color: transparent;
@@ -96,7 +104,7 @@ strong {
     justify-content: center;
 
     overflow: hidden;
-    margin-bottom: 80px;
+    margin: 5rem 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -135,10 +143,71 @@ strong {
     padding: 32px;
 }
 
+/* Process Page */
+#process img {
+    width: 100%;
+}
+
+#process p {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+
 /* Projects List */
+.roles-teams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-pageheader li {
+    font-size: 0.85rem;
+}
+
+.project-details p {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+.project-details blockquote p {
+    margin: 4rem 0 4rem 4rem;
+    color: #BBEFEF;
+    font-weight: 600;
+    font-style: italic;
+}
 
 .project-header{
     margin-bottom: 1rem;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+}
+
+@media screen and (max-width: 800px) {
+
+    .image-container img:nth-child(2) {
+        display: none;
+        
+    }
+    .image-container img {
+        max-width: 100%;
+        height: 375px; 
+    }
+
+}
+
+.image-container img {
+    border-radius: 8px;
+}
+
+.roles-teams p {
+    font-size: 1rem;
+    margin: 0 0 0.25rem;
 }
 
 .projects-grid {

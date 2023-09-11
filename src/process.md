@@ -3,8 +3,15 @@ title: My Process
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
+<div id="process">
 
 # My Design Process
+
+![Derek's Double Diamond](/assets/diamond.png)
+<br><br>
+If you squint, the double diamond also spells out DO. Coincidence, I think not 👀
+<br><br>
+
 ## I'm a big believer that everyone working on the team has something to bring to the table to create a great product. 
 
 I take an **understanding-first** approach to product design. Understanding dictates diving deep into the root-cause and problem we are attmepting to solve through design. My goal with product design is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing.
@@ -18,3 +25,5 @@ When time allows, I'm a firm believer in beginning with generative research to f
 If this methodology sounds compelling to you, let's build something together! 
 
 {% include "contact.njk" %}
+
+</div>

@@ -3,9 +3,29 @@ layout: base.njk
 section: project
 ---
 <div class="project-pageheader">
-    <h1> {{ title }} </h1>
     <a href="/">← Back to Home</a>
+    <h1> {{ title }} </h1>
+    <div class="roles-teams">
+        <div id="role">
+            <h4>Role</h4>
+            {{ roles }}
+        </div>
+        <div id="duration">
+            <h4>Duration</h4>
+            {{ duration }}
+        </div>
+        <div id="teams">
+            <h4>Team</h4> 
+            <ul>
+                {% for member in team %}
+                <li> {{ member }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div>{{ layoutContent | safe }}</div>
+<div class="project-details">
+{{ layoutContent | safe }}
+</div>
 
