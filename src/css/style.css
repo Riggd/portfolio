@@ -154,6 +154,13 @@ strong {
 }
 
 
+/* Barometer */
+
+#barometer img {
+    width: 100%;
+    border-radius: 16px;
+}
+
 /* Projects List */
 .roles-teams {
     display: flex;

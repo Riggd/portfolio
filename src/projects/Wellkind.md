@@ -34,7 +34,6 @@ VMS Biomarketing wanted to supplement their nurse-to-patient engagement process 
 VMS mentioned in the brief that the hardest problem they need to solve is the patients beginning their treatment, with roughly 60% of patients delaying start or abandoning treatment altogether.
 <br><br>
 
-
 ## Goal
 VMS wanted to design a mobile experience to change the way people experience the drug and wellness industry by connecting patients and companies in a meaningful way. They wanted to inspire and motivate people to invest in their personal wellness by starting and continuing treatment.
 
