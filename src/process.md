@@ -16,7 +16,7 @@ If you squint, the double diamond also spells out DO. Coincidence, I think not ð
 
 I take an **understanding-first** approach to product design. Understanding dictates diving deep into the root-cause and problem we are attmepting to solve through design. My goal with product design is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing.
 
-## That's great Derek, but what does that mean?
+## So what does that actually mean?
 
 I collaborate with product and engineering through out the entire product development lifecycle to ensure companies are building the best solution to any problem they are having. Defining contstraints early, testing often, and sharing knowledge is key to any successful product. 
 
