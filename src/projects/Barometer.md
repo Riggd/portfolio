@@ -10,6 +10,7 @@ roles:
 team: 
     - Jake Trowbridge, Product Manager
     - Patricia Song, Design Support
+duration: 
 ---
 
 ### Role 
