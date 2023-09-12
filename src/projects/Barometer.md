@@ -3,7 +3,7 @@ title: Barometer
 description: "AI-powered podcast insights to optimize digital audio advertising spend. Barometer helps brands and publishers improve the ROI on their marketing and advertisement budgets."
 client: Barometer
 logo: barometer-color.png
-client-url: https://www.thebarometer.co/landing/
+client-url: "https://www.thebarometer.co/landing/"
 roles: 
     - Product Design Lead
     - PM Support
@@ -14,19 +14,23 @@ duration: December 2022 - February 2023
 ---
 <div id="barometer">
 
-![Podcast Detail](/assets/projects/barometer/Podcast-detail.png)
-<a href="{{ client-url }}" target="_blank">Check out Barometer</a>
-<br><br>
+---
+<section>
 
 ## Problem
 Barometer came to our team, because they had quickly out grown their initial product design that got them from 0 to 1. The barometer team was looking for a solution to improve upon their existing product, while enhancing functionality to better serve discoverability and custom dashboard creation for podcast advertisers and brands. 
-<br><br>
+</section>
+<section>
 
 ## Goals
 - Improve product styling from previous iteration. The team wanted a most focused approach to the user journey.
 
 - Create an intuitive discover experience within the product
-<br><br>
+</section>
+
+![Solution Overview 1](/assets/projects/barometer/Barometer-1.png)
+*Solution Overview*
+<section>
 
 ## How we made it happen
 For this project, I did not do any formal research; however, we relied heavily on best practices in user experience and the knowledge shared from our stakeholder to provide insights as to how the existing product functioned. 
@@ -39,13 +43,15 @@ By documenting the existing user flow early on, we were able to identify areas o
 Once the areas above were identified, I was able to craft blockframes(think wireframes, but slightly more detail) to convey the direction to the stakeholders. This process allows me to iterate quickly on any fundamental misalignments between the strategy and direction in my head and that of the stakeholders. Through this process we came to an agreement to focus on filtering and the podcast detail view, rather than a full redesign. Barometer engineers were going to be implementing as soon as we delivered any work, so they could take and test the solutions within their customer base while we continued to work through future decisions. 
 
 After two months, we wrapped up all design work and handed it off to the barometer team to finish building and bring to market!
-<br><br>
+</section>
+<section>
 
 ## That's great Derek, but what did your work achieve?
 Since the conclusion of this project, Barometer has landed a partnership deal with SirusXM and ArtsAi to provide brand safety and suitability tools to advertisers working with SirusXM. <a href="https://digiday.com/media-buying/sirius-xm-creates-a-podcasting-brand-safety-and-suitability-tool-for-advertisers/" target="_blank">Read more about this partnership</a>
-<br><br>
+</section>
+<section>
 
-### Figma Prototype
+## Check out the interactive prototype
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F28SLlDSPRXWhrwzDxovlGO%2FBarometer%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D1-10993%26viewport%3D680%252C560%252C0.1%26t%3DcOaUH203PNesl4KF-1%26scaling%3Dscale-down%26starting-point-node-id%3D1%253A10993%26mode%3Ddesign" allowfullscreen></iframe>
-
+</section>
 </div>
