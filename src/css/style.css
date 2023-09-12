@@ -123,12 +123,26 @@ section {
     margin: 5rem 0;
 }
 
+.hero-right .profile-thumb img {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
     .hero-section {
         flex-direction: column;
+        border-radius: 16px;
+        box-shadow: 0;
+        backdrop-filter: blur(10.7px);
+        -webkit-backdrop-filter: blur(10.7px);
+        outline: 0px;
+        margin: 0px;
     }
     .hero-left img {
         display: none;
+    }
+    .hero-right .profile-thumb img {
+        display: block;
+        width: 150px;
     }
 }
 
@@ -211,6 +225,10 @@ section {
     font-size: 1.125rem;
     line-height: 1.5rem;
 }
+.project-details img {
+    width: 100%;
+    border-radius: .5rem;
+}
 
 .project-details blockquote p {
     margin: 2rem 0 2rem 4rem;
@@ -279,8 +297,9 @@ section {
 }
 
 .project-image img {
-    height: 70px;
-    max-width: 100%;
+    height: 64px;
+    max-width: 85%;
+    margin-bottom: 0.5rem;
 }
 
 .project-card:hover {
@@ -314,9 +333,9 @@ section {
 }
 
 .project-tag {
-    border-radius: 4px;
+    border-radius: 24px;
     background: #92B4C2;
-    padding: 4px;
+    padding: .25rem .5rem;
     color:#25414D;
     margin-right: 8px;
 }

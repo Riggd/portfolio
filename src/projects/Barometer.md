@@ -28,8 +28,8 @@ Barometer came to our team, because they had quickly out grown their initial pro
 - Create an intuitive discover experience within the product
 </section>
 
-![Solution Overview 1](/assets/projects/barometer/Barometer-1.png)
-*Solution Overview*
+![Solution Overview](/assets/projects/barometer/Barometer-1.png)
+*Solution Overview of the GARM Workflow*
 <section>
 
 ## How we made it happen

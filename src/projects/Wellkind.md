@@ -41,6 +41,9 @@ VMS wanted the product to:
 
 - Help scale the current system of nurse-only support, freeing nurses to have more meaningful patient interactions
 </section>
+
+![Solution Overview](/assets/projects/wellkind/Solution-Overview.png)
+*Solution Overview of Mobile App*
 <section>
 
 ## The Users

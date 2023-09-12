@@ -21,11 +21,6 @@ The existing Twitch extension ([Link to Extension](https://dashboard.twitch.tv/e
 </section>
 <section>
 
-### Old Extension
-![Old Extension](/assets/projects/efuse/old-extension.png)
-</section>
-<section>
-
 ## Goals
 - Increase engagement from fans and enthusiats viewing events hosted by eFuse or influencers participating in events. 
 
@@ -72,6 +67,11 @@ From all 6 interviews we learned:
 I worked closely to define requirements directly with the engineers on the project. The primary focus here was to  Since this was a Twitch Extension, we were unable to use our existing design system. This led to a more hands-on design review process where I was reviewing development work at all defined milestones. 
 
 A decision I made early on to reduce development cost was to design a single model for every bracket type other than Point Race standings, and then provide links out to our core product which would provide fans any additional information or views they would want. This allowed for the engineers to quickly stand up the extension, without needing to build a view for all 5 event types.
+</section>
+<section>
+
+### Old Extension
+![Old Extension](/assets/projects/efuse/old-extension.png)
 </section>
 <section>
 
