@@ -140,7 +140,7 @@ section {
         width: 150px;
     }
     .hero-right {
-        padding: 0px;
+        padding: 0px !important;
     }
 }
 
