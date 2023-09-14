@@ -8,9 +8,7 @@ templateEngineOverride: njk,md
 # My Design Process
 
 ![Derek's Double Diamond](/assets/diamond.png)
-<br><br>
-If you squint, the double diamond also spells out DO. Coincidence, I think not 👀
-<br><br>
+*If you squint, the double diamond also spells out DO. Coincidence, I think not 👀*
 
 ## I'm a big believer that everyone working on the team has something to bring to the table to create a great product. 
 
