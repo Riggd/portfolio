@@ -8,9 +8,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode('year', () => {
         return `${new Date().getFullYear()}`;
     });
-
-
-
+    
     const markdownIt = require('markdown-it');
     const markdownItAttrs = require('markdown-it-attrs');
 
