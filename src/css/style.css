@@ -331,6 +331,16 @@ section {
     flex-direction: row;
 }
 
+@media screen  and (max-width: 600px) {    
+    .tag-list {
+        flex-direction: column !important;
+        align-items: flex-start;
+    }
+    .project-tag {
+        margin-bottom: .5rem;
+    }
+}
+
 .project-tag {
     border-radius: 24px;
     background: #92B4C2;
