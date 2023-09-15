@@ -2,13 +2,14 @@ body {
     font-family: "Fira Sans", sans-serif;
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
     background-color: rba(0,0,0,.25);
-    color: #FFFAEF;
+    color: #fff;
 
-    background: linear-gradient(65deg, #1A2C2E, #000, #0F161C, #1A2C2E, #0D1216, #000, #1A2C2E);
+    background: linear-gradient(65deg, #1A2C2E, #0F161C, #1A2C2E, #0D1216, #1A2C2E);
     background-size: 400% 400%;
     height: 100vh;
     animation: animate 20s ease infinite;
     min-height: 100vh;
+    margin: 0;
 }
 
 @keyframes animate {
@@ -26,21 +27,16 @@ body {
 #main-content {
     /* May need to set this on the wrapper */
     margin: 0 auto;
-    width: 100%;
     max-width: 800px;
 }
 
 @media screen and (max-width: 800px) {
     #main-content {
-        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 1.5rem;
     }
 
-    .projects-container {
-        margin: 0 16px;
-    }
-    .company-list {
-        margin: 0 16px;
-    }
 }
 
 h2, h3, h4, h5, h6 {
@@ -137,11 +133,14 @@ section {
     }
     .hero-right .profile-thumb img {
         display: block;
-        width: 150px;
+        width: 10rem;
     }
     .hero-right {
         /* Pull all padding into a parent container */
-        padding: 24px !important;
+        padding: 1.5rem 0px !important;
+    }
+    .hero-right h1 {
+        font-size: 2.5rem;
     }
 }
 
@@ -164,7 +163,7 @@ section {
 }
 
 .hero-left img {
-    width: 350px;
+    width: 22rem;
     height: 100%;
 }
 
@@ -221,8 +220,8 @@ section {
 }
 
 .project-details p {
-    font-size: 1.125rem;
-    line-height: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 }
 .project-details img {
     width: 100%;
@@ -296,7 +295,7 @@ section {
 }
 
 .project-image img {
-    height: 64px;
+    height: 60px;
     max-width: 85%;
     margin-bottom: 0.5rem;
 }
