@@ -1,13 +1,126 @@
+/* Font Family setting */
+
+@font-face {
+    font-family: 'Subjectivity Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Subjectivity Regular'), url('/assets/fonts/Subjectivity-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Subjectivity Regular Slanted';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Subjectivity Regular Slanted'), url('/assets/fonts/Subjectivity-RegularSlanted.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Subjectivity Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Subjectivity Thin'), url('/assets/fonts/Subjectivity-Thin.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Subjectivity Thin Slanted';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Subjectivity Thin Slanted'), url('/assets/fonts/Subjectivity-ThinSlanted.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Light';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Light'), url('/assets/fonts/Subjectivity-Light.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Light Slanted';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Light Slanted'), url('/assets/fonts/Subjectivity-LightSlanted.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Medium';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Medium'), url('/assets/fonts/Subjectivity-Medium.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Medium Slanted';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Medium Slanted'), url('Subjectivity-MediumSlanted.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Bold'), url('/assets/fonts/Subjectivity-Bold.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Bold Slanted';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Bold Slanted'), url('/assets/fonts/Subjectivity-BoldSlanted.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Extra Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Extra Bold'), url('/assets/fonts/Subjectivity-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Extra Bold Slanted';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Extra Bold Slanted'), url('/assets/fonts/Subjectivity-ExtraBoldSlanted.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Black';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Black'), url('/assets/fonts/Subjectivity-Black.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Black Slanted';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Black Slanted'), url('/assets/fonts/Subjectivity-BlackSlanted.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Super';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Super'), url('/assets/fonts/Subjectivity-Super.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Subjectivity Super Slanted';
+font-style: normal;
+font-weight: normal;
+src: local('Subjectivity Super Slanted'), url('/assets/fonts/Subjectivity-SuperSlanted.woff') format('woff');
+}
+
+
 body {
     font-family: "Fira Sans", sans-serif;
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
     background-color: rba(0,0,0,.25);
     color: #fff;
-
-    background: linear-gradient(65deg, #1A2C2E, #0F161C, #1A2C2E, #0D1216, #1A2C2E);
+    background: linear-gradient(65deg, #0F161C, #1A2C2E, #0F161C, #1A2C2E, #0D1216, #1A2C2E);
     background-size: 400% 400%;
-    height: 100vh;
-    animation: animate 20s ease infinite;
+    animation: animate 10s ease infinite;
     min-height: 100vh;
     margin: 0;
 }
@@ -81,6 +194,24 @@ section {
     align-items: center;
 }
 
+.nav-right .nav-item {
+    padding: .25rem .5rem;
+    text-decoration: none;
+}
+
+.nav-right .nav-item:hover {
+    text-decoration: underline;
+    color:#92B4C2;
+}
+
+.nav-left a {
+    text-decoration: none;
+}
+
+.nav-left h2 {
+    font-family: "Subjectivity Medium", sans-serif;
+}
+
 .home-title {
     margin-bottom: 0;
 }
@@ -99,6 +230,30 @@ section {
 } */
 
 /* Hero Styles */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75vh;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 6rem;
+}
+.hero h2 {
+    font-weight: 300;
+}
+
+
+.testing-font {
+    font-family: 'Outward Block', sans-serif;
+    font-size: 3rem;
+}
+
+/* About Styles */
+
 .hero-section {
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -211,12 +366,63 @@ section {
 /* Projects List */
 .roles-teams {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    flex-basis: 30rem;
+    margin-right: 10rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.roles-teams h3 {
+    margin: .5rem 0;
+}
+
+.roles-teams hr {
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.project-photo .device-frame {
+    width: 350px;
+    border-radius: 1rem;
+    outline: 1px solid rgba(0, 0, 0, 0.12);
+    background: #121212;
+    box-shadow: inset 0 0 12px #8d8d86, inset 0 7px 0 3px #fdfdfc, inset 0 -6px 0 3px #fdfdfc;
+    padding: 1rem .5rem .75rem;
+}
+
+.device-frame img {
+    width: 100%;
+    border-radius: .75rem;
 }
 
 .project-pageheader li {
     font-size: 0.85rem;
+}
+.project-pageheader h1 {
+    font-size: 5rem;
+    margin: 1.5rem 0;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+    .project-info {
+        flex-direction: column-reverse;
+    }
+    .roles-teams {
+        flex-basis:0%;
+        margin: 2rem 0;
+    }
+    .project-photo .device-frame {
+        width: 50%;
+    }
+    .project-pageheader h1 {
+        font-size: 3rem;
+    }
 }
 
 .project-details p {
@@ -326,8 +532,9 @@ section {
 }
 
 .project-card .tag-list {
-    display: flex; 
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 @media screen  and (max-width: 600px) {    
@@ -345,7 +552,7 @@ section {
     background: #92B4C2;
     padding: .25rem .5rem;
     color:#25414D;
-    margin-right: 8px;
+    margin: 0 .5rem .5rem 0;
 }
 
 .project-tag:last-child {

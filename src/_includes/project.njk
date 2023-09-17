@@ -2,26 +2,38 @@
 layout: base.njk
 section: project
 ---
+
+
 <div class="project-pageheader">
     <a href="/">← Back to Home</a>
     <h1> {{ title }} </h1>
-    <img class="project-header" src="/assets/projects/{{ client }}/{{client}}.png" />
+</div>
+<div class="project-info">
     <div class="roles-teams">
         <div id="role">
-            <h4>Role</h4>
+            <h3>Role</h3>
             {{ roles }}
         </div>
+        <div id="Responsibility">
+            <h3>Responsibilities</h3>
+            {% for tech in responsibilities %}
+            <p>{{ tech }}</p>
+            {% endfor %}
+        </div>
         <div id="duration">
-            <h4>Duration</h4>
+            <h3>Duration</h3>
             {{ duration }}
         </div>
-        <div id="teams">
-            <h4>Team</h4> 
-            <ul>
-                {% for member in team %}
-                <li> {{ member }}</li>
-                {% endfor %}
-            </ul>
+        <div id="team">
+            <h3>Team</h3> 
+            {% for member in team %}
+            <p>{{ member }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="project-photo">
+        <div class="device-frame">
+            <img src="/assets/projects/{{ client }}/{{ client }}.png" />
         </div>
     </div>
 </div>

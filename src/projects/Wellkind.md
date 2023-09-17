@@ -1,9 +1,9 @@
 ---
 title: Wellkind
 description: "The Wellkind app empowers patients by helping them navigate the uncertainty of their treatment and supports better outcomes by providing the information and motivation needed to drive sustained behavior change."
-tech-used:
+responsibilities:
     - Mobile App Design
-    - Development Support
+    - Dev Support
     - Design System Creation
 client: Wellkind
 logo: wellkind-white.png
@@ -17,8 +17,6 @@ team:
     - Yharlei Chamboneth, Motion Design
     - EIG, Engineering Firm
 duration: June 2022 - December 2022
----
-
 ---
 <section>
 
@@ -62,6 +60,20 @@ Nurses supporting patient care
 - Want to help patients have better days
 
 - Love helping all patients, but prefer the complex interactions vs simple
+</section>
+<!-- <video autoplay loop muted src="/assets/projects/wellkind/Onboarding-Showcase.mp4"></video> -->
+
+<section>
+
+## The Wellkind Design System
+In order to speed up development time to get the mobile app to market, I designed a simple design system that could be followed to extend the solutions past the initial design work. Additionally the creation of a base design system allows any future designers to pick up and reference similar patterns and standards which was a request of VMS Biomarketing.
+
+This included:
+- Tokenizing all type, color, and text styles for easy handoff between design & development
+- Establishing standards for forms, modals, confirmation and interactions across the mobile app
+- Providing motion and brand standards to translate any marketing assets into product
+
+![Product Screens](/assets/projects/wellkind/Product-Screens.png)
 </section>
 <section>
 

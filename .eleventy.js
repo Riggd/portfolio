@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/assets");
     eleventyConfig.addPassthroughCopy("./src/css");
     eleventyConfig.addPassthroughCopy("./src/js");
+
     eleventyConfig.addWatchTarget("./src/css/");
     eleventyConfig.addWatchTarget("./src/js/");
 
@@ -20,6 +21,9 @@ module.exports = function (eleventyConfig) {
 
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);
+
+    const eleventySass = require("eleventy-sass");
+    eleventyConfig.addPlugin(eleventySass);
 
     return {
         dir: {

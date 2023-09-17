@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "eleventy-sass": "^2.2.3",
     "git": "^0.1.5",
     "markdown-it-attrs": "^4.1.6"
   },
@@ -12,8 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "eleventy --serve & npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/style.css --watch",
-    "build": "eleventy & npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/tailwind.css --minify"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "author": "Derek Onay",
   "license": "ISC",

@@ -2,11 +2,13 @@
 title: Barometer
 description: "AI-powered podcast insights to optimize digital audio advertising spend. Barometer helps brands and publishers improve the ROI on their marketing and advertisement budgets."
 client: Barometer
+responsibilities:
+    - Web Application Design
+    - Product Strategy
 logo: barometer-color.png
 client-url: "https://www.thebarometer.co/landing/"
 roles: 
     - Product Design Lead
-    - PM Support
 team: 
     - Jake Trowbridge, Product Manager
     - Patricia Song, Design Support

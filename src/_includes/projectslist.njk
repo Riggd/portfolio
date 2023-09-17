@@ -1,6 +1,6 @@
-<div class="projects-container">
+<div id="projects" name="projects" class="projects-container">
 
-# A few projects I had a blast building!
+## Featured work.
 
     <div class="projects-grid">
         {%- for project in collections.projects -%}
@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="tag-list">
-                        {%- for role in project.data.roles -%}                     
+                        {%- for role in project.data.responsibilities -%}                     
                             <span class="project-tag">{{ role }}</span>
                         {%- endfor -%}
                     </div>

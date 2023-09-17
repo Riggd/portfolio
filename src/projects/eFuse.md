@@ -4,8 +4,13 @@ description: "An extension of the core erena product to provide a better esports
 problem: ""
 client: eFuse
 logo: efuse.png
+responsibilities:
+    - Twitch Extension
+    - Research Support
+    - Design System Creation
 client-url: https://www.efuse.gg/
-roles: [ Product Design Lead, Research Support ]
+roles: 
+    - Product Design Lead
 team:
     - Austin May, Product Manager
     - Jay Blumenthal, Lead Researcher
