@@ -5,7 +5,8 @@ client: Barometer
 responsibilities:
     - Web Application Design
     - Product Strategy
-logo: barometer-color.png
+image: barometer.png
+logo: barometer-logo.png
 client-url: "https://www.thebarometer.co/landing/"
 roles: 
     - Product Design Lead

@@ -6,7 +6,8 @@ responsibilities:
     - Dev Support
     - Design System Creation
 client: Wellkind
-logo: wellkind-white.png
+image: Wellkind.gif
+logo: wellkind-logo.png
 client-url: https://innovatemap.com/how-we-helped-a-biopharma-company-build-a-b2c-app-from-start-to-finish/
 roles: 
 - Product Design Lead

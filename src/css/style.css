@@ -120,7 +120,7 @@ body {
     color: #fff;
     background: linear-gradient(65deg, #0F161C, #1A2C2E, #0F161C, #1A2C2E, #0D1216, #1A2C2E);
     background-size: 400% 400%;
-    animation: animate 10s ease infinite;
+    animation: animate 20s ease infinite;
     min-height: 100vh;
     margin: 0;
 }
@@ -140,7 +140,7 @@ body {
 #main-content {
     /* May need to set this on the wrapper */
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 960px;
 }
 
 @media screen and (max-width: 800px) {
@@ -150,10 +150,13 @@ body {
         margin: 0 1.5rem;
     }
 
+    .hero h1 {
+        font-size: 3rem !important;
+    }
 }
 
 h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-family: 'Subjectivity Regular', sans-serif;
 }
 
 p {
@@ -239,6 +242,7 @@ section {
 }
 
 .hero h1 {
+    font-family: "Subjectivity Black", sans-serif;
     margin: 0;
     font-size: 6rem;
 }
@@ -328,10 +332,14 @@ section {
 
 /* Process Page */
 
-.project-header {
-    width: 100%;
+.project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
     border-radius: .5rem;
-    margin: 1rem 0 0 0;
+    margin-bottom: 1rem;
 }
 .external-button {
     padding: .5rem;
@@ -425,6 +433,19 @@ section {
     }
 }
 
+#Wellkind:hover {
+    background-image: linear-gradient(rgba(240,250,251,0.2), rgba(47,127,137,0.4)), url("/assets/projects/wellkind/test.png");
+    background-size: cover;
+}
+
+#Barometer:hover {
+    background-image: linear-gradient(rgba(230,113,169,0.3) -4.16%, rgba(152,115,203,0.2) 49.59%), url("/assets/projects/barometer/stripes.png");
+}
+
+#eFuse:hover {
+    background: linear-gradient(rgba(255,255,255,0.4) -4.16%, rgba(194,220,254,.3) 49.59%);
+}
+
 .project-details p {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -441,10 +462,6 @@ section {
     font-style: italic;
 }
 
-.project-header{
-    margin-bottom: 1rem;
-}
-
 .image-container {
     display: flex;
     flex-direction: row;
@@ -454,6 +471,9 @@ section {
 
 @media screen and (max-width: 800px) {
 
+    .project-details blockquote p {
+        margin-left: 1rem !important;
+    }
     .image-container img:nth-child(2) {
         display: none;
         
@@ -476,15 +496,21 @@ section {
 
 .projects-grid {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
 }
 
+@media screen and (max-width: 800px) {
+    .projects-grid {
+        flex-wrap: wrap;
+    }
+}
+
 .project-card {
     flex-basis: 48%;
     margin: 8px;
+    padding: 1.5rem;
     overflow: hidden;
 
     background: rgba(255, 255, 255, 0.08);
@@ -492,8 +518,11 @@ section {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.7px);
     -webkit-backdrop-filter: blur(10.7px);
-    outline: 1px solid rgba(255, 255, 255, 0.1);
 
+}
+
+.project-card p {
+    margin-bottom: 0;
 }
 
 .project-image {
@@ -501,14 +530,13 @@ section {
 }
 
 .project-image img {
-    height: 60px;
-    max-width: 85%;
+    border-radius: 0.5rem;
+    height: 64px;
     margin-bottom: 0.5rem;
 }
 
 .project-card:hover {
     background: rgba(255, 255, 255, 0.1);
-    outline: 1px solid rgba(255, 255, 255, 0.16);
     cursor: pointer;
 }
 
@@ -534,14 +562,13 @@ section {
 .project-card .tag-list {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 @media screen  and (max-width: 600px) {    
-    .tag-list {
-        flex-direction: column !important;
-        align-items: flex-start;
-    }
+
     .project-tag {
         margin-bottom: .5rem;
     }
