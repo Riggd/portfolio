@@ -118,7 +118,7 @@ body {
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
     background-color: rba(0,0,0,.25);
     color: #fff;
-    background: linear-gradient(65deg, #0F161C, #1A2C2E, #0F161C, #1A2C2E, #0D1216, #1A2C2E);
+    background: linear-gradient(65deg, #0F2027, #203A43, #2C5364, #203A43, #0F2027, #2C5364);
     background-size: 400% 400%;
     animation: animate 20s ease infinite;
     min-height: 100vh;
@@ -204,7 +204,9 @@ section {
 
 .nav-right .nav-item:hover {
     text-decoration: underline;
-    color:#92B4C2;
+    background: #EFB37D;
+    color:#333;
+    border-radius: .25rem;
 }
 
 .nav-left a {
@@ -275,6 +277,10 @@ section {
 
 .hero-right .profile-thumb img {
     display: none;
+}
+
+.hero-right h2, h3 {
+    font-family: "Fira Sans", sans-serif;
 }
 
 @media screen and (max-width: 800px) {
@@ -457,7 +463,7 @@ section {
 
 .project-details blockquote p {
     margin: 2rem 0 2rem 4rem;
-    color: #BBEFEF;
+    color: #EFB37D;
     font-weight: 600;
     font-style: italic;
 }
@@ -677,6 +683,7 @@ a {
     font-weight: 400;
 }
 a:hover {
+    color: #EFB37D;
     font-weight: 400;
 }
 
@@ -700,13 +707,15 @@ a:hover {
 footer a {
     color: white;
     transition: 250ms ease-in-out;
-    box-shadow: inset 0px -4px 0 #4A8299;
+    box-shadow: inset 0px -4px 0 #EFB37D;
     text-decoration: none;
 }
 
 footer a:hover {
-    box-shadow: inset 0px -16px 0 #4A8299;
+    box-shadow: inset 0px -20px 0 #EFB37D;
     text-decoration: none;
+    color: #333;
+    font-weight: 600;
 }
 
 
