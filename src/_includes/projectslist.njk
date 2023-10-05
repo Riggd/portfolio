@@ -4,7 +4,7 @@
 
     <div class="projects-grid">
         {%- for project in collections.projects -%}
-            <div id="{{ project.data.client}}" class="project-card" onclick="location.href='{{project.url}}'">
+            <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
                 <div class="project-content">
                     <div class="project-image">
                         <img src="/assets/logos/{{ project.data.logo }}" alt="{{ project.data.title }} app icon">
