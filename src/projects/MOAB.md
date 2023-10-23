@@ -47,12 +47,11 @@ The design system team was cross functional design-led effort. Every team member
 
 ## Core Problems
 - Design solutions aren’t aligned across products. Users didn’t feel they were still using an eFuse product when moving from esports.gg > erena, for instance.
-[Visual of headers & nav across Mynt, Esports.gg, Erena]
 
 - Styled components were implemented inconsistently in the code, and caused a diminished user experience
-[Stat of # of custom implementations]
-[Biggest culprits]
+
 - Design reviews were spent giving feedback on visual inconsistencies vs whether or not the proper solution was in place
+
 - Most of the MOAB design system had yet to be built into code, due to lack of resources and overarching implementation process
 </section>
 <section>
