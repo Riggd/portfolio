@@ -9,7 +9,9 @@
     <main>
         {% include "left.njk" %}
         <div class="right">
-        {{ content | safe }}
+            <div class="scrolling-container">
+            {{ content | safe }}
+            </div>
         </div>
     </main>
 

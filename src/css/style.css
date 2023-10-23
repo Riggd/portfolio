@@ -1,129 +1,23 @@
 /* Font Family setting */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;800&display=swap');
 
-/* @font-face {
-    font-family: 'Subjectivity Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Subjectivity Regular'), url('/assets/fonts/Subjectivity-Regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Subjectivity Regular Slanted';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Subjectivity Regular Slanted'), url('/assets/fonts/Subjectivity-RegularSlanted.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Subjectivity Thin';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Subjectivity Thin'), url('/assets/fonts/Subjectivity-Thin.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Subjectivity Thin Slanted';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Subjectivity Thin Slanted'), url('/assets/fonts/Subjectivity-ThinSlanted.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Light';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Light'), url('/assets/fonts/Subjectivity-Light.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Light Slanted';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Light Slanted'), url('/assets/fonts/Subjectivity-LightSlanted.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Medium';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Medium'), url('/assets/fonts/Subjectivity-Medium.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Medium Slanted';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Medium Slanted'), url('Subjectivity-MediumSlanted.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Bold';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Bold'), url('/assets/fonts/Subjectivity-Bold.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Bold Slanted';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Bold Slanted'), url('/assets/fonts/Subjectivity-BoldSlanted.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Extra Bold';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Extra Bold'), url('/assets/fonts/Subjectivity-ExtraBold.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Extra Bold Slanted';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Extra Bold Slanted'), url('/assets/fonts/Subjectivity-ExtraBoldSlanted.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Black';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Black'), url('/assets/fonts/Subjectivity-Black.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Black Slanted';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Black Slanted'), url('/assets/fonts/Subjectivity-BlackSlanted.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Super';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Super'), url('/assets/fonts/Subjectivity-Super.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Subjectivity Super Slanted';
-font-style: normal;
-font-weight: normal;
-src: local('Subjectivity Super Slanted'), url('/assets/fonts/Subjectivity-SuperSlanted.woff') format('woff');
-} */
-
-
 body {
     font-family: "Fira Sans", sans-serif;
+
+    /* font-family: 'Inconsolata', monospace; */
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
-    background-color: rgba(0,0,0,.95);
+    background-color: rgba(0,0,0,.9);
     color: #fff;
     /* background: linear-gradient(65deg, #0F2027, #203A43, #2C5364, #203A43, #0F2027, #2C5364); */
     /* background-size: 400% 400%; */
     /* animation: animate 20s ease infinite; */
     height: 100vh;
     margin: 0;
+}
+
+.clipped {
+    -webkit-clip-path: url(#svgPath);
+    clip-path: url(#svgPath);
 }
 
 @keyframes animate {
@@ -156,13 +50,17 @@ body {
     }
 } */
 
-h2, h3, h4, h5, h6 {
-    font-family: 'Subjectivity Regular', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inconsolata', monospace;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 300;
 }
 
 p {
     font-weight: 300;
-    line-height: 1.25rem;
 }
 
 strong {
@@ -190,13 +88,34 @@ main {
     width: 100%;
     height: 100vh;
 }
-header{ 
-    flex: 0 1 30%;
+header { 
     display: flex;
+    flex: 0 1 auto;
+    border-right: 1px solid #A9A9A9;
+    overflow: none;
 }
 .right {
-    flex: 0 1 70%;
+    display: flex;
+    flex: 1 1 70%;
+    overflow: auto;
 }
+
+.scrolling-container {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+}
+/* MOAB Project */
+.moab-governance {
+    display: flex;
+    gap: 2rem;
+}
+
+
+.moab-governance > * {
+    flex: 1;
+}
+
 
 /* Navbar */
 .nav {
@@ -212,7 +131,7 @@ header{
     flex-direction: column;
     justify-content: center;
     flex: 1 0 auto;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .nav-items a {
@@ -253,8 +172,9 @@ header{
 }
 
 .home-title {
-    margin-bottom: 0;
+    color: #EFB37D;
 }
+
 .home-subtitle {
     font-weight: 300;
     color: rgba(255,255,255,.6);
@@ -271,21 +191,76 @@ header{
 
 /* Hero Styles */
 
+.hero {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    justify-content: center;
+    margin: 0 5rem;
+}
 
+@media screen and (max-width: 800px) {
+    .hero {
+        margin: 0;
+    }
+
+    .scrolling-container {
+        margin: 1rem;
+    }
+}
 
 .hero h1 {
-    font-family: "Subjectivity Black", sans-serif;
-    margin: 0;
-    font-size: 6rem;
-}
-.hero h2 {
-    font-weight: 200;
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 100%;
+    margin-bottom: 0;
 }
 
+.hero h2 {
+    font-size: 1.75rem;
+    font-weight: 200;
+    line-height: 150%;
+}
+
+.choose-adventure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
 
 .testing-font {
     font-family: 'Outward Block', sans-serif;
     font-size: 3rem;
+}
+
+/* Button styles */
+.button {
+    padding: 6px 16px;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: #EFB37D;
+    border: 1px solid #EFB37D;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #EDA05A;
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: underline;
+}
+
+.button-inverse {
+    padding: 6px 16px;
+    color: #EFB37D;
+    border-radius: 8px;
+    border: 1px solid #EFB37D;
+    text-decoration: none;
+}
+
+.button-inverse:hover {
+    background-color: #EFB37D;
+    color: rgba(0, 0, 0, 0.9)
 }
 
 /* About Styles */
@@ -309,9 +284,6 @@ header{
     display: none;
 }
 
-.hero-right h2, h3 {
-    font-family: "Fira Sans", sans-serif;
-}
 
 @media screen and (max-width: 800px) {
     .hero-section {
@@ -394,9 +366,14 @@ header{
     width: 100%;
 }
 
+#process h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
 #process p {
     font-size: 1.125rem;
-    line-height: 1.5rem;
+    line-height: 150%;
 }
 
 
@@ -408,18 +385,44 @@ header{
 }
 
 /* Projects List */
-.roles-teams {
+.wins-issues {
     display: flex;
-    flex-direction: column;
-    flex-basis: 30rem;
-    margin-right: 10rem;
-    margin-bottom: 2rem;
     gap: 2rem;
 }
 
-.roles-teams h3 {
-    margin: .5rem 0;
+.wins-issues > * {
+    flex: 1;
 }
+
+.wins-issues p {
+    font-weight: 400;
+}
+
+.impact {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgba(162, 207, 233,.65);
+    color: rgba(0, 0, 0, 0.9);
+    border-radius: 1rem;
+}
+
+.problems {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgba(239, 125, 125,.65);
+    color: rgba(0, 0, 0, 0.9);
+    border-radius: 1rem;
+}
+
+.roles-teams {
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem 0;
+    gap: 1rem;
+}
+
 
 .roles-teams hr {
     width: 100%;
@@ -427,7 +430,7 @@ header{
 }
 
 .project-photo .device-frame {
-    width: 350px;
+    width: 98%;
     border-radius: 1rem;
     outline: 1px solid rgba(0, 0, 0, 0.12);
     background: #121212;
@@ -443,14 +446,23 @@ header{
 .project-pageheader li {
     font-size: 0.85rem;
 }
-.project-pageheader h1 {
-    font-size: 5rem;
-    margin: 1.5rem 0;
+
+
+.project-pageheader h1, .project-pageheader span {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 300;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
 }
 
 .project-info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 800px) {
@@ -532,7 +544,7 @@ header{
 
 .projects-grid {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
 }
@@ -648,29 +660,25 @@ header{
 
 @media screen and (min-width: 1024px) {
     .company-list img {
-        width: calc(100%/6);
-        height: calc(100%/6);
+        width: calc(100%/5);
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .company-list img {
-        width: calc(100%/4);
-        height: calc(100%/4);
+        width: calc(100%/5);
     }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
     .company-list img {
-        width: calc(100%/3);
-        height: calc(100%/3);
+        width: calc(100%/2);
     }
 }
 
 @media screen and (min-width: 321px) and (max-width: 480px) {
     .company-list img {
         width: calc(100%/2);
-        height: calc(100%/2);
     }
 }
 

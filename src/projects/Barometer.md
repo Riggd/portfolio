@@ -14,10 +14,16 @@ team:
     - Jake Trowbridge, Product Manager
     - Patricia Song, Design Support
 duration: December 2022 - February 2023
+wins: 
+    - New designs helped Barometer win partnership with Sirius XM
+    - Avoided color biases in creating a neutral color palette for classification
+    - Simplified taxonomy-based searching suggestion additional categorization
+issues:
+    - Major redesigns aren't always the answer, and did cause some users to need to relearn how to interact with their created lists
+    - We relied solely on stakeholder knowledge in discovery, which resulted more iterations than if we performed some generative research to support our design decisions
 ---
 <div id="barometer">
 
----
 <section>
 
 ## Problem
@@ -26,9 +32,9 @@ Barometer came to our team, because they had quickly out grown their initial pro
 <section>
 
 ## Goals
-- Improve product styling from previous iteration. The team wanted a most focused approach to the user journey.
+- Improve product visual styling. Focusing primarily on how podcast risk was displayed across all GARM categories
 
-- Create an intuitive discover experience within the product
+- Give marketers and brands the ability to better analyze the content of individual episodes, to better support their purchasing decisions
 </section>
 
 ![Solution Overview](/assets/projects/barometer/Barometer-1.png)

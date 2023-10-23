@@ -4,7 +4,7 @@ description: "An extension of the core erena product to provide a better esports
 problem: ""
 client: eFuse
 image: eFuse.png
-logo: efuse-logo.png
+logo: efuse.png
 responsibilities:
     - Twitch Extension
     - Research Support
@@ -22,6 +22,10 @@ duration: May 2023 - September 2023
 
 ## Problem
 The existing Twitch extension ([Link to Extension](https://dashboard.twitch.tv/extensions/7n05t3351hle0tx07a4uejyjmk8aay-1.4.6)) did not support all bracket types, and was unable to be used as a tool to drive more user engagment to marketing and sponsorship placements across the erena ecosystem. 
+
+### Old Extension
+![Old Extension](/assets/projects/efuse/old-extension.png)
+
 </section>
 <section>
 
@@ -61,7 +65,9 @@ The Twitch platform itself makes discoverability of any extension a challenge. T
 
 ### Participants
 - 4 Tournament Operations
+
 - 2 Broadcast Technicians
+
 - 0 Fans/Enthusiasts, due to time constraints
 
 Both of these user personas are responsible for providing fans and players of the events with a best-in-class experience, and thus their insights helped inform direction on exactly what information about an event could be benficial to display within an updated Twitch extension.
@@ -97,6 +103,5 @@ You can view all of the event type interfaces by tapping on the Leaderboard/Resu
 </section>
 <section>
 
-### Old Extension
-![Old Extension](/assets/projects/efuse/old-extension.png)
+
 </section>
