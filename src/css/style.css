@@ -103,7 +103,7 @@ header {
 .scrolling-container {
     display: flex;
     flex-direction: column;
-    margin: 3rem;
+    margin: 3rem 6rem;
 }
 /* MOAB Project */
 .moab-governance {
