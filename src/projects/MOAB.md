@@ -15,7 +15,7 @@ team:
     - Ryan Perdue, Design System Lead
 duration: May 2023 - September 2023
 wins: 
-    - Established governance & maintaince process
+    - Established governance & maintenance process
     - Began company design system education
     - Reduced custom styled components in the code by roughly 15%. Primarily buttons and custom typography.
 issues:
@@ -25,6 +25,7 @@ issues:
     - We had to be okay with components living outside of the system until teams could pick up the work
 ---
 <section>
+
 I most recently worked with eFuse, an esports startup with a mission to change lives through gaming, to help with the Design System adoption, education, and governance, as well as design new features to support the erena tournament platform. 
 
 My role as a Sr. Product Designer had me work closely with another product designer, and engineers to start transitioning from just a UI library to a robust system maintained in code, and saving time for the business.
