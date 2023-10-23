@@ -28,7 +28,7 @@ issues:
 
 I most recently worked with eFuse, an esports startup with a mission to change lives through gaming, to help with the Design System adoption, education, and governance, as well as design new features to support the erena tournament platform. 
 
-My role as a Sr. Product Designer had me work closely with another product designer, and engineers to start transitioning from just a UI library to a robust system maintained in code, and saving time for the business.
+My role as a Sr. Product Designer had me work closely with another product designer, and engineers to start transitioning from just a UI library to a robust system maintained in code to save time and resources for eFuse.
 
 The design system team was cross functional design-led effort. Every team member also was responsible for delivering product functionality. Our biggest organization problem was adoption and transitioning components from design -> engineering.  
 </section>
