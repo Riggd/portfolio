@@ -3,38 +3,51 @@ layout: base.njk
 section: project
 ---
 
-
 <div class="project-pageheader">
-    <a href="/">← Back to Home</a>
-    <h1> {{ title }} </h1>
+    <a href="/projects">← back to the work.</a>
+    <div class="project-title">
+        <h1>{{ title }}</h1>
+        <span>{{ duration }}</span>
+    </div>
 </div>
-<div class="project-info">
+
+<div class="project-info">  
+    <div class="project-photo">
+        <div class="device-frame">
+            <img src="/assets/projects/{{ client }}/{{ image }}" />
+        </div>
+    </div>
     <div class="roles-teams">
         <div id="role">
-            <h3>Role</h3>
+            <h3>my role.</h3>
             {{ roles }}
         </div>
-        <div id="Responsibility">
-            <h3>Responsibilities</h3>
+        <div id="responsibility">
+            <h3>responsibilities.</h3>
             {% for tech in responsibilities %}
             <p>{{ tech }}</p>
             {% endfor %}
         </div>
-        <div id="duration">
-            <h3>Duration</h3>
-            {{ duration }}
-        </div>
         <div id="team">
-            <h3>Team</h3> 
+            <h3>team.</h3> 
             {% for member in team %}
             <p>{{ member }}</p>
             {% endfor %}
         </div>
     </div>
-    <div class="project-photo">
-        <div class="device-frame">
-            <img src="/assets/projects/{{ client }}/{{ image }}" />
-        </div>
+</div>
+<div class="wins-issues">
+    <div class="impact">
+        <h2>what we achieved.</h2>
+        {% for item in wins %}
+        <p>{{ item }}</p>
+        {% endfor %}
+    </div>
+    <div class="problems">
+        <h2>what we learned.</h2>
+        {% for item in issues %}
+        <p>{{ item }}</p>
+        {% endfor %}
     </div>
 </div>
 

@@ -1,0 +1,26 @@
+---
+title: The Work
+layout: "base.njk"
+templateEngineOverride: njk,md
+---
+
+<div id="projects" name="projects" class="projects-container">
+
+# the work.
+
+    <div class="projects-grid">
+        {%- for project in collections.projects -%}
+            <div id="{{ project.data.client}}" class="project-card" onclick="location.href='{{project.url}}'">
+                <div class="project-content">
+                    <div class="project-image">
+                        <img src="/assets/logos/{{ project.data.logo }}" alt="{{ project.data.title }} app icon">
+                    </div>
+                    <h2>{{ project.data.title }}</h2>
+                </div>
+                <p>{{project.data.description}}</p>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+{% include "companieslist.njk" %}

@@ -5,17 +5,15 @@
 </head>
 <body>
     {% include "spinner.njk" %}
-    <div id="main-content">
-        {% include "navbar.njk" %}
-
-        <main>
+    
+    <main>
+        {% include "left.njk" %}
+        <div class="right">
+            <div class="scrolling-container">
             {{ content | safe }}
-        </main>
-        
-        <footer>
-            {% include "footer.njk" %}
-        </footer>
-    </div>
+            </div>
+        </div>
+    </main>
 
     <script type="text/javascript" src="/js/spinner.js"></script>
 </body>

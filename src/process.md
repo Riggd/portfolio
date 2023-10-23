@@ -5,17 +5,17 @@ templateEngineOverride: njk,md
 ---
 <div id="process">
 
-# My Design Process
-<section>
+# the process.
+<section style="display:flex; justify-content:center">
 
 ![Derek's Double Diamond](/assets/diamond.png)
 *If you squint, the double diamond also spells out DO. Coincidence, I think not 👀*
 </section>
 <section>
 
-## I'm a big believer that collaboration drives the best product decisions.
+## I believe that collaboration drives the best product decisions.
 
-I take an **understanding-first** approach to product design. Understanding dictates diving deep into the root-cause and problem we are attmepting to solve through design. My goal with product design is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing.
+I take an **understanding-first** approach to product design. Understanding dictates diving deep into the root-cause and problem we are attmepting to solve through design. Whether there is prior research, documented issues, or ideas that we want to improve, my goal is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing. Only through asking questions will we understand what we want to do, and how we can achieve it.
 </section>
 <section>
 
@@ -27,7 +27,4 @@ When time allows, I'm a firm believer in beginning with generative research to f
 
 If this methodology sounds compelling to you, let's build something together! 
 </section>
-
-{% include "contact.njk" %}
-
 </div>
