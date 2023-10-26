@@ -146,6 +146,12 @@ header {
     text-decoration: underline;
 }
 
+.active {
+    /* Figure out active state */
+    color: #EFB37D;
+    text-decoration: none;
+}
+
 .nav-right {
     display: flex;
     justify-content: flex-end;
