@@ -16,10 +16,12 @@ templateEngineOverride: njk,md
     </svg> -->
 
 <!-- Portfolios should highlight challenges you faced, how you collaborated with others, what you learned, and the personal/business/end-user impact of your work. -->
+<div class="hero-top">
 
-# What's up? I'm Derek, an Indianapolis-based Product Designer
-## before you ask... there is no such thing as too many Adidas sneakers
-## For the past 8 years, I've worked with in-house & agency design teams to deliver hypothesis-driven design work. I use my experience to turn ideas into outcomes. Lately, I've been riding my bike to stay sane, reading about design system adoption, governance, and education, and writing terrible code (hopefully that's not why you're here).
+# hello internet, I'm Derek. 
+## Product Designer, who firmly believes you can't own too many Adidas sneakers
+## For the past 8 years, I've helped teams build & deliver web & mobile products to their users. I care about research, accessibility, and design systems.
+
 
 ### it's time for you to choose your adventure
 <div class="choose-adventure">
@@ -27,6 +29,14 @@ templateEngineOverride: njk,md
     <a href="/process" class="button-inverse">learn the process</a> 
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
 </div>
+
+<img src="/assets/arrow-circle-down.svg" class="icon-white wobble" width="32" height="32" />
+</div>
+
+## Well since you're still here, I'll tell you more about Derek, the human. 
+## My journey into the digital product space started on Neopets, yes, the web game where I collected many'o'bloons. Neopets was the catalyst to learning about HTML/CSS and the rest is history. I studied Computer Science, and very quickly transitioned out of writing code into the UX world, because who doesn't love uncovering problems. 
+
+## Outside of my professional life I enjoy spending time riding my bike, trying to write code, and playing fußball. I spent 10 years coaching youth soccer, and use what I learned coaching and playing to help teams at work collaborate more efficiently. After all, we all want to succeed. 
 <!-- {% include "projectslist.njk" %} -->
 
 </div>

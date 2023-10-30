@@ -6,7 +6,8 @@ templateEngineOverride: njk,md
 <div id="process">
 
 # the process.
-<section style="display:flex; justify-content:center">
+<!-- Removed from section below: style="display:flex; justify-content:center" -->
+<section>
 
 ![Derek's Double Diamond](/assets/diamond.png)
 *If you squint, the double diamond also spells out DO. Coincidence, I think not 👀*

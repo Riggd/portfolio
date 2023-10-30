@@ -7,10 +7,18 @@
     {% include "spinner.njk" %}
     
     <main>
+        <div id="left-nav">
         {% include "left.njk" %}
+        </div>
         <div class="right">
             <div class="scrolling-container">
-            {{ content | safe }}
+                <div id="top-nav">
+                    {% include "top-nav.njk" %}
+                </div>
+                {{ content | safe }}
+                <div id="footer-small">
+                    {% include "footer.njk" %}
+                </div>
             </div>
         </div>
     </main>

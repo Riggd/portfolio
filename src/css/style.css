@@ -32,6 +32,19 @@ body {
     }
 }
 
+.wobble {
+    animation: wobble 2s ease infinite;
+}
+@keyframes wobble {
+    0% { transform: translateY(0%); }
+    15% { transform: translateY(-25%) rotate(-5deg); }
+    30% { transform: translateY(20%) rotate(3deg); }
+    45% { transform: translateY(-15%) rotate(-3deg); }
+    60% { transform: translateY(10%) rotate(2deg); }
+    75% { transform: translateY(-5%) rotate(-1deg); }
+    100% { transform: translateY(0%); }
+}
+
 /* #main-content {
     
     margin: 0 auto;
@@ -103,21 +116,19 @@ header {
 .scrolling-container {
     display: flex;
     flex-direction: column;
-    margin: 3rem 6rem;
-}
-/* MOAB Project */
-.moab-governance {
-    display: flex;
-    gap: 2rem;
+    margin: 1rem;
 }
 
 
-.moab-governance > * {
-    flex: 1;
-}
-
-
+/*
+================
+Responsive header
+================
+*/
 /* Navbar */
+.logo {
+    text-decoration: none;
+}
 .nav {
     font-family: 'Inconsolata', monospace;
     margin: 1rem;
@@ -135,20 +146,21 @@ header {
 }
 
 .nav-items a {
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 200;
     text-decoration: none;
 }
 
-.nav-items a:hover {
-    /* Figure out active state */
-    color: #EFB37D;
+.nav-item:hover {
+    /* Filter is handling color change in nav */
+    /* color: #EFB37D; */
     text-decoration: underline;
+    filter: brightness(0) saturate(100%) invert(99%) sepia(48%) saturate(6147%) hue-rotate(303deg) brightness(101%) contrast(87%);
 }
 
 .active {
-    /* Figure out active state */
-    color: #EFB37D;
+    /* Filter is handling color change in nav */
+    filter: brightness(0) saturate(100%) invert(99%) sepia(48%) saturate(6147%) hue-rotate(303deg) brightness(101%) contrast(87%);
     text-decoration: none;
 }
 
@@ -176,6 +188,83 @@ header {
 .nav-left h2 {
     font-family: "Subjectivity Medium", sans-serif;
 }
+
+#left-nav {
+    display: flex;
+}
+
+#top-nav, #footer-small {
+    display: none;
+}
+
+.icon-white {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(108deg) brightness(104%) contrast(104%);
+}
+
+
+/* TODO: Move all media queries to end of file */
+@media screen and (max-width: 800px) {
+    #left-nav {
+        display: none;
+    }
+    #top-nav, #footer-small {
+        display: flex;
+    }
+
+    header {
+        border-right: none;
+        flex: 1 1 auto;
+    }
+
+    .hero-top {
+        justify-content: flex-start !important;
+        height: unset;
+    }
+
+    .nav, .nav-items {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0;
+        flex: 1 1 auto;
+    }
+
+    .nav-items {
+        gap: 1rem;
+    }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container {
+        flex: 1 1 auto;
+        align-items: center;
+        margin: 1rem 0;
+        gap: 0.5rem;
+    }
+    
+    
+}
+
+
+
+
+/* MOAB Project */
+.moab-governance {
+    display: flex;
+    gap: 2rem;
+}
+
+
+.moab-governance > * {
+    flex: 1;
+}
+
+
+
 
 .home-title {
     color: #EFB37D;
@@ -205,7 +294,14 @@ header {
     margin: 0 5rem;
 }
 
-@media screen and (max-width: 800px) {
+.hero-top {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
     .hero {
         margin: 0;
     }
@@ -216,14 +312,14 @@ header {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 300;
     line-height: 100%;
     margin-bottom: 0;
 }
 
 .hero h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 200;
     line-height: 150%;
 }
@@ -232,7 +328,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 
 .testing-font {
@@ -379,7 +475,7 @@ header {
 
 #process p {
     font-size: 1.125rem;
-    line-height: 150%;
+    line-height: 200%;
 }
 
 
@@ -502,7 +598,7 @@ header {
 
 .project-details p {
     font-size: 1.25rem;
-    line-height: 1.75rem;
+    line-height: 200%;
 }
 .project-details img {
     width: 100%;

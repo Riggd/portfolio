@@ -1,0 +1,26 @@
+<header>
+    <nav class="nav">
+        <!-- Logo -->
+        <div class="nav-top">
+            <a class="logo" href="/" title="{{ home }}">
+                <h2>derek onay</h2>
+            </a>
+        </div>
+        <!-- Pages -->
+        <div class="nav-items">
+            <a class="nav-item {{ 'active' if '' in page.url and not '/projects' in page.url and not '/process' in page.url }}" href="/">
+                <img src="/assets/user-circle.svg" class="icon-white" width="16" height="16" />
+                the human.
+            </a>
+            <a class="nav-item {{ 'active' if '/projects' in page.url }}" href="/projects">
+                <img src="/assets/devices.svg" class="icon-white" width="16" height="16" />
+                the work.
+            </a>
+            <a class="nav-item {{ 'active' if '/process' in page.url }}" href="/process">
+                <img src="/assets/map.svg" class="icon-white" width="16" height="16" />
+                the process.
+            </a>
+            <!-- <a class="nav-item" href="/">the chaos.</a> -->
+        </div>
+    </nav>
+</header>
