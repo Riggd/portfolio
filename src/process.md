@@ -16,7 +16,7 @@ templateEngineOverride: njk,md
 
 ## I believe that collaboration drives the best product decisions.
 
-I take an **understanding-first** approach to product design. Understanding dictates diving deep into the root-cause and problem we are attmepting to solve through design. Whether there is prior research, documented issues, or ideas that we want to improve, my goal is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing. Only through asking questions will we understand what we want to do, and how we can achieve it.
+I take an **hypothesis-first** approach to product design. In order to craft a useful hypothesis, you must first dive deeper to understand the root-cause and problem we are attmepting to solve through design. Whether there is prior research, documented issues, or ideas that we want to improve, my goal is to have the tough conversations up front to help companies avoid spending time and money building the wrong thing. Only through asking questions will we understand what we want to do, and how we can achieve it.
 </section>
 <section>
 

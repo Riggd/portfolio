@@ -16,7 +16,7 @@ templateEngineOverride: njk,md
     </svg> -->
 
 <!-- Portfolios should highlight challenges you faced, how you collaborated with others, what you learned, and the personal/business/end-user impact of your work. -->
-<div class="hero-top">
+<div class="hero-top fade-in-down">
 
 # hello internet, I'm Derek. 
 ## Product Designer, who firmly believes you can't own too many Adidas sneakers
@@ -37,7 +37,9 @@ templateEngineOverride: njk,md
 ## My journey into the digital product space started on Neopets, yes, the web game where I collected many'o'bloons. Neopets was the catalyst to learning about HTML/CSS and the rest is history. I studied Computer Science, and very quickly transitioned out of writing code into the UX world, because who doesn't love uncovering problems. 
 
 ## Outside of my professional life I enjoy spending time riding my bike, trying to write code, and playing fußball. I spent 10 years coaching youth soccer, and use what I learned coaching and playing to help teams at work collaborate more efficiently. After all, we all want to succeed. 
-<!-- {% include "projectslist.njk" %} -->
+<div style="margin: 3rem 0;">
+    <a href="/assets/Resume2023.pdf" class="button" download>the résumé.</a>
+</div>
 
 </div>
 
