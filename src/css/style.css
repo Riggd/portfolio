@@ -259,6 +259,15 @@ Responsive header
         margin: 1rem 0;
         gap: 0.5rem;
     }
+
+    .project-title {
+        flex-direction: column;
+        align-items: flex-start !important; /* remove !important when mediaquery is move */
+    }
+
+    .project-title h1 {
+        margin: 0.5rem 0;
+    }
     
     
 }
@@ -573,7 +582,7 @@ Responsive header
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .project-info {
@@ -582,15 +591,12 @@ Responsive header
 }
 
 @media screen and (max-width: 800px) {
-    .project-info {
-        flex-direction: column-reverse;
-    }
     .roles-teams {
         flex-basis:0%;
         margin: 2rem 0;
     }
     .project-photo .device-frame {
-        width: 50%;
+        width: 100%;
     }
     .project-pageheader h1 {
         font-size: 3rem;
