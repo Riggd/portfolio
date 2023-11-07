@@ -527,7 +527,7 @@ Responsive header
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background-color: rgba(162, 207, 233,.65);
+    background-color: rgba(162, 207, 233,1);
     color: rgba(0, 0, 0, 0.9);
     border-radius: 1rem;
 }
@@ -536,7 +536,7 @@ Responsive header
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background-color: rgba(239, 125, 125,.65);
+    background-color: rgba(239, 125, 125,1);
     color: rgba(0, 0, 0, 0.9);
     border-radius: 1rem;
 }
@@ -880,41 +880,3 @@ footer a:hover {
     color: #333;
     font-weight: 600;
 }
-
-
-
-
-/* Spinner */
-#main-content {
-    display: hidden;
-}
-
-.spinner-border {
-    width: 3rem;
-    height: 3rem;
-    border-width: 0.25rem;
-    border-style: solid;
-    border-radius: 50%;
-    border-color: transparent transparent transparent currentColor;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-    display: none;
-}
-
-@-webkit-keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% { 
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-} 
