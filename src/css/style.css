@@ -272,6 +272,12 @@ Responsive header
     
 }
 
+@media screen and (min-width: 1660px) {
+    .scrolling-container {
+        margin: 5rem 15rem;
+    }
+}
+
 
 
 
