@@ -11,7 +11,7 @@ body {
     /* background: linear-gradient(65deg, #0F2027, #203A43, #2C5364, #203A43, #0F2027, #2C5364); */
     /* background-size: 400% 400%; */
     /* animation: animate 20s ease infinite; */
-    height: 100vh;
+    height: 100dvh;
     margin: 0;
 }
 
@@ -269,6 +269,9 @@ Responsive header
         margin: 0.5rem 0;
     }
     
+    .wins-issues {
+        flex-direction: column;
+    }
     
 }
 
@@ -324,7 +327,8 @@ Responsive header
 }
 
 .hero-top {
-    height: 100vh;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     justify-content: center;

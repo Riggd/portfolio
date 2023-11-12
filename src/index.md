@@ -30,7 +30,7 @@ templateEngineOverride: njk,md
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
 </div>
 
-<img src="/assets/arrow-circle-down.svg" class="icon-white wobble" width="32" height="32" alt="Arrow facing moving downward indicating more content below" />
+<img src="/assets/arrow-circle-down.svg" style="margin-bottom:2rem;" class="icon-white wobble" width="32" height="32" alt="Arrow facing moving downward indicating more content below" />
 </div>
 
 ## Well since you're still here, I'll tell you more about Derek, the human. 
