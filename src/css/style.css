@@ -327,8 +327,8 @@ Responsive header
 }
 
 .hero-top {
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
+    height: 100dvh;
+    height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     justify-content: center;
