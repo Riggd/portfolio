@@ -23,7 +23,7 @@ templateEngineOverride: njk,md
 ## For the past 8 years, I've helped teams build & deliver web & mobile products to their users. I care about research, accessibility, and design systems.
 
 
-### it's time for you to choose your adventure
+### choose your adventure.
 <div class="choose-adventure">
     <a href="/projects" class="button">see the work</a>
     <a href="/process" class="button-inverse">learn the process</a> 
@@ -38,7 +38,7 @@ templateEngineOverride: njk,md
 
 ## Outside of my professional life I enjoy spending time riding my bike, trying to write code, and playing fußball. I spent 10 years coaching youth soccer, and use what I learned coaching and playing to help teams at work collaborate more efficiently. After all, we all want to succeed. 
 <div style="margin: 3rem 0;">
-    <a href="/assets/Resume2023.pdf" class="button" download>the résumé.</a>
+    <a href="/assets/Resume2023.pdf" class="button" download>the resume.</a>
 </div>
 
 </div>

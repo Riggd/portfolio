@@ -19,7 +19,7 @@ team:
     - EIG, Engineering Firm
 duration: June 2022 - December 2022
 wins: 
-    - VMS Biomarketing won an award in the PM360 publication for inovation in the App Category
+    - VMS Biomarketing won an award in the PM360 publication for innovation in the App Category
     - Bringing Wellkind to market would reduce nurse engagement calls for simple questions by ~20% in a year 
 issues:
     - Starting brand and motion design prior to product design would've reduced the total time it took to get the product live  
@@ -30,7 +30,7 @@ issues:
 
 
 ## Problem
-VMS Biomarketing wanted to supplement their nurse-to-patient engagement process with a modern mobile solution to reduce nurses time spent on phone for simple issues the patient was facing. Nurses were receiving a high volume of questions regarding dosage and product usage questions that were taking time away from questions that requried more nurse input.
+VMS Biomarketing wanted to supplement their nurse-to-patient engagement process with a modern mobile solution to reduce nurses time spent on phone for simple issues the patient was facing. Nurses were receiving a high volume of questions regarding dosage and product usage questions that were taking time away from questions that required more attention and care.
 
 VMS mentioned in the brief that the hardest problem they need to solve is the patients beginning their treatment, with roughly 60% of patients delaying start or abandoning treatment altogether.
 </section>
@@ -62,7 +62,7 @@ Patients with chronic condition
 
 - The products are extremely expensive
 
-- Their relationship with the product/manufactorer is non-existent
+- Their relationship with the product/manufacturer is non-existent
 
 Nurses supporting patient care
 
@@ -91,11 +91,11 @@ This included:
 <section>
 
 ## Outcomes
-Over the course of 6 months, we delivered a mobile application and partened with EIG to ensure the designs were translated into a fully functional mobile application that could be delivered to VMS BioMarketing. I was in charge of all product design decisions and received support from the brand & motion designers on the project who provided a brand guide with usage guidelines for newly created assets. 
+Over the course of 6 months, we delivered a mobile application and partnered with EIG to ensure the designs were translated into a fully functional mobile application that could be delivered to VMS BioMarketing. I was in charge of all product design decisions and received support from the brand & motion designers on the project who provided a brand guide with usage guidelines for newly created assets. 
 
 The true impact of our work on Wellkind will begin in 2023 as VMS BioMarketing expects to engage over 25,000 unique patients throughout 2023.
 
->“Bringing Wellkind to market is another monumental step towards providing the biopharma industry a differentiated way to engage with patients and medication adherence,” said Mike Young, CTO. “Wellkind is a patient’s one-stop shop, delivering an experience that is personalized to each patient.”
+>“Bringing Wellkind to market is another monumental step towards providing the bio-pharma industry a differentiated way to engage with patients and medication adherence,” said Mike Young, CTO. “Wellkind is a patient’s one-stop shop, delivering an experience that is personalized to each patient.”
 
 The Wellkind app was selected to be featured in the [2022 Innovation Issue for PM360](https://www.pm360online.com/pm360-2022-innovative-product-wellkind-from-vms-biomarketing/) in the product category, a pharma trade publication that highlights the latest and biggest innovations across marketing, commercialization, R&D and more.
 </section>

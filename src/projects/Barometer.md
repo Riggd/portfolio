@@ -49,14 +49,14 @@ By documenting the existing user flow early on, we were able to identify areas o
 
 - Information in the product was very dense and overwhelming. We felt it necessary to redesign the core detail page to better support consuming individual <a href="https://www.peer39.com/blog/garm-standards" target="_blank">GARM scores</a> for a single podcast. 
 
-Once the areas above were identified, I was able to craft blockframes(think wireframes, but slightly more detail) to convey the direction to the stakeholders. This process allows me to iterate quickly on any fundamental misalignments between the strategy and direction in my head and that of the stakeholders. Through this process we came to an agreement to focus on filtering and the podcast detail view, rather than a full redesign. Barometer engineers were going to be implementing as soon as we delivered any work, so they could take and test the solutions within their customer base while we continued to work through future decisions. 
+Once identifying the necessary podcast filters and important product information, I crafted wireframes to convey the direction to the stakeholders. This allowed for a quick "gut-check" between the team and stakeholders to ensure we have consensus on design direction, strategy, and workflows. Through this process we came to an agreement to focus on filtering and the podcast detail view, rather than a full redesign. Barometer engineers were going to be implementing as soon as we delivered any work, so they could take and test the solutions within their customer base while we continued to work through future decisions. 
 
-After two months, we wrapped up all design work and handed it off to the barometer team to finish building and bring to market!
+After two months, we wrapped up the design work and handed off to the Barometer team to develop and launch in market!
 </section>
 <section>
 
 ## That's great Derek, but what did your work achieve?
-Since the conclusion of this project, Barometer has landed a partnership deal with SirusXM and ArtsAi to provide brand safety and suitability tools to advertisers working with SirusXM. <a href="https://digiday.com/media-buying/sirius-xm-creates-a-podcasting-brand-safety-and-suitability-tool-for-advertisers/" target="_blank">Read more about this partnership</a>
+Since the conclusion of this project, Barometer has landed a partnership deal with SiriusXM and ArtsAI to provide brand safety and suitability tools to advertisers working with SirusXM. <a href="https://digiday.com/media-buying/sirius-xm-creates-a-podcasting-brand-safety-and-suitability-tool-for-advertisers/" target="_blank">Read more about this partnership</a>
 </section>
 <section>
 

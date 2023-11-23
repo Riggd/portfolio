@@ -1,6 +1,6 @@
 ---
 title: eFuse Twitch Extension
-description: "An extension of the core erena product to provide a better esports fan expereince, by bringing the content directly to the streams people are watching."
+description: "An extension of the core eRena product to provide a better eSports fan experience, by bringing the content directly to the streams people are watching."
 problem: ""
 client: eFuse
 image: eFuse.png
@@ -21,7 +21,7 @@ duration: May 2023 - September 2023
 <section>
 
 ## Problem
-The existing Twitch extension ([Link to Extension](https://dashboard.twitch.tv/extensions/7n05t3351hle0tx07a4uejyjmk8aay-1.4.6)) did not support all bracket types, and was unable to be used as a tool to drive more user engagment to marketing and sponsorship placements across the erena ecosystem. 
+The existing Twitch extension ([Link to Extension](https://dashboard.twitch.tv/extensions/7n05t3351hle0tx07a4uejyjmk8aay-1.4.6)) did not support all bracket types, and was unable to be used as a tool to drive more user engagement to marketing and sponsorship placements across the eRena ecosystem. 
 
 ### Old Extension
 ![Old Extension](/assets/projects/efuse/old-extension.png)
@@ -30,16 +30,18 @@ The existing Twitch extension ([Link to Extension](https://dashboard.twitch.tv/e
 <section>
 
 ## Goals
-- Increase engagement from fans and enthusiats viewing events hosted by eFuse or influencers participating in events. 
-
-- Improve the look and feel of the twitch extension to support all bracket types (Round Robin, Double/Single Elimination, Swiss, and Point Race)
+- Add support for additional bracket types (Round Robin, Double/Single Elimination, Swiss, and Point Race)
 
 - Increase impressions for Event Sponsors and advertisers through additional sponsorship placements and link-outs. 
+
+- Increase engagement from fans and enthusiasts viewing events hosted by eFuse or influencers participating in events. 
+
+- Improve visual design & content being displayed in the twitch extension
 </section>
 <section>
 
 ## Initial Exploration
-Assuming we could rebuild the Twitch Extension based on anything a fan or enthusiast would desire, our competitive analysis suggested we includ features for viewing full bracket visualizations, polls, and team details. You can see some of the explorations below:
+Assuming we could rebuild the Twitch Extension based on anything a fan or enthusiast would desire, our competitive analysis suggested we included features for viewing full bracket visualizations, polls, and team details. You can see some of the explorations below:
 
 ![Initial Mocks](/assets/projects/efuse/efuse-old-mocks.png)
 *Initial designs that included polls, team details, and bracket visualization*
@@ -47,14 +49,14 @@ Assuming we could rebuild the Twitch Extension based on anything a fan or enthus
 <section>
 
 ## The Research
-Due to the time contraints of this project, we focused our research efforts on testing completed designs, rather than generative research. There was an existing extension which needed improved to support other business goals. My role as research support for this project was to help deliver a discussion guide and hypothesis for what we wanted to learn from the 6 user interviews we conducted. 
+Due to the time constraints of this project, we focused our research efforts on testing completed designs, rather than generative research. There was an existing extension which needed improved to support other business goals. My role as research support for this project was to help deliver a discussion guide and hypothesis for what we wanted to learn from the 6 user interviews we conducted. 
 <br><br>
 
 ### Hypothesis
-Our hypothesis was fans wanted more information about the event the streamers were participating in without having to leave Twitch.com. Additionally, if we put too much emphasis on sponsors we will cause users ad-blindness and thus not increase sponsor impressiosns.
+Our hypothesis was fans wanted more information about the event the streamers were participating in without having to leave Twitch.com. Additionally, if we put too much emphasis on sponsors we will cause users ad-blindness and thus not increase sponsor impressions.
 <br><br>
 
-### Research Methology
+### Research Methodology
 Myself and the Research Lead, compiled a discussion guide to answer questions about what information is most important about an event and the streamer playing, so that the designs could accurately reflect those user needs. 
 
 The Twitch platform itself makes discoverability of any extension a challenge. This led to removing functionality early on which would have provided fans the ability to participate in polls and view the visual bracket format, and rather focus on two core ideas: 
@@ -70,18 +72,18 @@ The Twitch platform itself makes discoverability of any extension a challenge. T
 
 - 0 Fans/Enthusiasts, due to time constraints
 
-Both of these user personas are responsible for providing fans and players of the events with a best-in-class experience, and thus their insights helped inform direction on exactly what information about an event could be benficial to display within an updated Twitch extension.
+Both of these user personas are responsible for providing fans and players of the events with a best-in-class experience, and thus their insights helped inform direction on exactly what information about an event could be beneficial to display within an updated Twitch extension.
 <br><br>
 
 ### Results
 The research led to cutting scope such as match & player details, polls, and team features early on to focus on **Event Details** and **Standings/Results**. The rest of the information could be found via linking back to the core product, and allows the extension to stay focused.
 
 From all 6 interviews we learned:
-- Fans and enthusiats prefer to stay on stream vs leaving for additional content
+- Fans and enthusiasts prefer to stay on stream vs leaving for additional content
 
-- Providing event and standings content in the twitch extension helps answer the most commmon questions asked by fans during a broadcast
+- Providing event and standings content in the twitch extension helps answer the most common questions asked by fans during a broadcast
 
-- All 6 participants prefered the new solution to what they have at their disposal today
+- All 6 participants preferred the new solution to what they have at their disposal today
 </section>
 <section>
 
@@ -98,7 +100,7 @@ This project is currently being launched, and thus hasn't been utilized in an ev
 <section>
 
 ## Check out the interactive prototype
-You can view all of the event type interfaces by tapping on the Leaderboard/Results title within the prototype.
+You can view all of the event type interfaces by tapping on the Leader board/Results title within the prototype.
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FmauJERpc2w2i6EteeTsLd0%2FTwitch-Extension%3Fpage-id%3D226%253A143151%26type%3Ddesign%26node-id%3D226-157507%26viewport%3D401%252C-120%252C0.05%26t%3Dx4POUBsirglu2NmA-1%26scaling%3Dmin-zoom%26starting-point-node-id%3D226%253A157507%26mode%3Ddesign" allowfullscreen></iframe>
 </section>
 <section>

@@ -1,7 +1,7 @@
 ---
 eleventyExcludeFromCollections: true
 title: MOAB Design System
-description: "An extension of the core erena product to provide a better esports fan expereince, by bringing the content directly to the streams people are watching."
+description: "An extension of the core eRena product to provide a better eSports fan experience, by bringing the content directly to the streams people are watching."
 problem: ""
 client: MOAB
 image: moab.png
@@ -26,16 +26,16 @@ issues:
 ---
 <section>
 
-I most recently worked with eFuse, an esports startup with a mission to change lives through gaming, to help with the Design System adoption, education, and governance, as well as design new features to support the erena tournament platform. 
+I most recently worked with eFuse, an eSports startup with a mission to change lives through gaming. My role was to help drive  Design System adoption, education, and governance, as well as design new features to support the eRena tournament platform. 
 
-My role as a Sr. Product Designer had me work closely with another product designer, and engineers to start transitioning from just a UI library to a robust system maintained in code to save time and resources for eFuse.
+My role on this project had me working closely with another product designer, and engineers to transition from a Figma component library to a robust system maintained in code to save time and resources for eFuse.
 
-The design system team was cross functional design-led effort. Every team member also was responsible for delivering product functionality. Our biggest organization problem was adoption and transitioning components from design -> engineering.  
+The design system team was cross-functional design-led effort. All team members were responsible for product delivery in addition to work on the MOAB design system. Our biggest organization problem was design system governance, and building out designed components in our codebase.
 </section>
 <section>
 
 ## eFuse products:
-- erena, tournament platform
+- eRena, tournament platform
 
 - esports.gg, gaming news platform
 
@@ -46,7 +46,7 @@ The design system team was cross functional design-led effort. Every team member
 <section>
 
 ## Core Problems
-- Design solutions aren’t aligned across products. Users didn’t feel they were still using an eFuse product when moving from esports.gg > erena, for instance.
+- Design solutions aren’t aligned across products. For example, users didn’t feel they were still engaging with an eFuse product when moving from esports.gg to eRena or mynt.gg.
 
 - Styled components were implemented inconsistently in the code, and caused a diminished user experience
 
