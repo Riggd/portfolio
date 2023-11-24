@@ -231,6 +231,7 @@ Responsive header
     }
 
     .hero-top {
+        height: -webkit-fill-available !important;
         justify-content: flex-start !important;
         height: unset;
     }
