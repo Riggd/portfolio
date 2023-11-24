@@ -1,11 +1,11 @@
 ---
-eleventyExcludeFromCollections: true
+# eleventyExcludeFromCollections: true
 title: MOAB Design System
-description: "An extension of the core eRena product to provide a better eSports fan experience, by bringing the content directly to the streams people are watching."
+description: "eFuse design system introduced to help product design and engineering teams build product features more quickly and consistently"
 problem: ""
 client: MOAB
 image: moab.png
-logo: logo.svg
+logo: moab.svg
 responsibilities:
     - System Education & Governance
     - Component Creation & Maintenance 
@@ -26,6 +26,7 @@ issues:
 ---
 <section>
 
+## What I did
 I most recently worked with eFuse, an eSports startup with a mission to change lives through gaming. My role was to help drive  Design System adoption, education, and governance, as well as design new features to support the eRena tournament platform. 
 
 My role on this project had me working closely with another product designer, and engineers to transition from a Figma component library to a robust system maintained in code to save time and resources for eFuse.
@@ -62,7 +63,7 @@ The MOAB design system is structured with a core foundation library, style libra
 ![MOAB Design System Structure](/assets/projects/moab/structure.svg)
 *Breakdown of the design system structure*
 
-It’s worth mentioning, this decision to split Web components from product specific was to allow for custom implementations across different products that served different users and functions, while still providing consistency within the larger design style and visual language.
+The decision to split Web components from product specific was to allow for custom implementations across different products that served different users and functions, while still providing consistency within the larger design style and visual language.
 </section>
 <section>
 

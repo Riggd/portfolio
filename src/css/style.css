@@ -633,6 +633,11 @@ Responsive header
     background: linear-gradient(rgba(255,255,255,0.4) -4.16%, rgba(194,220,254,.3) 49.59%);
 }
 
+#MOAB:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(18, 81, 90, 0.4)), url("/assets/projects/MOAB/hover.png");
+    background-size: cover;
+}
+
 .project-details p {
     font-size: 1.25rem;
     line-height: 200%;
