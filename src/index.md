@@ -33,12 +33,15 @@ templateEngineOverride: njk,md
 <img src="/assets/arrow-circle-down.svg" style="margin-bottom:2rem;" class="icon-white wobble" width="32" height="32" alt="Arrow facing moving downward indicating more content below" />
 </div>
 
+<div id="hp-bottom">
+
 ## Well since you're still here, I'll tell you more about Derek, the human. 
 ## My journey into the digital product space started on Neopets, yes, the web game where I collected many'o'bloons. Neopets was the catalyst to learning about HTML/CSS and the rest is history. I studied Computer Science, and very quickly transitioned out of writing code into the UX world, because who doesn't love uncovering problems. 
 
 ## Outside of my professional life I enjoy spending time riding my bike, trying to write code, and playing fußball. I spent 10 years coaching youth soccer, and use what I learned coaching and playing to help teams at work collaborate more efficiently. After all, we all want to succeed. 
 <div style="margin: 3rem 0;">
     <a href="/assets/Resume2023.pdf" class="button" download>the resume.</a>
+</div>
 </div>
 
 </div>
