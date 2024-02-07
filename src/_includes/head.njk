@@ -25,3 +25,11 @@
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
+
+<!-- Check if the user has a theme preference in localStorage -->
+<script type="text/javascript">  
+    let theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        document.documentElement.classList.add("theme-dark");
+    }
+</script>

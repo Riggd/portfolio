@@ -1,0 +1,50 @@
+/* // function to set a given theme/color-scheme
+ function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+}
+
+// function to toggle between light and dark theme
+function toggleTheme() {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-light');
+    } else {
+        setTheme('theme-dark');
+    }
+}
+
+// Immediately invoked function to set the theme on initial load
+(function () {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-dark');
+        document.getElementById('slider').checked = false;
+    } else {
+        setTheme('theme-light');
+      document.getElementById('slider').checked = true;
+    }
+})();*/
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    const toggleButton = document.getElementById("theme-toggle");
+
+    //is this necessary
+    if (localStorage.getItem("theme") === "theme-dark") {
+    }
+
+    toggleButton.addEventListener("click", () => {
+        if (
+            document.documentElement.classList.contains(
+                "theme-dark"
+            )
+        ) {
+            document.documentElement.classList.remove("theme-dark");
+            //Might have a more elegant solution to work out here.
+            document.documentElement.classList.add("theme-light");
+            localStorage.setItem("theme", "light");
+        } else {
+            document.documentElement.classList.add("theme-dark");
+            localStorage.setItem("theme", "dark");
+        }
+    });
+});

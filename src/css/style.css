@@ -1,16 +1,17 @@
 /* Font Family setting */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;800&display=swap');
 
+*{
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 body {
     font-family: "Fira Sans", sans-serif;
 
     /* font-family: 'Inconsolata', monospace; */
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
-    background-color: rgba(0,0,0,.9);
-    color: #fff;
-    /* background: linear-gradient(65deg, #0F2027, #203A43, #2C5364, #203A43, #0F2027, #2C5364); */
-    /* background-size: 400% 400%; */
-    /* animation: animate 20s ease infinite; */
+    background-color: var(--background-color);
+    color: var(--font-color);
     height: 100dvh;
     margin: 0;
 }
@@ -133,6 +134,33 @@ header {
     margin: 1rem;
 }
 
+
+/*
+THEME COLORS
+*/
+
+
+.theme-light {
+  --color-primary: #0060df;
+  --color-secondary: #fbfbfe;
+  --color-accent: #fd6f53;
+  --background-color: #f8Fbf8;
+  --font-color: #888886;
+  color: #888886;
+}
+.theme-dark {
+  --color-primary: #17ed90;
+  --color-secondary: #2a2c2d;
+  --color-accent: #12cdea;
+  --background-color:  rgba(0,0,0,.9);
+  --font-color: #ffffff;
+}
+
+.test-box {
+    background: var(--color-secondary);
+    width: 200px;
+    height: 200px;
+}
 
 /*
 ================
