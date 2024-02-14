@@ -16,7 +16,7 @@ templateEngineOverride: njk,md
     </svg> -->
 
 <!-- Portfolios should highlight challenges you faced, how you collaborated with others, what you learned, and the personal/business/end-user impact of your work. -->
-<div class="hero-top fade-in-down">
+<div class="hero-top fade-in">
 
 # hello internet, I'm Derek. 
 ## Product Designer, who firmly believes you can't own too many Adidas sneakers
