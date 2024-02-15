@@ -18,20 +18,21 @@ templateEngineOverride: njk,md
 <!-- Portfolios should highlight challenges you faced, how you collaborated with others, what you learned, and the personal/business/end-user impact of your work. -->
 <div class="hero-top fade-in">
 
-# hello internet, I'm Derek. 
-## Product Designer, who firmly believes you can't own too many Adidas sneakers
-## For the past 8 years, I've helped teams build & deliver web & mobile products to their users. I care about research, accessibility, and design systems.
+# hi internet. i'm Derek.
+## Product Designer. Talks about design systems, web accessibility, and adidas sneakers. Let's chat!
 
-
-### choose your adventure.
 <div class="choose-adventure">
     <a href="/projects" class="button">see the work</a>
-    <a href="/process" class="button-inverse">learn the process</a> 
+    <a href="/process" class="button-inverse">learn the process</a>
+    <a href="mailto:derekonay@gmail.com" class="button-inverse">contact me</a>
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
 </div>
 
-<img src="/assets/arrow-circle-down.svg" style="margin-bottom:2rem;" class="icon-white wobble" width="32" height="32" alt="Arrow facing moving downward indicating more content below" />
-</div>
+<!-- <img src="/assets/arrow-circle-down.svg" style="margin-bottom:2rem;" class="icon-white wobble" width="32" height="32" alt="Arrow facing moving downward indicating more content below" />
+</div> -->
+<span class="icon-white wobble">
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.485 6.485 2 12 2s10 4.485 10 10-4.485 10-10 10S2 17.515 2 12Zm1.5 0c0 4.685 3.815 8.5 8.5 8.5 4.685 0 8.5-3.815 8.5-8.5 0-4.685-3.815-8.5-8.5-8.5-4.685 0-8.5 3.815-8.5 8.5Zm9.25-4.5v6.69l2.22-2.22 1.06 1.06-3.145 3.145a1.245 1.245 0 0 1-.885.365c-.32 0-.64-.12-.885-.365L7.97 13.03l1.06-1.06 2.22 2.22V7.5h1.5Z" fill="#ffffff"/></svg>
+</span>
 
 <div id="hp-bottom">
 

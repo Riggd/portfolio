@@ -117,7 +117,7 @@ main {
 header { 
     display: flex;
     flex: 0 1 auto;
-    border-right: 1px solid #A9A9A9;
+    border-right: 1px solid var(--nav-border);
     overflow: none;
 }
 .right {
@@ -146,6 +146,7 @@ THEME COLORS
     --color-accent: #12cdea;
     --background-color: #f8Fbf8;
     --font-color: #888886;
+    --nav-border: #c1c1c1;
 }
 
 html[data-theme='light'] {
@@ -154,6 +155,7 @@ html[data-theme='light'] {
   --color-accent: #fd6f53;
   --background-color: #f8Fbf8;
   --font-color: #888886;
+  --nav-border: #c1c1c1;
 }
 
 html[data-theme='dark'] {
@@ -162,6 +164,7 @@ html[data-theme='dark'] {
   --color-accent: #12cdea;
   --background-color:  rgba(0,0,0,.9);
   --font-color: #ffffff;
+  --nav-border: rgba(39, 39, 39, 0.75);
 }
 
 /*
@@ -224,7 +227,7 @@ Responsive header
 .nav-right .nav-item:hover {
     text-decoration: underline;
     background: #EFB37D;
-    color:#333;
+    color: var(--font-color);
     border-radius: .25rem;
 }
 
@@ -242,7 +245,11 @@ Responsive header
 }
 
 .icon-white {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(108deg) brightness(104%) contrast(104%);
+    margin-bottom: 2rem;
+}
+
+.icon-white path{
+    fill: var(--font-color);
 }
 
 
@@ -335,7 +342,7 @@ Responsive header
 
 .home-subtitle {
     font-weight: 300;
-    color: rgba(255,255,255,.6);
+    color: var(--font-color);
     margin-bottom: 0;
 }
 
@@ -568,8 +575,8 @@ Responsive header
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background-color: rgba(162, 207, 233,1);
-    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(164, 222, 255, 0.4);
+    color: var(--font-color);
     border-radius: 1rem;
 }
 
@@ -577,8 +584,8 @@ Responsive header
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background-color: rgba(239, 125, 125,1);
-    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(216, 154, 154, 0.4);
+    color: var(--font-color);
     border-radius: 1rem;
 }
 
@@ -671,7 +678,7 @@ Responsive header
 
 .project-details p {
     font-size: 1.25rem;
-    line-height: 200%;
+    line-height: 150%;
 }
 .project-details img {
     width: 100%;
@@ -865,8 +872,8 @@ Responsive header
 }
 
 .logo-grey {
-    -webkit-filter: brightness(0) invert(1);
-    filter: brightness(0) invert(1);
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
 }
 
 .logo-grey:hover {
@@ -892,7 +899,7 @@ Responsive header
 
 
 a { 
-    color: white;
+    color: var(--font-color);
     font-weight: 400;
 }
 a:hover {
@@ -914,7 +921,7 @@ a:hover {
 
 
 footer a {
-    color: white;
+    color: var(--font-color);
     transition: 250ms ease-in-out;
     box-shadow: inset 0px -4px 0 #EFB37D;
     text-decoration: none;
@@ -928,5 +935,6 @@ footer a:hover {
 }
 
 * {
-    transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    transition: background-color 0.5s ease;
+    /* color 0.5s ease-in (breaks the page)*/
 }
