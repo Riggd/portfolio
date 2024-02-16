@@ -1,10 +1,104 @@
-/* Font Family setting */
+/* 
+=============
+FONT SETTINGS
+=============
+*/
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
 
 
+/* 
+=======
+THEMING
+=======
+*/ 
+#theme-toggle {
+    cursor: pointer;
+}
+
+:root {
+    --color-primary: #17ed90;
+    --color-secondary: #2a2c2d;
+    --color-accent: #12cdea;
+    --background-color: #f3f3f3;
+    --font-color: #878986;
+    --nav-border: #c1c1c1;
+    --pulseSize: 8px;
+    --green: rgba(100, 250, 95, 0.65);
+    --transparentGreen: rgba(100, 250, 95, 0);
+}
+
+html[data-theme='light'] {
+    --color-primary: #0060df;
+    --color-secondary: #fbfbfe;
+    --color-accent: #fd6f53;
+    --background-color: #f3f3f3;
+    --font-color: #878986;
+    --nav-border: #c1c1c1;
+    --green: rgba(5, 150, 0, 0.65);
+    --transparentGreen: rgba(5, 150, 0, 0);
+}
+
+html[data-theme='dark'] {
+    --color-primary: #17ed90;
+    --color-secondary: #2a2c2d;
+    --color-accent: #12cdea;
+    --background-color:  rgba(0,0,0,.9);
+    --font-color: #ffffff;
+    --nav-border: rgba(39, 39, 39, 0.75);
+    --green: rgba(100, 250, 95, 0.65);
+    --transparentGreen: rgba(100, 250, 95, 0);
+}
+
+/* 
+=================
+PULSING DOT
+=================
+*/
+.pulse {
+    width: var(--pulseSize);
+    height: var(--pulseSize);
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 var(--green);
+    animation: pulsing 1.5s infinite;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.pulse:active {
+    transform: scale(1.5);
+}
+
+@keyframes pulsing {
+    from {
+        box-shadow: 0 0 0 0 var(--green);
+    }
+    70% {
+        box-shadow: 0 0 0 var(--pulseSize) var(--transparentGreen);
+    }
+    to {
+        box-shadow: 0 0 0 0 var(--transparentGreen);
+    }
+}
+
+.btn {
+    padding: .5rem 1rem;
+    display: inline-flex;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+
+}
+
+/* 
+=================
+DEFAULT/OVERRIDES
+=================
+*/ 
 
 body {
-    font-family: "Fira Sans", sans-serif;
+    font-family: "Rethink Sans", sans-serif;
 
     /* font-family: 'Inconsolata', monospace; */
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
@@ -114,12 +208,14 @@ main {
     width: 100%;
     height: 100vh;
 }
+
 header { 
     display: flex;
     flex: 0 1 auto;
     border-right: 1px solid var(--nav-border);
     overflow: none;
 }
+
 .right {
     display: flex;
     flex: 1 1 70%;
@@ -133,39 +229,32 @@ header {
 }
 
 
-/*
-THEME COLORS
-*/
-#theme-toggle {
-    cursor: pointer;
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color);
+    transition: all 0.5s ease;
+
 }
 
-:root {
-    --color-primary: #17ed90;
-    --color-secondary: #2a2c2d;
-    --color-accent: #12cdea;
-    --background-color: #f8Fbf8;
-    --font-color: #888886;
-    --nav-border: #c1c1c1;
+a:hover {
+    color: #EFB37D;
 }
 
-html[data-theme='light'] {
-  --color-primary: #0060df;
-  --color-secondary: #fbfbfe;
-  --color-accent: #fd6f53;
-  --background-color: #f8Fbf8;
-  --font-color: #888886;
-  --nav-border: #c1c1c1;
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #EFB37D;
+    transition: width .5s ease;
 }
 
-html[data-theme='dark'] {
-  --color-primary: #17ed90;
-  --color-secondary: #2a2c2d;
-  --color-accent: #12cdea;
-  --background-color:  rgba(0,0,0,.9);
-  --font-color: #ffffff;
-  --nav-border: rgba(39, 39, 39, 0.75);
+a:hover::after {
+    width: 33%;
 }
+
 
 /*
 ================
@@ -190,25 +279,29 @@ Responsive header
     justify-content: center;
     flex: 1 0 auto;
     gap: 2rem;
+    flex-basis: auto;
 }
 
 .nav-items a {
+    align-self: flex-start;
     font-size: 1.25rem;
     font-weight: 200;
     text-decoration: none;
+    transition: all .5s ease;
 }
 
-.nav-item:hover {
-    /* Filter is handling color change in nav */
-    /* color: #EFB37D; */
-    text-decoration: underline;
-    filter: brightness(0) saturate(100%) invert(99%) sepia(48%) saturate(6147%) hue-rotate(303deg) brightness(101%) contrast(87%);
+.nav-item a::after {
+    display: block;
 }
+
 
 .active {
     /* Filter is handling color change in nav */
     filter: brightness(0) saturate(100%) invert(99%) sepia(48%) saturate(6147%) hue-rotate(303deg) brightness(101%) contrast(87%);
-    text-decoration: none;
+}
+
+.active::before {
+    content: '•';
 }
 
 .nav-right {
@@ -291,6 +384,10 @@ Responsive header
         align-items: center;
     }
 
+    .active::before {
+        content: '';
+    }
+
     .footer-container {
         flex: 1 1 auto;
         align-items: center;
@@ -365,16 +462,17 @@ Responsive header
 }
 
 .hero-top {
-    height: 100dvh;
-    /* Testing removal height: -webkit-fill-available; */
+    padding-top: 25vh;
+    /* height: 100dvh;
+    /* Testing removal height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
 }
 
 @media screen and (max-width: 1000px) {
     .hero {
-        margin: 0;
+        margin: 0 3rem;
     }
 
     .scrolling-container {
@@ -383,14 +481,14 @@ Responsive header
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 300;
     line-height: 100%;
     margin-bottom: 0;
 }
 
 .hero h2 {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 200;
     line-height: 150%;
 }
@@ -399,7 +497,7 @@ Responsive header
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 25vh;
 }
 
 .testing-font {
@@ -898,13 +996,7 @@ Responsive header
 }
 
 
-a { 
-    color: var(--font-color);
-    font-weight: 400;
-}
-a:hover {
-    color: #EFB37D;
-}
+
 
 /* Footer */
 .footer-container {
@@ -920,19 +1012,7 @@ a:hover {
 }
 
 
-footer a {
-    color: var(--font-color);
-    transition: 250ms ease-in-out;
-    box-shadow: inset 0px -4px 0 #EFB37D;
-    text-decoration: none;
-}
 
-footer a:hover {
-    box-shadow: inset 0px -20px 0 #EFB37D;
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-}
 
 * {
     transition: background-color 0.5s ease;
