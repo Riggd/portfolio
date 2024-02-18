@@ -7,6 +7,7 @@ templateEngineOverride: njk,md
 
 # the process.
 <!-- Removed from section below: style="display:flex; justify-content:center" -->
+
 <section>
 
 ![Derek's Double Diamond](/assets/diamond.png)
@@ -14,7 +15,7 @@ templateEngineOverride: njk,md
 </section>
 <section>
 
-## I believe that collaboration drives the best product decisions.
+### I believe that collaboration drives the best product decisions.
 
 I take an **hypothesis-first** approach to product design. 
 
@@ -24,7 +25,7 @@ Design is after all, only as good as the value it can drive for the business & u
 </section>
 <section>
 
-## So how do you do it?
+### So how do you do it?
 
 I work together with product and engineering through out the entire product development lifecycle to ensure companies are building the best solution to any problem they are having. Defining constraints early, testing often, and sharing knowledge are key steps to my workflow. 
 

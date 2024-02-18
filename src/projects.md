@@ -6,7 +6,7 @@ templateEngineOverride: njk,md
 
 <div id="projects" name="projects" class="projects-container">
 
-# the work.
+A few of my past works & projects. If you would like to discuss further please <a href="mailto:derek.onay@gmail.com"> get in touch</a>.
 
     <div class="projects-grid">
         {%- for project in collections.projects -%}

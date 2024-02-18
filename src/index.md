@@ -19,16 +19,16 @@ templateEngineOverride: njk,md
 <div class="hero-top fade-in">
 
 # Hi internet, I'm Derek.
-## A product designer who obsesses over design systems, web accessibility, and adidas sneakers. Let's chat!
+## A product designer who obsesses over design systems, web accessibility, and adidas sneakers.
 
 <div class="choose-adventure">
     <a href="/projects" class="button">see the work</a>
     <a href="/process" class="button-inverse">learn the process</a>
-    <a href="mailto:derekonay@gmail.com" class="button-inverse">contact me</a>
-    <div class="btn">
-            <div class="pulse"></div>
-        Text
-    </div>
+    <a href="mailto:derek.onay@gmail.com" class="button-inverse">
+        <!-- <div class="pulse"></div> -->
+        get in touch
+    </a>
+    
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
 </div>
 </div>
@@ -48,5 +48,13 @@ templateEngineOverride: njk,md
 </div>
 </div>
 
-
+<!-- Add as featured project
+<div class="parent">
+    <div class="div1">test</div>
+    <div class="div2"> test</div>
+    <div class="div3">test </div>
+    <div class="div4"> test</div>
+    <div class="div5"> test</div>
+</div>
+ -->
 
