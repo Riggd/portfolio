@@ -4,20 +4,15 @@
     {% include "head.njk" %}
 </head>
 <body>
-    <main>
-        <div id="left-nav">
+    <aside>
         {% include "left.njk" %}
-        </div>
-        <div class="right">
-            <div class="scrolling-container">
-                <div id="top-nav">
-                    {% include "top-nav.njk" %}
-                </div>
-                {{ content | safe }}
-                <div id="footer-small">
-                    {% include "footer.njk" %}
-                </div>
-            </div>
+    </aside>
+    <main>
+        {% include "top-nav.njk" %}
+            
+        {{ content | safe }}
+        <div id="footer-small">
+            {% include "footer.njk" %}
         </div>
     </main>
 
