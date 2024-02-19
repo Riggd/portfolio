@@ -117,6 +117,23 @@ Featured Grid
 .div4 { grid-area: 3 / 3 / 4 / 6; }
 .div5 { grid-area: 4 / 3 / 5 / 6; }
 
+
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}
+
+.medium-zoom--opened {
+    height: 200vh;
+  }
+  
+.medium-zoom--opened .hero {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+.testing {
+    width: 100%;
+}
 /* 
 =================
 DEFAULT/OVERRIDES
@@ -494,12 +511,11 @@ Responsive header
 }
 
 .hero-top {
-    padding-top: 25vh;
-    /* height: 100dvh;
-    /* Testing removal height: -webkit-fill-available;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; */
+    justify-content: center;
+    gap: 1rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -529,7 +545,6 @@ Responsive header
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 25vh;
 }
 
 .testing-font {

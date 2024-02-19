@@ -95,6 +95,7 @@ The decision to split Web components from product specific was to allow for cust
 <section>
 
 ## Samples
+<!-- Add {data-zoomable} to end of all mkdown image blocks, or abstract it to global for all images to have it appended -->
 ![MOAB Design System Button](/assets/projects/moab/button-spec.svg)
 *Button components*
 

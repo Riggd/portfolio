@@ -10,6 +10,10 @@ module.exports = function (eleventyConfig) {
         return `${new Date().getFullYear()}`;
     });
     
+    eleventyConfig.addPassthroughCopy({
+        "./node_modules/medium-zoom/dist/medium-zoom.min.js": "/js/medium-zoom.min.js"
+    });
+
     const markdownIt = require('markdown-it');
     const markdownItAttrs = require('markdown-it-attrs');
 
