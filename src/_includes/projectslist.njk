@@ -1,7 +1,6 @@
 <div id="projects" name="projects" class="projects-container">
 
 ## Featured work.
-
     <div class="projects-grid">
         {%- for project in collections.projects -%}
             <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
@@ -11,7 +10,6 @@
                     </div>
                     <h2>{{ project.data.title }}</h2>
                 </div>
-                <p>{{project.data.description}}</p>
             </div>
         {%- endfor -%}
     </div>

@@ -1,6 +1,7 @@
 ---
 title: Wellkind
-description: "The Wellkind app empowers patients by helping them navigate the uncertainty of their treatment and supports better outcomes by providing the information and motivation needed to drive sustained behavior change."
+description: "Designing a mobile app to improve nurse & patient relationships 25,000 people"
+# The Wellkind app empowers patients by helping them navigate the uncertainty of their treatment and supports better outcomes by providing the information and motivation needed to drive sustained behavior change.
 responsibilities:
     - Mobile App Design
     - Dev Support
@@ -30,21 +31,27 @@ issues:
 
 
 ## Problem
-VMS Biomarketing wanted to supplement their nurse-to-patient engagement process with a modern mobile solution to reduce nurses time spent on phone for simple issues the patient was facing. Nurses were receiving a high volume of questions regarding dosage and product usage questions that were taking time away from questions that required more attention and care.
 
-VMS mentioned in the brief that the hardest problem they need to solve is the patients beginning their treatment, with roughly 60% of patients delaying start or abandoning treatment altogether.
+- Roughly 60% of patients delaying start or abandon treatment altogether
+
+- Nurses receive many phone calls for questions related to dosage and appointments, leaving less time for patients needing additional help an care
+
+- Nursing staff is expensive and difficult to hire to support growing products & patient counts
+
+
 </section>
 <section>
 
+> "Today’s patients are looking for a centralized place to access support to manage their chronic disease therapy, coordination between all the support services that are provided by pharma companies and easy-to-navigate self-serve tools that are personalized to them,” said Mike Young, Chief Technology Officer at VMS BioMarketing."
+
 ## Goal
-VMS wanted to design a mobile experience to change the way people experience the drug and wellness industry by connecting patients and companies in a meaningful way. They wanted to inspire and motivate people to invest in their personal wellness by starting and continuing treatment.
-
 VMS wanted the product to:
-- Educate patients about their disease or illness so they want to continue treatment
 
-- Teach patients about their treatment plan so they understand the risks and benefits
+- Educate patients about their condition or illness
 
-- Create long-term relationships with patients to engage them on their wellness journeys
+- Teach patients about their treatment plan, so they're aware of benefits
+
+- Create long-term relationships with patients to engage them on their wellness journey
 
 - Help scale the current system of nurse-only support, freeing nurses to have more meaningful patient interactions
 </section>

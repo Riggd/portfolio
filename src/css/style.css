@@ -383,7 +383,7 @@ aside {
 
 /* TODO: Move all media queries to end of file */
 @media screen and (max-width: 800px) {
-    aside, aside footer {
+    aside, aside footer, aside #theme-toggle {
         display: none;
     }
     #top-nav, #footer-small {
@@ -497,7 +497,7 @@ aside {
 }
 
 .hero-top {
-    height: 90vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -863,6 +863,7 @@ aside {
 .projects-grid {
     display: flex;
     flex-direction: column;
+    gap:1rem;
     justify-content: flex-start;
     align-items: stretch;
 }
@@ -874,17 +875,17 @@ aside {
 }
 
 .project-card {
-    /* flex-basis: 48%; */
-    margin: 8px;
-    padding: 1.5rem;
     overflow: hidden;
-
     background: rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.7px);
     -webkit-backdrop-filter: blur(10.7px);
 
+}
+
+.project-card img {
+    width:100%;
 }
 
 .project-card p {

@@ -1,6 +1,6 @@
 ---
 title: eFuse Twitch Extension
-description: "An extension of the core eRena product to provide a better eSports fan experience, by bringing the content directly to the streams people are watching."
+description: "Improving eSports tournament fan engagement by 5% through Twitch"
 problem: ""
 client: eFuse
 image: eFuse.png

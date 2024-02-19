@@ -1,6 +1,6 @@
 ---
 title: Barometer
-description: "AI-powered podcast insights to optimize digital audio advertising spend. Barometer helps brands and publishers improve the ROI on their marketing and advertisement budgets."
+description: "AI-powered podcast insights to optimize digital audio advertising spend"
 client: Barometer
 responsibilities:
     - Web Application Design
