@@ -4,19 +4,20 @@ layout: "base.njk"
 templateEngineOverride: njk,md
 ---
 
-<div id="projects" name="projects" class="projects-container">
+<div id="projects" name="projects" class="projects-container fade-in">
 
 A few of my past works & projects. If you would like to discuss further please <a href="mailto:derek.onay@gmail.com"> get in touch</a>.
     <div class="projects-grid">
         {%- for project in collections.projects -%}
             <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
+                <img src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
                 <div class="project-content">
                     <div class="project-image">
                         <img src="/assets/logos/{{ project.data.logo }}" alt="{{ project.data.title }} app icon">
                     </div>
                     <h2>{{ project.data.description }}</h2>
                 </div>
-                <img src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
+                
             </div>
         {%- endfor -%}
     </div>

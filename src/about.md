@@ -3,6 +3,8 @@ title: My Process
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
+
+<div class="fade-in">
 <img src="/assets/profile-thumb.png" alt="Personal Photo Small">
 
 
@@ -20,3 +22,4 @@ templateEngineOverride: njk,md
 
 ### I spend my time outside of work riding my bike and playing Fußball (the one with your feet). Auf gehts Schalke!
 
+</div>
