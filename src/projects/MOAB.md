@@ -10,9 +10,9 @@ responsibilities:
     - System Education & Governance
     - Component Creation & Maintenance 
 roles: 
-    - Sr. Product Designer
+    - Product Design
 team:
-    - Ryan Perdue, Design System Lead
+    - Ryan Perdue
 duration: May 2023 - September 2023
 wins: 
     - Established governance & maintenance process

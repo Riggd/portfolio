@@ -2,6 +2,8 @@
 layout: base.njk
 section: project
 ---
+{% set previousPost = collections.projects | getPreviousCollectionItem %}
+{% set nextPost = collections.projects | getNextCollectionItem %}
 
 <div class="project-pageheader">
     <a href="/projects">← back to the work.</a>
@@ -56,4 +58,20 @@ section: project
 <div class="project-details">
 {{ layoutContent | safe }}
 </div>
-
+<hr style="width:75%">
+<div class="project-footer">
+    {% if previousPost %}
+    <a class="prev-next" href="{{ previousPost.url }}">
+        <span class="label">&#8592; Previous</span>
+        <span class="project-name">{{ previousPost.data.title }}</span>
+    </a>
+    {% endif %}
+    {% if nextPost %}
+    <a class="prev-next" href="{{ nextPost.url }}">
+        <span class="label">Next &#8594;</span>
+        <span class="project-name">{{ nextPost.data.title }}</span>
+    </a>
+    {% else %}
+    <span> </span>
+    {% endif %}
+</div>

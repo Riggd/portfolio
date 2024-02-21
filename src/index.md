@@ -3,30 +3,17 @@ title: Derek Onay's Portfolio
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
-<div class="hero">
-    <!-- <img src="/assets/personal-photo.jpg"  alt="Personal Photo" width="350"> -->
-    <!-- <svg height="0" width="0">
-        <defs>
-            <clipPath id="svgPath">
-                <path fill="#FFFFFF" stroke="#000000" stroke-width="1.5794" stroke-miterlimit="10" d="M215,100.3c97.8-32.6,90.5-71.9,336-77.6
-    c92.4-2.1,98.1,81.6,121.8,116.4c101.7,149.9,53.5,155.9,14.7,178c-96.4,54.9,5.4,269-257,115.1c-57-33.5-203,46.3-263.7,20.1
-    c-33.5-14.5-132.5-45.5-95-111.1C125.9,246.6,98.6,139.1,215,100.3z"></path>
-            </clipPath>
-        </defs>
-    </svg> -->
 
 <!-- Portfolios should highlight challenges you faced, how you collaborated with others, what you learned, and the personal/business/end-user impact of your work. -->
 <div class="hero-top fade-in">
 
 # Hi internet, I'm Derek.
-## A product designer who obsesses over design systems, web accessibility, and adidas sneakers.
+## Product designer who obsesses over design systems, web accessibility, and adidas sneakers. With experience in startups and enterprises, I help teams uncover and drive impact for their products.
 
 <div class="choose-adventure">
-    <a href="/projects" class="button">see the work</a>
-    <a href="/process" class="button-inverse">learn the process</a>
-    <a href="mailto:derek.onay@gmail.com" class="button-inverse">
+    <a href="mailto:derek.onay@gmail.com" class="button">
         <!-- <div class="pulse"></div> -->
-        get in touch
+        &#9996; Say hi!
     </a>
     
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
@@ -38,22 +25,25 @@ templateEngineOverride: njk,md
 </span> -->
 
 <!-- Add as featured project -->
-
-### featured.
-<div class="parent">
-    <div class="div1">App image</div>
-    <div class="div2"> 
-        Wellkind by VMS Biomarketing
-        </br>
-        Dec 2022
+<div id="featured-project">
+    <div class="header">
+        <h3>featured.</h3>
+        <a href="/projects" class="button-inverse">view more</a>
     </div>
-    <div class="div3">Logo </div>
-    <div class="div4"> test</div>
-    <div class="div5"> test</div>
+    <div class="parent">
+        <div class="div1">App image</div>
+        <div class="div2"> 
+            Wellkind by VMS Biomarketing
+            </br>
+            Dec 2022
+        </div>
+        <div class="div3">Logo </div>
+        <div class="div4"> test</div>
+        <div class="div5"> test</div>
+    </div>
 </div>
 
 
-### where I've been.
 <div id="hp-bottom" class="fade-in">
 {% include "resume.njk" %}
 </div>

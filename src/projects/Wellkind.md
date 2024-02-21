@@ -13,10 +13,10 @@ client-url: https://innovatemap.com/how-we-helped-a-biopharma-company-build-a-b2
 roles: 
 - Product Design Lead
 team: 
-    - Spencer Abrams, Product Manager
-    - Parker McCullough, Brand Design
-    - Kaylee Green, Brand Design
-    - Yharlei Chamboneth, Motion Design
+    - Spencer Abrams
+    - Parker McCullough
+    - Kaylee Green
+    - Yharlei Chamboneth
     - EIG, Engineering Firm
 duration: June 2022 - December 2022
 wins: 
@@ -27,8 +27,6 @@ issues:
     - We could've spent more time prioritizing which features were "must-have" for patients. Ultimately they just want the best care, the app shouldn't slow that down. 
 ---
 <section>
-
-
 
 ## Problem
 
@@ -56,7 +54,8 @@ VMS wanted the product to:
 - Help scale the current system of nurse-only support, freeing nurses to have more meaningful patient interactions
 </section>
 
-![Solution Overview](/assets/projects/wellkind/Solution-Overview.png)
+<!-- ![Solution Overview](/assets/projects/wellkind/Solution-Overview.png){data-zoomable} -->
+![Solution Overview](/assets/projects/wellkind/so.png){.wk-so data-zoomable}
 *Solution Overview of Mobile App*
 <section>
 
@@ -93,7 +92,7 @@ This included:
 </section>
 <section>
 
-![Product Screens](/assets/projects/wellkind/Product-Screens.png)
+![Product Screens](/assets/projects/wellkind/Product-Screens.png){data-zoomable}
 </section>
 <section>
 

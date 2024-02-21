@@ -100,6 +100,12 @@ Featured Grid
 =================
 */ 
 
+#featured-project .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -126,11 +132,8 @@ Featured Grid
 .medium-zoom-image--opened {
     border-radius: .5rem;
 }
-/*  
-.medium-zoom--opened .hero {
-    opacity: 0;
-    transition: opacity 300ms;
-} */
+
+
 /* 
 =================
 DEFAULT/OVERRIDES
@@ -232,13 +235,13 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1 1 70%;
-    margin: 2rem;
+    margin: 2rem 10rem;
 }
 
 header { 
     display: flex;
-    flex: 0 1 auto;
-    border-right: 1px solid var(--nav-border);
+    /* flex: 0 1 auto; */
+    /* border-right: 1px solid var(--nav-border); */
 }
 
 /* .right {
@@ -288,6 +291,7 @@ Responsive header
 */
 /* Navbar */
 .logo {
+    width: max-content;
     text-decoration: none;
 }
 
@@ -361,6 +365,7 @@ Responsive header
 
 aside {
     display: flex;
+    flex: min-content;
     position: sticky;
     position: -webkit-sticky;
     align-self: flex-start;
@@ -380,6 +385,24 @@ aside {
     fill: var(--font-color);
 }
 
+
+/* 
+===================
+TIMELINE/EXPERIENCE
+===================
+*/ 
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /* TODO: Move all media queries to end of file */
 @media screen and (max-width: 800px) {
@@ -452,6 +475,128 @@ aside {
 }
 
 
+/* 
+=======
+MARQUEE
+=======
+*/ 
+.marquee-wrapper {
+    /* Need to set small viewport widths */
+    width: 1000px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
+}
+.marquee {
+    white-space: nowrap;
+    width: 300%;
+}
+
+.marquee-content {
+    width: 300%; 
+    display: flex;
+    gap: 3rem;
+    overflow: hidden;
+}
+
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    position: relative;
+    overflow: hidden;
+}
+.marquee-item:hover {
+    cursor: pointer;
+}
+.marquee-item {
+    text-decoration: none;
+}
+
+.marquee-item img {
+  display: block;
+  height: 48px;
+}
+
+
+.center-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  font-size: small;
+  padding: 12px 14px;
+  border-radius: 24px;
+  left: 50%;
+  background-color: #fff;
+  color: #000 !important;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+
+  /* Add your desired button styles here */
+  &:hover {
+    opacity: 0.9;
+  }
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust color and opacity as needed */
+  pointer-events: none;
+}
+
+.marquee-item:hover .center-btn,
+.marquee-item:hover .overlay {
+  display: block;
+}
+
+
+/* 
+========
+PROJECTS
+========
+*/ 
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-footer .prev-next {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-basis: content;
+    padding: 2.5rem 0;
+}
+
+.project-footer a:last-child {
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.project-footer a::after{
+    display:none !important;
+}
+
+.prev-next .label {
+    color: var(--font-secondary);
+}
+
+.prev-next .project-name {
+    font-size: 1.125rem;
+}
+
+
 
 
 /* MOAB Project */
@@ -488,13 +633,13 @@ aside {
 
 /* Hero Styles */
 
-.hero {
+/* .hero {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
     justify-content: center;
     margin: 0 5rem;
-}
+} */
 
 .hero-top {
     height: 75vh;
@@ -514,14 +659,14 @@ aside {
     }
 }
 
-.hero h1 {
+.hero-top h1 {
     font-size: 2.5rem;
     font-weight: 300;
     line-height: 100%;
     margin-bottom: 0;
 }
 
-.hero h2 {
+.hero-top h2 {
     font-size: 1.125rem;
     font-weight: 200;
     line-height: 150%;
@@ -550,7 +695,6 @@ aside {
 .button:hover {
     background-color: var(--button-primary);
     color: rgba(255, 255, 255, 0.75);
-    text-decoration: underline;
     box-shadow: inset 1px 1px;
 }
 
@@ -821,6 +965,10 @@ aside {
     border-radius: .5rem;
 }
 
+.wk-so {
+    background-color: #E9DFD4;
+}
+
 .project-details blockquote p {
     margin: 2rem 0 2rem 4rem;
     color: #EFB37D;
@@ -959,10 +1107,11 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .company-list {
-    max-width: 100%;
+    /* max-width: 100%; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

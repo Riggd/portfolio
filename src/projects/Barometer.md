@@ -11,8 +11,8 @@ client-url: "https://www.thebarometer.co/landing/"
 roles: 
     - Product Design Lead
 team: 
-    - Jake Trowbridge, Product Manager
-    - Patricia Song, Design Support
+    - Jake Trowbridge
+    - Patricia Song
 duration: December 2022 - February 2023
 wins: 
     - New designs helped Barometer win partnership with Sirius XM

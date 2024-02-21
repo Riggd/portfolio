@@ -19,6 +19,41 @@
     <script src="/js/medium-zoom.min.js"></script>
     <script src="/js/main.js"></script>
     <script type="text/javascript" src="/js/themeswitcher.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        let positionLeft = 0;
+
+        const marqueeLeft = document.getElementById(
+            "marqueeLeft-content"
+        );
+
+        // Adjust this to control the speed of the animation
+        let speedLeft = 0.5;
+        // For left moving marquee
+        const updateMarqueeLeft = () => {
+            positionLeft -= speedLeft;
+            marqueeLeft.style.transform = `translateX(${positionLeft}px)`;
+            if (Math.abs(positionLeft) > marqueeLeft.offsetWidth / 2) {
+                positionLeft = 0;
+            }
+        };
+
+        let marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
+
+        marqueeLeft.addEventListener("mouseover", () => {
+            speedLeft /= 4;
+            clearInterval(marqueeLeftInterval);
+            marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
+        });
+
+        marqueeLeft.addEventListener("mouseout", () => {
+            speedLeft *= 4;
+            clearInterval(marqueeLeftInterval);
+            marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
+        });
+    });
+    </script>
 
 </body>
 </html>
