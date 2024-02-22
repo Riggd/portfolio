@@ -12,6 +12,11 @@ templateEngineOverride: njk,md
 <div style="margin: 3rem 0;">
     <a href="/assets/Resume2023.pdf" class="button" download>the resume.</a>
 </div>
+
+## Connect with me 
+<p>
+    <a href="https://linkedin.com/in/derek-onay/" target="_blank">LinkedIn</a> | <a href="https://twitter.com/derekonay/" target="_blank">Twitter</a> | <a href="https://github.com/Riggd/portfolio" target="_blank">GitHub</a>
+</p>
 </div>
 
 # Hey there! I'm Derek Onay, a product designer working remotely in Indianapolis.
@@ -21,10 +26,11 @@ Professionally, I've spent the last 9 years working as both a Product Designer a
 
 Personally, I spend my downtime riding my bike through downtown, playing and coaching Fußball (Auf gehts Schalke!), and attending concerts with my partner, Shannon. I love my adidas trainers, and try to find unique pairs which usually means purchasing from Europe. My current favorite is a nod to Wes Anderson's film, The Life Aquatic with Steve Zissou. When I'm not working I visit my family in Southern Germany, and trying my best to find the best Döner in Radolfzell am Bodensee. 
 
-## Connect with me 
-<p>
-    <a href="https://linkedin.com/in/derek-onay/" target="_blank">LinkedIn</a> | <a href="https://twitter.com/derekonay/" target="_blank">Twitter</a> | <a href="https://github.com/Riggd/portfolio" target="_blank">GitHub</a>
-</p>
+<div class="fade-in">
+{% include "resume.njk" %}
+</div>
+
+
 
 ## How it's made
 This site was probably over engineered, because I like to tinker and learn new things while I'm at it.
@@ -36,6 +42,7 @@ This portfolio:
 <!-- Insert some photoss -->
 
 <!-- https://en.wikipedia.org/wiki/Dream_Team_(TV_series) -->
+
 
 
 

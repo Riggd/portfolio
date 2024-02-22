@@ -44,9 +44,6 @@ templateEngineOverride: njk,md
 </div>
 
 
-<div id="hp-bottom" class="fade-in">
-{% include "resume.njk" %}
-</div>
 
 
 

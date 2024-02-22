@@ -6,17 +6,22 @@ section: project
 {% set nextPost = collections.projects | getNextCollectionItem %}
 
 <div class="project-pageheader">
-    <a href="/projects">← back to the work.</a>
+    <a href="/projects">← All projects</a>
     <div class="project-title">
-        <h1>{{ title }}</h1>
-        <span>{{ duration }}</span>
+        <div class="top">
+            <span>{{ title }}</span>
+            <span>{{ duration }}</span>    
+        </div>
+        <h1>{{ description }}</h1>
     </div>
 </div>
 
-<div class="project-info">  
-    <div id="{{ client }}" class="project-photo">
-        <img src="/assets/projects/{{ client }}/{{ image }}" data-zoomable/>
-    </div>
+<div id="{{ client }}" class="project-photo">
+    <img src="/assets/projects/{{ client }}/{{ image }}" data-zoomable/>
+</div>
+
+<!-- <div class="project-info">  
+
     <div class="roles-teams">
         <div id="role">
             <h3>my role.</h3>
@@ -35,12 +40,12 @@ section: project
             {% endfor %}
         </div>
     </div>
-</div>
+</div> -->
 <!--  Style and write in Hypothesis in the template files    
 <div class="hypothesis">
 <span>IF we design/change [this], then we expect [this] to be the outcome</span>
 </div> -->
-<div class="wins-issues">
+<!-- <div class="wins-issues">
     <div class="impact">
         <h2>what we achieved.</h2>
         {% for item in wins %}
@@ -53,7 +58,7 @@ section: project
         <p>{{ item }}</p>
         {% endfor %}
     </div>
-</div>
+</div> -->
 
 <div class="project-details">
 {{ layoutContent | safe }}
