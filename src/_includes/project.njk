@@ -6,7 +6,7 @@ section: project
 {% set nextPost = collections.projects | getNextCollectionItem %}
 
 <div class="project-pageheader">
-    <a href="/projects">← All projects</a>
+    <a href="/#projects">← All projects</a>
     <div class="project-title">
         <div class="top">
             <span>{{ title }}</span>
@@ -20,7 +20,7 @@ section: project
     <img src="/assets/projects/{{ client }}/{{ image }}" data-zoomable/>
 </div>
 
-<!-- <div class="project-info">  
+<div class="project-info">  
 
     <div class="roles-teams">
         <div id="role">
@@ -28,19 +28,15 @@ section: project
             {{ roles }}
         </div>
         <div id="responsibility">
-            <h3>responsibilities.</h3>
+            <h3>deliverables.</h3>
             {% for tech in responsibilities %}
             <p>{{ tech }}</p>
             {% endfor %}
         </div>
-        <div id="team">
-            <h3>team.</h3> 
-            {% for member in team %}
-            <p>{{ member }}</p>
-            {% endfor %}
-        </div>
     </div>
-</div> -->
+</div>
+
+<hr/>
 <!--  Style and write in Hypothesis in the template files    
 <div class="hypothesis">
 <span>IF we design/change [this], then we expect [this] to be the outcome</span>

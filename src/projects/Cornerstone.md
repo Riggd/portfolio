@@ -58,7 +58,7 @@ As a company focused on helping people love the home they live in, it was import
 All great products shift & grow overtime, and a design system needs to be both flexible enough to grow, while rigid enough to stand on its own. I worked alongside the Principal designer to establish a governance process that could be followed to allow the team to continue to grow Cornerstone as new features were developed.
 
 ![Workflow](/assets/projects/cornerstone/workflow.png){data-zoomable}
-*How we managed both new and existing changes that should live in the design system*
+*Cornerstone governance process*
 </section>
 <section>
 

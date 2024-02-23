@@ -3,36 +3,45 @@ title: My Process
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
-<div id="process">
-
-# the process.
-<!-- Removed from section below: style="display:flex; justify-content:center" -->
-
+<div id="process" class="fade-in">
 <section>
+<h1 style="font-size:4rem; font-weight: 600; margin-top:35vh">I help teams solve tough problems</h1>
 
-![Derek's Double Diamond](/assets/diamond.png)
-*If you squint, the double diamond also spells out DO. Coincidence, I think not 👀*
+## Questions that lead to collaboration, hypotheses, and measurable outcomes.
 </section>
 <section>
 
-### I believe that collaboration drives the best product decisions.
+#### 1. Why are we building?
 
-I take an **hypothesis-first** approach to product design. 
+- Analyze existing data (analytics, user feedback) to pinpoint the core problem
 
-In order to ensure you are driving value through your work, I believe you should craft a hypothesis of what metrics/value you believe you will be able to drive to the business through my design work. This usually start by engaging with analytics or existing user pain points, if this is a new idea any amount of generative research will uncover what we should attack first. Once we've uncovered the problem, I'll craft a hypothesis and circle back with my product counter-parts to ensure we are seeing the same problem, and working towards the same hypothesis. This requires resilience and tough conversations. 
+- I lead workshops & ideation sessions to uncover the "real" problems
 
-Design is after all, only as good as the value it can drive for the business & users.
+- Formulate a clear hypothesis stating the expected impact of any change
 </section>
 <section>
 
-### So how do you do it?
+#### 2. What are we building?
 
-I work together with product and engineering through out the entire product development lifecycle to ensure companies are building the best solution to any problem they are having. Defining constraints early, testing often, and sharing knowledge are key steps to my workflow. 
+- I start broad, ideating on potential solutions aligning with engineering and product teams to understand technical and business constraints
 
-When time allows, I'm a firm believer in beginning with generative research to further uncover exactly what users may be experiencing, not just what they say. While generative research can be helpful, sometimes you want to move fast and that means finding other ways to test solutions. My job as a product designer is not to slow things down, but rather ensure a solution will meet the needs of a user while supporting business objectives and KPIs. The first idea is rarely the best solution; however, iterating and testing along the way ensures that we are working towards solutions that users will love!
+- Every first idea needs refinement, we iterate together to ensure 
 
-If this methodology sounds compelling to you, let's build something together!
-<br /><br />
-<a href="mailto:derekonay@gmail.com" class="button">contact me</a>
+- Validate design solutions. I will help you find the right amount of validation to seek, regardless of time constraints
+</section>
+<section>
+
+#### 3. How are we building & measuring success?
+
+- I'm an engineers best-friend, my background in engineering allows me to collaborate seamlessly with teams to build design with an impact
+
+- We measure the impact of the final design against the initial hypothesis
+
+- Iterate and improve based on user feedback and business metrics
+</section>
+<section>
+
+#### If this approach resonates with you, let's build together!.
+<a href="mailto:derekonay@gmail.com" class="button">send me an email &#8599;</a>
 </section>
 </div>

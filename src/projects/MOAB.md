@@ -1,7 +1,7 @@
 ---
 # eleventyExcludeFromCollections: true
-title: MOAB Design System
-description: "eFuse design system introduced to help product design and engineering teams build product features more quickly and consistently"
+title: eFuse Design System
+description: "Speeding up engineering by bringing 4 products under 1 roof"
 problem: ""
 client: MOAB
 image: moab.png
@@ -26,16 +26,26 @@ issues:
 ---
 <section>
 
-## What I did
-I most recently worked with eFuse, an eSports startup with a mission to change lives through gaming. My role was to help drive  Design System adoption, education, and governance, as well as design new features to support the eRena tournament platform. 
+### eFuse, an eSports startup with a mission to change lives through gaming, had an existing design system, but lacked process and adoption to continue making an impact to development cost and design speed for its products and users. 
 
-My role on this project had me working closely with another product designer, and engineers to transition from a Figma component library to a robust system maintained in code to save time and resources for eFuse.
+### Fragmented & expensive, our design system needed to solve some core issues
+- Engineering teams were rebuilding components for new features
 
+- Updates to the existing system were scattered across slack, clickup, and word of mouth
+
+- cross-product customers were provided visual experiences that didn't align with eFuse brand
+</section>
+
+
+<section>
 The design system team was cross-functional design-led effort. All team members were responsible for product delivery in addition to work on the MOAB design system. Our biggest organization problem was design system governance, and building out designed components in our codebase.
+
+My role on this project was to collaborate with the design system lead, and engineers to transition from a Figma component library to a robust system maintained in code to save time and resources for eFuse. My focus was primarily on driving developer adoption, education, and governance across the 4 products they delivered to gamers and tournament operators. 
+
 </section>
 <section>
 
-## eFuse products:
+### eFuse product ecosystem
 - eRena, tournament platform
 
 - esports.gg, gaming news platform
@@ -67,9 +77,7 @@ The decision to split Web components from product specific was to allow for cust
 </section>
 <section>
 
-<h2>MOAB Design System Governance</h2>
-<div class="moab-governance">
-<div>
+## MOAB Design System Governance
 
 ### Changed the design review process 
 - Increased length, but lowered cadence to allow the team to dive deep into projects to ensure consistency across the four products
@@ -77,8 +85,6 @@ The decision to split Web components from product specific was to allow for cust
 - Opened up dedicated time to explore and test new or updated components
 
 - Used additional time to educate & provide documentation to designers to aid in pushing adoption within their squads  
-</div>
-<div>
 
 ### Design System Updates
 - Built intake form for requests to add to design system backlog
@@ -88,14 +94,33 @@ The decision to split Web components from product specific was to allow for cust
 - Worked with Marketing & Social teams to establish voice & tone guidelines
 
 - Build out process to allow any designer to understand whether or not a new component needs to live in the system or be a part of the product-specific library
-</div>
-</div>
+
 </section>
 
 <section>
 
+### Component Samples
+<div class="image-grid">
+    <div class="column">
+        <img src="/assets/projects/moab/button-spec.svg" data-zoomable />
+        <img src="/assets/projects/moab/anatomy.svg" data-zoomable />
+        <img src="/assets/projects/moab/button-layout.svg" data-zoomable />
+    </div>
+    <div class="column">
+        <img src="/assets/projects/moab/cards.svg" data-zoomable />
+        <img src="https://placehold.co/600x400" data-zoomable />        
+    </div>
+    <div class="column">
+        <img src="https://placehold.co/600x400" data-zoomable />
+        <img src="https://placehold.co/600x400" data-zoomable />
+    </div>
+</div>
+</section>
+<!-- 
+<section>
+
 ## Samples
-<!-- Add {data-zoomable} to end of all mkdown image blocks, or abstract it to global for all images to have it appended -->
+<!-- Add {data-zoomable} to end of all mkdown image blocks, or abstract it to global for all images to have it appended 
 ![MOAB Design System Button](/assets/projects/moab/button-spec.svg)
 *Button components*
 
@@ -107,4 +132,4 @@ The decision to split Web components from product specific was to allow for cust
 
 <!-- 
 ![MOAB Design System Cards](/assets/projects/moab/cards.svg)
-*Card components* -->
+*Card components* --> 

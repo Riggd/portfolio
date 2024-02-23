@@ -6,8 +6,9 @@ templateEngineOverride: njk,md
 
 <div id="projects" name="projects" class="projects-container fade-in">
 
-# Work Samples
-A few of my past works & projects. If you would like to discuss further please <a href="mailto:derek.onay@gmail.com"> get in touch</a>.
+<h1 style="font-size:4rem; font-weight:600; margin-top:35vh">Selected projects</h1>
+<span style="color: var(--font-secondary);">Want to learn more about my approach to design? <a href="/process">see my process &#8599;</span>
+<section>
     <div class="projects-grid">
         {%- for project in collections.projects -%}
             <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
@@ -22,6 +23,7 @@ A few of my past works & projects. If you would like to discuss further please <
             </div>
         {%- endfor -%}
     </div>
-</div>
+</section>
 
 {% include "companieslist.njk" %}
+</div>
