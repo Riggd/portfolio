@@ -3,8 +3,10 @@ title: Cornerstone Design System
 description: "From 40 buttons to 1, a story in efficiency and consistency"
 client: Angie's List 
 responsibilities:
-    - Web Application Design
-    - Product Strategy
+    - Governance documentation
+    - Component design
+    - Engineering handoff
+    - Design system education
 image: 40to1.png
 logo: AL.png
 client-url: ""

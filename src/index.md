@@ -10,10 +10,9 @@ templateEngineOverride: njk,md
 # Hi internet, I'm Derek. 
 ## Product designer focused on building accessible software, design systems, and mobile apps. Oh yeah, and I love a good pair of adidas sneaker.
 <div class="choose-adventure">
-    <a href="mailto:derek.onay@gmail.com" class="button">
-        <!-- <div class="pulse"></div> &#9996; - Peace Sign -->
-        Say hi! &#8599;
-    </a>
+    <a href="mailto:derek.onay@gmail.com">Email &#8599;</a>
+    <a target="_blank" href="/assets/Resume2023.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
+    <a target="_blank" href="https://www.linkedin.com/in/derek-onay/">LinkedIn &#8599;</a>
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
 </div>
 </div>
@@ -22,10 +21,10 @@ templateEngineOverride: njk,md
 <div id="projects" name="projects" class="project-container fade-in">
 
 <h2>Selected projects</h2>
-<span style="color: var(--font-secondary);">Want to learn more about my approach to design? <a href="/process">see my process &#8599;</a></span>
+<span style="color: var(--font-secondary);">Want to learn more about my approach to design? <a href="/process">Read about my process</a></span>
 <section>
     <div class="projects-grid">
-        {%- for project in collections.projects -%}
+        {%- for project in collections.projects | reverse -%}
             <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
                 <div class="image-wrap">
                     <img id="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />

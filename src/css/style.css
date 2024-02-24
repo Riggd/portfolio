@@ -18,6 +18,7 @@ THEMING
 
 :root {
     --button-primary: #EFB37D;
+    --button-secondary: #2a2c2d;
     --color-secondary: #2a2c2d;
     --color-accent: #12cdea;
     --background-color: #f3f3f3;
@@ -32,6 +33,7 @@ THEMING
 
 html[data-theme='light'] {
     --button-primary: #EFB37D;
+    --button-secondary: #2a2c2d;
     --color-secondary: #fbfbfe;
     --color-accent: #fd6f53;
     --background-color: #f3f3f3;
@@ -45,6 +47,7 @@ html[data-theme='light'] {
 
 html[data-theme='dark'] {
     --button-primary: #072E42;
+    --button-secondary: #fff;
     --color-secondary: #2a2c2d;
     --color-accent: #12cdea;
     --background-color:  rgba(0,0,0,.9);
@@ -401,7 +404,7 @@ TIMELINE/EXPERIENCE
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: .5rem;
 }
 
 .timeline-item {
@@ -410,12 +413,17 @@ TIMELINE/EXPERIENCE
     justify-content: space-between;
 }
 
+.timeline-item .work {
+    display: flex;
+    gap: .25rem;
+}
+
 .timeline-item .work .company {
     color: var(--font-secondary);
 }
 
 .timeline-item .work .title {
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 
@@ -670,9 +678,9 @@ IMAGE GRID
 
 .button-inverse {
     padding: 6px 16px;
-    color: var(--button-primary);
+    color: var(--button-secondary);
     border-radius: 8px;
-    border: 1px solid var(--button-primary);
+    border: 1px solid var(--button-secondary);
     text-decoration: none;
 }
 
@@ -1084,6 +1092,30 @@ IMAGE GRID
     flex: 0 0 auto;
     cursor: pointer;
 }
+
+/* 
+=====
+ABOUT
+=====
+*/
+
+.about-top {
+    margin-top: 25vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-top .right {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 /* 
 @media screen and (min-width: 1024px) {
     .company-list img {
@@ -1156,6 +1188,7 @@ IMAGE GRID
     margin: 0;
     font-size: .875rem;
     font-weight: 400;
+    width: max-content
 }
 
 /* TODO: Move all media queries to end of file */
@@ -1313,14 +1346,20 @@ IMAGE GRID
 }
 
 @media screen and (max-width: 500px) {
-main {
+    main {
         width: 100%;
         margin: 2rem 1rem;
     }
 
     .project-title .top{
         flex-direction: column;
-        gap:1rem;
+        gap: 1rem;
+    }
+
+    .timeline-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 

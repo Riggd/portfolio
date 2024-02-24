@@ -42,6 +42,6 @@ templateEngineOverride: njk,md
 <section>
 
 #### If this approach resonates with you, let's build together!.
-<a href="mailto:derekonay@gmail.com" class="button">send me an email &#8599;</a>
+<a href="mailto:derekonay@gmail.com">Contact me &#8599;</a>
 </section>
 </div>
