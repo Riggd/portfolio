@@ -8,7 +8,7 @@ templateEngineOverride: njk,md
 <div class="hero-top fade-in">
 
 # Hi internet, I'm Derek. 
-## Product designer focused on building accessible software, design systems, and mobile apps. Oh yeah, and I love a good pair of adidas sneaker.
+## Product designer focused on building accessible software, design systems, and mobile apps. Oh yeah, and I love a good pair of adidas sneakers.
 <div class="choose-adventure">
     <a href="mailto:derek.onay@gmail.com">Email &#8599;</a>
     <a target="_blank" href="/assets/Resume-2024.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
