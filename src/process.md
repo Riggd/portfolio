@@ -13,31 +13,31 @@ templateEngineOverride: njk,md
 
 ### 1. Why are we building?
 
-- Analyze existing data (analytics, user feedback) to pinpoint the core problem
+- I analyze existing data (analytics, user feedback) to uncover core user issues.
 
-- I lead workshops & ideation sessions to uncover the "real" problems
+- I lead workshops & ideation sessions to uncover "real" problems.
 
-- Formulate a clear hypothesis stating the expected impact of any change
+- I formulate clear hypotheses stating the expected impact of any changes.
 </section>
 <section>
 
 ### 2. What are we building?
 
-- I start broad, ideating on potential solutions aligning with engineering and product teams to understand technical and business constraints
+- I start broad, ideating on potential solutions aligning with engineering and product teams to understand technical and business constraints.
 
-- Let's be honest. The first idea is rarely the correct one, we'll iterate together to ensure we are spending time on the **correct** solution
+- Let's be honest with ourselves, the first idea is rarely the correct one. We'll iterate together to ensure we are spending time on the **right** solution.
 
-- Validate design solutions. I will help you find the right amount of validation to seek, regardless of time constraints
+- I validate design decisions. I will help you understand how much and what research methods we can use, regardless of time constraints.
 </section>
 <section>
 
 ### 3. How are we building & measuring success?
 
-- I'm an engineers best-friend, my background in engineering allows me to collaborate seamlessly with teams to build design with an impact
+- I'm an engineer's best friend; my background in engineering allows me to collaborate seamlessly with teams to build impactful products.
 
-- We measure the impact of the final design against the initial hypothesis
+- We'll measure the impact of the final design against the initial hypothesis, and learn from our mistakes.
 
-- Iterate and improve based on user feedback and business metrics
+- We'll iterate and improve based on user feedback and business metrics.
 </section>
 <section>
 
