@@ -1,7 +1,7 @@
 ---
 title: Cornerstone Design System
 description: "From 40 buttons to 1, a story in efficiency and consistency"
-client: Angie's List 
+client: Angie'sList 
 responsibilities:
     - Governance documentation
     - Component design
