@@ -41,7 +41,7 @@ templateEngineOverride: njk,md
 </section>
 <section>
 
-#### If this approach resonates with you, let's build together!.
+#### If this approach resonates with you, let's build together!
 <a href="mailto:derekonay@gmail.com">Contact me &#8599;</a>
 </section>
 </div>
