@@ -12,13 +12,13 @@ templateEngineOverride: njk,md
     <div>
         <b>Hey there! I'm Derek Onay, a product designer working remotely in Indianapolis.</b>
         <p>
-            I've spent the last 9 years as a product designer, and occasionally a product manager to help companies drive impact to their business. Having worked in both large organizations and small startups, I distill complex problems into simple design solutions that are accessible and engaging to use. 
+            I've spent the last 9 years as a product designer and product manager to help companies drive outcomes to their business. Having worked in both small startups and large orgs, I distill complex problems into design solutions that are clear, accessible, and engaging. 
         </p>
         <p>
-            I use my background in computer science and coaching soccer to partner with product teams to drive real outcomes together. Doing something alone is impressive, but with a team? Man, that's what makes it fun as well! 
+            My background in computer science and soccer coaching, allow me to collaborate seamlessly with product and engineering teams. Doing something alone is impressive, but with a team? Man, that's what makes it fun! 
         </p>
         <p>
-            I spend my free time playing soccer, attending concerts with my partner, and have an obsession with my adidas sneakers. My current favorite are a nod to Wes Anderson's film, The Life Aquatic with Steve Zissou. I still write some code here and there to keep me sharp, check below for what I'm using to build this site.
+            I spend my free time playing soccer, attending concerts with my partner, and obsessing over which pair of adidas sneakers I'll be buying next. My current favorite are a nod to Wes Anderson's film, The Life Aquatic with Steve Zissou. I write some code here and there to keep me sharp, check below for what I'm using to build this site.
         </p>
     </div>
 
