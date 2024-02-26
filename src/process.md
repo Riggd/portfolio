@@ -11,7 +11,7 @@ templateEngineOverride: njk,md
 </section>
 <section>
 
-#### 1. Why are we building?
+### 1. Why are we building?
 
 - Analyze existing data (analytics, user feedback) to pinpoint the core problem
 
@@ -21,17 +21,17 @@ templateEngineOverride: njk,md
 </section>
 <section>
 
-#### 2. What are we building?
+### 2. What are we building?
 
 - I start broad, ideating on potential solutions aligning with engineering and product teams to understand technical and business constraints
 
-- Every first idea needs refinement, we iterate together to ensure 
+- Let's be honest. The first idea is rarely the correct one, we'll iterate together to ensure we are spending time on the **correct** solution
 
 - Validate design solutions. I will help you find the right amount of validation to seek, regardless of time constraints
 </section>
 <section>
 
-#### 3. How are we building & measuring success?
+### 3. How are we building & measuring success?
 
 - I'm an engineers best-friend, my background in engineering allows me to collaborate seamlessly with teams to build design with an impact
 

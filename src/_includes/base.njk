@@ -8,13 +8,12 @@
         {% include "left.njk" %}
     </aside>
     <main>
-        {% include "top-nav.njk" %}
-            
         {{ content | safe }}
-        <div id="footer-small">
-            {% include "footer.njk" %}
-        </div>
+        <footer>
+            <p>© {% year %} Derek Onay</p>
+        </footer>
     </main>
+    
 
     <script src="/js/medium-zoom.min.js"></script>
     <script src="/js/main.js"></script>
@@ -22,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
+        if(location.pathname == '/') {
         let positionLeft = 0;
 
         const marqueeLeft = document.getElementById(
@@ -52,6 +52,7 @@
             clearInterval(marqueeLeftInterval);
             marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
         });
+    }
     });
     </script>
 

@@ -6,7 +6,9 @@ templateEngineOverride: njk,md
 
 <div class="fade-in">
 <div class="about-top">
-    <img src="/assets/profile-thumb.png" alt="Personal Photo Small" width=250 height=250>
+    <!-- <img src="/assets/profile-thumb.png" alt="Personal Photo Small" width=250 height=250> -->
+    <div class="headshot">&nbsp;</div>
+    <!-- <img src="/assets/headshot.jpg" alt="Personal Photo Small" width=300 style="border-radius:1rem;"> -->
     <div>
         <b>Hey there! I'm Derek Onay, a product designer working remotely in Indianapolis.</b>
         <p>

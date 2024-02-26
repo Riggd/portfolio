@@ -43,38 +43,50 @@ issues:
 </section>
 
 <section>
+<img src="/assets/projects/sophos/sophos-old.png" data-zoomable />
+
+#### Existing Tools
+### Speaking with the security analysts to understand how and where we could improve their threat hunting tasks, I uncovered the following core issues and desires:
+
+1. Limited information in tree search 
+    - no distinction on whether process was in the area of attack 
+    - no MITRE classification
+    - no impacted entities info
+2. Selected process data requires horizontal scrolling, losing context to potentially important information
+3. Event data was read-only, no ability to understand which event was the key event 
+4. Global Search provides quick ability to pivot threat hunt, and shouldn't be lost in any sort of redesign effort
+</section>
+<section>
+<img src="/assets/projects/sophos/FullGraph.png" data-zoomable />
 
 #### Impact
-## I designed a new Threat Hunting experience in the Sophos Managed Detection and Response platform which
+### I designed a new Threat Hunting experience in the Sophos Managed Detection and Response platform which:
 - reduced software needs from 3 platforms to 1 
 
 - reduced threat hunt duration by ~50% on average
 
 - provided tools for discovering and searching for additional IOCs
 
-- enabled analysts to quick pivot to MDR search tool to 
+- enabled analysts to quick pivot to MDR search tool for all key event data
+
 
 </section>
+<section>
 
-<img src="/assets/projects/sophos/ProcessTree.png" data-zoomable />
-
-<img src="/assets/projects/sophos/CmdLine.png" data-zoomable />
-
-
-
+### Additional Product Designs
 <div class="image-grid">
     <div class="column">
         <img src="/assets/projects/sophos/ProcessTree.png" data-zoomable />
-        <img src="/assets/projects/moab/anatomy.svg" data-zoomable />
-        <img src="/assets/projects/moab/button-layout.svg" data-zoomable />
+        <img src="/assets/projects/sophos/CmdLine.png" data-zoomable />
+        <img src="/assets/projects/sophos/Timeline.png" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/moab/cards.svg" data-zoomable />
-        <img src="https://placehold.co/600x400" data-zoomable />        
+        <img src="/assets/projects/sophos/processNodes.png" data-zoomable />
+        <img src="/assets/projects/sophos/search.png" data-zoomable />        
     </div>
     <div class="column">
-        <img src="https://placehold.co/600x400" data-zoomable />
-        <img src="https://placehold.co/600x400" data-zoomable />
+        <img src="/assets/projects/sophos/legend.png" data-zoomable />   
+        <img src="/assets/projects/sophos/recenter.gif" data-zoomable />
     </div>
 </div>
 </section>

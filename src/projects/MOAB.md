@@ -26,6 +26,7 @@ issues:
 ---
 <section>
 
+#### Overview
 ### eFuse, an eSports startup with a mission to change lives through gaming, had an existing design system, but lacked process and adoption to continue making an impact to development cost and design speed for its products and users. 
 
 ### Fragmented & expensive, our design system needed to solve some core issues
@@ -38,9 +39,16 @@ issues:
 
 
 <section>
-The design system team was cross-functional design-led effort. All team members were responsible for product delivery in addition to work on the MOAB design system. Our biggest organization problem was design system governance, and building out designed components in our codebase.
 
-My role on this project was to collaborate with the design system lead, and engineers to transition from a Figma component library to a robust system maintained in code to save time and resources for eFuse. My focus was primarily on driving developer adoption, education, and governance across the 4 products they delivered to gamers and tournament operators. 
+#### My Role
+### For the design system project, I collaborated with the design system lead, and engineers to transition from a Figma component library to a robust system maintained in Storybook to save time and resources for eFuse. 
+
+### My focus was
+- maintaining existing and adding new components to the system
+
+- driving developer adoption, education, and governance across
+
+- establishing a prioritization process & Kanban board for future design system needs
 
 </section>
 <section>
@@ -70,7 +78,7 @@ My role on this project was to collaborate with the design system lead, and engi
 ## Design System Structure
 The MOAB design system is structured with a core foundation library, style libraries, a Web UI library, and then product-specific component libraries.
 
-![MOAB Design System Structure](/assets/projects/moab/structure.svg)
+![MOAB Design System Structure](/assets/projects/moab/structure.svg){data-zoomable}
 *Breakdown of the design system structure*
 
 The decision to split Web components from product specific was to allow for custom implementations across different products that served different users and functions, while still providing consistency within the larger design style and visual language.
@@ -108,11 +116,10 @@ The decision to split Web components from product specific was to allow for cust
     </div>
     <div class="column">
         <img src="/assets/projects/moab/cards.svg" data-zoomable />
-        <img src="https://placehold.co/600x400" data-zoomable />        
     </div>
     <div class="column">
-        <img src="https://placehold.co/600x400" data-zoomable />
-        <img src="https://placehold.co/600x400" data-zoomable />
+        <img src="/assets/projects/moab/Application.png" data-zoomable />
+        <img src="/assets/projects/moab/Alerts.png" data-zoomable />
     </div>
 </div>
 </section>

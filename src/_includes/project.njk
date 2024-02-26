@@ -2,8 +2,8 @@
 layout: base.njk
 section: project
 ---
-{% set previousPost = collections.projects | getPreviousCollectionItem %}
-{% set nextPost = collections.projects | getNextCollectionItem %}
+{% set previousPost = collections.projects | reverse | getPreviousCollectionItem %}
+{% set nextPost = collections.projects | reverse | getNextCollectionItem %}
 
 <div class="project-pageheader">
     <a href="/#projects">← All projects</a>
@@ -21,14 +21,13 @@ section: project
 </div>
 
 <div class="project-info">  
-
     <div class="roles-teams">
         <div id="role">
-            <h3>my role.</h3>
-            {{ roles }}
+            <h4>my role.</h4>
+            <p>{{ roles }}</p>
         </div>
         <div id="responsibility">
-            <h3>deliverables.</h3>
+            <h4>deliverables.</h4>
             {% for tech in responsibilities %}
             <p>{{ tech }}</p>
             {% endfor %}
@@ -36,7 +35,6 @@ section: project
     </div>
 </div>
 
-<hr/>
 <!--  Style and write in Hypothesis in the template files    
 <div class="hypothesis">
 <span>IF we design/change [this], then we expect [this] to be the outcome</span>

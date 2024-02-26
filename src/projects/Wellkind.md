@@ -59,19 +59,18 @@ The product manager and I led an MVP workshop to identify what VMS’s product s
 ![Solution Overview](/assets/projects/wellkind/so.png){.wk-so data-zoomable}
 *Prioritizing features that will benefit patients*
 </section> -->
-![Onboarding](/assets/projects/wellkind/onboarding.gif){data-zoomable}
-*Onboarding flow showcasing design direction & introduction of brand assets*
-
 <section>
 
+![Product Screens](/assets/projects/wellkind/Product-Screens.png){data-zoomable}
+*Assortment of different product assets created during this project*
 #### Our Impact
 <!-- >Bringing Wellkind to market is another monumental step towards providing the bio-pharma industry a differentiated way to engage with patients and medication adherence. Wellkind is a patient’s one-stop shop, delivering an experience that is personalized to each patient. Mike Young, CTO -->
-## In 6 months:
+### In 6 months:
 - we delivered a mobile product from idea to app store by partnering with dev partner, EIG 
 
 - the Wellkind app was selected to be featured in the [2022 Innovation Issue for PM360](https://www.pm360online.com/pm360-2022-innovative-product-wellkind-from-vms-biomarketing/) in the product category
 
-## Since Wellkind's release:
+### Since Wellkind's release:
 - VMS BioMarketing has begun onboarding 25k patients on to the product
 
 - reduced "simple" engagement call volume by ~5-10% freeing up more time for impactful calls with patients
@@ -80,24 +79,23 @@ The product manager and I led an MVP workshop to identify what VMS’s product s
 <a class="button-inverse" href="{{ client-url }}" target="_blank">Read the full case study at Innovatemap</a>
 </section>
 
-![Product Screens](/assets/projects/wellkind/Product-Screens.png){data-zoomable}
-*Assortment of different product assets created during this project*
 <section>
 
 ### Additional process documents and deliverables
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/wellkind/PriorityMatrix.png" data-zoomable />
-        <img src="/assets/projects/wellkind/so.png" data-zoomable />
+        <img src="/assets/projects/wellkind/PriorityMatrix.png" data-zoomable class="bg-fill" />
+        <img src="/assets/projects/wellkind/so.png" data-zoomable class="bg-fill"/>
+        <img src="/assets/projects/wellkind/Progressive.gif" data-zoomable/>
+    </div>
+    <div class="column">
         <img src="/assets/projects/wellkind/blockframes.png" data-zoomable />
+        <img src="/assets/projects/wellkind/onboarding.gif" data-zoomable />
+        <img src="/assets/projects/wellkind/confidence.png" data-zoomable class="bg-fill"/>        
     </div>
     <div class="column">
-        <img src="/assets/projects/wellkind/Product-Screens.png" data-zoomable />
-        <img src="https://placehold.co/600x400" data-zoomable />        
-    </div>
-    <div class="column">
-        <img src="https://placehold.co/600x400" data-zoomable />
-        <img src="https://placehold.co/600x400" data-zoomable />
+        <img src="/assets/projects/wellkind/faq.png" data-zoomable class="bg-fill"/>   
+        <img src="/assets/projects/wellkind/Notification.png" data-zoomable class="bg-fill"/>
     </div>
 </div>
 
