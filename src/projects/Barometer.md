@@ -27,7 +27,7 @@ issues:
 <section>
 
 ## Problem
-Barometer came to our team, because they had quickly out grown their initial product design that got them from 0 to 1. The barometer team was looking for a solution to improve upon their existing product, while enhancing functionality to better serve discoverability and custom dashboard creation for podcast advertisers and brands. 
+Barometer came to our team, because they had quickly outgrown their initial product designs. After going from 0 to 1, the Barometer team was looking for a solution to improve upon their existing product, while enhancing functionality to better serve discoverability and custom dashboard creation for podcast advertisers and brands. 
 </section>
 <section>
 
@@ -44,7 +44,7 @@ Barometer came to our team, because they had quickly out grown their initial pro
 ## How we made it happen
 For this project, I did not do any formal research; however, we relied heavily on best practices in user experience and the knowledge shared from our stakeholder to provide insights as to how the existing product functioned. 
 
-By documenting the existing user flow early on, we were able to identify areas of **friction** that we would focus on first prior to any larger design changes. This documentation uncovered two key areas of focus:
+We identified areas of **friction** that we focused on initially before implementing any design changes. This documentation uncovered two key areas of focus:
 - Finding and filtering the list of podcasts was cumbersome. There was no ability for users to easily find the podcasts they wanted to evaluate for purchase.
 
 - Information in the product was very dense and overwhelming. We felt it necessary to redesign the core detail page to better support consuming individual <a href="https://www.peer39.com/blog/garm-standards" target="_blank">GARM scores</a> for a single podcast. 
