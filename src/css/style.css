@@ -575,7 +575,8 @@ PROJECTS
 }
 
 .prev-next .project-name {
-    font-size: 1.5rem;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.25rem;
 }
 
 .prev-next:hover .project-name {
@@ -615,7 +616,7 @@ IMAGE GRID
     flex: 1;
 }
 
-.principle h3 {
+.principle h4 {
     margin-bottom: .25rem;
 }
 
@@ -896,7 +897,7 @@ IMAGE GRID
 
 .project-title h1 {
     margin: 0;
-    width: 50%;
+    width: 65%;
 }
 
 .project-title .top {
@@ -918,7 +919,7 @@ IMAGE GRID
 .project-details {
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: 8rem;
 }
 
 .project-details strong {
@@ -987,7 +988,7 @@ IMAGE GRID
     display: flex;
     flex-wrap: wrap;
     column-gap: 4rem;
-    row-gap: 4rem;
+    row-gap: 6rem;
     justify-content: center;
 }
 

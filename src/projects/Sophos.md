@@ -25,10 +25,10 @@ issues:
 
 <section>
 
-#### Overview
-### Sophos, a leading cybersecurity company, contracted with our Innovatemap team to improve the speed at which security analysts can manage threats and detections for their clients.
+### Overview
+Sophos, a leading cybersecurity company, contracted with our Innovatemap team to improve the speed at which security analysts can manage threats and detections for their clients.
 
-### Analysts are under pressure to discover root cause as fast a possible. The current MDR tools experience 
+Analysts are under pressure to discover root cause as fast a possible. The current MDR tools experience 
 - requires analysts to use 3 different software solutions
 
 - do not enough provide information to determine root cause quickly
@@ -39,15 +39,15 @@ issues:
 
 <section>
 
-#### Our Hypothesis 
+### Our Hypothesis 
 ## By providing a single tool for analyzing process data, analysts will speed up their root cause analysis, and thus improve customer satisfaction. 
 </section>
 
 <section>
 <img src="/assets/projects/sophos/sophos-old.png" data-zoomable />
 
-#### Existing Tools
-### Speaking with the security analysts to understand how and where we could improve their threat hunting tasks, I uncovered the following core issues and desires:
+## Existing Tools
+Speaking with the security analysts to understand how and where we could improve their threat hunting tasks. I uncovered the following core issues and needs:
 
 1. Limited information in tree search 
     - no distinction on whether process was in the area of attack 
@@ -60,8 +60,8 @@ issues:
 <section>
 <img src="/assets/projects/sophos/FullGraph.png" data-zoomable />
 
-#### Impact
-### I designed a new Threat Hunting experience in the Sophos Managed Detection and Response platform which:
+### Impact
+I designed a new Threat Hunting experience in the Sophos Managed Detection and Response platform which:
 - reduced software needs from 3 platforms to 1 
 
 - reduced threat hunt duration by ~50% on average

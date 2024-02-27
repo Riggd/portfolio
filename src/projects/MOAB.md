@@ -26,10 +26,11 @@ issues:
 ---
 <section>
 
-#### Overview
-### eFuse, an eSports startup, had an existing design system but lacked the process and adoption necessary to make an impact on development cost and design speed for both products and users. 
+### Overview
+eFuse, an eSports startup, had an existing design system but lacked the process and adoption necessary to make an impact on development cost and design speed for both products and users. 
+<br/><br/>
 
-### Fragmented & expensive, our design system needed to solve some core issues
+#### Fragmented & expensive, our design system needed to solve some core issues
 - Engineering teams were rebuilding components for new features
 
 - Updates to the existing system were scattered across slack, clickup, and word of mouth
@@ -40,16 +41,27 @@ issues:
 
 <section>
 
-#### My Role
-### For the design system project, I collaborated with the design system lead, and engineers to transition from a Figma component library to a robust system maintained in Storybook to save time and resources for eFuse. 
+### My Role
+For the design system project, I collaborated with the design system lead, and engineers to transition from a Figma component library to a robust system maintained in Storybook to save time and resources for eFuse. 
 
-### My focus was
+My focus was
 - maintaining existing and adding new components to the system
 
 - driving developer adoption, education, and governance across
 
 - establishing a prioritization process & Kanban board for future design system needs
 
+</section>
+<section>
+
+### Core Problems
+- Design solutions aren’t aligned across products. For example, users didn’t feel they were still engaging with an eFuse product when moving from esports.gg to eRena or mynt.gg.
+
+- Styled components were implemented inconsistently in the code, and caused a diminished user experience
+
+- Design reviews were spent giving feedback on visual inconsistencies vs whether or not the proper solution was in place
+
+- Most of the MOAB design system had yet to be built into code, due to lack of resources and overarching implementation process
 </section>
 <section>
 
@@ -64,37 +76,19 @@ issues:
 </section>
 <section>
 
-## Core Problems
-- Design solutions aren’t aligned across products. For example, users didn’t feel they were still engaging with an eFuse product when moving from esports.gg to eRena or mynt.gg.
-
-- Styled components were implemented inconsistently in the code, and caused a diminished user experience
-
-- Design reviews were spent giving feedback on visual inconsistencies vs whether or not the proper solution was in place
-
-- Most of the MOAB design system had yet to be built into code, due to lack of resources and overarching implementation process
-</section>
-<section>
-
-## Design System Structure
-The MOAB design system is structured with a core foundation library, style libraries, a Web UI library, and then product-specific component libraries.
-
 ![MOAB Design System Structure](/assets/projects/moab/structure.svg){data-zoomable}
 *Breakdown of the design system structure*
+### Design System Structure
+The MOAB design system is structured with a core foundation library, style libraries, a Web UI library, and then product-specific component libraries.
 
 The decision to split Web components from product specific was to allow for custom implementations across different products that served different users and functions, while still providing consistency within the larger design style and visual language.
 </section>
+
 <section>
 
-## MOAB Design System Governance
+### MOAB Design System Governance
 
-### Changed the design review process 
-- Increased length, but lowered cadence to allow the team to dive deep into projects to ensure consistency across the four products
-
-- Opened up dedicated time to explore and test new or updated components
-
-- Used additional time to educate & provide documentation to designers to aid in pushing adoption within their squads  
-
-### Design System Updates
+#### Design System Updates
 - Built intake form for requests to add to design system backlog
 
 - Built out Kanban board to track progress of system updates
@@ -103,11 +97,18 @@ The decision to split Web components from product specific was to allow for cust
 
 - Build out process to allow any designer to understand whether or not a new component needs to live in the system or be a part of the product-specific library
 
+#### Changed the design review process 
+- Increased length, but lowered cadence to allow the team to dive deep into projects to ensure consistency across the four products
+
+- Opened up dedicated time to explore and test new or updated components
+
+- Used additional time to educate & provide documentation to designers to aid in pushing adoption within their squads  
+
 </section>
 
 <section>
 
-### Component Samples
+#### Component Samples
 <div class="image-grid">
     <div class="column">
         <img src="/assets/projects/moab/button-spec.svg" data-zoomable />
