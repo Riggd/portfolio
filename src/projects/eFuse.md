@@ -1,6 +1,6 @@
 ---
 title: eFuse Twitch Extension
-description: "Improving fan engagement by 5% using Twitch"
+description: "Improving fan engagement through Twitch extension"
 problem: ""
 client: eFuse
 image: eFuse.png
@@ -20,22 +20,22 @@ duration: May 2023 - September 2023
 ---
 <section>
 
-### eFuse's existing [eRena Leaderboard Extension](https://dashboard.twitch.tv/extensions/7n05t3351hle0tx07a4uejyjmk8aay-1.4.6) was limited in functionality, and difficult for tournament operators to get setup. 
+### eFuse's existing [eRena Leaderboard Extension](https://dashboard.twitch.tv/extensions/7n05t3351hle0tx07a4uejyjmk8aay-1.4.6) was limited in functionality, and difficult for tournament operators to get set up. 
 
 ### I delivered research and designs to capture an additional revenue stream for the business, while improving the fans overall engagement with eFuse by
 - adding support for additional bracket types
 
-- increasing engagement from fans and enthusiasts viewing events hosted by eFuse or influencers participating in events.
+- introducing event information contextually in Twitch streams
 
-- overhauling the visual design & content shown to fans
+- driving impressions to sponsors and advertisers through improved ad placement
 
-- driving impressions to sponsors and advertisers, so we can host more events
+- overhauling the visual design of the extension
 </section>
 
 <section>
 
 #### Hypothesis
-**By providing fans event and sponsor information without leaving the Twitch.com stream,  they would be more likely to engage with event and sponsored content. Additionally, prioritizing event information first, could avoid ad-blindness and thus increase the likelihood of a converter viewer -> buyer for a sponsor.**
+**By providing fans event and sponsor information without leaving the Twitch.com stream,  they would be more likely to engage with event and sponsored content. Additionally, prioritizing event information first, could avoid ad-blindness and thus increase the likelihood of a fan becoming a buyer for our sponsors.**
 </section>
 <section>
 
@@ -81,9 +81,11 @@ From all 6 interviews we learned:
 <section>
 
 ## And so, we build.
-I worked closely to define requirements directly with the engineers on the project. The primary focus here was to  Since this was a Twitch Extension, we were unable to use our existing design system. This led to a more hands-on design review process where I was reviewing development work at all defined milestones. 
+I worked closely to define requirements directly with the engineers on the project, as the Twitch documentation for extensions is limited. The primary focus here was to develop a standard for how eFuse twitch extensions should operate and look. 
 
-A decision I made early on to reduce development cost was to design a single model for every bracket type other than Point Race standings, and then provide links out to our core product which would provide fans any additional information or views they would want. This allowed for the engineers to quickly stand up the extension, without needing to build a view for all 5 event types.
+Given the technical constraints of this being a Twitch extension, we were unable to use our existing design system. This led to a more hands-on design review process where I was reviewing development work at every defined milestone for the project.
+
+A decision I made early on to reduce development cost was to design a single but flexible component that all other bracket types, other than Point Race standings, could share. Providing links out to our core product would allow fans any additional information about the event that wasn't shown on Twitch. This decision allowed for the engineers to quickly stand up the extension, without needing to build 5 custom event views.
 </section>
 <section>
 
