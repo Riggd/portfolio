@@ -249,7 +249,7 @@ img + em {
 }
 
 hr {
-    width: 75%;
+    width: 100%;
     color: var(--font-secondary);
 }
 
