@@ -19,25 +19,26 @@ templateEngineOverride: njk,md
 
 
 <div id="projects" name="projects" class="project-container fade-in">
-
-<h2>Work I'm proud to share</h2>
-<span style="color: var(--font-secondary);">Want to learn more about my approach to design? <a href="/process">Read about my process</a></span>
-<section>
-    <div class="projects-grid">
-        {%- for project in collections.projects | reverse -%}
-            <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
-                <div class="image-wrap">
-                    <img id="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
-                </div>
-                <!-- <div class="icon">
-                    <img src="/assets/logos/{{ project.data.logo }}" alt="{{ project.data.title }} app icon">    
-                </div> -->
-                <div class="title">{{ project.data.title }}</div>
-                <h2>{{ project.data.description }}</h2>
-            </div>
-        {%- endfor -%}
+    <div class="top">
+        <h2>Work I'm proud to share</h2>
+        <span style="color: var(--font-secondary);">Want to learn more about my approach to design? <a href="/process">Read about my process</a></span>
     </div>
-</section>
+    <section>
+        <div class="projects-grid">
+            {%- for project in collections.projects | reverse -%}
+                <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
+                    <div class="image-wrap">
+                        <img id="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
+                    </div>
+                    <!-- <div class="icon">
+                        <img src="/assets/logos/{{ project.data.logo }}" alt="{{ project.data.title }} app icon">    
+                    </div> -->
+                    <div class="title">{{ project.data.title }}</div>
+                    <h2>{{ project.data.description }}</h2>
+                </div>
+            {%- endfor -%}
+        </div>
+    </section>
 
 {% include "companieslist.njk" %}
 </div>

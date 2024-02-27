@@ -27,7 +27,7 @@ issues:
 <section>
 
 #### Overview
-### eFuse, an eSports startup, had an existing design system, but lacked process and adoption to continue making an impact to development cost and design speed for its products and users. 
+### eFuse, an eSports startup, had an existing design system but lacked the process and adoption necessary to make an impact on development cost and design speed for both products and users. 
 
 ### Fragmented & expensive, our design system needed to solve some core issues
 - Engineering teams were rebuilding components for new features

@@ -23,11 +23,11 @@ section: project
 <div class="project-info">  
     <div class="roles-teams">
         <div id="role">
-            <h4>my role.</h4>
+            <h4>My role</h4>
             <p>{{ roles }}</p>
         </div>
         <div id="responsibility">
-            <h4>deliverables.</h4>
+            <h4>Deliverables</h4>
             {% for tech in responsibilities %}
             <p>{{ tech }}</p>
             {% endfor %}
@@ -35,29 +35,10 @@ section: project
     </div>
 </div>
 
-<!--  Style and write in Hypothesis in the template files    
-<div class="hypothesis">
-<span>IF we design/change [this], then we expect [this] to be the outcome</span>
-</div> -->
-<!-- <div class="wins-issues">
-    <div class="impact">
-        <h2>what we achieved.</h2>
-        {% for item in wins %}
-        <p>{{ item }}</p>
-        {% endfor %}
-    </div>
-    <div class="problems">
-        <h2>what we learned.</h2>
-        {% for item in issues %}
-        <p>{{ item }}</p>
-        {% endfor %}
-    </div>
-</div> -->
-
 <div class="project-details">
 {{ layoutContent | safe }}
 </div>
-<hr style="width:75%">
+<hr>
 <div class="project-footer">
     {% if previousPost %}
     <a class="prev-next" href="{{ previousPost.url }}">

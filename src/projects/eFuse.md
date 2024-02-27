@@ -20,6 +20,7 @@ duration: May 2023 - September 2023
 ---
 <section>
 
+#### Overview
 ### eFuse's existing [eRena Leaderboard Extension](https://dashboard.twitch.tv/extensions/7n05t3351hle0tx07a4uejyjmk8aay-1.4.6) was limited in functionality, and difficult for tournament operators to get set up. 
 
 ### I delivered research and designs to capture an additional revenue stream for the business, while improving the fans overall engagement with eFuse by
@@ -52,6 +53,7 @@ Assuming we could rebuild the Twitch Extension to deliver anything a fan might n
 
 ## Limited time, does not mean we abandon testing solutions
 Due to the time constraints of this project, we focused our research efforts on testing completed designs, rather than generative research. There was an existing extension which needed improved to support other business goals. My role as research support for this project was to help deliver a discussion guide and hypothesis for what we wanted to learn from the 6 user interviews we conducted. 
+<br/><br/>
 
 ### Research Methodology
 Myself and the Research Lead, compiled a discussion guide to answer questions about what information is most important about an event and the streamer playing, so that the designs could accurately reflect those user needs. 
@@ -60,6 +62,7 @@ The Twitch platform itself makes discoverability of any extension a challenge. T
 - What is the event? What's the format? Prizing?
 
 - How is this streamer performing? Are they winning/losing/progressing to future stages?
+<br/><br/>
 
 ### Participants
 - 4 Tournament Operations
@@ -67,6 +70,7 @@ The Twitch platform itself makes discoverability of any extension a challenge. T
 - 2 Broadcast Technicians
 
 Both of these user personas are responsible for providing fans and players of the events with a best-in-class experience, and thus their insights helped inform direction on exactly what information about an event could be beneficial to display within an updated Twitch extension.
+<br/><br/>
 
 ### Results
 The research led to cutting scope such as match & player details, polls, and team features early on to focus on **Event Details** and **Standings/Results**. The rest of the information could be found via linking back to the core product, and allows the extension to stay focused.

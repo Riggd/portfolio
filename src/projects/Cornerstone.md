@@ -24,6 +24,7 @@ issues:
 ---
 <section>
 
+#### Overview
 ## Angie's List, more than just reviews
 After 25 years in business it was time for Angie's List to reimagine how we approach product design & development. Angie's List is no longer just a review website, our goal is to help connect you with high-quality service professionals who service where you live. It was time for the us to refocus on who you are and what problems you have. Whether you are looking to start a new project or you are in an emergency and need to hire ASAP, our team is focused on delivering quality products to meet your needs.
 </section>

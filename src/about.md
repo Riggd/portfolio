@@ -3,14 +3,12 @@ title: My Process
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
-
-<div class="fade-in">
-<div class="about-top">
+<div class="fade-in about">
     <!-- <img src="/assets/profile-thumb.png" alt="Personal Photo Small" width=250 height=250> -->
-    <div class="headshot">&nbsp;</div>
     <!-- <img src="/assets/headshot.jpg" alt="Personal Photo Small" width=300 style="border-radius:1rem;"> -->
     <div>
-        <b>Hey there! I'm Derek Onay, a product designer working remotely in Indianapolis.</b>
+        <div class="headshot">&nbsp;</div>
+        <h1 style="font-size:4rem; font-weight: 600; margin:1rem 0;">About Me</h1>
         <p>
             I've spent the last 9 years as a product designer and product manager to help companies drive outcomes to their business. Having worked in both small startups and large orgs, I distill complex problems into design solutions that are clear, accessible, and engaging. 
         </p>
@@ -39,4 +37,3 @@ templateEngineOverride: njk,md
 
 - hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>    
 </section>
-</div>

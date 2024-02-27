@@ -25,6 +25,7 @@ issues:
 
 <section>
 
+#### Overview
 ### Sophos, a leading cybersecurity company, contracted with our Innovatemap team to improve the speed at which security analysts can manage threats and detections for their clients.
 
 ### Analysts are under pressure to discover root cause as fast a possible. The current MDR tools experience 
