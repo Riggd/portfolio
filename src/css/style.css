@@ -1149,11 +1149,23 @@ ABOUT
     flex-direction: column;
     gap: 6rem;
 }
-
-.about .right {
+.about .top {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
+
+.about .top h1 {
+    font-size: 4rem;
+}
+.about .top h2 {
+    font-size: 1.25rem;
+    line-height: 125%;
+    font-weight: 300;
+    color: var(--font-secondary);
+    margin: 0;
+}
+
 
 .about-bottom {
     display: flex;
