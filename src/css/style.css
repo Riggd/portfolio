@@ -1044,11 +1044,11 @@ IMAGE GRID
     color: var(--button-primary);
 }
 
-.project-card #project-image {
+.project-card .project-image {
     transition: transform .5s ease-in-out;
 }
 
-.project-card:hover #project-image {
+.project-card:hover .project-image {
     transform: scale(1.03);
 }
 

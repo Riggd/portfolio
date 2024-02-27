@@ -28,7 +28,7 @@ templateEngineOverride: njk,md
             {%- for project in collections.projects | reverse -%}
                 <div id="{{ project.data.client}}" class="project-card" role="button" tabindex="0" onclick="location.href='{{project.url}}'">
                     <div class="image-wrap">
-                        <img id="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
+                        <img alt="Project image for {{ project.data.client }}" class="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
                     </div>
                     <!-- <div class="icon">
                         <img src="/assets/logos/{{ project.data.logo }}" alt="{{ project.data.title }} app icon">    
