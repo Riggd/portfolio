@@ -234,6 +234,7 @@ h1, h2, h3, h4, h5, h6 {
 p, span {
     font-size: 14px;
     font-weight: 300;
+    line-height: 145%;
     color: var(--font-secondary);
 }
 
@@ -1004,6 +1005,7 @@ IMAGE GRID
 }
 
 .project-card h2 {
+    line-height: 150%;
     margin: 0;
     transition: .25s all ease-in;
 }
