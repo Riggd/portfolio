@@ -36,7 +36,7 @@ duration: May 2023 - September 2023
 <section>
 
 #### Hypothesis
-**By providing fans event and sponsor information without leaving the Twitch.com stream,  they would be more likely to engage with event and sponsored content. Additionally, prioritizing event information first, could avoid ad-blindness and thus increase the likelihood of a fan becoming a buyer for our sponsors.**
+**By providing tournament content to the Twitch stream, fans would be more likely to engage with sponsored content. Additionally, prioritizing event information first, could avoid ad-blindness and thus increase the likelihood of a fan becoming a buyer for our sponsors.**
 </section>
 <section>
 
