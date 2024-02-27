@@ -9,9 +9,8 @@
     </aside>
     <main>
         {{ content | safe }}
-        <footer>
-            <p>© {% year %} Derek Onay</p>
-        </footer>
+
+        {% include "footer.njk" %}
     </main>
     
 

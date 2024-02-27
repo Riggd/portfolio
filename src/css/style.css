@@ -1212,7 +1212,8 @@ ABOUT
 /* Footer */
 .footer-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 
 }
 
@@ -1221,6 +1222,10 @@ ABOUT
     font-size: .875rem;
     font-weight: 400;
     width: max-content
+}
+
+.footer-container a {
+    font-size: .875rem;
 }
 
 /* TODO: Move all media queries to end of file */
