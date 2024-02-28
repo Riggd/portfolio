@@ -431,8 +431,9 @@ TIMELINE/EXPERIENCE
     flex-direction: column;
     gap: .5rem;
 }
-.timeline .top {
+.about .timeline .top {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 .timeline-item {
