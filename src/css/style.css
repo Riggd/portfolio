@@ -32,8 +32,8 @@ html[data-theme='dark'] #theme-toggle::before {
     --color-secondary: #2a2c2d;
     --color-accent: #12cdea;
     --background-color: #f3f3f3;
-    --font-color: #333;
-    --font-secondary: rgba(0,0,0, 0.55);
+    --font-color: #32363A;
+    --font-secondary: #5C6166;
     --pulseSize: 8px;
     --green: rgba(100, 250, 95, 0.65);
     --transparentGreen: rgba(100, 250, 95, 0);
@@ -48,8 +48,8 @@ html[data-theme='light'] {
     --color-secondary: #fbfbfe;
     --color-accent: #fd6f53;
     --background-color: #f3f3f3;
-    --font-color: #333; 
-    --font-secondary: rgba(0,0,0, 0.55);
+    --font-color: #32363A; 
+    --font-secondary: #5C6166;
     --nav-border: #c1c1c1;
     --green: rgba(5, 150, 0, 0.65);
     --transparentGreen: rgba(5, 150, 0, 0);
@@ -231,8 +231,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 } */
 
-p, span {
+p {
+    font-size: 1rem;
+}
+
+span {
     font-size: 14px;
+}
+
+p, span {
     font-weight: 300;
     line-height: 145%;
     color: var(--font-secondary);
@@ -349,13 +356,12 @@ Responsive header
 .nav-items a {
     align-self: flex-start;
     font-size: 1.125rem;
-    font-weight: 200;
     text-decoration: none;
     transition: all .5s ease;
 }
 
 a.active {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .nav-item a::after {
