@@ -1414,12 +1414,20 @@ ABOUT
         margin: 2rem 15rem;
         flex: 0 0 50%;
     }
+
+    .marquee-wrapper {
+        width: 50dvw;
+    }
 }
 
 @media screen and (min-width: 1800px) {
     main {
         margin: 2rem 25rem;
         flex: 0 0 40%;
+    }
+
+    .marquee-wrapper {
+        width: 40dvw;
     }
 }
 
