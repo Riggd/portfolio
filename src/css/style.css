@@ -1025,6 +1025,10 @@ IMAGE GRID
     color: var(--font-secondary);
 }
 
+a.project-card:hover::after   {
+    width: 0px !important;
+}
+
 .icon img {
     border-radius: 0.5rem;
     height: 48px;
