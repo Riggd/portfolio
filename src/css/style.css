@@ -580,6 +580,7 @@ PROJECTS
 .prev-next .project-name {
     font-family: 'Inconsolata', monospace;
     font-size: 1.25rem;
+    font-weight: 400;
 }
 
 .prev-next:hover .project-name {
