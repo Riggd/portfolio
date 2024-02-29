@@ -221,6 +221,27 @@ blockquote {
     }
 }
 
+.fade2 {
+    animation: fade2 linear forwards;
+    animation-timeline: view();
+    animation-range-start: 0;
+    animation-range-end: 25%;
+    transform-style: preserve-3d;
+}
+
+@keyframes fade2 {
+    from {
+        scale: 0.9;
+        opacity: 0;
+        transform: translateY(15px) perspective(200px) rotate(-15deg);
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+        transform: translateY(0) perspective(400px) rotate(0deg);
+    }
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inconsolata', monospace;
     font-weight: 500;
@@ -985,7 +1006,7 @@ IMAGE GRID
     display: flex;
     flex-wrap: wrap;
     column-gap: 4rem;
-    row-gap: 6rem;
+    row-gap: 8rem;
     justify-content: center;
 }
 

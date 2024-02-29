@@ -28,7 +28,7 @@ templateEngineOverride: njk,md
     <section>
         <div class="projects-grid">
             {%- for project in collections.projects | reverse -%}
-                <a id="{{ project.data.client}}" class="project-card" tabindex="0" href="{{ project.url }}">
+                <a id="{{ project.data.client}}" class="project-card fade2" tabindex="0" href="{{ project.url }}">
                     <div class="image-wrap">
                         <img alt="Project image for {{ project.data.client }}" class="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
                     </div>
