@@ -1411,7 +1411,7 @@ ABOUT
 
 @media screen and (min-width: 1366px) {
     main {
-        margin: 2rem 15rem;
+        margin: 2rem auto;
         flex: 0 0 50%;
     }
 
@@ -1422,7 +1422,7 @@ ABOUT
 
 @media screen and (min-width: 1800px) {
     main {
-        margin: 2rem 25rem;
+        margin: 2rem auto;
         flex: 0 0 40%;
     }
 
