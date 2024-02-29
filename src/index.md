@@ -6,9 +6,11 @@ templateEngineOverride: njk,md
 
 <!-- Portfolios should highlight challenges you faced, how you collaborated with others, what you learned, and the personal/business/end-user impact of your work. -->
 <div class="hero-top fade-in">
-
-# Hi internet, I'm Derek. 
-## Product designer focused on building accessible software, design systems, and mobile apps. Oh yeah, and I love a good pair of adidas sneakers.
+    <div class="intro">
+        <p style="color: var(--button-primary)">Hey internet, I'm</p>
+        <h1>Derek Onay</h1>
+        <h2>Product designer building accessible software, design systems, and web products. Oh, and I love a good pair of adidas sneakers.</h2>
+    </div>
 <div class="choose-adventure">
     <a href="mailto:derek.onay@gmail.com">Email &#8599;</a>
     <a target="_blank" href="/assets/Resume-2024.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
@@ -42,9 +44,6 @@ templateEngineOverride: njk,md
 
 {% include "companieslist.njk" %}
 </div>
-
-<!-- Testimonials Add in eventually -->
-
 
 
 
