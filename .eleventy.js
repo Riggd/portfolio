@@ -11,7 +11,7 @@ module.exports = function (eleventyConfig) {
     });
     
     eleventyConfig.addPassthroughCopy({
-        "./node_modules/medium-zoom/dist/medium-zoom.min.js": "/js/medium-zoom.min.js"
+        "./node_modules/medium-zoom/dist/medium-zoom.min.js": "./js/medium-zoom.min.js"
     });
 
     const markdownIt = require('markdown-it');
