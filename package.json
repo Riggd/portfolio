@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@11ty/eleventy-fetch": "^4.0.0",
     "eleventy-sass": "^2.2.3",
     "git": "^0.1.5",
     "markdown-it-attrs": "^4.1.6",
