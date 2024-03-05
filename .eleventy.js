@@ -1,4 +1,8 @@
+require('dotenv').config();
+
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addGlobalData("env", process.env);
+
     eleventyConfig.addPassthroughCopy("./src/assets");
     eleventyConfig.addPassthroughCopy("./src/css");
     eleventyConfig.addPassthroughCopy("./src/js");
@@ -8,6 +12,15 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addShortcode('year', () => {
         return `${new Date().getFullYear()}`;
+    });
+
+    eleventyConfig.addShortcode('convertTime', (UTCDate) => {
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        }
+        return `${new Date(UTCDate).toLocaleDateString(undefined,options)}`;
     });
     
     eleventyConfig.addPassthroughCopy({

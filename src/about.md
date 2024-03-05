@@ -36,4 +36,6 @@ templateEngineOverride: njk,md
 - deployed on <a href="https://www.netlify.com/" target="_blank">Netlify</a> 
 
 - hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>    
+
+- Last commit {% convertTime github.lastCommit %}
 </section>
