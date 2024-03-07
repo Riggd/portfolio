@@ -225,7 +225,7 @@ blockquote {
     animation: fade2 linear forwards;
     animation-timeline: view();
     animation-range-start: 0;
-    animation-range-end: 25%;
+    animation-range-end: 40%;
     transform-style: preserve-3d;
 }
 
@@ -233,7 +233,7 @@ blockquote {
     from {
         scale: 0.9;
         opacity: 0;
-        transform: translateY(15px) perspective(200px) rotate(-15deg);
+        transform: translateY(15px) perspective(200px) rotate(-20deg);
     }
     to {
         scale: 1;
@@ -608,6 +608,62 @@ PROJECTS
     color: var(--font-color);
 }
 
+
+/*
+===========
+NOW PLAYING
+===========
+*/
+
+.icon {
+    position: relative;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 13px;
+    height: 13px;
+    margin-right: 4px;
+  
+    & > span {
+      width: 3px;
+      height: 100%;
+      background-color: var(--button-primary);
+      border-radius: 3px;
+      transform-origin: bottom;
+      transition: opacity 0.3s ease-out;
+      animation: bounce 2.2s ease infinite alternate;
+      content: "";
+  
+      &:nth-of-type(2) {
+        animation-delay: -2.2s;
+      }
+  
+      &:nth-of-type(3) {
+        animation-delay: -3.7s;
+      }
+    }
+  }
+  
+  @keyframes bounce {
+    10% {
+      transform: scaleY(0.3);
+    }
+  
+    30% {
+      transform: scaleY(1);
+    }
+  
+    60% {
+      transform: scaleY(0.5);
+    }
+  
+    80% {
+      transform: scaleY(0.75);
+    }
+  
+    100% {
+      transform: scaleY(0.6);
+    }
+  }
 
 /* 
 ==========
@@ -1010,16 +1066,17 @@ IMAGE GRID
     justify-content: center;
 }
 
-
 .project-card {
-    /* width: 45%; */
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* background: rgba(255, 255, 255, 0.08); */
-    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
     gap: 1rem;
+    /* transition: all 300ms ease; */
 }
+
+/* .projects-grid:has(:hover) .project-card:not(:hover) {
+    opacity: 70%;
+} */
 
 .project-card h2 {
     line-height: 150%;
@@ -1041,6 +1098,7 @@ IMAGE GRID
     align-items: center;
     gap: .5rem;
 }
+
 
 .project-card .title {
     font-size: 1rem;

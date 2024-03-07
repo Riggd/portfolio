@@ -39,3 +39,13 @@ templateEngineOverride: njk,md
 
 - Last commit {% convertTime github.lastCommit %}
 </section>
+<section>
+<div class="now-playing">
+    <div class="icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+{{ lastfm.recentSong }} - {{ lastfm.artist }}
+</div>
+</section>
