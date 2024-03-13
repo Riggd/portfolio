@@ -5,7 +5,7 @@ date: Last Modified
 templateEngineOverride: njk,md
 ---
 
-<h1 style="font-size:4rem; font-weight: 600; margin: 35vh 0 0 0;">Right now I'm</h1>
+<h1 style="font-size:4rem; font-weight: 600; margin: 35vh 0 0 0;">What I'm doing /now</h1>
 
 - relearning web development with goals to release two products by the end of the year.
 
@@ -17,7 +17,6 @@ templateEngineOverride: njk,md
 
 - preparing for a year of travel. Next up: Glacier National Park
 
-<small>*Updated {% convertTime page.date %}*</small>
+As my life changes, so will this page... I hope. Last update on {% convertTime page.date %}
 
---- 
-This is my [now page](https://nownownow.com/about). Thanks to [Derek Sivers](https://sive.rs/nowff) for starting this project.
+Derek, what's this about? This is my [now page](https://nownownow.com/about), a project/idea by [Derek Sivers](https://sive.rs/nowff).
