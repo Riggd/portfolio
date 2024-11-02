@@ -5,10 +5,10 @@ templateEngineOverride: njk,md
 ---
 <div id="process" class="fade-in">
 <section>
-<h1 style="font-size:4rem; font-weight: 600; margin-top:35vh">I help teams solve tough problems</h1>
+<h1 style="font-size:4rem; font-weight: 600; margin-top:35vh">A framework for solving tough problems</h1>
 
-## Framework that leads to collaboration, hypotheses, and measurable outcomes.
 </section>
+<div class="fade-in">
 <section>
 
 ### 1. Why are we building?
@@ -40,4 +40,5 @@ We'll iterate and improve based on user feedback and business metrics.
 
 <h3>If this approach resonates with you, <a href="mailto:derekonay@gmail.com">let's build together!&#8599;</a></h3>
 </section>
+</div>
 </div>
