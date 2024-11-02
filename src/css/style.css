@@ -258,7 +258,7 @@ span {
 
 p, span {
     font-weight: 300;
-    line-height: 145%;
+    line-height: 140%;
     color: var(--font-secondary);
 }
 
