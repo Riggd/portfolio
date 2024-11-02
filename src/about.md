@@ -3,10 +3,10 @@ title: My Process
 layout: "base.njk"
 templateEngineOverride: njk,md
 ---
-<div class="fade-in about">
+<div class="about">
     <!-- <img src="/assets/profile-thumb.png" alt="Personal Photo Small" width=250 height=250> -->
     <!-- <img src="/assets/headshot.jpg" alt="Personal Photo Small" width=300 style="border-radius:1rem;"> -->
-    <div class="top">
+    <div class="top fade-in">
         <div class="headshot">&nbsp;</div>
         <h1 style="font-size:4rem; font-weight: 600; margin:0;">About Me</h1>
         <h2>
@@ -28,14 +28,12 @@ templateEngineOverride: njk,md
 {% include "capabilities.njk" %}
 </section>
 
-<section>
-<b>This site <strike>was likely</strike> <b>may</b> be over engineered, but tis very very fast...</b>
+<section class="fade-in">
+<b>Over-engineered, because I that's how you learn</b>
 
 - built with <a href="https://www.11ty.dev/" target="_blank">Eleventy</a>
-
 - deployed on <a href="https://www.netlify.com/" target="_blank">Netlify</a> 
-
-- hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>    
+- hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
 
 - Last commit {% convertTime github.lastCommit %}
 </section>
