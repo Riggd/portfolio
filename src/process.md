@@ -5,7 +5,7 @@ templateEngineOverride: njk,md
 ---
 <div id="process" class="fade-in">
 <section>
-<h1 style="font-size:4rem; font-weight: 600; margin-top:35vh">A framework for solving tough problems</h1>
+<h1 style="font-size:4rem; font-weight: 600; margin-top:35vh">My framework for solving tough problems</h1>
 
 </section>
 <div class="fade-in">
