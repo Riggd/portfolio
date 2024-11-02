@@ -25,7 +25,7 @@ issues:
 <section>
 
 ### Problem
-Barometer came to our team, because they had quickly outgrown their initial product designs. After going from 0 to 1, the Barometer team was looking for a solution to improve upon their existing product, while enhancing functionality to better serve discoverability and custom dashboard creation for podcast advertisers and brands. 
+Barometer came to our team after successfully scaling from 0 to 1. The next step in Barometer's journey was a need to refine the product experience to better support advertisers and brands uncovering where to spend their advertising dollars.  
 </section>
 <section>
 

@@ -11,12 +11,12 @@ templateEngineOverride: njk,md
         <h1>Derek Onay</h1>
         <h2>I specialize in building and scaling accessible design systems. Oh, and I love a good pair of adidas sneakers.</h2>
     </div>
-<div class="choose-adventure">
-    <a href="mailto:derek.onay@gmail.com">Get in touch &#8599;</a>
-    <a target="_blank" href="/assets/Resume-2024.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
-    <a target="_blank" href="https://www.linkedin.com/in/derek-onay/">Connect with me &#8599;</a>
-    <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
-</div>
+    <div class="choose-adventure">
+        <a href="mailto:derek.onay@gmail.com">Get in touch &#8599;</a>
+        <a target="_blank" href="/assets/Resume-2024.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
+        <a target="_blank" href="https://www.linkedin.com/in/derek-onay/">Connect with me &#8599;</a>
+        <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
+    </div>
 </div>
 
 
@@ -41,6 +41,10 @@ templateEngineOverride: njk,md
 
 <!-- This is useless and should be refactored -->
 {% include "companieslist.njk" %}
+
+{%- for thought in collections.thoughts -%}
+<a href="{{ thought.url }}">
+{%- endfor -%}
 </div>
 
 
