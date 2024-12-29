@@ -6,7 +6,7 @@ module.exports = async function() {
   try {
     // https://www.last.fm/api/show/track.updateNowPlaying (Try this out)
     // https://www.last.fm/api/show/user.getRecentTracks
-    let json = await EleventyFetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ux_derek&limit=1&api_key=${API_KEY}&format=json&nowplaying=true`, {
+    let json = await EleventyFetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ux_derek&limit=1&api_key=${API_KEY}&format=json`, {
       duration: "5m",
       type: "json", // also supports "text" or "buffer"
     });
