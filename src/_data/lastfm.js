@@ -22,16 +22,4 @@ module.exports = async function() {
       artist: "Not playing music"
     };
   }
-
-  // IMPLEMENTATION
-  // <section>
-  //   <div class="now-playing">
-  //     <div class="icon">
-  //         <span></span>
-  //         <span></span>
-  //         <span></span>
-  //     </div>
-  //   {{ lastfm.recentSong }} - {{ lastfm.artist }}
-  //   </div>
-  // </section>
 };
