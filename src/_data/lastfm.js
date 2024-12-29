@@ -1,12 +1,13 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
 const API_KEY = process.env.LASTFM_API;
+const USER = process.env.LASTFM_USER;
 
 module.exports = async function() {
   try {
     // https://www.last.fm/api/show/track.updateNowPlaying (Try this out)
     // https://www.last.fm/api/show/user.getRecentTracks
-    let json = await EleventyFetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ux_derek&limit=1&api_key=${API_KEY}&format=json`, {
+    let json = await EleventyFetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${USER}&limit=2&api_key=${API_KEY}&format=json`, {
       duration: "5m",
       type: "json", // also supports "text" or "buffer"
     });
