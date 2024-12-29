@@ -10,6 +10,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("./src/css/");
     eleventyConfig.addWatchTarget("./src/js/");
 
+    // Adding Spotify access
+    /* eleventyConfig.addFilter("getTrack", async function(spotifyData, req) {
+        const recentTrack = await getRecentlyPlayedTrack(req);
+        return recentTrack;
+    }); */
+
     eleventyConfig.addShortcode('year', () => {
         return `${new Date().getFullYear()}`;
     });

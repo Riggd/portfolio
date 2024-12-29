@@ -10,13 +10,10 @@ templateEngineOverride: njk,md
         <div class="headshot">&nbsp;</div>
         <h1 style="font-size:4rem; font-weight: 600; margin:0;">About Me</h1>
         <h2>
-            I've spent the last 9 years as a product designer and product manager to help companies drive outcomes to their business. Having worked in both small startups and large orgs, I distill complex problems into design solutions that are clear, accessible, and engaging.
+            I'm a product designer with 9 years of experience driving business outcomes through design, both within startups and large organizations. My expertise lies in transforming complex problems into intuitive, accessible, and engaging user experiences. I advocate for research and data to drive product strategy. With a background in computer science and a collaborative approach honed through soccer coaching, I work seamlessly alongside product and engineering teams to deliver exceptional results.
         </h2>
         <h2>
-            My background in computer science and soccer coaching, allow me to collaborate seamlessly with product and engineering teams. Doing something alone is impressive, but with a team? Man, that's what makes it fun! 
-        </h2>
-        <h2>
-            I spend my free time playing soccer, attending concerts with my partner, and obsessing over which pair of adidas sneakers I'll be buying next. My current favorite are a nod to Wes Anderson's film, The Life Aquatic with Steve Zissou. I write some code here and there to keep me sharp, check below for what I'm using to build this site.
+            Outside of work, I'm an avid soccer player, concertgoer, and sneaker enthusiast (my current favorites are inspired by Wes Anderson's The Life Aquatic). I also enjoy coding to stay up-to-date with the latest technologies – check out what I've used to build this site below.
         </h2>
     </div>
 
@@ -29,7 +26,7 @@ templateEngineOverride: njk,md
 </section>
 
 <section>
-<b>This site <strike>was likely</strike> <b>may</b> be over engineered, but tis very very fast...</b>
+<b>This site <strike>was likely</strike> <b>may</b> be over engineered...</b>
 
 - built with <a href="https://www.11ty.dev/" target="_blank">Eleventy</a>
 
