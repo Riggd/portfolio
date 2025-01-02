@@ -184,6 +184,7 @@ async function refreshTokenIfNecessary() {
 
 async function getAccessToken() { 
   if (Date.now() >= tokenExpirationTime) {
+    console.log('expired token')
     await refreshTokenIfNecessary();
   }
   console.log('Getting Access Token');
