@@ -14,4 +14,4 @@ jobs:
       - name: Deploy to Netlify
         env:
           TOKEN: ${​{ secrets.NETLIFY_BUILD_SECRET_ID }}
-        run: curl -X POST -d {} https://api.netlify.com/build_hooks/${TOKEN}
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/${{env.TOKEN}}
