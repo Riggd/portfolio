@@ -43,10 +43,10 @@ html[data-theme='dark'] #theme-toggle::before {
 }
 
 html[data-theme='light'] {
-    --button-primary: #e8964e;
+    --button-primary: #2863a1;
     --button-secondary: #2a2c2d;
     --color-secondary: #fbfbfe;
-    --color-accent: #fd6f53;
+    --color-accent: #2863a1;
     --background-color: #f3f3f3;
     --font-color: #32363A; 
     --font-secondary: #5C6166;
@@ -388,7 +388,9 @@ a.active {
 
 .active {
     /* Filter is handling color change in nav */
-    filter: brightness(0) saturate(100%) invert(99%) sepia(48%) saturate(6147%) hue-rotate(303deg) brightness(101%) contrast(87%);
+    /* Testing just a color 
+    filter: brightness(0) saturate(100%) invert(99%) sepia(48%) saturate(6147%) hue-rotate(303deg) brightness(101%) contrast(87%); */
+    color: var(--button-primary);
 }
 
 .active::before {
@@ -410,7 +412,7 @@ a.active {
 
 .nav-right .nav-item:hover {
     text-decoration: underline;
-    background: #EFB37D;
+    background: var(--button-primary);
     color: var(--font-color);
     border-radius: .25rem;
 }
