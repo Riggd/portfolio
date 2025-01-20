@@ -1,4 +1,4 @@
-//require('dotenv').config();
+import 'dotenv/config';
 import UpgradeHelper from "@11ty/eleventy-upgrade-help";
 import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
