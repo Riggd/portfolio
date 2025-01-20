@@ -1,9 +1,9 @@
-const EleventyFetch = require("@11ty/eleventy-fetch");
+import EleventyFetch from "@11ty/eleventy-fetch";
 
 const API_KEY = process.env.LASTFM_API;
 const USER = process.env.LASTFM_USER;
 
-module.exports = async function() {
+export default async function() {
   try {
     // https://www.last.fm/api/show/track.updateNowPlaying (Try this out)
     // https://www.last.fm/api/show/user.getRecentTracks

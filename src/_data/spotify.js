@@ -112,7 +112,7 @@ module.exports = async function() {
 
 // Testing Google Gemini implementation
 
-const EleventyFetch = require('@11ty/eleventy-fetch');
+import EleventyFetch from '@11ty/eleventy-fetch';
 const clientId = process.env.SPOTIFY_ID;
 const clientSecret = process.env.SPOTIFY_SECRET;
 const redirectUri = 'http://localhost:8080/callback'; // Use full URL
@@ -121,7 +121,7 @@ let accessToken = '';
 let refreshToken = '';
 let tokenExpirationTime = 0;
 
-async function getInitialAccessToken(code) { // For initial token exchange
+export async function getInitialAccessToken(code) { // For initial token exchange
   const credentials = btoa(`${clientId}:${clientSecret}`);
   const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 
@@ -153,7 +153,7 @@ async function getInitialAccessToken(code) { // For initial token exchange
   }
 }
 
-async function refreshTokenIfNecessary() { 
+export async function refreshTokenIfNecessary() { 
   // ... (This function remains the same as before)
   const credentials = btoa(`${clientId}:${clientSecret}`);
   const tokenEndpoint = 'https://accounts.spotify.com/api/token';
@@ -182,7 +182,7 @@ async function refreshTokenIfNecessary() {
   }
 }
 
-async function getAccessToken() { 
+export async function getAccessToken() { 
   if (Date.now() >= tokenExpirationTime) {
     console.log('expired token')
     await refreshTokenIfNecessary();
@@ -191,7 +191,7 @@ async function getAccessToken() {
   return accessToken;
 }
 
-async function getRecentlyPlayedTrack(req = null) {
+export async function getRecentlyPlayedTrack(req = null) {
   try {
     const code = req ? req.query.code : null;
     const endpoint = 'https://api.spotify.com/v1/me/player/recently-played?limit=1';
@@ -218,7 +218,7 @@ async function getRecentlyPlayedTrack(req = null) {
   }
 }
 
-module.exports = async function() {
+export default async function() {
   const recentTrack = await getRecentlyPlayedTrack();
   
   return {

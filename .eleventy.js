@@ -1,6 +1,11 @@
-require('dotenv').config();
+//require('dotenv').config();
+import UpgradeHelper from "@11ty/eleventy-upgrade-help";
+import markdownIt from 'markdown-it';
+import markdownItAttrs from 'markdown-it-attrs';
+import eleventySass from "eleventy-sass";
 
-module.exports = function (eleventyConfig) {
+export default function(eleventyConfig) {
+    
     eleventyConfig.addGlobalData("env", process.env);
 
     eleventyConfig.addPassthroughCopy("./src/assets");
@@ -33,9 +38,6 @@ module.exports = function (eleventyConfig) {
         "./node_modules/medium-zoom/dist/medium-zoom.min.js": "./js/medium-zoom.min.js"
     });
 
-    const markdownIt = require('markdown-it');
-    const markdownItAttrs = require('markdown-it-attrs');
-
     const markdownItOptions = {
         html: true,
         breaks: false,
@@ -45,13 +47,14 @@ module.exports = function (eleventyConfig) {
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);
 
-    const eleventySass = require("eleventy-sass");
-    eleventyConfig.addPlugin(eleventySass);
+    eleventyConfig.addPlugin(eleventySass);    
+    eleventyConfig.addPlugin(UpgradeHelper);
 
     return {
         dir: {
             input: "src",
-            output: "public"
+            output: "public",
+            includes: "_includes" 
         },
     };
 };

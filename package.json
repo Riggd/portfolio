@@ -1,24 +1,22 @@
 {
+  "name": "portfolio",
+  "version": "2.0.0",
+  "author": "Derek Onay",
+  "main": "index.md",
+  "type": "module",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "eleventy-sass": "^2.2.3",
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-fetch": "^4.0.0",
+    "dotenv": "^16.4.5",
     "git": "^0.1.5",
     "markdown-it-attrs": "^4.1.6",
     "medium-zoom": "^1.1.0"
-  },
-  "name": "portfolio",
-  "version": "1.0.0",
-  "main": "index.md",
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-fetch": "^4.0.0",
-    "dotenv": "^16.4.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eleventy --serve",
     "build": "eleventy"
-  },
-  "author": "Derek Onay",
-  "license": "ISC",
-  "description": ""
+  }
 }
