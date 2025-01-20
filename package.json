@@ -9,7 +9,9 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-fetch": "^4.0.0",
+    "@11ty/eleventy-upgrade-help": "^3.0.1",
     "dotenv": "^16.4.5",
+    "eleventy-sass": "^3.0.0-beta.0",
     "git": "^0.1.5",
     "markdown-it-attrs": "^4.1.6",
     "medium-zoom": "^1.1.0"
