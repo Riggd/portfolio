@@ -38,6 +38,6 @@ We'll iterate and improve based on user feedback and business metrics.
 </section>
 <section>
 
-<h3>If this approach resonates with you, <a href="mailto:derekonay@gmail.com">let's build together!&#8599;</a></h3>
+<h3>If this approach resonates with you, <a href="mailto:derek.onay@gmail.com">let's build together!&#8599;</a></h3>
 </section>
 </div>
