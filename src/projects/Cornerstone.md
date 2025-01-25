@@ -1,7 +1,7 @@
 ---
 title: Cornerstone Design System
 description: "From 40 buttons to 1, a story in efficiency and consistency"
-client: Angie'sList 
+client: AL
 responsibilities:
     - Governance documentation
     - Component design
@@ -56,7 +56,7 @@ I helped lead our design team in creating design principles to shape how our pro
 ### Governance & Maintenance
 All great products shift & grow overtime, and a design system needs to be both flexible enough to grow, while rigid enough to stand on its own. I worked alongside the Principal designer to establish a governance process that could be followed to allow the team to continue to grow Cornerstone as new features were developed.
 
-![Workflow](/assets/projects/angie'slist/workflow.png){data-zoomable}
+![Workflow](/assets/projects/al/workflow.png){data-zoomable}
 *Cornerstone governance process*
 </section>
 <section>
@@ -64,18 +64,17 @@ All great products shift & grow overtime, and a design system needs to be both f
 ### Component documentation
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/angie'slist/Font&Type.png" data-zoomable />
-        <img src="/assets/projects/angie'slist/Spacing.png" data-zoomable />
+        <img src="/assets/projects/al/Font&Type.png" alt="Font & type documentation" data-zoomable />
+        <img src="/assets/projects/al/Spacing.png" alt="Spacing documentation"data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/angie'slist/Button-Audit.png" data-zoomable />
-        <img src="/assets/projects/angie'slist/Buttons.png" data-zoomable />
-        <img src="/assets/projects/angie'slist/Inputs.png" data-zoomable />
+        <img src="/assets/projects/al/Button-Audit.png" alt="Button audit documentation" data-zoomable />
+        <img src="/assets/projects/al/Buttons.png" alt="Example of button documentation" data-zoomable />
+        <img src="/assets/projects/al/Inputs.png" alt="Example of input documentation" ata-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/angie'slist/Links.png" data-zoomable />
-        <img src="/assets/projects/angie'slist/Toggles.png" data-zoomable />
-        
+        <img src="/assets/projects/al/Links.png" alt="Example of link documentation" data-zoomable />
+        <img src="/assets/projects/al/Toggles.png" alt="Example of Switch/toggle documentation" data-zoomable /> 
     </div>
 </div>
 </section>

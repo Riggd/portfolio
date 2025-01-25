@@ -91,18 +91,18 @@ I designed product screens to support development as VMS brings the product to l
 ### Additional process documents and deliverables
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/wellkind/PriorityMatrix.png" data-zoomable class="bg-fill" />
-        <img src="/assets/projects/wellkind/so.png" data-zoomable class="bg-fill"/>
-        <img src="/assets/projects/wellkind/Progressive.gif" data-zoomable/>
+        <img src="/assets/projects/wellkind/PriorityMatrix.png" alt="" data-zoomable class="bg-fill" />
+        <img src="/assets/projects/wellkind/so.png" alt="" data-zoomable class="bg-fill"/>
+        <img src="/assets/projects/wellkind/Progressive.gif" alt="" data-zoomable/>
     </div>
     <div class="column">
-        <img src="/assets/projects/wellkind/blockframes.png" data-zoomable />
-        <img src="/assets/projects/wellkind/onboarding.gif" data-zoomable />
-        <img src="/assets/projects/wellkind/confidence.png" data-zoomable class="bg-fill"/>        
+        <img src="/assets/projects/wellkind/blockframes.png" alt="" data-zoomable />
+        <img src="/assets/projects/wellkind/onboarding.gif" alt="" data-zoomable />
+        <img src="/assets/projects/wellkind/confidence.png" alt="" data-zoomable class="bg-fill"/>        
     </div>
     <div class="column">
-        <img src="/assets/projects/wellkind/faq.png" data-zoomable class="bg-fill"/>   
-        <img src="/assets/projects/wellkind/Notification.png" data-zoomable class="bg-fill"/>
+        <img src="/assets/projects/wellkind/faq.png" alt="" data-zoomable class="bg-fill"/>   
+        <img src="/assets/projects/wellkind/Notification.png" alt="" data-zoomable class="bg-fill"/>
     </div>
 </div>
 

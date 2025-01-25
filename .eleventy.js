@@ -2,6 +2,7 @@ import 'dotenv/config';
 import UpgradeHelper from "@11ty/eleventy-upgrade-help";
 import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import eleventySass from "eleventy-sass";
 
 export default function(eleventyConfig) {
@@ -48,7 +49,16 @@ export default function(eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownLib);
 
     eleventyConfig.addPlugin(eleventySass);    
+    
     eleventyConfig.addPlugin(UpgradeHelper);
+
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+        extensions: "html",
+        urlPath: "/assets/",
+        formats: ["webp"],
+        widths: ["auto"],
+    });
+
 
     return {
         dir: {

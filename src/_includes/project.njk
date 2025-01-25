@@ -17,7 +17,7 @@ section: project
 </div>
 
 <div id="{{ client }}" class="project-photo">
-    <img src="/assets/projects/{{ client }}/{{ image }}" data-zoomable/>
+    <img src="/assets/projects/{{ client }}/{{ image }}" alt="{{ client }} Project Hero" data-zoomable/>
 </div>
 
 <div class="project-info">  
@@ -36,7 +36,7 @@ section: project
 </div>
 
 <div class="project-details">
-{{ layoutContent | safe }}
+{{ content | safe }}
 </div>
 <hr>
 <div class="project-footer">
