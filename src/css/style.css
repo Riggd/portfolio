@@ -1212,7 +1212,7 @@ ABOUT
     width: 30rem;
     height: 20rem;
     border-radius: 1rem;
-    background: center url('/assets/headshot.jpg') no-repeat;
+    /*background: center url('/assets/headshot.jpg') no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

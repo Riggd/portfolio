@@ -54,9 +54,14 @@ export default function(eleventyConfig) {
 
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         extensions: "html",
-        urlPath: "/assets/",
         formats: ["webp"],
         widths: ["auto"],
+
+        defaultAttributes: {
+            loading: "lazy",
+            sizes: "100vw",
+            decoding: "async",
+        },
     });
 
 
