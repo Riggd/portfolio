@@ -116,10 +116,10 @@ The decision to split Web components from product specific was to allow for cust
         <img src="/assets/projects/moab/button-layout.svg" alt="Button layout documentation" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/moab/cards.svg" alt="Example of Card component documentation" data-zoomable />
+        <img src="/assets/projects/moab/cards.svg" alt="Documentation showing variations of card components" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/moab/Application.png" alt="" data-zoomable />
+        <img src="/assets/projects/moab/Application.png" alt="Example application screen using the design system" data-zoomable />
         <img src="/assets/projects/moab/Alerts.png" alt="Example of Alert component documentation" data-zoomable />
     </div>
 </div>

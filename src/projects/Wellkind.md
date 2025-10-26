@@ -91,18 +91,18 @@ I designed product screens to support development as VMS brings the product to l
 ### Additional process documents and deliverables
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/wellkind/PriorityMatrix.png" alt="" data-zoomable class="bg-fill" />
-        <img src="/assets/projects/wellkind/so.png" alt="" data-zoomable class="bg-fill"/>
-        <img src="/assets/projects/wellkind/Progressive.gif" alt="" data-zoomable/>
+        <img src="/assets/projects/wellkind/PriorityMatrix.png" alt="A priority matrix showing feature importance" data-zoomable class="bg-fill" />
+        <img src="/assets/projects/wellkind/so.png" alt="A solution overview document" data-zoomable class="bg-fill"/>
+        <img src="/assets/projects/wellkind/Progressive.gif" alt="Animated GIF showing progressive disclosure in the app UI" data-zoomable/>
     </div>
     <div class="column">
-        <img src="/assets/projects/wellkind/blockframes.png" alt="" data-zoomable />
-        <img src="/assets/projects/wellkind/onboarding.gif" alt="" data-zoomable />
-        <img src="/assets/projects/wellkind/confidence.png" alt="" data-zoomable class="bg-fill"/>        
+        <img src="/assets/projects/wellkind/blockframes.png" alt="Blockframes of the app layout" data-zoomable />
+        <img src="/assets/projects/wellkind/onboarding.gif" alt="Animated GIF of the app onboarding flow" data-zoomable />
+        <img src="/assets/projects/wellkind/confidence.png" alt="UI for tracking patient confidence" data-zoomable class="bg-fill"/>        
     </div>
     <div class="column">
-        <img src="/assets/projects/wellkind/faq.png" alt="" data-zoomable class="bg-fill"/>   
-        <img src="/assets/projects/wellkind/Notification.png" alt="" data-zoomable class="bg-fill"/>
+        <img src="/assets/projects/wellkind/faq.png" alt="Screenshot of the FAQ section in the app" data-zoomable class="bg-fill"/>   
+        <img src="/assets/projects/wellkind/Notification.png" alt="Example of a notification component" data-zoomable class="bg-fill"/>
     </div>
 </div>
 
