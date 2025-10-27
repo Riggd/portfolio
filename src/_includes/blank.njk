@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.njk" %}
+    <script>
+      // Prevents FOUC by setting the theme before the page renders
+      (function() {
+        const storedTheme = sessionStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        }
+      })();
+    </script>
+</head>
+<body>
+    <main>
+        {{ content | safe }}
+    </main>
+    <script type="text/javascript" src="/assets/js/bundle.js"></script>
+</body>
+</html>
