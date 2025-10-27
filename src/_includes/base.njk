@@ -18,41 +18,41 @@
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/js/themeswitcher.js"></script>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-    $(document).ready(function () {
-        if(location.pathname == '/') {
-        let positionLeft = 0;
+    document.addEventListener('DOMContentLoaded', function () {
+        // The marquee animation should only run on the homepage.
+        if (window.location.pathname === '/') {
+            const marqueeContent = document.getElementById("marqueeLeft-content");
 
-        const marqueeLeft = document.getElementById(
-            "marqueeLeft-content"
-        );
-
-        // Adjust this to control the speed of the animation
-        let speedLeft = 0.5;
-        // For left moving marquee
-        const updateMarqueeLeft = () => {
-            positionLeft -= speedLeft;
-            marqueeLeft.style.transform = `translateX(${positionLeft}px)`;
-            if (Math.abs(positionLeft) > marqueeLeft.offsetWidth / 2) {
-                positionLeft = 0;
+            // If the marquee element doesn't exist on the page, do nothing.
+            if (!marqueeContent) {
+                return;
             }
-        };
 
-        let marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
+            let position = 0;
+            // Adjust this value to control the animation speed.
+            let speed = 0.5; 
 
-        marqueeLeft.addEventListener("mouseover", () => {
-            speedLeft /= 4;
-            clearInterval(marqueeLeftInterval);
-            marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
-        });
+            function animateMarquee() {
+                position -= speed;
+                marqueeContent.style.transform = `translateX(${position}px)`;
 
-        marqueeLeft.addEventListener("mouseout", () => {
-            speedLeft *= 4;
-            clearInterval(marqueeLeftInterval);
-            marqueeLeftInterval = setInterval(updateMarqueeLeft, 20);
-        });
-    }
+                // When the first half of the content has moved off-screen, reset the position.
+                if (Math.abs(position) > marqueeContent.offsetWidth / 2) {
+                    position = 0;
+                }
+                
+                // Use requestAnimationFrame for a smooth, efficient animation loop.
+                requestAnimationFrame(animateMarquee);
+            }
+
+            // Slow down the animation on hover.
+            marqueeContent.addEventListener("mouseover", () => { speed = 0.1; });
+            // Restore the original speed when the mouse leaves.
+            marqueeContent.addEventListener("mouseout", () => { speed = 0.5; });
+            // Start the animation loop.
+            requestAnimationFrame(animateMarquee);
+        }
     });
     </script>
 
