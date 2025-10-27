@@ -25,7 +25,7 @@ export default function(eleventyConfig) {
     // Let esbuild and eleventy-sass handle JS and CSS.
     // Only passthrough copy assets that aren't processed, like images and fonts.
     // Eleventy automatically watches directories passed to addPassthroughCopy.
-    eleventyConfig.addPassthroughCopy("src/assets", { filter: ["!*.js", "!*.css"] });
+    eleventyConfig.addPassthroughCopy("src/assets", { filter: ["!*.js", "!*.scss"] });
     
 
     // Adding Spotify access
@@ -93,7 +93,6 @@ export default function(eleventyConfig) {
 			}
 		}
 	});
-    
 
 
     return {
