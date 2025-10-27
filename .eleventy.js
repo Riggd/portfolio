@@ -21,12 +21,10 @@ export default function(eleventyConfig) {
     
     eleventyConfig.addGlobalData("env", process.env);
 
-    // Watch the entire assets directory for changes
-    eleventyConfig.addWatchTarget("./src/assets/");
-
-    // Passthrough the entire assets directory
-    eleventyConfig.addPassthroughCopy("./src/assets");
-
+    // Let esbuild and eleventy-sass handle JS and CSS.
+    // Only passthrough copy assets that aren't processed, like images and fonts.
+    // Eleventy automatically watches directories passed to addPassthroughCopy.
+    eleventyConfig.addPassthroughCopy("src/assets", { filter: ["!*.js", "!*.css"] });
     
 
     // Adding Spotify access

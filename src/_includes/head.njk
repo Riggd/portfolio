@@ -2,21 +2,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="{{ eleventy.generator }}" />
-<title>Derek's Slice of the Internet</title>
-<meta name="description" content="Indy-based Product Designer, self-proclaimed devs best bud. I help teams build and scale their products.">
+<title>{{ title + " | " if title }}{{ meta.siteName }}</title>
+<meta name="description" content="{{ description or meta.siteDescription }}">
 
-<meta property="og:url" content="https://derekonay.com">
+<meta property="og:url" content="{{ meta.url + page.url }}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Derek's Portfolio">
-<meta property="og:description" content="Indy-based Product Designer, self-proclaimed devs best bud. I help teams build and scale their products.">
+<meta property="og:title" content="{{ title or meta.siteName }}">
+<meta property="og:description" content="{{ description or meta.siteDescription }}">
 <meta property="og:image" content="https://derekonay.com/assets/OG_image.png">
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="derekonay.com">
-<meta property="twitter:url" content="https://derekonay.com">
-<meta name="twitter:title" content="Derek's Slice of the Internet">
-<meta name="twitter:description" content="Indy-based Product Designer, self-proclaimed devs best bud. I help teams build and scale their products.">
+<meta property="twitter:url" content="{{ meta.url + page.url }}">
+<meta name="twitter:title" content="{{ title or meta.siteName }}">
+<meta name="twitter:description" content="{{ description or meta.siteDescription }}">
 <meta name="twitter:image" content="https://derekonay.com/assets/OG_image.png">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✌️</text></svg>">
