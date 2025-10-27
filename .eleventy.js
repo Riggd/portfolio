@@ -4,17 +4,30 @@ import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import eleventySass from "eleventy-sass";
+import esbuild from 'esbuild';
 
 export default function(eleventyConfig) {
+
+    // Add a build event to trigger esbuild
+    eleventyConfig.on('eleventy.before', async () => {
+        await esbuild.build({
+        entryPoints: ['src/assets/js/index.js'],
+        bundle: true,
+        outfile: 'public/assets/js/bundle.js',
+        sourcemap: true, // Optional: for easier debugging
+        minify: process.env.ELEVENTY_RUN_MODE === 'build', // Minify only in production
+        });
+    });
     
     eleventyConfig.addGlobalData("env", process.env);
 
-    eleventyConfig.addPassthroughCopy("./src/assets");
-    eleventyConfig.addPassthroughCopy("./src/css");
-    eleventyConfig.addPassthroughCopy("./src/js");
+    // Watch the entire assets directory for changes
+    eleventyConfig.addWatchTarget("./src/assets/");
 
-    eleventyConfig.addWatchTarget("./src/css/");
-    eleventyConfig.addWatchTarget("./src/js/");
+    // Passthrough the entire assets directory
+    eleventyConfig.addPassthroughCopy("./src/assets");
+
+    
 
     // Adding Spotify access
     /* eleventyConfig.addFilter("getTrack", async function(spotifyData, req) {
@@ -35,10 +48,6 @@ export default function(eleventyConfig) {
         return `${new Date(UTCDate).toLocaleDateString(undefined,options)}`;
     });
     
-    eleventyConfig.addPassthroughCopy({
-        "./node_modules/medium-zoom/dist/medium-zoom.min.js": "./js/medium-zoom.min.js"
-    });
-
     const markdownItOptions = {
         html: true,
         breaks: false,
@@ -48,7 +57,12 @@ export default function(eleventyConfig) {
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);
 
-    eleventyConfig.addPlugin(eleventySass);    
+    eleventyConfig.addPlugin(eleventySass, {
+        sass: {
+            loadPaths: ["node_modules"]
+        },
+        out: "public/assets/css"
+    });    
     
     eleventyConfig.addPlugin(UpgradeHelper);
 
@@ -63,6 +77,8 @@ export default function(eleventyConfig) {
             decoding: "async",
         },
     });
+
+    
 
 
     return {

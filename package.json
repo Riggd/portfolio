@@ -21,5 +21,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eleventy --serve",
     "build": "eleventy"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.11"
   }
 }
