@@ -3,9 +3,10 @@ import UpgradeHelper from "@11ty/eleventy-upgrade-help";
 import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import eleventySass from "eleventy-sass";
 import esbuild from 'esbuild';
 import fs from "fs";
+import path from "path";
+import sass from "sass";
 
 export default function(eleventyConfig) {
 
@@ -56,13 +57,23 @@ export default function(eleventyConfig) {
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);
 
-    eleventyConfig.addPlugin(eleventySass, {
-        sass: {
-            loadPaths: ["node_modules"]
+    // Sass/SCSS compilation
+    eleventyConfig.addTemplateFormats("scss");
+    eleventyConfig.addExtension("scss", {
+        outputFileExtension: "css",
+        compile: async function (inputContent, inputPath) {
+            // Skip files in _includes or that start with an underscore
+            if (inputPath.includes("_includes") || path.basename(inputPath).startsWith("_")) {
+                return;
+            }
+
+            let result = sass.compileString(inputContent, {
+                loadPaths: ["node_modules"],
+            });
+
+            return async () => result.css;
         },
-        out: "public/assets/css"
-    });    
-    
+    });
     eleventyConfig.addPlugin(UpgradeHelper);
 
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
