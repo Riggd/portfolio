@@ -3,7 +3,7 @@ title: eFuse Twitch Extension
 description: "Improving fan engagement through Twitch extension"
 problem: ""
 client: eFuse
-image: eFuse.png
+image: efuse.png
 logo: efuse.png
 responsibilities:
     - Research support
