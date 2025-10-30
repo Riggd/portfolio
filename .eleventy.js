@@ -6,7 +6,7 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import esbuild from 'esbuild';
 import fs from "fs";
 import path from "path";
-import sass from "sass";
+import * as sass from "sass";
 
 export default function(eleventyConfig) {
 
