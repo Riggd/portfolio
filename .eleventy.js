@@ -77,22 +77,25 @@ export default function(eleventyConfig) {
         },
     });
 
-    // 404 page for local development
-    eleventyConfig.setBrowserSyncConfig({
-		callbacks: {
-			ready: function(err, bs) {
-
-				bs.addMiddleware("*", (req, res) => {
-					const content_404 = fs.readFileSync('public/404.html');
-					// Add 404 http status code in request header.
-					res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
-					// Provides the 404 content without redirect.
-					res.write(content_404);
-					res.end();
-				});
-			}
-		}
-	});
+    // This is a development-only feature.
+    // It should not run in a production build environment.
+    if (process.env.ELEVENTY_RUN_MODE === "serve") {
+        eleventyConfig.setBrowserSyncConfig({
+            callbacks: {
+                ready: function(err, bs) {
+    
+                    bs.addMiddleware("*", (req, res) => {
+                        const content_404 = fs.readFileSync('public/404.html');
+                        // Add 404 http status code in request header.
+                        res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
+                        // Provides the 404 content without redirect.
+                        res.write(content_404);
+                        res.end();
+                    });
+                }
+            }
+        });
+    }
 
 
     return {
