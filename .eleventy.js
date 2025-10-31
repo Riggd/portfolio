@@ -23,10 +23,10 @@ export default function(eleventyConfig) {
     
     eleventyConfig.addGlobalData("env", process.env);
 
-    // Let esbuild and eleventy-sass handle JS and CSS.
-    // Only passthrough copy assets that aren't processed, like images and fonts.
-    // Eleventy automatically watches directories passed to addPassthroughCopy.
-    eleventyConfig.addPassthroughCopy("src/assets", { filter: ["!*.js", "!*.scss"] });
+    // Passthrough copy the entire assets directory to the output.
+    // This will copy CSS, images, and any other static files.
+    // JavaScript files are handled separately by the esbuild step.
+    eleventyConfig.addPassthroughCopy("src/assets");
     
 
     // Adding Spotify access
@@ -57,24 +57,8 @@ export default function(eleventyConfig) {
     const markdownLib = markdownIt(markdownItOptions).use(markdownItAttrs);
     eleventyConfig.setLibrary('md', markdownLib);
 
-    // Sass/SCSS compilation
-    eleventyConfig.addTemplateFormats("scss");
-    eleventyConfig.addExtension("scss", {
-        outputFileExtension: "css",
-        compile: async function (inputContent, inputPath) {
-            // Skip files in _includes or that start with an underscore
-            if (inputPath.includes("_includes") || path.basename(inputPath).startsWith("_")) {
-                return;
-            }
-
-            let result = sass.compileString(inputContent, {
-                loadPaths: ["node_modules"],
-            });
-
-            return async () => result.css;
-        },
-    });
     eleventyConfig.addPlugin(UpgradeHelper);
+
 
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         extensions: "html",
