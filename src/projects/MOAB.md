@@ -3,7 +3,7 @@
 title: eFuse Design System
 description: "Speeding up engineering by bringing 4 products under 1 roof"
 problem: ""
-client: MOAB
+client: moab
 image: moab.png
 logo: moab.svg
 responsibilities:
@@ -111,16 +111,16 @@ The decision to split Web components from product specific was to allow for cust
 #### Component Samples
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/moab/button-spec.svg" data-zoomable />
-        <img src="/assets/projects/moab/anatomy.svg" data-zoomable />
-        <img src="/assets/projects/moab/button-layout.svg" data-zoomable />
+        <img src="/assets/projects/moab/button-spec.svg" alt="Button specs documentation" data-zoomable />
+        <img src="/assets/projects/moab/anatomy.svg" alt="Button anatomy documentation" data-zoomable />
+        <img src="/assets/projects/moab/button-layout.svg" alt="Button layout documentation" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/moab/cards.svg" data-zoomable />
+        <img src="/assets/projects/moab/cards.svg" alt="Documentation showing variations of card components" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/moab/Application.png" data-zoomable />
-        <img src="/assets/projects/moab/Alerts.png" data-zoomable />
+        <img src="/assets/projects/moab/application.png" alt="Example application screen using the design system" data-zoomable />
+        <img src="/assets/projects/moab/alerts.png" alt="Example of Alert component documentation" data-zoomable />
     </div>
 </div>
 </section>

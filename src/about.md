@@ -4,10 +4,9 @@ layout: "base.njk"
 templateEngineOverride: njk,md
 ---
 <div class="fade-in about">
-    <!-- <img src="/assets/profile-thumb.png" alt="Personal Photo Small" width=250 height=250> -->
-    <!-- <img src="/assets/headshot.jpg" alt="Personal Photo Small" width=300 style="border-radius:1rem;"> -->
     <div class="top">
-        <div class="headshot">&nbsp;</div>
+    
+![Headshot](/assets/headshot.jpg){.headshot}
         <h1 style="font-size:4rem; font-weight: 600; margin:0;">About Me</h1>
         <h2>
             I'm a product designer with 9 years of experience driving business outcomes through design, both within startups and large organizations. My expertise lies in transforming complex problems into intuitive, accessible, and engaging user experiences. I advocate for research and data to drive product strategy. With a background in computer science and a collaborative approach honed through soccer coaching, I work seamlessly alongside product and engineering teams to deliver exceptional results.

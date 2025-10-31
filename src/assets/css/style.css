@@ -522,6 +522,7 @@ MARQUEE
 
 .marquee-item img {
   display: block;
+  width: auto;
   height: 48px;
 }
 
@@ -946,6 +947,7 @@ IMAGE GRID
 
 .project-photo img {
     width: 100%;
+    height: auto;
     border-radius: .5rem;
 }
 
@@ -1008,11 +1010,13 @@ IMAGE GRID
 }
 .project-details img {
     width: 100%;
+    height: auto;
     border-radius: .25rem;
 }
 
 .project-details video {
     width: 100%;
+    height: auto;
     border-radius: 1rem;
 }
 
@@ -1208,7 +1212,7 @@ ABOUT
     width: 30rem;
     height: 20rem;
     border-radius: 1rem;
-    background: center url('/assets/headshot.jpg') no-repeat;
+    /*background: center url('/assets/headshot.jpg') no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

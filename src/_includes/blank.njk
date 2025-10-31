@@ -13,16 +13,9 @@
     </script>
 </head>
 <body>
-    <aside aria-label="Sidebar Navigation">
-        {% include "left.njk" %}
-    </aside>
     <main>
         {{ content | safe }}
-
-        {% include "footer.njk" %}
     </main>
-    
     <script type="text/javascript" src="/assets/js/bundle.js"></script>
-
 </body>
 </html>

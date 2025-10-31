@@ -1,6 +1,6 @@
-const EleventyFetch = require("@11ty/eleventy-fetch");
+import EleventyFetch from "@11ty/eleventy-fetch";
 
-module.exports = async function() {
+export default async function() {
   try {
     // https://developer.github.com/v3/repos/#get
     let json = await EleventyFetch("https://api.github.com/repos/Riggd/portfolio/branches/main", {

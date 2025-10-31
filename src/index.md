@@ -25,7 +25,7 @@ templateEngineOverride: njk,md
     </div>
 <div class="choose-adventure">
     <a href="mailto:derek.onay@gmail.com">Email &#8599;</a>
-    <a target="_blank" href="/assets/Resume-2024.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
+    <a target="_blank" href="/assets/resume-2024.pdf" download="DerekOnay-Resume.pdf">Resume &#8599;</a>
     <a target="_blank" href="https://www.linkedin.com/in/derek-onay/">LinkedIn &#8599;</a>
     <!-- <a href="/" class="button-inverse">experience the chaos</a> -->
 </div>

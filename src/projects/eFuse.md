@@ -2,8 +2,8 @@
 title: eFuse Twitch Extension
 description: "Improving fan engagement through Twitch extension"
 problem: ""
-client: eFuse
-image: eFuse.png
+client: efuse
+image: efuse.png
 logo: efuse.png
 responsibilities:
     - Research support
@@ -43,10 +43,10 @@ By providing tournament content to the Twitch stream, fans would be more likely 
 ### Exploration
 Assuming we could rebuild the Twitch Extension to deliver anything a fan might need, our competitive analysis suggested we included features for viewing full bracket visualizations, polls, and team details. 
 
-![Old Extension](/assets/projects/efuse/old-extension.png){data-zoomable}
+![Screenshot of the old, clunky eFuse Twitch extension.](/assets/projects/efuse/old-extension.png){data-zoomable}
 *The old extension was clunky and provided a very little information to a fan* 
 
-![Initial Mocks](/assets/projects/efuse/efuse-old-mocks.png){data-zoomable}
+![Early design mockups showing polls, team details, and bracket visualizations.](/assets/projects/efuse/efuse-old-mocks.png){data-zoomable}
 *Initial design explorations included polls, team details, and bracket visualization*
 </section>
 <section>
@@ -95,5 +95,5 @@ A decision I made early on to reduce development cost was to design a single but
 
 ### That's great Derek, but what did the fans think?
 This project is currently being launched, but you can check out the experience for yourself below. You can view additional event types by tapping on the Leaderboard/Results title.
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FmauJERpc2w2i6EteeTsLd0%2FTwitch-Extension%3Fpage-id%3D226%253A143151%26type%3Ddesign%26node-id%3D226-157507%26viewport%3D401%252C-120%252C0.05%26t%3Dx4POUBsirglu2NmA-1%26scaling%3Dmin-zoom%26starting-point-node-id%3D226%253A157507%26mode%3Ddesign" allowfullscreen></iframe>
+<iframe title="eFuse Twitch Extension Figma Prototype" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FmauJERpc2w2i6EteeTsLd0%2FTwitch-Extension%3Fpage-id%3D226%253A143151%26type%3Ddesign%26node-id%3D226-157507%26viewport%3D401%252C-120%252C0.05%26t%3Dx4POUBsirglu2NmA-1%26scaling%3Dmin-zoom%26starting-point-node-id%3D226%253A157507%26mode%3Ddesign" allowfullscreen></iframe>
 </section>

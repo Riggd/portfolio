@@ -1,15 +1,15 @@
 ---
 title: Sophos Threat Graph
 description: "Increased Security Analyst threat hunting speed by 50%"
-client: Sophos
+client: sophos
 responsibilities:
     - Application design
     - Component design
     - Development handoff
     - Sales prototype
     - Product Strategy
-image: ThreatGraph.png
-logo: AL.png
+image: threatgraph.png
+logo: al.png
 client-url: ""
 roles: 
     - Product Design Lead
@@ -44,7 +44,7 @@ Analysts are under pressure to discover root cause as fast a possible. The curre
 </section>
 
 <section>
-<img src="/assets/projects/sophos/sophos-old.png" data-zoomable />
+<img src="/assets/projects/sophos/sophos-old.png" alt="UI sample of the original product" data-zoomable />
 
 ## Existing Tools
 Speaking with the security analysts to understand how and where we could improve their threat hunting tasks. I uncovered the following core issues and needs:
@@ -58,7 +58,7 @@ Speaking with the security analysts to understand how and where we could improve
 4. Global Search provides quick ability to pivot threat hunt, and shouldn't be lost in any sort of redesign effort
 </section>
 <section>
-<img src="/assets/projects/sophos/FullGraph.png" data-zoomable />
+<img src="/assets/projects/sophos/fullgraph.png" alt="UI sample of a threat graph interface" data-zoomable />
 
 ### Impact
 I designed a new Threat Hunting experience in the Sophos Managed Detection and Response platform which:
@@ -77,17 +77,17 @@ I designed a new Threat Hunting experience in the Sophos Managed Detection and R
 ### Additional Product Designs
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/sophos/ProcessTree.png" data-zoomable />
-        <img src="/assets/projects/sophos/CmdLine.png" data-zoomable />
-        <img src="/assets/projects/sophos/Timeline.png" data-zoomable />
+        <img src="/assets/projects/sophos/processtree.png" alt="Process tree UI interface" data-zoomable />
+        <img src="/assets/projects/sophos/cmdline.png" alt="Interface sample of the command line UI" data-zoomable />
+        <img src="/assets/projects/sophos/timeline.png" alt="Interface sample of the Timeline UI" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/sophos/processNodes.png" data-zoomable />
-        <img src="/assets/projects/sophos/search.png" data-zoomable />        
+        <img src="/assets/projects/sophos/processnodes.png" alt="Interface sample of the process node interaction" data-zoomable />
+        <img src="/assets/projects/sophos/search.png" alt="Interface sample of the search UI" data-zoomable />        
     </div>
     <div class="column">
-        <img src="/assets/projects/sophos/legend.png" data-zoomable />   
-        <img src="/assets/projects/sophos/recenter.gif" data-zoomable />
+        <img src="/assets/projects/sophos/legend.png" alt="Interface sample of the canvas legend UI" data-zoomable />   
+        <img src="/assets/projects/sophos/recenter.gif" alt="Animated example of the recenter canvas animation" data-zoomable />
     </div>
 </div>
 </section>
