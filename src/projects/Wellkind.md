@@ -10,7 +10,7 @@ responsibilities:
     - Dev support
     - Sales prototype
 client: wellkind
-image: Wellkind.png
+image: wellkind.png
 logo: wellkind-logo.png
 client-url: https://innovatemap.com/how-we-helped-a-biopharma-company-build-a-b2c-app-from-start-to-finish/
 roles: 

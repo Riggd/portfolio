@@ -7,8 +7,8 @@ responsibilities:
     - Component design
     - Engineering handoff
     - Design system education
-image: 40to1.png
-logo: AL.png
+image: 40to1.png # Assuming the file is named this way, it's already consistent.
+logo: al.png
 client-url: ""
 roles: 
     - Product Designer

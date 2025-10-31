@@ -8,8 +8,8 @@ responsibilities:
     - Development handoff
     - Sales prototype
     - Product Strategy
-image: ThreatGraph.png
-logo: AL.png
+image: threatgraph.png
+logo: al.png
 client-url: ""
 roles: 
     - Product Design Lead
