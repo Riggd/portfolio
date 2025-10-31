@@ -35,7 +35,7 @@ Barometer came to our team, because they had quickly outgrown their initial prod
 - Give marketers and brands the ability to better analyze the content of individual episodes, to better support their purchasing decisions
 </section>
 
-![Solution Overview](/assets/projects/barometer/Barometer-1.png){data-zoomable}
+![Solution Overview](/assets/projects/barometer/barometer-1.png){data-zoomable}
 *Solution Overview of the GARM Workflow*
 <section>
 

@@ -63,7 +63,7 @@ I designed product screens to support development as VMS brings the product to l
 ### Impact 
 ## Our work on Wellkind app was recognized as a 2022 Most Innovative Product by PM360 publication. [Read about it!](https://www.pm360online.com/pm360-2022-innovative-product-wellkind-from-vms-biomarketing/)
 
-![Product Screens](/assets/projects/wellkind/Product-Screens.png){data-zoomable}
+![Product Screens](/assets/projects/wellkind/product-screens.png){data-zoomable}
 *Assortment of different product assets created during this project*
 
 
@@ -91,9 +91,9 @@ I designed product screens to support development as VMS brings the product to l
 ### Additional process documents and deliverables
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/wellkind/PriorityMatrix.png" alt="A priority matrix showing feature importance" data-zoomable class="bg-fill" />
+        <img src="/assets/projects/wellkind/prioritymatrix.png" alt="A priority matrix showing feature importance" data-zoomable class="bg-fill" />
         <img src="/assets/projects/wellkind/so.png" alt="A solution overview document" data-zoomable class="bg-fill"/>
-        <img src="/assets/projects/wellkind/Progressive.gif" alt="Animated GIF showing progressive disclosure in the app UI" data-zoomable/>
+        <img src="/assets/projects/wellkind/progressive.gif" alt="Animated GIF showing progressive disclosure in the app UI" data-zoomable/>
     </div>
     <div class="column">
         <img src="/assets/projects/wellkind/blockframes.png" alt="Blockframes of the app layout" data-zoomable />
@@ -102,7 +102,7 @@ I designed product screens to support development as VMS brings the product to l
     </div>
     <div class="column">
         <img src="/assets/projects/wellkind/faq.png" alt="Screenshot of the FAQ section in the app" data-zoomable class="bg-fill"/>   
-        <img src="/assets/projects/wellkind/Notification.png" alt="Example of a notification component" data-zoomable class="bg-fill"/>
+        <img src="/assets/projects/wellkind/notification.png" alt="Example of a notification component" data-zoomable class="bg-fill"/>
     </div>
 </div>
 

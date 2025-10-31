@@ -58,7 +58,7 @@ Speaking with the security analysts to understand how and where we could improve
 4. Global Search provides quick ability to pivot threat hunt, and shouldn't be lost in any sort of redesign effort
 </section>
 <section>
-<img src="/assets/projects/sophos/FullGraph.png" alt="UI sample of a threat graph interface" data-zoomable />
+<img src="/assets/projects/sophos/fullgraph.png" alt="UI sample of a threat graph interface" data-zoomable />
 
 ### Impact
 I designed a new Threat Hunting experience in the Sophos Managed Detection and Response platform which:
@@ -77,12 +77,12 @@ I designed a new Threat Hunting experience in the Sophos Managed Detection and R
 ### Additional Product Designs
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/sophos/ProcessTree.png" alt="Process tree UI interface" data-zoomable />
-        <img src="/assets/projects/sophos/CmdLine.png" alt="Interface sample of the command line UI" data-zoomable />
-        <img src="/assets/projects/sophos/Timeline.png" alt="Interface sample of the Timeline UI" data-zoomable />
+        <img src="/assets/projects/sophos/processtree.png" alt="Process tree UI interface" data-zoomable />
+        <img src="/assets/projects/sophos/cmdline.png" alt="Interface sample of the command line UI" data-zoomable />
+        <img src="/assets/projects/sophos/timeline.png" alt="Interface sample of the Timeline UI" data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/sophos/processNodes.png" alt="Interface sample of the process node interaction" data-zoomable />
+        <img src="/assets/projects/sophos/processnodes.png" alt="Interface sample of the process node interaction" data-zoomable />
         <img src="/assets/projects/sophos/search.png" alt="Interface sample of the search UI" data-zoomable />        
     </div>
     <div class="column">

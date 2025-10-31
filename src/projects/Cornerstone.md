@@ -64,17 +64,17 @@ All great products shift & grow overtime, and a design system needs to be both f
 ### Component documentation
 <div class="image-grid">
     <div class="column">
-        <img src="/assets/projects/al/Font&Type.png" alt="Font & type documentation" data-zoomable />
-        <img src="/assets/projects/al/Spacing.png" alt="Spacing documentation"data-zoomable />
+        <img src="/assets/projects/al/font&type.png" alt="Font & type documentation" data-zoomable />
+        <img src="/assets/projects/al/spacing.png" alt="Spacing documentation"data-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/al/Button-Audit.png" alt="Button audit documentation" data-zoomable />
-        <img src="/assets/projects/al/Buttons.png" alt="Example of button documentation" data-zoomable />
-        <img src="/assets/projects/al/Inputs.png" alt="Example of input documentation" ata-zoomable />
+        <img src="/assets/projects/al/button-audit.png" alt="Button audit documentation" data-zoomable />
+        <img src="/assets/projects/al/buttons.png" alt="Example of button documentation" data-zoomable />
+        <img src="/assets/projects/al/inputs.png" alt="Example of input documentation" ata-zoomable />
     </div>
     <div class="column">
-        <img src="/assets/projects/al/Links.png" alt="Example of link documentation" data-zoomable />
-        <img src="/assets/projects/al/Toggles.png" alt="Example of Switch/toggle documentation" data-zoomable /> 
+        <img src="/assets/projects/al/links.png" alt="Example of link documentation" data-zoomable />
+        <img src="/assets/projects/al/toggles.png" alt="Example of Switch/toggle documentation" data-zoomable /> 
     </div>
 </div>
 </section>
