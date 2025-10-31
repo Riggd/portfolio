@@ -43,10 +43,10 @@ By providing tournament content to the Twitch stream, fans would be more likely 
 ### Exploration
 Assuming we could rebuild the Twitch Extension to deliver anything a fan might need, our competitive analysis suggested we included features for viewing full bracket visualizations, polls, and team details. 
 
-![Screenshot of the old, clunky eFuse Twitch extension.](/assets/projects/eFuse/old-extension.png){data-zoomable}
+![Screenshot of the old, clunky eFuse Twitch extension.](/assets/projects/efuse/old-extension.png){data-zoomable}
 *The old extension was clunky and provided a very little information to a fan* 
 
-![Early design mockups showing polls, team details, and bracket visualizations.](/assets/projects/eFuse/efuse-old-mocks.png){data-zoomable}
+![Early design mockups showing polls, team details, and bracket visualizations.](/assets/projects/efuse/efuse-old-mocks.png){data-zoomable}
 *Initial design explorations included polls, team details, and bracket visualization*
 </section>
 <section>
