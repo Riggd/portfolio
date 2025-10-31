@@ -1,7 +1,7 @@
 ---
 title: Barometer
 description: "AI-powered podcast insights to optimize digital audio advertising spend"
-client: Barometer
+client: barometer
 responsibilities:
     - Web Application Design
     - Product Strategy

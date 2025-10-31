@@ -1,7 +1,7 @@
 ---
 title: Sophos Threat Graph
 description: "Increased Security Analyst threat hunting speed by 50%"
-client: Sophos
+client: sophos
 responsibilities:
     - Application design
     - Component design

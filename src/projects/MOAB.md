@@ -3,7 +3,7 @@
 title: eFuse Design System
 description: "Speeding up engineering by bringing 4 products under 1 roof"
 problem: ""
-client: MOAB
+client: moab
 image: moab.png
 logo: moab.svg
 responsibilities:

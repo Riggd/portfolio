@@ -9,7 +9,7 @@ responsibilities:
     - Brand integration
     - Dev support
     - Sales prototype
-client: Wellkind
+client: wellkind
 image: Wellkind.png
 logo: wellkind-logo.png
 client-url: https://innovatemap.com/how-we-helped-a-biopharma-company-build-a-b2c-app-from-start-to-finish/
