@@ -1,0 +1,9 @@
+{% macro projectCard(project) %}
+<a id="{{ project.data.client | lower }}" class="project-card fade2" tabindex="0" href="{{ project.url }}">
+    <div class="image-wrap">
+        <img alt="Project image for {{ project.data.title }}" class="project-image" src="/assets/projects/{{ project.data.client | lower }}/{{ project.data.image }}" />
+    </div>
+    <div class="title">{{ project.data.title }}</div>
+    <h2>{{ project.data.description }}</h2>
+</a>
+{% endmacro %}
