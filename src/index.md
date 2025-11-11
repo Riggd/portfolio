@@ -38,22 +38,13 @@ templateEngineOverride: njk,md
         <span style="color: var(--font-secondary);">Want to learn more about my approach to design? <a href="/process">Read about my process</a></span>
     </div>
     <section>
+        {% from "macros/project-card.njk" import projectCard %}
         <div class="projects-grid">
             {%- for project in collections.projects | reverse -%}
-                <a id="{{ project.data.client}}" class="project-card fade2" tabindex="0" href="{{ project.url }}">
-                    <div class="image-wrap">
-                        <img alt="Project image for {{ project.data.client }}" class="project-image" src="/assets/projects/{{ project.data.client }}/{{ project.data.image }}" />
-                    </div>
-                    <div class="title">{{ project.data.title }}</div>
-                    <h2>{{ project.data.description }}</h2>
-                </a>
+                {{ projectCard(project) }}
             {%- endfor -%}
         </div>
     </section>
 
 {% include "companieslist.njk" %}
 </div>
-
-
-
-

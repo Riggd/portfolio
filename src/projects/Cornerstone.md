@@ -1,5 +1,6 @@
 ---
 title: Cornerstone Design System
+templateEngineOverride: njk,md
 description: "From 40 buttons to 1, a story in efficiency and consistency"
 client: al
 responsibilities:
@@ -21,6 +22,16 @@ wins:
     - New maintenance and governance process to avoid future 40 button scenarios
 issues:
     - A shared resource team meant slower progress to completing design system goals
+principles:
+    - title: "Simple & Progressive"
+      description: "Our products reduce the tension in hiring a service provider. We make the intimidating task simple, so you can work smarter not harder."
+    - title: "Empathy-driven"
+      description: "Our designs are accessible to all, regardless of situation or ability. We stay focused on our users' problems by listening carefully, observing users in action, and reducing bias in decision making."
+    - title: "Purposeful not just pretty"
+      description: "Our products look good, but not for the sake of being pretty. All aesthetic decisions are meant to help solve a problem, and should be obvious in their use in the product."
+    - title: "Built with trust"
+      description: "As a leader in the home services industry, our products should build confidence and instill trust between home owners and the services providers they are looking to hire. We do the right thing and don't employ dark/sneaky tactics"
+    - A shared resource team meant slower progress to completing design system goals
 ---
 <section>
 
@@ -31,24 +42,12 @@ After 25 years in business it was time for Angie's List to reimagine how we appr
 <section>
 
 ### Design Principles
+{% from "macros/principle-box.njk" import principleBox %}
 I helped lead our design team in creating design principles to shape how our product organization would ensure we want to build and design products for homeowners or service professionals.
 <div class="principles">
-    <div class="principle">
-        <h4>Simple & Progressive</h4>
-        <span>Our products reduce the tension in hiring a service provider. We make the intimidating task simple, so you can work smarter not harder.</span>
-    </div>
-    <div class="principle">
-        <h4>Empathy-driven</h4>
-        <span>Our designs are accessible to all, regardless of situation or ability. We stay focused on our users' problems by listening carefully, observing users in action, and reducing bias in decision making.</span>
-    </div>
-    <div class="principle">
-        <h4>Purposeful not just pretty</h4>
-        <span>Our products look good, but not for the sake of being pretty. All aesthetic decisions are meant to help solve a problem, and should be obvious in their use in the product.</span>
-    </div>
-    <div class="principle">
-        <h4>Built with trust</h4>
-        <span>As a leader in the home services industry, our products should build confidence and instill trust between home owners and the services providers they are looking to hire. We do the right thing and don't employ dark/sneaky tactics</span>
-    </div>
+    {%- for item in principles -%}
+        {{ principleBox(item.title, item.description) }}
+    {%- endfor -%}
 </div>
 </section>
 <section>
