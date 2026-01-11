@@ -63,6 +63,22 @@ html[data-theme='dark'] #theme-toggle::before {
     --space-lg: 4rem;
     --space-xl: 8rem;
 
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Shadow */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    /* Brand Colors */
+    --color-brand-muted: #92B4C2;
+    --color-brand-accent: #EFB37D;
+    --color-brand-dark: #25414D;
+
     /* Layout */
     --container-max-width: 80ch;
 }
@@ -475,6 +491,16 @@ a {
 
 a:hover {
     color: var(--button-primary);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--button-primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+a:active {
+    transform: translateY(1px);
 }
 
 a::after {
@@ -973,7 +999,7 @@ FIELD NOTES
 
 
 .home-title {
-    color: #EFB37D;
+    color: var(--color-brand-accent);
 }
 
 .home-subtitle {
@@ -1037,7 +1063,16 @@ FIELD NOTES
 .button:hover {
     background-color: var(--button-primary);
     color: rgba(255, 255, 255, 0.75);
-    box-shadow: inset 1px 1px;
+    box-shadow: var(--shadow-sm);
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--button-primary);
+    outline-offset: 2px;
+}
+
+.button:active {
+    transform: scale(0.98);
 }
 
 .button-inverse {
@@ -1053,11 +1088,20 @@ FIELD NOTES
     color: rgba(255, 255, 255, 0.75);
 }
 
+.button-inverse:focus-visible {
+    outline: 2px solid var(--button-primary);
+    outline-offset: 2px;
+}
+
+.button-inverse:active {
+    transform: scale(0.98);
+}
+
 /* About Styles */
 
 .hero-section {
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(10.7px);
     -webkit-backdrop-filter: blur(10.7px);
     outline: 1px solid rgba(255, 255, 255, 0.1);
@@ -1113,12 +1157,12 @@ FIELD NOTES
 }
 
 .external-button {
-    padding: .5rem;
+    padding: var(--space-xs) var(--space-sm);
     color: #333;
-    background: #92B4C2;
-    border-radius: .5rem;
+    background: var(--color-brand-muted);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    margin-top: 2rem;
+    margin-top: var(--space-md);
 }
 
 .external-button:hover {
@@ -1420,10 +1464,10 @@ a.project-card:hover::after {
 }
 
 .project-tag {
-    border-radius: 24px;
-    background: #92B4C2;
+    border-radius: var(--radius-xl);
+    background: var(--color-brand-muted);
     padding: .25rem .5rem;
-    color: #25414D;
+    color: var(--color-brand-dark);
     margin: 0 .5rem .5rem 0;
 }
 
