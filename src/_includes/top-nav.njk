@@ -10,17 +10,21 @@
         TODO: Fix the svg colors for mobile
         -->
         <div class="nav-items">
-            <a class="nav-item {{ 'active' if '' in page.url and not '/projects' in page.url and not '/process' in page.url }}" href="/">
+            <a class="nav-item {{ 'active' if page.url and '' in page.url and not '/projects' in page.url and not '/process' in page.url and not '/fieldnotes' in page.url }}" href="/">
                 <img src="/assets/user-circle.svg" class="" width="16" height="16" />
                 about
             </a>
-            <a class="nav-item {{ 'active' if '/projects' in page.url }}" href="/projects">
+            <a class="nav-item {{ 'active' if page.url and '/projects' in page.url }}" href="/projects">
                 <img src="/assets/devices.svg" class="" width="16" height="16" />
                 work
             </a>
-            <a class="nav-item {{ 'active' if '/process' in page.url }}" href="/process">
+            <a class="nav-item {{ 'active' if page.url and '/process' in page.url }}" href="/process">
                 <img src="/assets/map.svg" class="" width="16" height="16" />
                 process
+            </a>
+            <a class="nav-item {{ 'active' if page.url and '/fieldnotes' in page.url }}" href="/fieldnotes">
+                <img src="/assets/user-circle.svg" class="" width="16" height="16" />
+                notes
             </a>
             <!-- <a class="nav-item" href="/">the chaos.</a> -->
         </div>

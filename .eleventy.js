@@ -8,26 +8,26 @@ import fs from "fs";
 import path from "path";
 import * as sass from "sass";
 
-export default function(eleventyConfig) {
+export default function (eleventyConfig) {
 
     // Add a build event to trigger esbuild
     eleventyConfig.on('eleventy.before', async () => {
         await esbuild.build({
-        entryPoints: ['src/assets/js/index.js'],
-        bundle: true,
-        outfile: 'public/assets/js/bundle.js',
-        sourcemap: true, // Optional: for easier debugging
-        minify: process.env.ELEVENTY_RUN_MODE === 'build', // Minify only in production
+            entryPoints: ['src/assets/js/index.js'],
+            bundle: true,
+            outfile: 'public/assets/js/bundle.js',
+            sourcemap: true, // Optional: for easier debugging
+            minify: process.env.ELEVENTY_RUN_MODE === 'build', // Minify only in production
         });
     });
-    
+
     eleventyConfig.addGlobalData("env", process.env);
 
     // Passthrough copy the entire assets directory to the output.
     // This will copy CSS, images, and any other static files.
     // JavaScript files are handled separately by the esbuild step.
     eleventyConfig.addPassthroughCopy("src/assets");
-    
+
 
     // Adding Spotify access
     /* eleventyConfig.addFilter("getTrack", async function(spotifyData, req) {
@@ -45,9 +45,18 @@ export default function(eleventyConfig) {
             month: 'long',
             day: 'numeric',
         }
-        return `${new Date(UTCDate).toLocaleDateString(undefined,options)}`;
+        return `${new Date(UTCDate).toLocaleDateString(undefined, options)}`;
     });
-    
+
+    eleventyConfig.addFilter('convertTime', (UTCDate) => {
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        }
+        return `${new Date(UTCDate).toLocaleDateString(undefined, options)}`;
+    });
+
     const markdownItOptions = {
         html: true,
         breaks: false,
@@ -77,8 +86,8 @@ export default function(eleventyConfig) {
     if (process.env.ELEVENTY_RUN_MODE === "serve") {
         eleventyConfig.setBrowserSyncConfig({
             callbacks: {
-                ready: function(err, bs) {
-    
+                ready: function (err, bs) {
+
                     bs.addMiddleware("*", (req, res) => {
                         const content_404 = fs.readFileSync('public/404.html');
                         // Add 404 http status code in request header.
@@ -97,7 +106,7 @@ export default function(eleventyConfig) {
         dir: {
             input: "src",
             output: "public",
-            includes: "_includes" 
+            includes: "_includes"
         },
     };
 };
