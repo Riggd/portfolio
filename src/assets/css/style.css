@@ -12,8 +12,6 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    /* Prevent horizontal scroll */
 }
 
 img {
@@ -441,7 +439,6 @@ main {
     padding-inline: var(--space-md);
     width: 100%;
     max-width: var(--container-max-width);
-    overflow-x: hidden;
 }
 
 header {
