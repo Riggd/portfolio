@@ -21,6 +21,24 @@ export default function (eleventyConfig) {
         });
     });
 
+    // Compile Sass
+    eleventyConfig.on("eleventy.before", () => {
+        // Ensure the output directory exists
+        if (!fs.existsSync("public/assets/css")) {
+            fs.mkdirSync("public/assets/css", { recursive: true });
+        }
+
+        try {
+            let result = sass.compile("src/assets/css/style.scss", {
+                style: "compressed",
+                loadPaths: ["src/assets/css/"]
+            });
+            fs.writeFileSync("public/assets/css/style.css", result.css);
+        } catch (err) {
+            console.error("Sass compilation error:", err);
+        }
+    });
+
     eleventyConfig.addGlobalData("env", process.env);
 
     // Passthrough copy the entire assets directory to the output.
