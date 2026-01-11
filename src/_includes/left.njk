@@ -1,9 +1,10 @@
 <header>
     <nav class="nav">
         <div class="nav-items">
-            <a class="nav-item {{ 'active' if '/' in page.url and not '/about' in page.url and not '/process' in page.url }}" href="/" title="{{ home }}">Projects</a>
-            <a class="nav-item {{ 'active' if '/about' in page.url }}" href="/about">About</a>
-            <a class="nav-item {{ 'active' if '/process' in page.url }}" href="/process">Process</a>
+            <a class="nav-item {{ 'active' if page.url and '/' in page.url and not '/about' in page.url and not '/process' in page.url and not '/fieldnotes' in page.url }}" href="/" title="{{ home }}">Projects</a>
+            <a class="nav-item {{ 'active' if page.url and '/about' in page.url }}" href="/about">About</a>
+            <a class="nav-item {{ 'active' if page.url and '/process' in page.url }}" href="/process">Process</a>
+            <a class="nav-item {{ 'active' if page.url and '/fieldnotes' in page.url }}" href="/fieldnotes">Notes</a>
             <!-- Add in Art/Fun projects later -->
         </div>
         <button type="button" id="theme-toggle">Theme</button>

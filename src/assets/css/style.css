@@ -3,9 +3,24 @@
 FONT SETTINGS
 =============
 */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+* {
+    box-sizing: border-box;
+}
 
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
 /* 
 =======
@@ -40,6 +55,18 @@ html[data-theme='dark'] #theme-toggle::before {
     --filterColor: grayscale(1);
     --navBg: rgba(255, 255, 255, 0.85);
     --navBorder: #cdcdcd;
+    --code-bg: #ececec;
+    --code-color: #2863a1;
+
+    /* Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    /* Layout */
+    --container-max-width: 65ch;
 }
 
 html[data-theme='light'] {
@@ -56,6 +83,8 @@ html[data-theme='light'] {
     --filterColor: grayscale(1);
     --navBg: rgba(255, 255, 255, 0.85);
     --navBorder: #cdcdcd;
+    --code-bg: #ececec;
+    --code-color: #2863a1;
 }
 
 html[data-theme='dark'] {
@@ -72,6 +101,8 @@ html[data-theme='dark'] {
     --filterColor: brightness(0) invert(1);
     --navBg: #272727;
     --navBorder: #303030;
+    --code-bg: #1e1e1e;
+    --code-color: #eba05f;
 }
 
 /* 
@@ -170,6 +201,46 @@ Featured Grid
     border-radius: .25rem;
 }
 
+/* 
+===========
+UTILITIES
+===========
+*/
+
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--space-sm);
+    max-width: var(--container-max-width);
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-auto-fit {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.gap-sm {
+    gap: var(--space-sm);
+}
+
+.gap-md {
+    gap: var(--space-md);
+}
+
+.gap-lg {
+    gap: var(--space-lg);
+}
 
 /* 
 =================
@@ -308,6 +379,41 @@ span {
     color: var(--font-secondary);
 }
 
+/* 
+===========
+CODE & PRE
+===========
+*/
+
+code {
+    font-family: 'Inconsolata', monospace;
+    background-color: var(--code-bg);
+    color: var(--code-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--nav-border);
+    max-width: 100%;
+}
+
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--font-color);
+}
+
+
 strong {
     font-weight: 600;
 }
@@ -326,8 +432,12 @@ hr {
 main {
     display: flex;
     flex-direction: column;
-    flex: 0 0 60%;
-    margin: 2rem 10rem;
+    flex: 1;
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+    width: 100%;
+    max-width: var(--container-max-width);
+    overflow-x: hidden;
 }
 
 header {
@@ -772,6 +882,90 @@ IMAGE GRID
 
 .moab-governance>* {
     flex: 1;
+}
+
+/* 
+===========
+FIELD NOTES
+===========
+*/
+
+.field-notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.field-note-entry {
+    display: flex;
+    gap: 2rem;
+}
+
+.field-note-date {
+    flex: 0 0 160px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.9rem;
+    color: var(--font-secondary);
+    padding-top: 0.2rem;
+    text-align: right;
+    border-right: 1px solid var(--nav-border);
+    padding-right: 1rem;
+}
+
+.field-note-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    min-width: 0;
+    /* Prevents code blocks from expanding the parent */
+}
+
+.field-note-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.field-note-link {
+    font-size: 1.25rem;
+    font-weight: 500;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.field-note-text {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--font-secondary);
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+.field-note-text p {
+    margin: 0.5rem 0 0 0;
+}
+
+@media screen and (max-width: 800px) {
+    .field-note-entry {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .field-note-date {
+        border-right: none;
+        text-align: left;
+        padding-right: 0;
+        border-bottom: 1px dashed var(--nav-border);
+        padding-bottom: 0.5rem;
+        width: 100%;
+        flex: auto;
+    }
 }
 
 
@@ -1269,14 +1463,12 @@ ABOUT
 */
 
 .headshot {
-    width: 30rem;
-    height: 20rem;
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
     border-radius: 1rem;
-    /*background: center url('/assets/headshot.jpg') no-repeat;*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     transition: .5s all ease-in-out;
 }
 
@@ -1425,7 +1617,24 @@ ABOUT
 }
 
 /* TODO: Move all media queries to end of file */
-@media screen and (max-width: 800px) {
+/* 
+================
+RESPONSIVE
+================
+*/
+
+@media screen and (max-width: 650px) {
+
+    /* Tablet / Mobile */
+    :root {
+        --container-max-width: 100%;
+    }
+
+    /* Stack flex-row to flex-col */
+    .flex-row {
+        flex-direction: column;
+    }
+
     body {
         display: flex;
         flex-direction: column-reverse;
@@ -1447,27 +1656,7 @@ ABOUT
         -webkit-backdrop-filter: blur(5px);
     }
 
-    main {
-        margin: 2rem 4rem 6rem 4rem;
-    }
-
-    blockquote {
-        margin: 1rem;
-    }
-
-    .image-grid {
-        flex-direction: column;
-    }
-
-    #top-nav,
-    #footer-small {
-        display: flex;
-    }
-
-    .hero-top h1 {
-        font-size: 3rem;
-    }
-
+    /* Nav Adjustments */
     .nav,
     .nav-items {
         flex-direction: row;
@@ -1489,164 +1678,17 @@ ABOUT
         align-items: center;
     }
 
-    .active::before {
-        content: '';
-    }
-
-    .footer-container {
-        flex: 1 1 auto;
-        align-items: center;
-        margin: 1rem 0;
-        gap: 0.5rem;
-    }
-
-    .project-title {
-        margin: 2rem 0;
-        gap: 1rem;
-    }
-
-    .project-title h1 {
-        width: 100% !important;
-    }
-
-    .wins-issues {
-        flex-direction: column;
-    }
-
-    /* Check if below are in use */
-    .hero {
-        margin: 0 3rem;
-    }
-
-    .scrolling-container {
-        margin: 1rem;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        border-radius: 16px;
-        box-shadow: 0;
-        backdrop-filter: blur(10.7px);
-        -webkit-backdrop-filter: blur(10.7px);
-        outline: 0px;
-        margin: 0px;
-    }
-
-    .hero-left img {
-        display: none;
-    }
-
-    .hero-right .profile-thumb img {
-        display: block;
-        width: 10rem;
-    }
-
-    .hero-right {
-        /* Pull all padding into a parent container */
-        padding: 1.5rem 0px !important;
-    }
-
-    .hero-right h1 {
-        font-size: 2.5rem;
-    }
-
-
-    /* Confirm below are in use */
-    .roles-teams {
-        flex-basis: 0%;
-        margin-bottom: 2rem;
-    }
-
-    .project-photo .device-frame {
-        width: 100%;
-    }
-
-    #Wellkind.project-photo {
-        width: 100%;
-    }
-
-    #Wellkind.device-frame {
-        display: none;
-    }
-
-
-    /* confirm in use */
-    .project-details blockquote p {
-        margin-left: 1rem !important;
-    }
-
-    .image-container img:nth-child(2) {
-        display: none;
-
-    }
-
-    .image-container img {
-        max-width: 100%;
-        height: 375px;
-    }
-
-    .projects-grid {
-        flex-wrap: wrap;
-    }
-
-
-}
-
-
-@media screen and (min-width: 1366px) {
-    main {
-        margin: 2rem auto;
-        flex: 0 0 50%;
-    }
-
-    .marquee-wrapper {
-        width: 50dvw;
-    }
-}
-
-@media screen and (min-width: 1800px) {
-    main {
-        margin: 2rem auto;
-        flex: 0 0 40%;
-    }
-
-    .marquee-wrapper {
-        width: 40dvw;
-    }
-}
-
-
-@media screen and (max-width: 1000px) {
-    .project-card {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    main {
-        margin: 2rem 1rem 6rem 1rem;
-    }
-
-    .project-title .top {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .timeline-item {
+    #top-nav,
+    #footer-small {
         display: flex;
+    }
+
+    /* Images */
+    .image-grid {
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .headshot {
-        width: 100%;
-        height: 200px;
-    }
-
-    .prev-next .project-name {
-        font-size: 1.125rem;
     }
 }
+
 
 
 * {
