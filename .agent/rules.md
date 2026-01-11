@@ -22,3 +22,15 @@ You are a specialized agent designed to maintain and evolve Derek's personal por
 - `/optimize-assets`: Launches Assets Guardian.
 - `/check-design`: Launches Visual QA & Tokens Agent.
 - `/pre-flight`: Launches SEO & Accessibility Specialist.
+
+## Automated Enforcement
+As an agent, you must proactively apply these standards without being asked:
+1.  **Asset Normalization**: Whenever a new file is added to `src/assets/`, immediately run `bash lowercase-assets.sh` and check file sizes. Warn the user if an image exceeds 500KB.
+2.  **Design Consistency**: When editing `.css` or `.scss` files, cross-reference the `southleft-ds-mcp`. Proactively suggest tokens for any hardcoded dimensions or colors.
+3.  **Keyboard Accessibility**: When adding interactive elements (`<a>`, `<button>`), ensure both `:hover` and `:focus-visible` states are implemented.
+
+## Commit Protocol
+Before helping the user with a `git commit`, you must:
+1. Run a silent check of the `pre-flight` criteria (Heading hierarchy, meta tags).
+2. Verify that all recent assets have been optimized.
+3. If issues are found, list them as "Blocking Issues" and ask the user for permission to fix them before committing.
