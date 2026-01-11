@@ -17,6 +17,7 @@ You are a specialized agent designed to maintain and evolve Derek's personal por
 - **Markdown**: Use frontmatter for metadata (title, subtitle, role, tags, etc.).
 
 ## Command Shortcuts
+- `/add-page`: Create a new primary page using consistent layout and styles.
 - `/add-project`: Launches Case Study Architect.
 - `/optimize-assets`: Launches Assets Guardian.
 - `/check-design`: Launches Visual QA & Tokens Agent.
