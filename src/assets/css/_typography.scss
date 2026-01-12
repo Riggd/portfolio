@@ -1,0 +1,125 @@
+body {
+    font-family: "Rethink Sans", sans-serif;
+    /* font-family: 'Inconsolata', monospace; */
+    /* Try Editorial new & black & white site with color pop (nameless.today)*/
+    background-color: var(--background-color);
+    color: var(--font-color);
+    margin: 0;
+    display: flex;
+    /* Look up what is best here for height 100vh or 100dvh 100dvh; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 500;
+}
+
+p {
+    font-size: 1rem;
+}
+
+span {
+    font-size: 14px;
+}
+
+p,
+span {
+    font-weight: 300;
+    line-height: 145%;
+    color: var(--font-secondary);
+}
+
+/* 
+===========
+CODE & PRE
+===========
+*/
+
+code {
+    font-family: 'Inconsolata', monospace;
+    background-color: var(--code-bg);
+    color: var(--code-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+    border: 1px solid var(--nav-border);
+    max-width: 100%;
+}
+
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    line-height: 1.5;
+    color: var(--font-color);
+}
+
+
+strong {
+    font-weight: 600;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color);
+    transition: all 0.5s ease;
+
+}
+
+a:hover {
+    color: var(--button-primary);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--button-primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+a:active {
+    transform: translateY(1px);
+}
+
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--button-primary);
+    transition: width .5s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+ol li {
+    color: var(--font-secondary);
+}
+
+.hero-section a {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.hero-section h1 {
+    font-weight: 900;
+}
+
+.hero-section h3 {
+    font-weight: 100;
+}

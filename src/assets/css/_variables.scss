@@ -1,0 +1,85 @@
+/* 
+=======
+THEMING
+=======
+*/
+
+:root {
+    --button-primary: #e8964e;
+    --button-secondary: #2a2c2d;
+    --color-secondary: #2a2c2d;
+    --color-accent: #12cdea;
+    --background-color: #f3f3f3;
+    --font-color: #32363A;
+    --font-secondary: #5C6166;
+    --pulseSize: 8px;
+    --green: rgba(100, 250, 95, 0.65);
+    --transparentGreen: rgba(100, 250, 95, 0);
+    --filterColor: grayscale(1);
+    --navBg: rgba(255, 255, 255, 0.85);
+    --navBorder: #cdcdcd;
+    --code-bg: #ececec;
+    --code-color: #2863a1;
+
+    /* Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Shadow */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    /* Brand Colors */
+    --color-brand-muted: #92B4C2;
+    --color-brand-accent: #EFB37D;
+    --color-brand-dark: #25414D;
+
+    /* Layout */
+    --container-max-width: 80ch;
+}
+
+html[data-theme='light'] {
+    --button-primary: #2863a1;
+    --button-secondary: #2a2c2d;
+    --color-secondary: #fbfbfe;
+    --color-accent: #2863a1;
+    --background-color: #f3f3f3;
+    --font-color: #32363A;
+    --font-secondary: #5C6166;
+    --nav-border: #c1c1c1;
+    --green: rgba(5, 150, 0, 0.65);
+    --transparentGreen: rgba(5, 150, 0, 0);
+    --filterColor: grayscale(1);
+    --navBg: rgba(255, 255, 255, 0.85);
+    --navBorder: #cdcdcd;
+    --code-bg: #ececec;
+    --code-color: #2863a1;
+}
+
+html[data-theme='dark'] {
+    --button-primary: #eba05f;
+    --button-secondary: #fff;
+    --color-secondary: #2a2c2d;
+    --color-accent: #12cdea;
+    --background-color: rgba(0, 0, 0, .9);
+    --font-color: #f3f3f3;
+    --font-secondary: #acacac;
+    --nav-border: rgba(39, 39, 39, 0.75);
+    --green: rgba(100, 250, 95, 0.65);
+    --transparentGreen: rgba(100, 250, 95, 0);
+    --filterColor: brightness(0) invert(1);
+    --navBg: #272727;
+    --navBorder: #303030;
+    --code-bg: #1e1e1e;
+    --code-color: #eba05f;
+}
