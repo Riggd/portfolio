@@ -1,0 +1,463 @@
+/* 
+====
+HOME
+====
+*/
+.home-title {
+    color: var(--color-brand-accent);
+}
+
+.home-subtitle {
+    font-weight: 300;
+    color: var(--font-color);
+    margin-bottom: 0;
+}
+
+.hero-top {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.hero-top .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hero-top .intro p {
+    margin: 0;
+}
+
+.hero-top .intro h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.hero-top .intro h2 {
+    font-size: 1.25rem;
+    line-height: 125%;
+    font-weight: 300;
+    margin: 0;
+    color: var(--font-secondary);
+}
+
+.choose-adventure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.testing-font {
+    font-family: 'Outward Block', sans-serif;
+    font-size: 3rem;
+}
+
+/* 
+=====
+ABOUT
+=====
+*/
+
+.headshot {
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 1rem;
+    transition: .5s all ease-in-out;
+}
+
+.headshot:hover {
+    background: center url('/assets/shark.jpg') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.about {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.about .top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about .top h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+}
+
+.about .top h2 {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+    line-height: 125%;
+    font-weight: 300;
+    color: var(--font-secondary);
+    margin: 0;
+}
+
+
+.about-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero-section {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10.7px);
+    -webkit-backdrop-filter: blur(10.7px);
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    overflow: hidden;
+    margin: 5rem 0;
+}
+
+.hero-right .profile-thumb img {
+    display: none;
+}
+
+.hero-section a {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.hero-section h1 {
+    font-weight: 900;
+}
+
+.hero-section h3 {
+    font-weight: 100;
+}
+
+.hero-left {
+    margin: 0px;
+    padding: 0px;
+}
+
+.hero-left img {
+    width: 22rem;
+    height: 100%;
+}
+
+.hero-right {
+    padding: 32px;
+}
+
+
+/* 
+=======
+PROCESS
+=======
+*/
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#process {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+#process img {
+    width: 100%;
+}
+
+/* Barometer */
+
+#barometer img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* Projects List */
+.wins-issues {
+    display: flex;
+    gap: 2rem;
+}
+
+.wins-issues>* {
+    flex: 1;
+}
+
+.wins-issues p {
+    font-weight: 400;
+}
+
+.impact {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--font-color);
+    border-radius: 1rem;
+}
+
+.problems {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    /* background-color: rgba(216, 154, 154, 0.4); */
+    color: rgba(216, 154, 154, 0.4);
+    border-radius: 1rem;
+}
+
+.roles-teams {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.roles-teams p {
+    font-size: 1rem;
+    margin: 0 0 0.25rem;
+}
+
+
+/* 
+=============
+PROJECT DETAIL
+=============
+*/
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-footer .prev-next {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-basis: content;
+    padding: 3rem 0;
+}
+
+.project-footer a:last-child {
+    align-items: flex-end;
+    margin-left: auto;
+    text-align: right;
+}
+
+.project-footer a::after {
+    display: none !important;
+}
+
+.prev-next .label {
+    color: var(--font-secondary);
+}
+
+.prev-next .project-name {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.prev-next:hover .project-name {
+    color: var(--font-color);
+}
+
+.principles {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.principles .principle {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.principle h4 {
+    margin-bottom: .25rem;
+}
+
+.principle span {
+    color: var(--font-secondary);
+}
+
+/* MOAB Project */
+.moab-governance {
+    display: flex;
+    gap: 2rem;
+}
+
+
+.moab-governance>* {
+    flex: 1;
+}
+
+.project-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: .5rem;
+}
+
+.device-frame img {
+    width: 100%;
+    border-radius: .75rem;
+}
+
+.project-pageheader li {
+    font-size: 0.85rem;
+}
+
+
+.project-pageheader h1,
+.project-pageheader span {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 300;
+}
+
+.project-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.project-title h1 {
+    margin: 0;
+    width: 65%;
+}
+
+.project-title .top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-title .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+}
+
+.project-details strong {
+    color: var(--font-color);
+}
+
+.project-details p {
+    font-size: 1rem;
+    line-height: 150%;
+}
+
+.project-details img {
+    width: 100%;
+    height: auto;
+    border-radius: .25rem;
+}
+
+.project-details video {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.bg-fill {
+    background-color: #F8F6F5;
+}
+
+.project-details blockquote p {
+    font-size: 1.25rem;
+    color: var(--font-color);
+    font-style: italic;
+    border-left: 2px solid var(--button-primary);
+    padding-left: 2rem;
+}
+
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-container .top {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.project-container h2 {
+    margin: 2rem 0 0 0;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4rem;
+    row-gap: 8rem;
+    justify-content: center;
+}
+
+/* Projects Page specific */
+.old-new-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.old-new-container img {
+    width: 50%;
+}
+
+.old-new-container img:first-child {
+    width: 80%;
+}
+
+/* Field Notes Page - maybe redundant with components but structure is here */
+.field-notes {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.field-notes .top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.field-notes .top h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+}
+
+.field-notes .top h2 {
+    font-size: 1.25rem;
+    line-height: 125%;
+    font-weight: 300;
+    color: var(--font-secondary);
+    margin: 0;
+}

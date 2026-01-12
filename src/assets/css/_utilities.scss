@@ -1,0 +1,137 @@
+blockquote {
+    margin: 3rem;
+}
+
+.clipped {
+    -webkit-clip-path: url(#svgPath);
+    clip-path: url(#svgPath);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.wobble {
+    animation: wobble 2s ease infinite;
+}
+
+@keyframes wobble {
+    0% {
+        transform: translateY(0px);
+    }
+
+    15% {
+        transform: translateY(-5px) rotate(-5deg);
+    }
+
+    30% {
+        transform: translateY(5px) rotate(3deg);
+    }
+
+    45% {
+        transform: translateY(-2.5px) rotate(-3deg);
+    }
+
+    60% {
+        transform: translateY(2px) rotate(2deg);
+    }
+
+    75% {
+        transform: translateY(-2px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.fade-in {
+    animation: fadeIn .75s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Default fallback for browsers without scroll-driven animation support */
+.fade2 {
+    opacity: 1;
+    transform: none;
+    transition: all 0.5s ease-out;
+}
+
+/* Enhanced scroll-driven animation for supporting browsers */
+@supports (animation-timeline: view()) {
+    .fade2 {
+        opacity: 0;
+        transform: translateY(20px) rotate(-5deg) scale(0.9);
+        animation: fade2 linear forwards;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+        transform-style: preserve-3d;
+    }
+}
+
+@keyframes fade2 {
+    to {
+        scale: 1;
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+img+em {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+hr {
+    width: 100%;
+    color: var(--font-secondary);
+}
+
+.scrolling-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+}
+
+.image-container img {
+    border-radius: 8px;
+}
+
+.logo-grey {
+    -webkit-filter: var(--filterColor);
+    filter: var(--filterColor);
+}
+
+.logo-grey:hover {
+    -webkit-filter: none !important;
+    filter: none !important;
+}

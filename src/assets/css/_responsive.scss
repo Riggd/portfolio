@@ -1,0 +1,115 @@
+@media screen and (max-width: 650px) {
+
+    /* Tablet / Mobile */
+    :root {
+        --container-max-width: 100%;
+    }
+
+    /* Stack flex-row to flex-col */
+    .flex-row {
+        flex-direction: column;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    aside {
+        z-index: 10;
+        display: flex;
+        flex: min-content;
+        position: fixed;
+        align-self: center;
+        bottom: 24px;
+        top: unset;
+        min-height: unset;
+        background: var(--navBg);
+        border: 1px solid var(--navBorder);
+        border-radius: .5rem;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    /* Nav Adjustments */
+    .nav,
+    .nav-items {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .nav-items {
+        gap: 2rem;
+    }
+
+    .nav-items a {
+        font-size: 1rem;
+    }
+
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #top-nav,
+    #footer-small {
+        display: flex;
+    }
+
+    /* Images */
+    .image-grid {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .marquee,
+    .marquee-content {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+@media print {
+
+    nav,
+    aside,
+    footer,
+    .theme-toggle,
+    .no-print,
+    button {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+        display: block;
+    }
+
+    main {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+    }
+
+    .headshot {
+        max-width: 200px;
+    }
+}
