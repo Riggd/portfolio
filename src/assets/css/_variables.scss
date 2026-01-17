@@ -20,6 +20,8 @@ THEMING
     --navBorder: #cdcdcd;
     --code-bg: #ececec;
     --code-color: #2863a1;
+    --selection-bg: #2863a1;
+    --selection-color: #ffffff;
 
     /* Spacing System */
     --space-xs: 0.5rem;
@@ -64,6 +66,8 @@ html[data-theme='light'] {
     --navBorder: #cdcdcd;
     --code-bg: #ececec;
     --code-color: #2863a1;
+    --selection-bg: #2863a1;
+    --selection-color: #ffffff;
 }
 
 html[data-theme='dark'] {
@@ -82,4 +86,6 @@ html[data-theme='dark'] {
     --navBorder: #303030;
     --code-bg: #1e1e1e;
     --code-color: #eba05f;
+    --selection-bg: #12cdea;
+    --selection-color: #000000;
 }

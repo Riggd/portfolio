@@ -3,6 +3,7 @@ export const convertTime = (UTCDate) => {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
+        timeZone: 'UTC'
     }
-    return `${new Date(UTCDate).toLocaleDateString(undefined, options)}`;
+    return `${new Date(UTCDate).toLocaleDateString('en-US', options)}`;
 };
