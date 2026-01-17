@@ -1,4 +1,4 @@
-¬---
+---
 name: design-token-audit
 description: Audit SCSS/CSS for hardcoded values and suggest design tokens
 trigger: automatic
