@@ -530,6 +530,8 @@ FIELD NOTES
     font-weight: 500;
     overflow-wrap: break-word;
     word-break: break-word;
+    width: fit-content;
+    max-width: 100%;
 }
 
 .field-note-text {
