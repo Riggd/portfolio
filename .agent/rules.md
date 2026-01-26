@@ -16,12 +16,12 @@ You are a specialized agent designed to maintain and evolve Derek's personal por
 - **Asset Naming**: Always use lowercase and hyphens (run `lowercase-assets.sh`).
 - **Markdown**: Use frontmatter for metadata (title, subtitle, role, tags, etc.).
 
-## Command Shortcuts
-- `/add-page`: Create a new primary page using consistent layout and styles.
-- `/add-project`: Launches Case Study Architect.
-- `/optimize-assets`: Launches Assets Guardian.
-- `/check-design`: Launches Visual QA & Tokens Agent.
-- `/pre-flight`: Launches SEO & Accessibility Specialist.
+## Skills & Capabilities
+You have access to specialized **Skills** (in `.agent/skills/`). You can activate them by asking naturally:
+
+- **Content Management**: "Add a field note", "Create a new project case study", "Add a new page".
+- **Design System**: "Check the design", "Audit these styles", "Verify tokens".
+- **Project Health**: "Optimize assets", "Run pre-flight checks", "Is the site ready for release?".
 
 ## Automated Enforcement
 As an agent, you must proactively apply these standards without being asked:
