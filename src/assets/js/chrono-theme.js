@@ -172,30 +172,64 @@ class ChronoTheme {
         return 720 - correctionMinutes - eot;
     }
 
+    /**
+     * Calculate day half-length in minutes (sunrise to noon)
+     * Uses simple sunrise equation.
+     */
+    calculateDayHalfLength(doy) {
+        if (!this.coords) return 360; // Default 6 hours (12h day)
+
+        const { latitude } = this.coords;
+        const latRad = latitude * (Math.PI / 180);
+
+        // Solar Declination
+        const delta = 23.45 * Math.sin((360 / 365) * (doy - 81) * (Math.PI / 180));
+        const deltaRad = delta * (Math.PI / 180);
+
+        // Hour Angle H
+        // cos(H) = -tan(lat) * tan(delta)
+        const tanLat = Math.tan(latRad);
+        const tanDelta = Math.tan(deltaRad);
+        let cosH = -tanLat * tanDelta;
+
+        // Clamp for polar sun
+        if (cosH > 1) cosH = 1;   // Polar Night (never rises) -> H = 0
+        if (cosH < -1) cosH = -1; // Polar Day (never sets) -> H = 180
+
+        const H_deg = Math.acos(cosH) * (180 / Math.PI);
+
+        // H is degrees from Noon. 4 minutes per degree.
+        return H_deg * 4;
+    }
+
     calculateLightnessFromTime(minutes, doy = 0) {
         const peak = this.calculateSolarNoon(doy);
+        const halfDay = this.calculateDayHalfLength(doy);
 
-        // We want a curve that peaks (1.0) at `peak` and is lowest (0.0) at `peak +/- 720` (12 hours away)
-        // Cosine wave: cos(x) peaks at 0.
-        // We want cos(time - peak). 
-        // Period is 1440 minutes.
-        // Angle = ( (time - peak) / 1440 ) * 2 * PI
+        const sunrise = peak - halfDay;
+        const sunset = peak + halfDay;
 
-        const rads = ((minutes - peak) / 1440) * Math.PI * 2;
+        // Night time
+        if (minutes < sunrise || minutes > sunset) {
+            return 0.05; // Base darkness
+        }
 
-        // cos(0) = 1. cos(PI) = -1. 
-        // Map [-1, 1] to [0, 1] -> (val + 1) / 2
-        const rawCycle = (Math.cos(rads) + 1) / 2;
+        // Day time - map [sunrise, sunset] to sine wave [0, PI]
+        // progress 0 (sunrise) -> 1 (sunset)
+        const dayDuration = sunset - sunrise;
+        if (dayDuration <= 0) return 0.05; // Should catch polar night
 
-        // Additional shaping: Day should be broader? 
-        // Simple power curve to widen the "night" or "day" if desired. 
-        // rawCycle^0.5 makes it spend more time in light. rawCycle^2 makes it spikier light.
-        // Let's keep it linear sine for now.
+        const progress = (minutes - sunrise) / dayDuration;
 
-        const minL = 0.05; // Deep night
-        const maxL = 0.95; // Bright noon
+        // Map 0..1 to 0..PI
+        // sin(0) = 0, sin(PI/2) = 1, sin(PI) = 0
+        const rawsCycle = Math.sin(progress * Math.PI);
 
-        return minL + (rawCycle * (maxL - minL));
+        // Map [0, 1] to [minL, maxL]
+        const minL = 0.05;
+        const maxL = 0.95;
+
+        return minL + (rawsCycle * (maxL - minL));
     }
 
     getHueFromDOY(doy) {
