@@ -1,8 +1,12 @@
+html {
+    background-color: var(--background-color);
+}
+
 body {
     font-family: "Rethink Sans", sans-serif;
     /* font-family: 'Inconsolata', monospace; */
     /* Try Editorial new & black & white site with color pop (nameless.today)*/
-    background-color: var(--background-color);
+    background-color: transparent;
     color: var(--font-color);
     margin: 0;
     display: flex;

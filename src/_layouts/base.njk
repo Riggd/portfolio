@@ -37,22 +37,32 @@
 
         try {
           var prefs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-          var mode = prefs.mode || 'auto';
           var seasonMode = prefs.seasonMode || 'auto';
+          var timeMode = prefs.timeMode || 'auto';
           var vibrancy = prefs.vibrancy || 1.0;
           var gradientIntensity = prefs.gradientIntensity !== undefined ? prefs.gradientIntensity : 0.5;
-
-          // Determine effective theme
-          var theme;
-          if (mode === 'auto') {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          } else {
-            theme = mode;
-          }
 
           // Determine effective season
           var season = seasonMode === 'auto' ? getSeason(getDayOfYear()) : seasonMode;
           var s = SEASONS[season] || SEASONS.spring;
+
+          // Determine effective time period multiplier and mode
+          var timePeriodMultiplier = 1.0;
+          var theme = 'dark'; // default
+          
+          if (timeMode === 'auto') {
+             timePeriodMultiplier = getTimePeriod();
+             // 1.0 is day, anything else is not day (dark)
+             // getTimePeriod returns: night=0.7, dawn=0.85, day=1.0, dusk=0.8
+             theme = timePeriodMultiplier === 1.0 ? 'light' : 'dark';
+          } else {
+             // Manual time overrides
+             // These magic numbers must match the TIME_PERIODS object in JS
+             if (timeMode === 'day') { timePeriodMultiplier = 1.0; theme = 'light'; }
+             else if (timeMode === 'dawn') { timePeriodMultiplier = 0.85; theme = 'dark'; }
+             else if (timeMode === 'dusk') { timePeriodMultiplier = 0.8; theme = 'dark'; }
+             else if (timeMode === 'night') { timePeriodMultiplier = 0.7; theme = 'dark'; }
+          }
 
           // Apply theme immediately
           document.documentElement.setAttribute('data-theme', theme);
@@ -61,19 +71,29 @@
           document.documentElement.style.setProperty('--chrono-c-base', s.chroma);
           document.documentElement.style.setProperty('--chrono-c-accent', s.chromaAccent);
           document.documentElement.style.setProperty('--chrono-vibrancy', vibrancy);
-          document.documentElement.style.setProperty('--chrono-time-modifier', getTimePeriod());
+          document.documentElement.style.setProperty('--chrono-time-modifier', timePeriodMultiplier);
           document.documentElement.style.setProperty('--chrono-gradient-intensity', gradientIntensity);
         } catch(e) {
-          // Fallback to system preference
-          var fallbackTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', fallbackTheme);
+          // Fallback to safe default
+          document.documentElement.setAttribute('data-theme', 'dark');
         }
       })();
     </script>
 </head>
 <body>
     <!-- ChronoTheme Mesh Gradient Background -->
-    <div class="chrono-mesh" aria-hidden="true"></div>
+    <!-- ChronoTheme Cinematic Mesh -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="liquid-mesh" aria-hidden="true">
+        <!-- 1. Base (Season) -->
+        <div class="blob"></div>
+        <!-- 2. Accent (Complementary) -->
+        <div class="blob"></div>
+        <!-- 3. Highlight -->
+        <div class="blob"></div>
+        <!-- 4. Fill -->
+        <div class="blob"></div>
+    </div>
 
     <aside aria-label="Sidebar Navigation">
         {% include "left.njk" %}

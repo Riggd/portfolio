@@ -1,92 +1,149 @@
-<!-- ChronoTheme Settings Panel Overlay -->
 <div id="chrono-settings-overlay" class="chrono-settings-overlay" aria-hidden="true"></div>
 
-<!-- ChronoTheme Settings Panel (Compact Layout) -->
-<aside id="chrono-settings" class="chrono-settings" aria-hidden="true" aria-label="Theme Settings" role="dialog">
+<aside id="chrono-settings" class="chrono-settings-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="chrono-settings-title">
     <div class="chrono-settings-header">
-        <h2 class="chrono-settings-title">Theme</h2>
-        <button id="chrono-settings-close" class="chrono-settings-close" type="button" aria-label="Close settings">
-            &times;
-        </button>
+        <h2 id="chrono-settings-title" class="chrono-settings-title">Parameter Control</h2>
+        <button id="chrono-settings-close" class="chrono-settings-close" aria-label="Close Settings">×</button>
     </div>
 
-    <!-- Compact Grid Layout -->
-    <div class="chrono-settings-grid">
-        <!-- Mode -->
-        <div class="chrono-settings-group chrono-settings-group--full">
-            <span class="chrono-settings-label">Mode</span>
-            <div class="chrono-settings-pills">
-                <div class="chrono-settings-pill">
-                    <input type="radio" id="chrono-mode-light" name="chrono-mode" value="light">
-                    <label for="chrono-mode-light">Light</label>
-                </div>
-                <div class="chrono-settings-pill">
-                    <input type="radio" id="chrono-mode-dark" name="chrono-mode" value="dark">
-                    <label for="chrono-mode-dark">Dark</label>
-                </div>
-                <div class="chrono-settings-pill">
-                    <input type="radio" id="chrono-mode-auto" name="chrono-mode" value="auto" checked>
-                    <label for="chrono-mode-auto">Auto</label>
-                </div>
+    <!-- Header / Manual Override -->
+    <div class="chrono-settings-section">
+        <div class="chrono-settings-row">
+            <input type="checkbox" id="chrono-manual">
+            <label for="chrono-manual" class="chrono-settings-label-inline">Manual Override</label>
+        </div>
+    </div>
+
+    <!-- Simulation Environment -->
+    <div class="chrono-settings-section">
+        <h3 class="chrono-settings-subtitle">Simulation Environment</h3>
+        
+        <!-- Day of Year -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-doy">Day of Year (Season)</label>
+                <span id="chrono-doy-value" class="chrono-settings-value">0</span>
             </div>
+            <input type="range" id="chrono-doy" min="0" max="365" step="1" value="0">
         </div>
 
-        <!-- Season -->
-        <div class="chrono-settings-group">
-            <span class="chrono-settings-label">Season</span>
-            <select id="chrono-season-select" class="chrono-settings-select" name="chrono-season-select">
-                <option value="auto">Auto</option>
-                <option value="spring">Spring</option>
-                <option value="summer">Summer</option>
-                <option value="autumn">Autumn</option>
-                <option value="winter">Winter</option>
-            </select>
-        </div>
-
-        <!-- Time -->
-        <div class="chrono-settings-group">
-            <span class="chrono-settings-label">Time</span>
-            <select id="chrono-time-select" class="chrono-settings-select" name="chrono-time-select">
-                <option value="auto">Auto</option>
-                <option value="dawn">Dawn</option>
-                <option value="day">Day</option>
-                <option value="dusk">Dusk</option>
-                <option value="night">Night</option>
-            </select>
+        <!-- Time of Day -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-time">Time of Day</label>
+                <span id="chrono-time-value" class="chrono-settings-value">00:00</span>
+            </div>
+            <input type="range" id="chrono-time" min="0" max="1440" step="15" value="720">
         </div>
     </div>
 
-    <!-- Sliders -->
-    <div class="chrono-settings-slider-row">
-        <span class="chrono-settings-label">Vibrancy</span>
-        <input type="range" id="chrono-vibrancy" min="0.5" max="1.5" step="0.05" value="1.0">
-        <span class="chrono-settings-slider-row-value" id="chrono-vibrancy-value">100%</span>
+    <!-- Color Grading -->
+    <div class="chrono-settings-section">
+        <h3 class="chrono-settings-subtitle">Color Grading (OKLCH)</h3>
+        
+        <!-- Base Hue -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-hue-base">Base Hue (0-360)</label>
+                <span id="chrono-hue-base-value" class="chrono-settings-value">260</span>
+            </div>
+            <input type="range" id="chrono-hue-base" min="0" max="360" step="1" value="260">
+        </div>
+
+        <!-- Secondary Hue Offset -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-hue-sec">Sec. Hue Offset (+/- 180)</label>
+                <span id="chrono-hue-sec-value" class="chrono-settings-value">40</span>
+            </div>
+            <input type="range" id="chrono-hue-sec" min="-180" max="180" step="5" value="-80">
+        </div>
+        
+        <!-- Tertiary Hue Offset -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-hue-ter">Ter. Hue Offset (+/- 180)</label>
+                <span id="chrono-hue-ter-value" class="chrono-settings-value">40</span>
+            </div>
+            <input type="range" id="chrono-hue-ter" min="-180" max="180" step="5" value="40">
+        </div>
+
+        <!-- Lightness -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-lightness">Lightness (0 - 1.0)</label>
+                <span id="chrono-lightness-value" class="chrono-settings-value">0.05</span>
+            </div>
+            <input type="range" id="chrono-lightness" min="0" max="1" step="0.01" value="0.05">
+        </div>
+
+        <!-- Chroma -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-chroma">Chroma (Vibrancy)</label>
+                <span id="chrono-chroma-value" class="chrono-settings-value">0.18</span>
+            </div>
+            <input type="range" id="chrono-chroma" min="0" max="0.4" step="0.01" value="0.18">
+        </div>
     </div>
 
-    <div class="chrono-settings-slider-row">
-        <span class="chrono-settings-label">Background</span>
-        <input type="range" id="chrono-gradient" min="0" max="1" step="0.05" value="0.5">
-        <span class="chrono-settings-slider-row-value" id="chrono-gradient-value">50%</span>
+    <!-- Atmosphere & Post-FX -->
+    <div class="chrono-settings-section">
+        <h3 class="chrono-settings-subtitle">Atmosphere & Post-FX</h3>
+        
+        <!-- Blur -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-blur">Blur Strength (Mesh)</label>
+                <span id="chrono-blur-value" class="chrono-settings-value">120px</span>
+            </div>
+            <input type="range" id="chrono-blur" min="0" max="200" step="5" value="120">
+        </div>
+
+        <!-- Noise -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-noise">Noise Opacity</label>
+                <span id="chrono-noise-value" class="chrono-settings-value">7%</span>
+            </div>
+            <input type="range" id="chrono-noise" min="0" max="0.3" step="0.01" value="0.07">
+        </div>
+
+        <!-- Saturation Boost -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-saturation">Saturation Boost</label>
+                <span id="chrono-saturation-value" class="chrono-settings-value">130%</span>
+            </div>
+            <input type="range" id="chrono-saturation" min="50" max="250" step="5" value="130">
+        </div>
     </div>
 
-    <!-- Compact Info Display -->
-    <div class="chrono-settings-info">
-        <div class="chrono-settings-info-item">
-            <span class="chrono-settings-info-label">Season</span>
-            <span class="chrono-settings-info-value" id="chrono-info-season">--</span>
+    <!-- Kinetics -->
+    <div class="chrono-settings-section">
+        <h3 class="chrono-settings-subtitle">Kinetics</h3>
+        
+        <!-- Flow Speed -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-speed">Flow Speed</label>
+                <span id="chrono-speed-value" class="chrono-settings-value">1.0x</span>
+            </div>
+            <input type="range" id="chrono-speed" min="0" max="5.0" step="0.1" value="1.0">
         </div>
-        <div class="chrono-settings-info-item">
-            <span class="chrono-settings-info-label">Time</span>
-            <span class="chrono-settings-info-value" id="chrono-info-time">--</span>
-        </div>
-        <div class="chrono-settings-info-item">
-            <span class="chrono-settings-info-label">Mode</span>
-            <span class="chrono-settings-info-value" id="chrono-info-mode">--</span>
+
+        <!-- Blob Scale -->
+        <div class="chrono-settings-control">
+            <div class="chrono-settings-label-row">
+                <label for="chrono-scale">Blob Scale</label>
+                <span id="chrono-scale-value" class="chrono-settings-value">1.0</span>
+            </div>
+            <input type="range" id="chrono-scale" min="0.5" max="2.0" step="0.1" value="1.0">
         </div>
     </div>
 
-    <!-- Reset Button -->
-    <button id="chrono-reset" class="chrono-settings-reset" type="button">
-        Reset to Defaults
-    </button>
+    <div class="chrono-settings-footer">
+        <button id="chrono-reset" class="chrono-btn-reset">Reset to Defaults</button>
+        <span class="chrono-version">Engine v5.0</span>
+    </div>
 </aside>
