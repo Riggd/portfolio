@@ -10,7 +10,7 @@ const SEASONS = {
     winter: { name: 'Winter', dayStart: 335, dayEnd: 59, hBase: 260 },
     spring: { name: 'Spring', dayStart: 60, dayEnd: 151, hBase: 160 },
     summer: { name: 'Summer', dayStart: 152, dayEnd: 243, hBase: 40 },
-    autumn: { name: 'Autumn', dayStart: 244, dayEnd: 334, hBase: 30 }
+    autumn: { name: 'Autumn', dayStart: 244, dayEnd: 334, hBase: 30 } // Should be 30 or similar warm hue
 };
 
 // Default preferences matching the new schema
@@ -41,6 +41,7 @@ const DEFAULT_PREFERENCES = {
 class ChronoTheme {
     constructor() {
         this.preferences = { ...DEFAULT_PREFERENCES };
+        this.coords = null; // Store { latitude, longitude }
         this.autoUpdateInterval = null;
         this.settingsOpen = false;
 
@@ -50,17 +51,36 @@ class ChronoTheme {
         }
     }
 
-    init() {
+    async init() {
         this.loadPreferences();
 
         // If not manual, perform an initial sync to live time
         if (!this.preferences.manual) {
+            // Attempt to get location for better solar accuracy
+            await this.initLocation();
             this.syncToLive();
         }
 
         this.applyTheme();
         this.startAutoUpdate();
         this.bindEvents();
+    }
+
+    async initLocation() {
+        try {
+            // We only need coarse location, but browser permission is boolean
+            // This will prompt the user
+            const pos = await new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject, {
+                    timeout: 5000,
+                    maximumAge: 600000 // 10 minutes cache
+                });
+            });
+            this.coords = pos.coords;
+            console.log('ChronoTheme: Location acquired', this.coords);
+        } catch (e) {
+            console.warn('ChronoTheme: Location access denied or failed, using defaults.', e);
+        }
     }
 
     /**
@@ -79,22 +99,96 @@ class ChronoTheme {
         const season = this.getSeasonFromDOY(this.preferences.doy);
         this.preferences.hueBase = season.hBase;
 
-        // Auto-adjust lightness based on time (Simple curve)
-        // Night (0.02) -> Noon (0.15) -> Night (0.02)
-        const timeVal = this.calculateTimeCurve(this.preferences.time);
-        this.preferences.lightness = 0.02 + (timeVal * 0.13);
+        // Auto-adjust lightness based on time and solar cycle
+        this.preferences.lightness = this.calculateLightnessFromTime(
+            this.preferences.time,
+            this.preferences.doy
+        );
 
         this.savePreferences();
     }
 
-    calculateTimeCurve(minutes) {
-        const rads = (minutes / 1440) * Math.PI * 2;
-        // Cosine curve: -1 at midnight, 1 at noon
-        // Shift to 0..1: (cos(rads - PI) + 1) / 2
-        /* Note: 0 mins = Midnight. Math.cos(0) = 1. We want -1. 
-           So rads - PI.
-        */
-        return (Math.cos(rads - Math.PI) + 1) / 2;
+    /**
+     * Calculate approx solar noon in minutes from midnight for current location
+     * Default to 720 (12:00 PM) if no location.
+     */
+    calculateSolarNoon(doy) {
+        // Default to Noon if no coords
+        if (!this.coords) return 720;
+
+        const { longitude } = this.coords;
+        const now = new Date();
+
+        // 1. Calculate Equation of Time (EoT) in minutes
+        // B = (360 / 365) * (product of days since approx Jan 1)
+        // More precise: (doy - 81) is days since Vernal Equinox ish? 
+        // Standard formula: B = 360/365 * (doy - 81)
+        const B = (360 / 365) * (doy - 81) * (Math.PI / 180);
+        const eot = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+
+        // 2. Solar Noon (Local Time) calculation
+        // Solar Noon (UTC) = 12:00 - (Longitude / 15 degrees_per_hour) - (EoT / 60)
+        // Then convert UTC Solar Noon to Local Solar Noon by adding Timezone Offset
+
+        // Let's do it purely in minutes relative to local midnight for simplicity, 
+        // acknowledging timezone edges might be slightly off but "good enough" for background gradient.
+
+        // Difference between local meridian and actual longitude
+        // Local Meridian = TimezoneOffset (in hours) * 15 degrees
+        // E.g. EST (UTC-5) -> -5 * 15 = -75 degrees
+
+        const timezoneOffsetHours = -now.getTimezoneOffset() / 60; // minutes -> hours. EST is 300min -> 5h behind UTC? wait.
+        // getTimezoneOffset returns positive minutes for zones BEHIND UTC. e.g. NY is 300. 
+        // So NY is UTC-5. 
+
+        const localMeridian = (-now.getTimezoneOffset() / 60) * 15;
+        // e.g. UTC-5 = -5 * 15 = -75 deg.
+
+        // Difference in degrees
+        const correctionDeg = longitude - localMeridian;
+        // 4 minutes per degree
+        const correctionMinutes = 4 * correctionDeg;
+
+        // Solar Noon Local = 12:00 - correction - EoT
+        // wait, if I am EAST of meridian, noon comes EARLIER. 
+        // if longitude (-74 NY) is > meridian (-75), I am EAST. 
+        // Difference is +1 deg. Noon is 4 mins EARLIER. 
+        // Formula: 720 - (4 * (longitude - meridian)) - eot
+
+        // Let's try: 
+        // NY Longitude -74. 
+        // Meridian -75.
+        // Diff = +1. 
+        // 4 * 1 = 4 mins. 
+        // 720 - 4 = 716. (11:56 AM). Correct, sun is overhead earlier.
+
+        return 720 - correctionMinutes - eot;
+    }
+
+    calculateLightnessFromTime(minutes, doy = 0) {
+        const peak = this.calculateSolarNoon(doy);
+
+        // We want a curve that peaks (1.0) at `peak` and is lowest (0.0) at `peak +/- 720` (12 hours away)
+        // Cosine wave: cos(x) peaks at 0.
+        // We want cos(time - peak). 
+        // Period is 1440 minutes.
+        // Angle = ( (time - peak) / 1440 ) * 2 * PI
+
+        const rads = ((minutes - peak) / 1440) * Math.PI * 2;
+
+        // cos(0) = 1. cos(PI) = -1. 
+        // Map [-1, 1] to [0, 1] -> (val + 1) / 2
+        const rawCycle = (Math.cos(rads) + 1) / 2;
+
+        // Additional shaping: Day should be broader? 
+        // Simple power curve to widen the "night" or "day" if desired. 
+        // rawCycle^0.5 makes it spend more time in light. rawCycle^2 makes it spikier light.
+        // Let's keep it linear sine for now.
+
+        const minL = 0.05; // Deep night
+        const maxL = 0.95; // Bright noon
+
+        return minL + (rawCycle * (maxL - minL));
     }
 
     getSeasonFromDOY(doy) {
@@ -134,6 +228,15 @@ class ChronoTheme {
             this.preferences.hueBase = season.hBase;
         }
 
+        // If manually changing Time, update Lightness calculation
+        // (Even in manual mode, we simulate the physics of light)
+        if (key === 'time') {
+            this.preferences.lightness = this.calculateLightnessFromTime(
+                value,
+                this.preferences.doy
+            );
+        }
+
         this.savePreferences();
         this.applyTheme();
         this.updateSettingsUI();
@@ -141,6 +244,8 @@ class ChronoTheme {
 
     resetToDefaults() {
         this.preferences = { ...DEFAULT_PREFERENCES };
+        // If we have location, keep it? Or re-init. 
+        // Re-syncing is safer
         this.syncToLive();
         this.applyTheme();
         this.updateSettingsUI();
@@ -167,8 +272,7 @@ class ChronoTheme {
         root.style.setProperty('--chrono-blob-scale', p.scale);
 
         // Derived Mode (Light/Dark)
-        // Currently V5 is "Cinematic Dark", light mode is optional override
-        // logic could vary here if we want true light mode switch
+        // Continuous switch point at 50% lightness
         const mode = p.lightness > 0.5 ? 'light' : 'dark';
         root.setAttribute('data-theme', mode);
 
