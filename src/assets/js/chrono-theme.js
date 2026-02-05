@@ -13,6 +13,14 @@ const SEASONS = {
     autumn: { name: 'Autumn', dayStart: 244, dayEnd: 334, hBase: 30 } // Should be 30 or similar warm hue
 };
 
+// Interpolation Keyframes
+const SEASON_POINTS = [
+    { doy: 60, hue: 160 },  // Spring Start (March 1)
+    { doy: 152, hue: 40 },  // Summer Start (June 1)
+    { doy: 244, hue: 30 },  // Autumn Start (Sept 1)
+    { doy: 335, hue: 260 }  // Winter Start (Dec 1)
+];
+
 // Default preferences matching the new schema
 const DEFAULT_PREFERENCES = {
     manual: false,
@@ -88,7 +96,7 @@ class ChronoTheme {
      */
     syncToLive() {
         const now = new Date();
-        const start = new Date(now.getFullYear(), 0, 0);
+        const start = new Date(now.getFullYear(), 0, 1);
         const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
         const oneDay = 1000 * 60 * 60 * 24;
 
@@ -96,8 +104,7 @@ class ChronoTheme {
         this.preferences.time = (now.getHours() * 60) + now.getMinutes();
 
         // Also update derived seasonal base if in auto
-        const season = this.getSeasonFromDOY(this.preferences.doy);
-        this.preferences.hueBase = season.hBase;
+        this.preferences.hueBase = this.getHueFromDOY(this.preferences.doy);
 
         // Auto-adjust lightness based on time and solar cycle
         this.preferences.lightness = this.calculateLightnessFromTime(
@@ -191,12 +198,96 @@ class ChronoTheme {
         return minL + (rawCycle * (maxL - minL));
     }
 
-    getSeasonFromDOY(doy) {
-        // Simple range check
-        if (doy >= SEASONS.spring.dayStart && doy <= SEASONS.spring.dayEnd) return SEASONS.spring;
-        if (doy >= SEASONS.summer.dayStart && doy <= SEASONS.summer.dayEnd) return SEASONS.summer;
-        if (doy >= SEASONS.autumn.dayStart && doy <= SEASONS.autumn.dayEnd) return SEASONS.autumn;
-        return SEASONS.winter;
+    getHueFromDOY(doy) {
+        // Find existing range
+        // Points must be sorted by doy.
+
+        // 1. Find the segment this DOY falls into
+        // Since we wrap around 365 -> 0, let's treat it as a loop.
+
+        let p1, p2;
+
+        // Check if we are past the last point (Winter) or before the first point (Spring)
+        // Winter starts 335. Spring starts 60.
+        // If doy >= 335, we are in Winter->Spring segment (but wrap around).
+        // If doy < 60, we are also in Winter->Spring segment.
+
+        const lastPoint = SEASON_POINTS[SEASON_POINTS.length - 1];
+        const firstPoint = SEASON_POINTS[0];
+
+        if (doy >= lastPoint.doy || doy < firstPoint.doy) {
+            p1 = lastPoint;
+            p2 = firstPoint;
+        } else {
+            // Standard search
+            for (let i = 0; i < SEASON_POINTS.length - 1; i++) {
+                if (doy >= SEASON_POINTS[i].doy && doy < SEASON_POINTS[i + 1].doy) {
+                    p1 = SEASON_POINTS[i];
+                    p2 = SEASON_POINTS[i + 1];
+                    break;
+                }
+            }
+        }
+
+        if (!p1 || !p2) return 260; // Fallback
+
+        // Disable warning for p1 p2 undefined
+
+        // Calculate progress
+        let startDoy = p1.doy;
+        let endDoy = p2.doy;
+        let currentDoy = doy;
+
+        // Handle wrapping for calculation
+        // If endDoy < startDoy (e.g. 60 < 335), it means we crossed the year boundary.
+        // We need to normalize distances.
+        if (endDoy < startDoy) {
+            endDoy += 365;
+            if (currentDoy < startDoy) {
+                currentDoy += 365;
+            }
+        }
+
+        const span = endDoy - startDoy;
+        const progress = (currentDoy - startDoy) / span;
+
+        // Interpolate Hue
+        // Shortest path interpolation? 
+        // 260 -> 160. Diff is -100.
+        // 30 -> 260. Diff is +230? Or -130 (via 0/360)?
+        // 30 -> 260... 30 down to 0/360 down to 260 is a span of 130. 
+        // 30 up to 260 is 230.
+        // Let's assume linear between specified points for now. The points are placed to avoid large jumps?
+
+        // p1.hue to p2.hue
+        // 260 -> 160 (Winter to Spring). -100.
+        // 160 -> 40 (Spring to Summer). -120.
+        // 40 -> 30 (Summer to Autumn). -10.
+        // 30 -> 260 (Autumn to Winter). +230? 
+        // Actually 30 -> ... -> 0/360 -> ... -> 260. 
+        // 30 -> 0 is -30. 360 -> 260 is -100. Total -130 distance.
+        // So we should wrap interpolation too if distance > 180.
+
+        let h1 = p1.hue;
+        let h2 = p2.hue;
+
+        let diff = h2 - h1;
+        if (diff > 180) diff -= 360;
+        if (diff < -180) diff += 360;
+
+        let hue = h1 + (diff * progress);
+
+        // Normalize 0-360
+        if (hue < 0) hue += 360;
+        if (hue > 360) hue -= 360;
+
+        return Math.round(hue);
+    }
+
+    formatDateFromDOY(doy) {
+        const date = new Date(new Date().getFullYear(), 0, 1); // Start Jan 1 curr year
+        date.setDate(1 + parseInt(doy));
+        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     }
 
     loadPreferences() {
@@ -224,8 +315,7 @@ class ChronoTheme {
         // Smart interactions for Audio/Manual
         if (key === 'doy' && !this.preferences.manual) {
             // If dragging DOY while auto, update the Base Hue automatically
-            const season = this.getSeasonFromDOY(value);
-            this.preferences.hueBase = season.hBase;
+            this.preferences.hueBase = this.getHueFromDOY(value);
         }
 
         // If manually changing Time, update Lightness calculation
@@ -370,7 +460,7 @@ class ChronoTheme {
 
         // Simulation
         setVal('chrono-manual', p.manual);
-        setVal('chrono-doy', p.doy);
+        setVal('chrono-doy', p.doy, (v) => this.formatDateFromDOY(v));
         setVal('chrono-time', p.time, (v) => {
             const h = Math.floor(v / 60).toString().padStart(2, '0');
             const m = (v % 60).toString().padStart(2, '0');
