@@ -3,16 +3,78 @@
 <head>
     {% include "head.njk" %}
     <script>
-      // Prevents FOUC by setting the theme before the page renders
+      // ChronoTheme FOUC Prevention
+      // Sets theme and OKLCH CSS properties before page renders
       (function() {
-        const storedTheme = sessionStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        if (storedTheme) {
-          document.documentElement.setAttribute('data-theme', storedTheme);
+        var STORAGE_KEY = 'chronotheme-preferences';
+        var SEASONS = {
+          winter: { hBase: 260, hAccent: 180, chroma: 0.08, chromaAccent: 0.12, dayStart: 335, dayEnd: 59 },
+          spring: { hBase: 160, hAccent: 40, chroma: 0.14, chromaAccent: 0.18, dayStart: 60, dayEnd: 151 },
+          summer: { hBase: 40, hAccent: 200, chroma: 0.16, chromaAccent: 0.20, dayStart: 152, dayEnd: 243 },
+          autumn: { hBase: 30, hAccent: 340, chroma: 0.13, chromaAccent: 0.16, dayStart: 244, dayEnd: 334 }
+        };
+
+        function getDayOfYear() {
+          var now = new Date();
+          var start = new Date(now.getFullYear(), 0, 0);
+          return Math.floor((now - start) / 86400000);
+        }
+
+        function getSeason(day) {
+          if (day >= 335 || day <= 59) return 'winter';
+          if (day >= 60 && day <= 151) return 'spring';
+          if (day >= 152 && day <= 243) return 'summer';
+          return 'autumn';
+        }
+
+        function getTimePeriod() {
+          var mins = new Date().getHours() * 60 + new Date().getMinutes();
+          if (mins >= 1170 || mins < 330) return 0.7;  // night
+          if (mins >= 330 && mins < 450) return 0.85;  // dawn
+          if (mins >= 450 && mins < 1050) return 1.0;  // day
+          return 0.8;  // dusk
+        }
+
+        try {
+          var prefs = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+          var mode = prefs.mode || 'auto';
+          var seasonMode = prefs.seasonMode || 'auto';
+          var vibrancy = prefs.vibrancy || 1.0;
+          var gradientIntensity = prefs.gradientIntensity !== undefined ? prefs.gradientIntensity : 0.5;
+
+          // Determine effective theme
+          var theme;
+          if (mode === 'auto') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          } else {
+            theme = mode;
+          }
+
+          // Determine effective season
+          var season = seasonMode === 'auto' ? getSeason(getDayOfYear()) : seasonMode;
+          var s = SEASONS[season] || SEASONS.spring;
+
+          // Apply theme immediately
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.setProperty('--chrono-h-base', s.hBase);
+          document.documentElement.style.setProperty('--chrono-h-accent', s.hAccent);
+          document.documentElement.style.setProperty('--chrono-c-base', s.chroma);
+          document.documentElement.style.setProperty('--chrono-c-accent', s.chromaAccent);
+          document.documentElement.style.setProperty('--chrono-vibrancy', vibrancy);
+          document.documentElement.style.setProperty('--chrono-time-modifier', getTimePeriod());
+          document.documentElement.style.setProperty('--chrono-gradient-intensity', gradientIntensity);
+        } catch(e) {
+          // Fallback to system preference
+          var fallbackTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', fallbackTheme);
         }
       })();
     </script>
 </head>
 <body>
+    <!-- ChronoTheme Mesh Gradient Background -->
+    <div class="chrono-mesh" aria-hidden="true"></div>
+
     <aside aria-label="Sidebar Navigation">
         {% include "left.njk" %}
     </aside>
@@ -21,7 +83,9 @@
 
         {% include "footer.njk" %}
     </main>
-    
+
+    {% include "theme-settings.njk" %}
+
     <script type="text/javascript" src="/assets/js/bundle.js"></script>
 
 </body>

@@ -1,0 +1,92 @@
+<!-- ChronoTheme Settings Panel Overlay -->
+<div id="chrono-settings-overlay" class="chrono-settings-overlay" aria-hidden="true"></div>
+
+<!-- ChronoTheme Settings Panel (Compact Layout) -->
+<aside id="chrono-settings" class="chrono-settings" aria-hidden="true" aria-label="Theme Settings" role="dialog">
+    <div class="chrono-settings-header">
+        <h2 class="chrono-settings-title">Theme</h2>
+        <button id="chrono-settings-close" class="chrono-settings-close" type="button" aria-label="Close settings">
+            &times;
+        </button>
+    </div>
+
+    <!-- Compact Grid Layout -->
+    <div class="chrono-settings-grid">
+        <!-- Mode -->
+        <div class="chrono-settings-group chrono-settings-group--full">
+            <span class="chrono-settings-label">Mode</span>
+            <div class="chrono-settings-pills">
+                <div class="chrono-settings-pill">
+                    <input type="radio" id="chrono-mode-light" name="chrono-mode" value="light">
+                    <label for="chrono-mode-light">Light</label>
+                </div>
+                <div class="chrono-settings-pill">
+                    <input type="radio" id="chrono-mode-dark" name="chrono-mode" value="dark">
+                    <label for="chrono-mode-dark">Dark</label>
+                </div>
+                <div class="chrono-settings-pill">
+                    <input type="radio" id="chrono-mode-auto" name="chrono-mode" value="auto" checked>
+                    <label for="chrono-mode-auto">Auto</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Season -->
+        <div class="chrono-settings-group">
+            <span class="chrono-settings-label">Season</span>
+            <select id="chrono-season-select" class="chrono-settings-select" name="chrono-season-select">
+                <option value="auto">Auto</option>
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="autumn">Autumn</option>
+                <option value="winter">Winter</option>
+            </select>
+        </div>
+
+        <!-- Time -->
+        <div class="chrono-settings-group">
+            <span class="chrono-settings-label">Time</span>
+            <select id="chrono-time-select" class="chrono-settings-select" name="chrono-time-select">
+                <option value="auto">Auto</option>
+                <option value="dawn">Dawn</option>
+                <option value="day">Day</option>
+                <option value="dusk">Dusk</option>
+                <option value="night">Night</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="chrono-settings-slider-row">
+        <span class="chrono-settings-label">Vibrancy</span>
+        <input type="range" id="chrono-vibrancy" min="0.5" max="1.5" step="0.05" value="1.0">
+        <span class="chrono-settings-slider-row-value" id="chrono-vibrancy-value">100%</span>
+    </div>
+
+    <div class="chrono-settings-slider-row">
+        <span class="chrono-settings-label">Background</span>
+        <input type="range" id="chrono-gradient" min="0" max="1" step="0.05" value="0.5">
+        <span class="chrono-settings-slider-row-value" id="chrono-gradient-value">50%</span>
+    </div>
+
+    <!-- Compact Info Display -->
+    <div class="chrono-settings-info">
+        <div class="chrono-settings-info-item">
+            <span class="chrono-settings-info-label">Season</span>
+            <span class="chrono-settings-info-value" id="chrono-info-season">--</span>
+        </div>
+        <div class="chrono-settings-info-item">
+            <span class="chrono-settings-info-label">Time</span>
+            <span class="chrono-settings-info-value" id="chrono-info-time">--</span>
+        </div>
+        <div class="chrono-settings-info-item">
+            <span class="chrono-settings-info-label">Mode</span>
+            <span class="chrono-settings-info-value" id="chrono-info-mode">--</span>
+        </div>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="chrono-reset" class="chrono-settings-reset" type="button">
+        Reset to Defaults
+    </button>
+</aside>
