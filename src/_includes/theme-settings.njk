@@ -15,6 +15,52 @@
         <button id="chrono-request-location" class="status-action" style="display:none;">Enable</button>
     </div>
 
+    <!-- Location Selector -->
+    <div class="chrono-settings-control" style="margin-bottom: 1.5rem;">
+        <div class="chrono-settings-label-row">
+            <label for="chrono-location-select">Location Override</label>
+        </div>
+        <select id="chrono-location-select" class="chrono-select">
+            <option value="current">📍 Current Location</option>
+            
+            <optgroup label="Africa">
+                <option value="6.5244,3.3792,1">Lagos (UTC+1)</option>
+                <option value="30.0444,31.2357,2">Cairo (UTC+2)</option>
+                <option value="-4.4419,15.2663,1">Kinshasa (UTC+1)</option>
+            </optgroup>
+            
+            <optgroup label="Asia">
+                <option value="35.6762,139.6503,9">Tokyo (UTC+9)</option>
+                <option value="28.7041,77.1025,5.5">Delhi (UTC+5.5)</option>
+                <option value="31.2304,121.4737,8">Shanghai (UTC+8)</option>
+            </optgroup>
+            
+            <optgroup label="Europe">
+                <option value="41.0082,28.9784,3">Istanbul (UTC+3)</option>
+                <option value="55.7558,37.6173,3">Moscow (UTC+3)</option>
+                <option value="51.5074,-0.1278,0">London (UTC+0)</option>
+            </optgroup>
+            
+            <optgroup label="North America">
+                <option value="19.4326,-99.1332,-6">Mexico City (UTC-6)</option>
+                <option value="40.7128,-74.0060,-5">New York (UTC-5)</option>
+                <option value="34.0522,-118.2437,-8">Los Angeles (UTC-8)</option>
+            </optgroup>
+            
+            <optgroup label="South America">
+                <option value="-23.5505,-46.6333,-3">São Paulo (UTC-3)</option>
+                <option value="-34.6037,-58.3816,-3">Buenos Aires (UTC-3)</option>
+                <option value="-22.9068,-43.1729,-3">Rio de Janeiro (UTC-3)</option>
+            </optgroup>
+            
+            <optgroup label="Oceania">
+                <option value="-33.8688,151.2093,11">Sydney (UTC+11)</option>
+                <option value="-37.8136,144.9631,11">Melbourne (UTC+11)</option>
+                <option value="-27.4705,153.0260,10">Brisbane (UTC+10)</option>
+            </optgroup>
+        </select>
+    </div>
+
     <!-- Header / Manual Override -->
     <div class="chrono-settings-section">
         <div class="chrono-settings-row">

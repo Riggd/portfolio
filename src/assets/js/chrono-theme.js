@@ -50,6 +50,7 @@ class ChronoTheme {
     constructor() {
         this.preferences = { ...DEFAULT_PREFERENCES };
         this.coords = null; // Store { latitude, longitude }
+        this.timezoneOverride = null; // Store offset if manually selected
         this.autoUpdateInterval = null;
         this.settingsOpen = false;
 
@@ -86,17 +87,39 @@ class ChronoTheme {
             });
             this.coords = pos.coords;
             console.log('ChronoTheme: Location acquired', this.coords);
+
+            // If we successfully get live location, ensure dropdown is set to 'current'
+            const select = document.getElementById('chrono-location-select');
+            if (select) select.value = 'current';
+
         } catch (e) {
             console.warn('ChronoTheme: Location access denied or failed, using defaults.', e);
         }
         this.updateLocationStatusUI();
+
+        // Retrigger sync to apply new coords
+        if (!this.preferences.manual) {
+            this.syncToLive();
+        }
     }
 
     /**
      * Sync internal state to current live date/time
      */
     syncToLive() {
-        const now = new Date();
+        // Use current time, or shift based on timezoneOverride if set
+        const nowUTC = new Date();
+        let targetTime = nowUTC;
+
+        if (this.timezoneOverride !== null && this.timezoneOverride !== undefined) {
+            // Create a date object shifted to the target timezone
+            // Get UTC millis
+            const utc = nowUTC.getTime() + (nowUTC.getTimezoneOffset() * 60000);
+            // Add offset (hours -> millis)
+            targetTime = new Date(utc + (3600000 * this.timezoneOverride));
+        }
+
+        const now = targetTime;
         const start = new Date(now.getFullYear(), 0, 1);
         const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
         const oneDay = 1000 * 60 * 60 * 24;
@@ -463,6 +486,36 @@ class ChronoTheme {
             this.initLocation();
         });
 
+        // Location Dropdown
+        const locSelect = document.getElementById('chrono-location-select');
+        if (locSelect) {
+            locSelect.addEventListener('change', (e) => {
+                const val = e.target.value;
+                if (val === 'current') {
+                    this.timezoneOverride = null;
+                    this.initLocation();
+                } else {
+                    // Parse 'lat,lon,offset'
+                    const [lat, lon, offset] = val.split(',').map(parseFloat);
+                    if (!isNaN(lat) && !isNaN(lon)) {
+                        this.coords = { latitude: lat, longitude: lon };
+                        this.timezoneOverride = !isNaN(offset) ? offset : null;
+
+                        console.log('ChronoTheme: Manual location set', this.coords, 'TZ:', this.timezoneOverride);
+
+                        // Force Auto Mode when selecting a city (preview mode)
+                        this.setPreference('manual', false);
+
+                        // Sync immediately to that location's time
+                        this.syncToLive();
+                        this.applyTheme();
+                        this.updateSettingsUI();
+                        this.updateLocationStatusUI();
+                    }
+                }
+            });
+        }
+
         // Reset
         document.getElementById('chrono-reset')?.addEventListener('click', () => this.resetToDefaults());
 
@@ -544,15 +597,15 @@ class ChronoTheme {
         setVal('chrono-speed', p.speed, v => `${v}x`);
         setVal('chrono-scale', p.scale, v => `${v}x`);
 
-        // Update Manual Lock/Unlock visuals if preferred 
-        // (Optional: disable Auto-only sliders when not manual)
+        // Update Manual Lock/Unlock visuals
         const autoInputs = ['chrono-doy', 'chrono-time'];
         autoInputs.forEach(id => {
             const el = document.getElementById(id);
-            if (el && !p.manual) {
-                // el.disabled = true; // or generic visual treatment
-            } else if (el) {
-                el.disabled = false;
+            if (el) {
+                // Disabled if NOT manual (Auto mode controls these)
+                el.disabled = !p.manual;
+                el.style.opacity = !p.manual ? '0.5' : '1';
+                el.style.cursor = !p.manual ? 'not-allowed' : 'pointer';
             }
         });
     }
@@ -564,12 +617,33 @@ class ChronoTheme {
         const icon = el.querySelector('.status-icon');
         const text = el.querySelector('.status-text');
         const btn = document.getElementById('chrono-request-location');
+        const select = document.getElementById('chrono-location-select');
+
+        // Logic:
+        // If coords exist:
+        //    Is it "Current" (geo) or "Manual" (dropdown)? 
+        //    Hard to distinguish properly without storing "locationMode" preference.
+        //    For now, assume if select value is NOT current, we are in override.
+
+        // But select.value might be stale on reload.
+        // We aren't persisting the select value. 
+        // For V1, let's just show "Location Active" if we have coords.
 
         if (this.coords) {
             el.classList.add('chrono-status-active');
             el.classList.remove('chrono-status-inactive');
             if (icon) icon.textContent = '✓';
-            if (text) text.textContent = 'Location Active';
+
+            // Try to infer name from select if possible
+            let label = 'Location Active';
+            if (select && select.value !== 'current') {
+                const opt = select.options[select.selectedIndex];
+                if (opt) label = opt.text;
+            } else if (select && select.value === 'current') {
+                label = 'GPS Location';
+            }
+
+            if (text) text.textContent = label;
             if (btn) btn.style.display = 'none';
         } else {
             el.classList.add('chrono-status-inactive');
@@ -577,6 +651,9 @@ class ChronoTheme {
             if (icon) icon.textContent = '✗';
             if (text) text.textContent = 'Using Default (40°N)';
             if (btn) btn.style.display = 'block';
+
+            // Ensure select shows current if we failed/have nothing
+            if (select) select.value = 'current';
         }
     }
 }

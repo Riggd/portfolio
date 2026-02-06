@@ -413,3 +413,24 @@ input[type="range"]::-webkit-slider-thumb:hover {
         border-color: rgba(255, 255, 255, 0.4);
     }
 }
+
+.chrono-select {
+    width: 100%;
+    background: #222;
+    color: #eee;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    optgroup {
+        color: #aaa;
+        font-style: italic;
+    }
+}
