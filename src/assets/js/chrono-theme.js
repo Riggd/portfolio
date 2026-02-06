@@ -5,6 +5,8 @@
 
 const STORAGE_KEY = 'chronotheme-preferences';
 
+import SunCalc from 'suncalc';
+
 // Seasonal palette configuration (Base Hues)
 const SEASONS = {
     winter: { name: 'Winter', dayStart: 335, dayEnd: 59, hBase: 260 },
@@ -46,6 +48,188 @@ const DEFAULT_PREFERENCES = {
     scale: 1.0
 };
 
+class BlobAnimator {
+    constructor() {
+        this.blobs = [];
+        this.active = false;
+        this.lastTime = 0;
+        this.speedMultiplier = 1.0;
+    }
+
+    init() {
+        const blobElements = document.querySelectorAll('.blob');
+        if (!blobElements.length) return;
+
+        // Initialize blobs with random positions and velocities
+        blobElements.forEach((el, index) => {
+            // Get current dimensions
+            const rect = el.getBoundingClientRect();
+            // Start at random positions within the viewport initially
+            // But let's respect some of the CSS intent (size, color)
+            // Just override position.
+
+            // Random start position (0 to window width/height - blob size)
+            // Note: rect.width might be 0 if hidden, handled in update if needed
+            // But usually we want to set x, y relative to viewport
+
+            const x = Math.random() * (window.innerWidth - (rect.width || 400));
+            const y = Math.random() * (window.innerHeight - (rect.height || 400));
+
+            // Random direction: -1 to 1
+            let vx = (Math.random() - 0.5) * 2;
+            let vy = (Math.random() - 0.5) * 2;
+
+            // Normalize and scale velocity
+            const mag = Math.hypot(vx, vy);
+            if (mag === 0) { vx = 1; vy = 0; }
+            else { vx /= mag; vy /= mag; }
+
+            // Base speed (pixels per frame approx) - customizable via speedMultiplier
+            // Randomize individual speed slightly
+            const speed = (0.2 + Math.random() * 0.3);
+
+            this.blobs.push({
+                el,
+                x,
+                y,
+                vx,
+                vy,
+                speed,
+                width: rect.width || 400,
+                height: rect.height || 400
+            });
+
+            // Set initial position
+            el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+
+        this.start();
+    }
+
+    start() {
+        if (this.active) return;
+        this.active = true;
+        this.lastTime = performance.now();
+        requestAnimationFrame((t) => this.update(t));
+    }
+
+    stop() {
+        this.active = false;
+    }
+
+    update(timestamp) {
+        if (!this.active) return;
+
+        const dt = timestamp - this.lastTime;
+        this.lastTime = timestamp;
+
+        // Cap dt to prevent huge jumps if tab was inactive
+        const safeDt = Math.min(dt, 64);
+
+        // Update global speed modifier from CSS variable via ChronoTheme if needed
+        // Or just use the prop we can set.
+        // Let's assume ChronoTheme updates this.speedMultiplier
+
+        this.blobs.forEach(blob => {
+            // Move
+            // Speed factor: safeDt * blob.speed * globalMultiplier
+            // Let's say base speed is pixels per millisecond? 
+            // 0.5px/ms is fast. 
+            // Let's stick to pixel-per-frame logic scaled by dt if we want smooth
+            // standard speed: 60fps -> 16ms. 
+            // If blob.speed is ~0.5, then 0.5 * 16 = 8px per frame? Too fast.
+            // Let's scale down.
+
+            const moveAmt = safeDt * blob.speed * 0.1 * this.speedMultiplier;
+
+            blob.x += blob.vx * moveAmt;
+            blob.y += blob.vy * moveAmt;
+
+            // Check bounds (Off-screen detection)
+            // Blob is off-screen if:
+            // x + width < 0 (Left side out)
+            // x > windowWidth (Right side out)
+            // y + height < 0 (Top side out)
+            // y > windowHeight (Bottom side out)
+
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const bw = blob.width;
+            const bh = blob.height;
+
+            let isOffScreen = false;
+
+            if (blob.x + bw < -100) isOffScreen = true; // Left
+            if (blob.x > w + 100) isOffScreen = true;   // Right
+            if (blob.y + bh < -100) isOffScreen = true; // Top
+            if (blob.y > h + 100) isOffScreen = true;   // Bottom
+
+            if (isOffScreen) {
+                // RESET
+                this.resetBlob(blob, w, h);
+            }
+
+            // Apply transform
+            // We use translate3d for GPU
+            // Note: We need to preserve the scale from CSS variable if possible?
+            // The previous CSS used scale(var(--chrono-blob-scale)).
+            // We should encompass that here or apply it separately?
+            // transform precedence: inline overrules CSS class.
+            // We should include the scale in the transform string
+            // BUT: JS doesn't easily read the variable instantly every frame without cost.
+            // BETTER: The CSS puts scale on the element? 
+            // If we write `transform: translate3d(...)`, we wipe out CSS `transform: scale(...)`.
+            // Solution: Add a child wrapper or just include read of the var?
+            // Optimization: Let's assume scale is handled by the parent or we just apply it here.
+            // Since we're in JS, let's just use `var(--chrono-blob-scale)` in the string!
+            // Browser handles the variable resolution.
+            blob.el.style.transform = `translate3d(${blob.x}px, ${blob.y}px, 0) scale(var(--chrono-blob-scale))`;
+        });
+
+        requestAnimationFrame((t) => this.update(t));
+    }
+
+    resetBlob(blob, w, h) {
+        // Pick a side to enter from: 0=Top, 1=Right, 2=Bottom, 3=Left
+        const side = Math.floor(Math.random() * 4);
+
+        switch (side) {
+            case 0: // Top (enter from top, moving down)
+                blob.y = -blob.height - 50;
+                blob.x = Math.random() * w;
+                blob.vy = Math.abs(blob.vy); // Ensure positive Y
+                blob.vx = (Math.random() - 0.5) * 2; // Random X
+                break;
+            case 1: // Right (enter from right, moving left)
+                blob.x = w + 50;
+                blob.y = Math.random() * h;
+                blob.vx = -Math.abs(blob.vx); // Ensure negative X
+                blob.vy = (Math.random() - 0.5) * 2;
+                break;
+            case 2: // Bottom (enter from bottom, moving up)
+                blob.y = h + 50;
+                blob.x = Math.random() * w;
+                blob.vy = -Math.abs(blob.vy); // Ensure negative Y
+                blob.vx = (Math.random() - 0.5) * 2;
+                break;
+            case 3: // Left (enter from left, moving right)
+                blob.x = -blob.width - 50;
+                blob.y = Math.random() * h;
+                blob.vx = Math.abs(blob.vx); // Ensure positive X
+                blob.vy = (Math.random() - 0.5) * 2;
+                break;
+        }
+
+        // Randomize speed slightly on reset
+        blob.speed = (0.2 + Math.random() * 0.3);
+    }
+
+    setSpeed(multiplier) {
+        this.speedMultiplier = multiplier;
+    }
+}
+
+
 class ChronoTheme {
     constructor() {
         this.preferences = { ...DEFAULT_PREFERENCES };
@@ -58,6 +242,8 @@ class ChronoTheme {
         if (!localStorage.getItem(STORAGE_KEY)) {
             this.syncToLive();
         }
+
+        this.animator = new BlobAnimator();
     }
 
     async init() {
@@ -71,6 +257,10 @@ class ChronoTheme {
 
         this.updateLocationStatusUI(); // Initial check
         this.applyTheme();
+
+        // Start animator
+        this.animator.init();
+
         this.startAutoUpdate();
         this.bindEvents();
     }
@@ -127,77 +317,60 @@ class ChronoTheme {
         this.preferences.doy = Math.floor(diff / oneDay);
         this.preferences.time = (now.getHours() * 60) + now.getMinutes();
 
-        // Also update derived seasonal base if in auto
-        this.preferences.hueBase = this.getHueFromDOY(this.preferences.doy);
-
-        // Auto-adjust lightness based on time and solar cycle
-        this.preferences.lightness = this.calculateLightnessFromTime(
-            this.preferences.time,
-            this.preferences.doy
-        );
+        // Update derived values (Lightness, Hue + Shift)
+        this.updateDerivedValues();
 
         this.savePreferences();
     }
 
     /**
-     * Calculate approx solar noon in minutes from midnight for current location
-     * Default to 720 (12:00 PM) if no location.
+     * Recalculate derived preferences based on current DOY/Time
+     * Handles Hue (Seasonal + Solar Shift) and Lightness
+     */
+    updateDerivedValues() {
+        // 1. Seasonal Base Hue
+        let baseHue = this.getHueFromDOY(this.preferences.doy);
+
+        // 2. Solar Hue Shift (Golden Hour / Blue Hour)
+        const elevation = this.calculateSolarElevation(this.preferences.doy, this.preferences.time);
+        const hueShift = this.calculateSolarHueShift(elevation);
+
+        // Apply shift
+        this.preferences.hueBase = (baseHue + hueShift + 360) % 360;
+
+        // 3. Lightness
+        this.preferences.lightness = this.calculateLightnessFromTime(
+            this.preferences.time,
+            this.preferences.doy
+        );
+    }
+
+    /**
+     * Calculate accurate solar noon in minutes from midnight using SunCalc
      */
     calculateSolarNoon(doy) {
         // Default to Noon if no coords
         if (!this.coords) return 720;
 
-        const { longitude } = this.coords;
-        const now = new Date();
+        const { latitude, longitude } = this.coords;
+        // Create Date from DOY
+        const date = new Date(new Date().getFullYear(), 0, 1);
+        date.setDate(1 + parseInt(doy)); // Add days
 
-        // 1. Calculate Equation of Time (EoT) in minutes
-        // B = (360 / 365) * (product of days since approx Jan 1)
-        // More precise: (doy - 81) is days since Vernal Equinox ish? 
-        // Standard formula: B = 360/365 * (doy - 81)
-        const B = (360 / 365) * (doy - 81) * (Math.PI / 180);
-        const eot = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+        // Get solar times
+        const times = SunCalc.getTimes(date, latitude, longitude);
+        const noonDate = times.solarNoon;
 
-        // 2. Solar Noon (Local Time) calculation
-        // Solar Noon (UTC) = 12:00 - (Longitude / 15 degrees_per_hour) - (EoT / 60)
-        // Then convert UTC Solar Noon to Local Solar Noon by adding Timezone Offset
+        // Convert Noon Date object to minutes from midnight (local)
+        // Note: solarNoon Date includes the correct offset for the location provided? 
+        // SunCalc returns Date objects in local system time usually if not specified? 
+        // Actually SunCalc returns Date objects.JS Dates have timezone info implicitly when accessed via getHours/Minutes
 
-        // Let's do it purely in minutes relative to local midnight for simplicity, 
-        // acknowledging timezone edges might be slightly off but "good enough" for background gradient.
-
-        // Difference between local meridian and actual longitude
-        // Local Meridian = TimezoneOffset (in hours) * 15 degrees
-        // E.g. EST (UTC-5) -> -5 * 15 = -75 degrees
-
-        const timezoneOffsetHours = -now.getTimezoneOffset() / 60; // minutes -> hours. EST is 300min -> 5h behind UTC? wait.
-        // getTimezoneOffset returns positive minutes for zones BEHIND UTC. e.g. NY is 300. 
-        // So NY is UTC-5. 
-
-        const localMeridian = (-now.getTimezoneOffset() / 60) * 15;
-        // e.g. UTC-5 = -5 * 15 = -75 deg.
-
-        // Difference in degrees
-        const correctionDeg = longitude - localMeridian;
-        // 4 minutes per degree
-        const correctionMinutes = 4 * correctionDeg;
-
-        // Solar Noon Local = 12:00 - correction - EoT
-        // wait, if I am EAST of meridian, noon comes EARLIER. 
-        // if longitude (-74 NY) is > meridian (-75), I am EAST. 
-        // Difference is +1 deg. Noon is 4 mins EARLIER. 
-        // Formula: 720 - (4 * (longitude - meridian)) - eot
-
-        // Let's try: 
-        // NY Longitude -74. 
-        // Meridian -75.
-        // Diff = +1. 
-        // 4 * 1 = 4 mins. 
-        // 720 - 4 = 716. (11:56 AM). Correct, sun is overhead earlier.
-
-        return 720 - correctionMinutes - eot;
+        return (noonDate.getHours() * 60) + noonDate.getMinutes();
     }
 
     /**
-     * Calculate Solar Elevation Angle
+     * Calculate Solar Elevation Angle using SunCalc
      * @param {number} doy Day of Year
      * @param {number} timeMinutes Minutes from midnight (local)
      * @returns {number} Elevation in degrees
@@ -205,37 +378,29 @@ class ChronoTheme {
     calculateSolarElevation(doy, timeMinutes) {
         // Default to Lat 40 (approx NY/Madrid) if no coords
         const latitude = this.coords ? this.coords.latitude : 40;
-        const latRad = latitude * (Math.PI / 180);
+        const longitude = this.coords ? this.coords.longitude : -74;
 
-        // Solar Declination (approx)
-        // 23.45 * sin(360/365 * (doy - 81))
-        const dec = 23.45 * Math.sin((360 / 365) * (doy - 81) * (Math.PI / 180));
-        const decRad = dec * (Math.PI / 180);
+        // Create Date object for this exact time
+        const date = new Date(new Date().getFullYear(), 0, 1);
+        date.setDate(1 + parseInt(doy));
 
-        // Solar Noon approx (720 min)
-        // ideally we'd use calculateSolarNoon(doy) here for precision
-        // but for lightness curve smoothness, fixed noon is usually fine unless we want strict accuracy.
-        // Let's use the local solar noon calculation if we have it, or 720.
-        const solarNoon = this.calculateSolarNoon(doy); // returns ~720 adjusted for longitude
+        // Set time
+        const hours = Math.floor(timeMinutes / 60);
+        const minutes = Math.floor(timeMinutes % 60);
+        date.setHours(hours, minutes, 0, 0);
 
-        // Hour Angle (H)
-        // 0 at solar noon. 15 degrees per hour = 0.25 degrees per minute.
-        const minutesFromNoon = timeMinutes - solarNoon;
-        const H_deg = minutesFromNoon * 0.25;
-        const H_rad = H_deg * (Math.PI / 180);
+        // Get Position
+        const pos = SunCalc.getPosition(date, latitude, longitude);
 
-        // Elevation Formula
-        // sin(El) = sin(Lat)sin(Dec) + cos(Lat)cos(Dec)cos(H)
-        const sinEl = Math.sin(latRad) * Math.sin(decRad) + Math.cos(latRad) * Math.cos(decRad) * Math.cos(H_rad);
-
-        return Math.asin(sinEl) * (180 / Math.PI);
+        // SunCalc returns altitude in radians. Convert to degrees.
+        return pos.altitude * (180 / Math.PI);
     }
 
     calculateLightnessFromTime(minutes, doy = 0) {
         const elevation = this.calculateSolarElevation(doy, minutes);
 
         const minL = 0.05;      // Deep night
-        const twilightL = 0.25; // Civil twilight / Pre-sunrise
+        const twilightL = 0.40; // Civil twilight (Boosted for visibility)
         const maxL = 0.98;      // Peak summer noon
 
         const astroEnd = -18;   // Astronomical twilight ends
@@ -245,33 +410,80 @@ class ChronoTheme {
         if (elevation < astroEnd) return minL;
 
         // 2. Twilight Phase (Astro -> Civil)
-        // Linearly ramp base ambient light level
+        // Use curve to boost brightness earlier in twilight
         let ambient = minL;
         if (elevation >= astroEnd) {
-            // How far through twilight? 
-            // -18 -> -6 (Range 12 degrees)
-            // If elevation is > -6, we are fully in civil/day, so ambient is max twilightL
-            // If elevation is -12, we are in middle.
-
             const twilightRange = civilStart - astroEnd; // 12
             const current = Math.min(elevation, civilStart) - astroEnd; // Clamp at civilStart
             const progress = Math.max(0, current / twilightRange);
 
-            ambient = minL + (progress * (twilightL - minL));
+            // Non-linear boost (Sqrt) to make early twilight brighter
+            const boost = Math.sqrt(progress);
+            ambient = minL + (boost * (twilightL - minL));
         }
 
         // 3. Daylight Phase (Direct Sun)
         // Add brightness on top of ambient based on Sun Height
         let direct = 0;
-        if (elevation > 0) {
+        if (elevation > civilStart) {
+            // Smooth transition from civil start
             const maxDirect = maxL - twilightL;
-            // Use Sine of Elevation for Intensity (Lambert's Law approx)
-            // This naturally dims winter noons (lower peak elevation)
-            const intensity = Math.sin(elevation * (Math.PI / 180));
-            direct = maxDirect * Math.max(0, intensity);
+
+            // If between -6 and 0, we ramp up differently? 
+            // Actually, if elevation > 0.
+
+            if (elevation > 0) {
+                const intensity = Math.sin(elevation * (Math.PI / 180));
+                direct = maxDirect * Math.max(0, intensity);
+            } else {
+                // Between -6 and 0 (Civil Twilight to Sunrise)
+                // Ramp from twilightL to twilightL (+ small bump?)
+                // Let's keep it simple: Ambient handles up to -6. 
+                // We might want a smooth bridge from -6 to 0.
+                // Currently ambient caps at -6. 
+                // Let's add a small linear ramp for -6 to 0 if needed, 
+                // but typically direct sun starts at 0.
+            }
         }
 
-        return ambient + direct;
+        return Math.min(1.0, ambient + direct);
+    }
+
+    /**
+     * Calculate Hue Shift based on Solar Elevation
+     * Simulates Golden Hour (Warmth) and Blue Hour (Coolness)
+     * @param {number} elevation 
+     * @returns {number} Hue shift offset
+     */
+    calculateSolarHueShift(elevation) {
+        // Golden Hour: Elevation -6 to +6 approx
+        // Shift towards Orange/Warm
+
+        // Deep Blue Hour: Elevation -12 to -6
+        // Shift towards Blue/Purple
+
+        let shift = 0;
+
+        if (elevation > -6 && elevation < 6) {
+            // Golden Hour Peak at 0
+            // Range total 12 degrees.
+            // Max shift at 0 deg elevation.
+            const dist = Math.abs(elevation - 0);
+            const strength = 1 - (dist / 6); // 1 at 0, 0 at +/-6
+            shift = -30 * strength; // Shift towards warm (assuming bases are usually Cool or Green/Gold)
+            // If base is 260 (Purple), -30 = 230 (Blue). Wait.
+            // If base is 40 (Gold), -30 = 10 (Red). Perfect.
+            // If base is 160 (Teal), -30 = 130 (Green). 
+            // Maybe we want a fixed target hue blend rather than relative shift?
+            // But existing system uses Base Hue. 
+            // Let's try relative shift for now.
+        } else if (elevation >= -18 && elevation <= -6) {
+            // Blue Hour
+            // Shift +20?
+            shift = 20;
+        }
+
+        return shift;
     }
 
     getHueFromDOY(doy) {
@@ -389,18 +601,9 @@ class ChronoTheme {
         }
 
         // Smart interactions for Audio/Manual
-        if (key === 'doy' && !this.preferences.manual) {
-            // If dragging DOY while auto, update the Base Hue automatically
-            this.preferences.hueBase = this.getHueFromDOY(value);
-        }
-
-        // If manually changing Time OR Day, update Lightness calculation
-        // (Even in manual mode, we simulate the physics of light)
+        // If manually changing Time OR Day, update derived values (Hue, Lightness)
         if (key === 'time' || key === 'doy') {
-            this.preferences.lightness = this.calculateLightnessFromTime(
-                this.preferences.time, // Always use current preference time
-                this.preferences.doy   // Always use current preference doy
-            );
+            this.updateDerivedValues();
         }
 
         this.savePreferences();
@@ -436,6 +639,10 @@ class ChronoTheme {
         // Kinetics
         root.style.setProperty('--chrono-flow-speed', p.speed);
         root.style.setProperty('--chrono-blob-scale', p.scale);
+
+        if (this.animator) {
+            this.animator.setSpeed(p.speed);
+        }
 
         // Derived Mode (Light/Dark)
         // Continuous switch point at 50% lightness
