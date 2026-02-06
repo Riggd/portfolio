@@ -65,10 +65,10 @@ class ChronoTheme {
         // If not manual, perform an initial sync to live time
         if (!this.preferences.manual) {
             // Attempt to get location for better solar accuracy
-            await this.initLocation();
             this.syncToLive();
         }
 
+        this.updateLocationStatusUI(); // Initial check
         this.applyTheme();
         this.startAutoUpdate();
         this.bindEvents();
@@ -89,6 +89,7 @@ class ChronoTheme {
         } catch (e) {
             console.warn('ChronoTheme: Location access denied or failed, using defaults.', e);
         }
+        this.updateLocationStatusUI();
     }
 
     /**
@@ -173,63 +174,81 @@ class ChronoTheme {
     }
 
     /**
-     * Calculate day half-length in minutes (sunrise to noon)
-     * Uses simple sunrise equation.
+     * Calculate Solar Elevation Angle
+     * @param {number} doy Day of Year
+     * @param {number} timeMinutes Minutes from midnight (local)
+     * @returns {number} Elevation in degrees
      */
-    calculateDayHalfLength(doy) {
-        if (!this.coords) return 360; // Default 6 hours (12h day)
-
-        const { latitude } = this.coords;
+    calculateSolarElevation(doy, timeMinutes) {
+        // Default to Lat 40 (approx NY/Madrid) if no coords
+        const latitude = this.coords ? this.coords.latitude : 40;
         const latRad = latitude * (Math.PI / 180);
 
-        // Solar Declination
-        const delta = 23.45 * Math.sin((360 / 365) * (doy - 81) * (Math.PI / 180));
-        const deltaRad = delta * (Math.PI / 180);
+        // Solar Declination (approx)
+        // 23.45 * sin(360/365 * (doy - 81))
+        const dec = 23.45 * Math.sin((360 / 365) * (doy - 81) * (Math.PI / 180));
+        const decRad = dec * (Math.PI / 180);
 
-        // Hour Angle H
-        // cos(H) = -tan(lat) * tan(delta)
-        const tanLat = Math.tan(latRad);
-        const tanDelta = Math.tan(deltaRad);
-        let cosH = -tanLat * tanDelta;
+        // Solar Noon approx (720 min)
+        // ideally we'd use calculateSolarNoon(doy) here for precision
+        // but for lightness curve smoothness, fixed noon is usually fine unless we want strict accuracy.
+        // Let's use the local solar noon calculation if we have it, or 720.
+        const solarNoon = this.calculateSolarNoon(doy); // returns ~720 adjusted for longitude
 
-        // Clamp for polar sun
-        if (cosH > 1) cosH = 1;   // Polar Night (never rises) -> H = 0
-        if (cosH < -1) cosH = -1; // Polar Day (never sets) -> H = 180
+        // Hour Angle (H)
+        // 0 at solar noon. 15 degrees per hour = 0.25 degrees per minute.
+        const minutesFromNoon = timeMinutes - solarNoon;
+        const H_deg = minutesFromNoon * 0.25;
+        const H_rad = H_deg * (Math.PI / 180);
 
-        const H_deg = Math.acos(cosH) * (180 / Math.PI);
+        // Elevation Formula
+        // sin(El) = sin(Lat)sin(Dec) + cos(Lat)cos(Dec)cos(H)
+        const sinEl = Math.sin(latRad) * Math.sin(decRad) + Math.cos(latRad) * Math.cos(decRad) * Math.cos(H_rad);
 
-        // H is degrees from Noon. 4 minutes per degree.
-        return H_deg * 4;
+        return Math.asin(sinEl) * (180 / Math.PI);
     }
 
     calculateLightnessFromTime(minutes, doy = 0) {
-        const peak = this.calculateSolarNoon(doy);
-        const halfDay = this.calculateDayHalfLength(doy);
+        const elevation = this.calculateSolarElevation(doy, minutes);
 
-        const sunrise = peak - halfDay;
-        const sunset = peak + halfDay;
+        const minL = 0.05;      // Deep night
+        const twilightL = 0.25; // Civil twilight / Pre-sunrise
+        const maxL = 0.98;      // Peak summer noon
 
-        // Night time
-        if (minutes < sunrise || minutes > sunset) {
-            return 0.05; // Base darkness
+        const astroEnd = -18;   // Astronomical twilight ends
+        const civilStart = -6;  // Civil twilight starts (reading light)
+
+        // 1. Night Phase
+        if (elevation < astroEnd) return minL;
+
+        // 2. Twilight Phase (Astro -> Civil)
+        // Linearly ramp base ambient light level
+        let ambient = minL;
+        if (elevation >= astroEnd) {
+            // How far through twilight? 
+            // -18 -> -6 (Range 12 degrees)
+            // If elevation is > -6, we are fully in civil/day, so ambient is max twilightL
+            // If elevation is -12, we are in middle.
+
+            const twilightRange = civilStart - astroEnd; // 12
+            const current = Math.min(elevation, civilStart) - astroEnd; // Clamp at civilStart
+            const progress = Math.max(0, current / twilightRange);
+
+            ambient = minL + (progress * (twilightL - minL));
         }
 
-        // Day time - map [sunrise, sunset] to sine wave [0, PI]
-        // progress 0 (sunrise) -> 1 (sunset)
-        const dayDuration = sunset - sunrise;
-        if (dayDuration <= 0) return 0.05; // Should catch polar night
+        // 3. Daylight Phase (Direct Sun)
+        // Add brightness on top of ambient based on Sun Height
+        let direct = 0;
+        if (elevation > 0) {
+            const maxDirect = maxL - twilightL;
+            // Use Sine of Elevation for Intensity (Lambert's Law approx)
+            // This naturally dims winter noons (lower peak elevation)
+            const intensity = Math.sin(elevation * (Math.PI / 180));
+            direct = maxDirect * Math.max(0, intensity);
+        }
 
-        const progress = (minutes - sunrise) / dayDuration;
-
-        // Map 0..1 to 0..PI
-        // sin(0) = 0, sin(PI/2) = 1, sin(PI) = 0
-        const rawsCycle = Math.sin(progress * Math.PI);
-
-        // Map [0, 1] to [minL, maxL]
-        const minL = 0.05;
-        const maxL = 0.95;
-
-        return minL + (rawsCycle * (maxL - minL));
+        return ambient + direct;
     }
 
     getHueFromDOY(doy) {
@@ -352,12 +371,12 @@ class ChronoTheme {
             this.preferences.hueBase = this.getHueFromDOY(value);
         }
 
-        // If manually changing Time, update Lightness calculation
+        // If manually changing Time OR Day, update Lightness calculation
         // (Even in manual mode, we simulate the physics of light)
-        if (key === 'time') {
+        if (key === 'time' || key === 'doy') {
             this.preferences.lightness = this.calculateLightnessFromTime(
-                value,
-                this.preferences.doy
+                this.preferences.time, // Always use current preference time
+                this.preferences.doy   // Always use current preference doy
             );
         }
 
@@ -439,6 +458,11 @@ class ChronoTheme {
         document.getElementById('chrono-settings-close')?.addEventListener('click', () => this.closeSettings());
         document.getElementById('chrono-settings-overlay')?.addEventListener('click', () => this.closeSettings());
 
+        // Location Request
+        document.getElementById('chrono-request-location')?.addEventListener('click', () => {
+            this.initLocation();
+        });
+
         // Reset
         document.getElementById('chrono-reset')?.addEventListener('click', () => this.resetToDefaults());
 
@@ -480,6 +504,9 @@ class ChronoTheme {
     }
 
     updateSettingsUI() {
+        // Also update location UI just in case
+        this.updateLocationStatusUI();
+
         const p = this.preferences;
 
         const setVal = (id, val, textFn) => {
@@ -528,6 +555,29 @@ class ChronoTheme {
                 el.disabled = false;
             }
         });
+    }
+
+    updateLocationStatusUI() {
+        const el = document.getElementById('chrono-location-status');
+        if (!el) return;
+
+        const icon = el.querySelector('.status-icon');
+        const text = el.querySelector('.status-text');
+        const btn = document.getElementById('chrono-request-location');
+
+        if (this.coords) {
+            el.classList.add('chrono-status-active');
+            el.classList.remove('chrono-status-inactive');
+            if (icon) icon.textContent = '✓';
+            if (text) text.textContent = 'Location Active';
+            if (btn) btn.style.display = 'none';
+        } else {
+            el.classList.add('chrono-status-inactive');
+            el.classList.remove('chrono-status-active');
+            if (icon) icon.textContent = '✗';
+            if (text) text.textContent = 'Using Default (40°N)';
+            if (btn) btn.style.display = 'block';
+        }
     }
 }
 
