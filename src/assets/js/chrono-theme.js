@@ -290,6 +290,8 @@ class ChronoTheme {
         // Retrigger sync to apply new coords
         if (!this.preferences.manual) {
             this.syncToLive();
+            this.applyTheme();
+            this.updateSettingsUI();
         }
     }
 
@@ -456,34 +458,25 @@ class ChronoTheme {
      * @returns {number} Hue shift offset
      */
     calculateSolarHueShift(elevation) {
-        // Golden Hour: Elevation -6 to +6 approx
-        // Shift towards Orange/Warm
-
-        // Deep Blue Hour: Elevation -12 to -6
-        // Shift towards Blue/Purple
-
         let shift = 0;
 
-        if (elevation > -6 && elevation < 6) {
+        if (elevation >= -6 && elevation <= 6) {
             // Golden Hour Peak at 0
             // Range total 12 degrees.
             // Max shift at 0 deg elevation.
             const dist = Math.abs(elevation - 0);
             const strength = 1 - (dist / 6); // 1 at 0, 0 at +/-6
-            shift = -30 * strength; // Shift towards warm (assuming bases are usually Cool or Green/Gold)
-            // If base is 260 (Purple), -30 = 230 (Blue). Wait.
-            // If base is 40 (Gold), -30 = 10 (Red). Perfect.
-            // If base is 160 (Teal), -30 = 130 (Green). 
-            // Maybe we want a fixed target hue blend rather than relative shift?
-            // But existing system uses Base Hue. 
-            // Let's try relative shift for now.
-        } else if (elevation >= -18 && elevation <= -6) {
-            // Blue Hour
-            // Shift +20?
-            shift = 20;
+            shift = -30 * strength; // Shift towards warm
+        } else if (elevation >= -18 && elevation < -6) {
+            // Blue Hour Peak at -12
+            // Range total 12 degrees.
+            // Max shift at -12 deg elevation.
+            const dist = Math.abs(elevation - (-12));
+            const strength = 1 - (dist / 6); // 1 at -12, 0 at -18 and -6
+            shift = 20 * strength; // Shift towards cool
         }
 
-        return shift;
+        return shift === 0 ? 0 : shift;
     }
 
     getHueFromDOY(doy) {
@@ -700,6 +693,7 @@ class ChronoTheme {
                 const val = e.target.value;
                 if (val === 'current') {
                     this.timezoneOverride = null;
+                    this.setPreference('manual', false);
                     this.initLocation();
                 } else {
                     // Parse 'lat,lon,offset'

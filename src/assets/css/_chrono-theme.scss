@@ -4,21 +4,33 @@ CHRONO THEME ENGINE (Cinematic V5)
 ====================
 */
 
-:root {
-    /* --- COLOR GRADING --- */
-    --chrono-h-base: 260;
-    /* Base Hue */
-    --chrono-h-offset-sec: 40;
-    /* Secondary Hue Offset */
-    --chrono-h-offset-ter: 40;
-    /* Tertiary Hue Offset (if used for highlighting) */
+@property --chrono-lightness {
+    syntax: '<number>';
+    initial-value: 0.15;
+    inherits: true;
+}
 
+@property --chrono-h-base {
+    syntax: '<number>';
+    initial-value: 260;
+    inherits: true;
+}
+
+@property --chrono-h-acc {
+    syntax: '<number>';
+    initial-value: 300;
+    inherits: true;
+}
+
+@property --chrono-chroma {
+    syntax: '<number>';
+    initial-value: 0.18;
+    inherits: true;
+}
+
+:root {
     /* Calculated Hues */
     --chrono-h-acc: calc(var(--chrono-h-base) + var(--chrono-h-offset-sec));
-
-    /* Chroma & Lightness */
-    --chrono-chroma: 0.18;
-    --chrono-lightness: 0.05;
 
     /* --- ATMOSPHERE & FX --- */
     --chrono-blur: 120px;
@@ -38,13 +50,21 @@ html[data-theme='light'] {
     /* Fallbacks or specific non-calc overrides if needed */
     --background-color: oklch(0.96 0.01 var(--chrono-h-base));
     --font-color: oklch(0.20 0.02 var(--chrono-h-base));
+
+    /* Light theme text tokens overrides */
+    --text-primary: oklch(0.20 0.02 var(--chrono-h-base));
+    --text-secondary: oklch(0.40 0.02 var(--chrono-h-base));
+    --code-bg: rgba(0, 0, 0, 0.05);
+    --code-color: oklch(0.20 0.02 var(--chrono-h-base));
+    --selection-bg: oklch(0.85 0.05 var(--chrono-h-acc));
+    --selection-color: oklch(0.1 0.01 var(--chrono-h-base));
 }
 
 html {
     /* Default Dark-ish behavior for V5 Cinematic */
     --background-color: oklch(var(--chrono-lightness) 0.02 var(--chrono-h-base));
-    --font-color: oklch(0.95 0.01 var(--chrono-h-base));
-    --font-secondary: oklch(0.75 0.02 var(--chrono-h-base));
+    --font-color: var(--text-primary);
+    --font-secondary: var(--text-secondary);
 
     /* UI Colors */
     --button-primary: oklch(0.75 var(--chrono-chroma) var(--chrono-h-acc));

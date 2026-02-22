@@ -13,6 +13,32 @@ export const buildJs = async () => {
 };
 
 export const compileSass = () => {
+    // Build tokens into SCSS
+    try {
+        const tokensRaw = fs.readFileSync("src/_data/tokens.json", "utf-8");
+        const tokens = JSON.parse(tokensRaw);
+
+        let scssContent = `/* AUTO-GENERATED SCSS FROM TOKENS.JSON - DO NOT EDIT DIRECTLY */\n\n:root {\n`;
+
+        function flattenTokens(obj, prefix = '--') {
+            let str = '';
+            for (const key in obj) {
+                if (obj[key] && obj[key].$value !== undefined) {
+                    str += `    ${prefix}${key}: ${obj[key].$value};\n`;
+                } else if (typeof obj[key] === 'object') {
+                    str += flattenTokens(obj[key], `${prefix}${key}-`);
+                }
+            }
+            return str;
+        }
+
+        scssContent += flattenTokens(tokens);
+        scssContent += `}\n`;
+        fs.writeFileSync("src/assets/css/_generated-tokens.scss", scssContent);
+    } catch (err) {
+        console.error("Token compilation error:", err);
+    }
+
     // Ensure the output directory exists
     if (!fs.existsSync("public/assets/css")) {
         fs.mkdirSync("public/assets/css", { recursive: true });
