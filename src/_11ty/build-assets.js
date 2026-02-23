@@ -34,7 +34,18 @@ export const compileSass = () => {
 
         scssContent += flattenTokens(tokens);
         scssContent += `}\n`;
-        fs.writeFileSync("src/assets/css/_generated-tokens.scss", scssContent);
+
+        const targetPath = "src/assets/css/_generated-tokens.scss";
+        let existingContent = "";
+
+        if (fs.existsSync(targetPath)) {
+            existingContent = fs.readFileSync(targetPath, "utf-8");
+        }
+
+        // Only write to the src directory if tokens actually changed to prevent infinite watch loops
+        if (existingContent !== scssContent) {
+            fs.writeFileSync(targetPath, scssContent);
+        }
     } catch (err) {
         console.error("Token compilation error:", err);
     }
