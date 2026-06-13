@@ -5,3 +5,6 @@ public
 .DS_Store
 src/_data/spotify.js
 lowercase-assets.sh
+# Local Netlify folder
+.netlify
+deno.lock
