@@ -1,4 +1,5 @@
 import { getStore } from '@netlify/blobs';
+import { randomUUID } from 'node:crypto';
 
 const ALLOWED_EVENTS = new Set([
   // Pages (Eleventy output paths — case matches filename)
@@ -39,10 +40,9 @@ export default async (req) => {
   }
 
   const store = getStore('events');
-  const key = new Date().toISOString().slice(0, 10);
-  const existing = (await store.get(key)) ?? '';
-  const line = JSON.stringify({ t: Date.now(), e: body.e }) + '\n';
-  await store.set(key, existing + line);
+  const date = new Date().toISOString().slice(0, 10);
+  // Each event is its own blob — no read needed, no race condition
+  await store.set(`${date}/${Date.now()}-${randomUUID()}`, body.e);
 
   return new Response(null, { status: 204 });
 };

@@ -10,34 +10,39 @@ export default async (req) => {
   const token = url.searchParams.get('token') ?? '';
   const expected = process.env.STATS_TOKEN ?? '';
 
-  const tokBuf = Buffer.from(token.padEnd(expected.length));
-  const expBuf = Buffer.from(expected.padEnd(token.length));
+  // Fail closed if STATS_TOKEN is not configured
+  if (!expected) {
+    return new Response(null, { status: 503 });
+  }
+
   const valid = token.length === expected.length &&
-    timingSafeEqual(tokBuf, expBuf);
+    timingSafeEqual(Buffer.from(token), Buffer.from(expected));
 
   if (!valid) {
     return new Response(null, { status: 401 });
   }
 
-  const days = Math.min(parseInt(url.searchParams.get('days') ?? '7', 10), 90);
+  const days = Math.min(parseInt(url.searchParams.get('days') ?? '7', 10) || 7, 90);
   const store = getStore('events');
-  const counts = {};
 
-  for (let i = 0; i < days; i++) {
+  const dateKeys = Array.from({ length: days }, (_, i) => {
     const date = new Date();
     date.setUTCDate(date.getUTCDate() - i);
-    const key = date.toISOString().slice(0, 10);
-    const blob = await store.get(key);
-    if (!blob) continue;
+    return date.toISOString().slice(0, 10);
+  });
 
-    for (const line of blob.split('\n').filter(Boolean)) {
-      try {
-        const { e } = JSON.parse(line);
-        counts[e] = (counts[e] ?? 0) + 1;
-      } catch {
-        // skip malformed lines
-      }
-    }
+  // List all date prefixes in parallel
+  const listings = await Promise.all(
+    dateKeys.map(date => store.list({ prefix: `${date}/` }))
+  );
+
+  // Fetch all individual event blobs in parallel
+  const allKeys = listings.flatMap(({ blobs }) => blobs.map(b => b.key));
+  const eventNames = await Promise.all(allKeys.map(key => store.get(key)));
+
+  const counts = {};
+  for (const name of eventNames) {
+    if (name) counts[name] = (counts[name] ?? 0) + 1;
   }
 
   return new Response(JSON.stringify(counts, null, 2), {
