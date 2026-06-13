@@ -1,5 +1,7 @@
 // This script handles the theme toggle button click.
 // The initial theme is set by an inline script in the <head> to prevent FOUC.
+import { track } from './tracker.js';
+
 const toggle = document.getElementById("theme-toggle");
 
 if (toggle) {
@@ -8,5 +10,6 @@ if (toggle) {
         const targetTheme = currentTheme === "light" ? "dark" : "light";
         document.documentElement.setAttribute('data-theme', targetTheme);
         sessionStorage.setItem('theme', targetTheme);
+        track('theme_toggle');
     };
 }
