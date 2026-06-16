@@ -23,7 +23,7 @@
     "sass": "^1.77.8"
   },
   "scripts": {
-    "test": "node --test --experimental-test-module-mocks netlify/functions/*.test.js",
+    "test": "node --test --experimental-test-module-mocks netlify/__tests__/*.test.js",
     "start": "eleventy --serve",
     "build": "rimraf public && eleventy"
   }

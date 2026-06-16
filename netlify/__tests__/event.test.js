@@ -11,7 +11,7 @@ await mock.module('@netlify/blobs', {
   },
 });
 
-const { default: handler } = await import('./event.js');
+const { default: handler } = await import('../functions/event.js');
 
 function post(body) {
   return new Request('http://localhost/api/event', {

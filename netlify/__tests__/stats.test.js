@@ -10,7 +10,7 @@ await mock.module('@netlify/blobs', {
   },
 });
 
-const { default: handler } = await import('./stats.js');
+const { default: handler } = await import('../functions/stats.js');
 
 const TOKEN = 'test-secret';
 const validHeader = `Basic ${Buffer.from(`:${TOKEN}`).toString('base64')}`;
