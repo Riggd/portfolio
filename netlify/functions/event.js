@@ -42,7 +42,7 @@ export default async (req) => {
   const store = getStore('events');
   const date = new Date().toISOString().slice(0, 10);
   // Each event is its own blob — no read needed, no race condition
-  await store.set(`${date}/${Date.now()}-${randomUUID()}`, body.e);
+  await store.set(`${date}/${Date.now()}-${randomUUID()}`, JSON.stringify({ e: body.e, t: Date.now() }));
 
   return new Response(null, { status: 204 });
 };
