@@ -55,3 +55,30 @@ describe('auth', () => {
     assert.equal(res.status, 200);
   });
 });
+
+describe('content negotiation', () => {
+  it('returns JSON by default', async () => {
+    process.env.STATS_TOKEN = TOKEN;
+    const res = await handler(new Request('http://localhost/api/stats', {
+      headers: { Authorization: validHeader },
+    }));
+    assert.equal(res.headers.get('Content-Type'), 'application/json');
+    const body = await res.json();
+    assert.ok(typeof body.totals === 'object');
+  });
+
+  it('returns HTML when Accept includes text/html', async () => {
+    process.env.STATS_TOKEN = TOKEN;
+    const res = await handler(new Request('http://localhost/api/stats', {
+      headers: {
+        Authorization: validHeader,
+        Accept: 'text/html,application/xhtml+xml',
+      },
+    }));
+    assert.equal(res.status, 200);
+    assert.ok(res.headers.get('Content-Type')?.includes('text/html'));
+    const body = await res.text();
+    assert.ok(body.includes('<!DOCTYPE html>'));
+    assert.ok(body.includes('chart.js'));
+  });
+});
