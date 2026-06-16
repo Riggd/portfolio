@@ -51,6 +51,14 @@ async function fetchCounts(store, dateKeys) {
   return { totals, byDay };
 }
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function buildHtml(days, dateKeys, byDay, totals) {
   const labels = [...dateKeys].reverse();
   const pageViewsPerDay = labels.map(d => {
@@ -62,7 +70,7 @@ function buildHtml(days, dateKeys, byDay, totals) {
 
   const tableRows = Object.entries(totals)
     .sort(([, a], [, b]) => b - a)
-    .map(([event, count]) => `<tr><td>${event}</td><td>${count}</td></tr>`)
+    .map(([event, count]) => `<tr><td>${escapeHtml(event)}</td><td>${escapeHtml(count)}</td></tr>`)
     .join('\n      ');
 
   return `<!DOCTYPE html>
@@ -109,7 +117,7 @@ function buildHtml(days, dateKeys, byDay, totals) {
         plugins: { legend: { display: false } },
         scales: {
           x: { ticks: { color: '#666' }, grid: { color: '#1a1a1a' } },
-          y: { ticks: { color: '#666', precision: 0 }, grid: { color: '#1a1a1a' }, beginAtZero: true }
+          y: { ticks: { color: '#666', stepSize: 1 }, grid: { color: '#1a1a1a' }, beginAtZero: true }
         }
       }
     });
