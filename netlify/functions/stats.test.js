@@ -38,6 +38,15 @@ describe('auth', () => {
     assert.equal(res.status, 401);
   });
 
+  it('returns 401 for same-length wrong password', async () => {
+    process.env.STATS_TOKEN = TOKEN;
+    const wrong = `Basic ${Buffer.from(':xest-secret').toString('base64')}`;
+    const res = await handler(new Request('http://localhost/api/stats', {
+      headers: { Authorization: wrong },
+    }));
+    assert.equal(res.status, 401);
+  });
+
   it('returns 200 for correct password', async () => {
     process.env.STATS_TOKEN = TOKEN;
     const res = await handler(new Request('http://localhost/api/stats', {

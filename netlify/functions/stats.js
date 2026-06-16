@@ -42,6 +42,7 @@ async function fetchCounts(store, dateKeys) {
       if (!raw) continue;
       let name;
       try { name = JSON.parse(raw).e; } catch { name = raw; }
+      if (!name) continue;
       totals[name] = (totals[name] ?? 0) + 1;
       byDay[date][name] = (byDay[date][name] ?? 0) + 1;
     }
