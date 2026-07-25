@@ -22,6 +22,10 @@ export default function (eleventyConfig) {
     // Passthrough copy
     eleventyConfig.addPassthroughCopy("src/assets");
 
+    // The /hvac applet is build input rather than a template or a passthrough
+    // copy, so the watcher needs to be told about it for `npm start` to rebuild.
+    eleventyConfig.addWatchTarget("./src/_hvac/");
+
     // Shortcodes
     eleventyConfig.addShortcode('year', year);
     eleventyConfig.addShortcode('convertTime', convertTime);
