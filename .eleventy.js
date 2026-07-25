@@ -26,6 +26,10 @@ export default function (eleventyConfig) {
     // copy, so the watcher needs to be told about it for `npm start` to rebuild.
     eleventyConfig.addWatchTarget("./src/_hvac/");
 
+    // Its docs are for developers, not visitors. Markdown is a template format,
+    // so without this the directory's README would publish as a page.
+    eleventyConfig.ignores.add("src/_hvac/**/*.md");
+
     // Shortcodes
     eleventyConfig.addShortcode('year', year);
     eleventyConfig.addShortcode('convertTime', convertTime);
