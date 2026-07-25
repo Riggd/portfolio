@@ -62,11 +62,13 @@ and restoring the page later is just putting that one file back.
 
 ### Option 2 — revert the commits (cleanest full removal)
 
-Every commit that added this applet touched this directory, so ask git for the list
-rather than trusting a hash written down here:
+Ask git for the commits rather than trusting a hash written down here. Search by
+message, **not** by path — one of them only touched `.eleventy.js`, so
+`git log -- src/_hvac` misses it and leaves behind a watch target pointing at the
+directory you just deleted:
 
 ```bash
-git log --oneline -- src/_hvac          # newest first
+git log --oneline -i --grep=hvac        # newest first
 ```
 
 Then revert them, **newest first**, and reinstall:
