@@ -56,10 +56,28 @@ This command:
 3.  Optimizes images.
 4.  Bundles JavaScript via esbuild.
 
+## 🌬️ The `/hvac` applet
+
+`/hvac` is a self-contained React app — an interactive guide to sizing and
+installing HVAC ductwork. It lives in `src/_hvac/` and ships as its own JS and CSS
+bundle, so the rest of the site is unaffected and visitors to either one only
+download what that page needs.
+
+- **Content is data.** Lessons live in `src/_hvac/data/` as block lists; a block
+  type maps to one small component in `components/Prose.jsx`. No raw HTML in content.
+- **Math is pure and tested.** Everything the app calculates comes from
+  `lib/ductMath.js`, verified against published ductulator and ASHRAE
+  equivalent-diameter values. Run `npm test`.
+- **One worksheet, eight steps.** `lib/derive.js` turns the worksheet into results,
+  so a change on the airflow screen moves the duct sizes on the sizing screen.
+- **No extra dependencies** beyond `react` and `react-dom` — routing is the URL hash
+  and state is `useState` plus `localStorage`.
+
 ## 📂 Project Structure
 
 - `src/`: Source files.
     - `_data/`: Global data files.
+    - `_hvac/`: React source for the `/hvac` applet (build input, not shipped as-is).
     - `_includes/`: Layouts and partials.
     - `assets/`: Static assets (CSS, JS, Images, Fonts).
     - `projects/`: Project content pages.
