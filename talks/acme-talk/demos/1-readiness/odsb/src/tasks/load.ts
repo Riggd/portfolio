@@ -1,0 +1,169 @@
+// Loads the task suite from tasks/*.yaml and validates cross-task invariants
+// that a single-file schema check can't see (duplicate ids, weight sums, and —
+// given extracted system catalogs — prompt-leak and hidden-expectation checks).
+
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { paths } from '../config.ts';
+import type { SystemCatalog, SystemConfig, SystemId, Task } from '../types.ts';
+import { affordanceNames, withheldRubrics } from './affordances.ts';
+import { parseTask } from './schema.ts';
+
+/**
+ * Symbols that are skipped by the prompt-leak lint even when they match a real
+ * catalog export, because they double as ordinary English words that intent-
+ * level prompts can't reasonably avoid. Keep this short — every addition
+ * weakens the leak check system-wide, not just for the prompt that needed it.
+ *
+ * - Text, Link, Card, Icon: generic UI nouns, near-impossible to avoid entirely
+ *   across a growing task suite.
+ * - Form: "invite a team member form" (form-validation-errors) uses "form" as
+ *   the ordinary English noun for the whole submission, not a reference to a
+ *   system's `Form` wrapper component.
+ * - List: "the server list" (connection-status-indicator) uses "list" as the
+ *   ordinary English noun for a collection, not a reference to a system's
+ *   `List` component.
+ */
+export const GENERIC_SYMBOL_ALLOWLIST = ['Text', 'Link', 'Card', 'Icon', 'Form', 'List'] as const;
+
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/** Catalog exports a prompt names as case-insensitive whole words, minus the allowlist (lowercased). */
+export function leakedSymbols(prompt: string, exports: string[], allowlist: ReadonlySet<string>): string[] {
+  return exports.filter(
+    (symbol) => !allowlist.has(symbol.toLowerCase()) && new RegExp(`\\b${escapeRegExp(symbol)}\\b`, 'i').test(prompt),
+  );
+}
+
+/** The global allowlist plus a system's own leakAllowlist, lowercased. */
+export function leakAllowlistFor(cfg?: Pick<SystemConfig, 'leakAllowlist'>): Set<string> {
+  return new Set([...GENERIC_SYMBOL_ALLOWLIST, ...(cfg?.leakAllowlist ?? [])].map((w) => w.toLowerCase()));
+}
+
+/** True when `task` applies to `system` — absent `systems`, or a ['*'] wildcard, means every configured system. */
+export function taskAppliesToSystem(task: Task, system: SystemId): boolean {
+  if (!task.systems || task.systems.includes('*')) return true;
+  return task.systems.includes(system);
+}
+
+/**
+ * Every task in `tasksDir`, plus those in its `hard/` subdirectory tagged
+ * `hard: true`. Lookups (grading, judging, the gallery) always want the
+ * superset; only a profile's "*" expansion leaves the hard ones out unless
+ * asked (see expandMatrix).
+ */
+export function loadTasks(tasksDir: string = paths.tasksDir): Task[] {
+  const read = (dir: string, hard: boolean): Task[] => {
+    if (!existsSync(dir)) return [];
+    return readdirSync(dir)
+      .filter((f) => /\.ya?ml$/i.test(f))
+      .sort((a, b) => a.localeCompare(b))
+      .map((file) => {
+        const task = parseTask(readFileSync(join(dir, file), 'utf8'), file);
+        return hard ? { ...task, hard: true } : task;
+      });
+  };
+  return [...read(tasksDir, false), ...read(join(tasksDir, 'hard'), true)];
+}
+
+export function validateTaskSuite(
+  tasks: Task[],
+  catalogs: Partial<Record<SystemId, SystemCatalog>>,
+  systems: Partial<Record<SystemId, SystemConfig>> = {},
+): { errors: string[]; warnings: string[] } {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  // (b) duplicate task ids -----------------------------------------------------
+  const idCounts = new Map<string, number>();
+  for (const task of tasks) {
+    idCounts.set(task.id, (idCounts.get(task.id) ?? 0) + 1);
+  }
+  for (const [id, count] of idCounts) {
+    if (count > 1) {
+      errors.push(`duplicate task id "${id}" (appears ${count} times)`);
+    }
+  }
+
+  for (const task of tasks) {
+    // (a) rubric weights sum to 1 ± 0.001 ---------------------------------------
+    const weightSum = task.rubrics.reduce((sum, r) => sum + r.weight, 0);
+    if (Math.abs(weightSum - 1) > 0.001) {
+      errors.push(
+        `task "${task.id}": rubric weights sum to ${weightSum.toFixed(4)}, expected 1 ± 0.001`,
+      );
+    }
+
+    // (e) critical rubrics: warn if a task has none -----------------------------
+    if (!task.rubrics.some((r) => r.critical)) {
+      warnings.push(`task "${task.id}": no rubric is marked critical`);
+    }
+
+    // (h) a presumed affordance nobody declares names for is a typo, not a gap --
+    for (const r of task.rubrics) {
+      if (!r.presumes) continue;
+      const known = affordanceNames(r.presumes).length > 0 ||
+        Object.values(systems).some((cfg) => cfg && affordanceNames(r.presumes!, cfg).length > 0);
+      if (!known) {
+        errors.push(
+          `task "${task.id}": rubric "${r.id}" presumes unknown affordance "${r.presumes}" (no default names, and no system declares it under "affordances")`,
+        );
+      }
+    }
+
+    // (g) hiddenExpectations optional: warn (never error) when absent -----------
+    if (!task.hiddenExpectations) {
+      warnings.push(
+        `task "${task.id}": no hiddenExpectations — the judge will omit the expected-components catalog excerpt for this task`,
+      );
+    }
+
+    // Systems this task actually applies to, restricted to the catalogs we
+    // were handed (an explicit "systems" list may still name a system whose
+    // catalog isn't extracted/loaded yet — that's warned on below, not here).
+    const explicitSystems = task.systems && !task.systems.includes('*') ? task.systems : undefined;
+    const systemsInScope = explicitSystems ?? (Object.keys(catalogs) as SystemId[]);
+
+    for (const system of systemsInScope) {
+      const catalog = catalogs[system];
+
+      // (f) missing catalog for an applicable system ---------------------------------
+      if (!catalog) {
+        warnings.push(
+          `task "${task.id}": catalog not extracted yet, leak/expectation checks skipped for ${system}`,
+        );
+        continue;
+      }
+
+      // (c) prompt-leak lint: any real export named in the prompt is a leak ------
+      for (const symbol of leakedSymbols(task.prompt, catalog.allExports, leakAllowlistFor(systems[system]))) {
+        errors.push(
+          `task "${task.id}": prompt leaks ${system} component "${symbol}" (case-insensitive whole-word match in prompt text; ` +
+            `if the prompt means the ordinary word, add "${symbol}" to ${system}'s "leakAllowlist")`,
+        );
+      }
+
+      // (i) rubrics this system cannot be graded on: withheld, not failed ---------
+      for (const [rubricId, why] of withheldRubrics(task, catalog, systems[system])) {
+        warnings.push(`task "${task.id}": rubric "${rubricId}" is withheld for ${system}: it ${why}`);
+      }
+
+      // (d) hiddenExpectations.componentsAnyOf symbols must be real exports -------
+      const expected = task.hiddenExpectations?.componentsAnyOf[system];
+      if (expected) {
+        const exportSet = new Set(catalog.allExports);
+        for (const symbol of expected) {
+          if (!exportSet.has(symbol)) {
+            errors.push(
+              `task "${task.id}": hiddenExpectations.componentsAnyOf.${system} references "${symbol}", which is not in the ${system} catalog's allExports`,
+            );
+          }
+        }
+      }
+    }
+  }
+
+  return { errors, warnings };
+}

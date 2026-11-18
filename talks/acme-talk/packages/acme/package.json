@@ -1,0 +1,35 @@
+{
+  "name": "@acme/ds",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Acme DS: mock design system for the acme-talk demos.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./foundations.css": "./src/foundations.css",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "dev": "pnpm run tokens && vite",
+    "build": "pnpm run tokens && tsc --noEmit && vite build",
+    "typecheck": "pnpm run tokens && tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "style-dictionary": "^4.4.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
+  }
+}

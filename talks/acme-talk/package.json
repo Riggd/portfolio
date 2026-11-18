@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Mock design system (Acme DS) and three demos for a talk on where AI fits in the design system lifecycle.",
   "license": "MIT",
-  "packageManager": "pnpm@9",
+  "packageManager": "pnpm@10.28.0",
   "engines": {
     "node": ">=20"
   },

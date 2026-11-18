@@ -1,0 +1,16 @@
+{
+  "systems": {
+    "acme": {
+      "root": "../../../packages/acme",
+      "rootEnv": "ACME_DS_DIR",
+      "componentsSrc": "src/components",
+      "componentsPkg": "@acme/ds",
+      "foundationsPkg": "@acme/ds",
+      "foundationsCss": ["dist/tokens.css", "src/foundations.css"],
+      "catalogStrategy": "docgen",
+      "agentContext": {
+        "agentsMd": ["AGENTS.md"]
+      }
+    }
+  }
+}
