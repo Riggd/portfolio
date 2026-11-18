@@ -12,6 +12,11 @@ Read `AGENTS.md` at the package root first. The full rules are in `acme.rules.js
 1. **Pick the component by job, not by look.**
    - An action → `Button`.
    - A persistent message about page or form state → `Alert`.
+   - Text entry → `Input` (with `label`; errors via `error`).
+   - A group of related content → `Surface`. Never `Card` (deprecated).
+   - Spacing between siblings → `Stack` with a `gap` token.
+   - A removable or selectable tag, filter or value → `Chip`.
+   - A read-only count or status label → `Badge`.
    - Anything else → build with tokens, but check `AGENTS.md` first. Don't import components that aren't listed there.
 2. **Pick the variant by consequence.**
    - Is the action irreversible or does it lose data (delete, remove permanently, revoke)? → `destructive`, with a confirmation step.
@@ -22,7 +27,7 @@ Read `AGENTS.md` at the package root first. The full rules are in `acme.rules.js
 4. **Pick tokens by meaning.**
    - Errors: `color.danger.*`. Success: `color.feedback.success.*`. Warnings: `color.feedback.warning.*`.
    - Never `color.brand.*` on errors, status, validation or actions.
-   - `color.text.secondary` only on `color.surface.default`.
+   - `color.text.secondary` only on `color.surface.default`. Inside `<Surface tone="subtle">` or `tone="tinted"`, use `color.text.primary`.
    - Spacing only from `--space-0`…`--space-7` (0 / 4 / 8 / 12 / 16 / 24 / 32 / 48 px).
 5. **Self-check before finishing.** Go through the 7 categories in `acme.rules.json` → `categories[]` and answer each question for your file.
 
@@ -38,4 +43,15 @@ Read `AGENTS.md` at the package root first. The full rules are in `acme.rules.js
 
 // Error message
 <Alert intent="danger" title="Payment failed">Update your card to keep your plan.</Alert>
+
+// Field error: through the prop, not a custom element
+<Input label="Email" type="email" error="Enter a valid email address." />
+
+// Grouped content with layout
+<Surface tone="subtle">
+  <Stack gap="space.3">
+    <Badge label="3 new" />
+    <Chip label="Design" onRemove={removeTag} />
+  </Stack>
+</Surface>
 ```

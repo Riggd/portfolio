@@ -47,7 +47,11 @@
     "bg": { "$type": "color", "$value": "{color.surface.tinted}" },
     "fg": { "$type": "color", "$value": "{color.text.primary}" },
     "paddingX": { "$type": "dimension", "$value": "{space.3}" },
-    "radius": { "$type": "dimension", "$value": "{radius.full}" }
+    "radius": { "$type": "dimension", "$value": "{radius.full}" },
+    "selected": {
+      "bg": { "$type": "color", "$value": "{color.action.primary.bg}" },
+      "fg": { "$type": "color", "$value": "{color.action.primary.fg}" }
+    }
   },
   "badge": {
     "bg": { "$type": "color", "$value": "{color.surface.tinted}" },
@@ -59,12 +63,21 @@
     "border": { "$type": "color", "$value": "{color.border.strong}" },
     "borderFocus": { "$type": "color", "$value": "{color.border.focus}" },
     "padding": { "$type": "dimension", "$value": "{space.3}" },
-    "radius": { "$type": "dimension", "$value": "{radius.md}" }
+    "radius": { "$type": "dimension", "$value": "{radius.md}" },
+    "borderError": { "$type": "color", "$value": "{color.danger.border}" },
+    "errorFg": { "$type": "color", "$value": "{color.danger.fg}" },
+    "hintFg": { "$type": "color", "$value": "{color.text.secondary}" }
   },
   "surface": {
     "bg": { "$type": "color", "$value": "{color.surface.default}" },
     "border": { "$type": "color", "$value": "{color.border.default}" },
     "padding": { "$type": "dimension", "$value": "{space.5}" },
-    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" },
+    "subtle": {
+      "bg": { "$type": "color", "$value": "{color.surface.subtle}" }
+    },
+    "tinted": {
+      "bg": { "$type": "color", "$value": "{color.surface.tinted}" }
+    }
   }
 }

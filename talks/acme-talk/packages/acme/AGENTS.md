@@ -7,7 +7,7 @@ Full usage rules (source of truth): `acme.rules.json`.
 
 ```tsx
 import '@acme/ds/foundations.css';           // once, at the app root
-import { Button, Alert, tokens } from '@acme/ds';
+import { Button, Alert, Input, Surface, Stack, Chip, Badge, tokens } from '@acme/ds';
 ```
 
 ## Principles
@@ -18,9 +18,9 @@ import { Button, Alert, tokens } from '@acme/ds';
 4. Destructive styling is reserved for irreversible or data-losing actions.
 5. Brand color is for brand expression, never for status, errors, or actions.
 
-## Components available today
+## Components
 
-Only these are exported. Don't import anything else from `@acme/ds`.
+These are the only exports. Don't import anything else from `@acme/ds`.
 
 ### Button
 
@@ -49,10 +49,52 @@ Don't:
 - Restyle an Alert with brand or action tokens.
 - Build alert-like boxes from containers plus custom colors; use Alert.
 
-### Not available yet
+### Input
 
-Input, Surface, Chip, Badge and Stack are planned but not exported. Card is deprecated (replaced by Surface).
-Don't import any of them.
+`label: string` (required) · `error?: string` · `hint?: string` · plus native `<input>` props
+
+Single-line text entry. Always has a visible label. Pass validation errors through `error`, which renders in `color.danger.*` and sets `aria-invalid`.
+
+Don't:
+- Render a raw `<input>` with custom styles.
+- Show field errors in a separate element with your own colors; use the `error` prop.
+
+### Surface
+
+`tone`: `default` | `subtle` | `tinted` (default `default`) · `padding`: `space.4` | `space.5` | `space.6` (default `space.5`)
+
+Container for grouped content. Replaces Card. On `subtle` and `tinted`, use `color.text.primary` for text, never `color.text.secondary`.
+
+Don't:
+- Build alert-like boxes from Surface plus custom colors; use Alert.
+
+### Stack
+
+`direction`: `row` | `column` (default `column`) · `gap`: `space.1`…`space.7` (default `space.4`) · `align`: `start` | `center` | `end` | `stretch`
+
+Layout spacing between children. Prefer Stack `gap` over margins on children.
+
+### Chip
+
+`label: string` (required) · `onRemove?: () => void` · `selected?: boolean` · `onToggle?: (selected: boolean) => void`
+
+Compact, removable or selectable items: filters, tags, multi-select values. Passing `selected` makes it a toggle; passing `onRemove` adds a remove button.
+
+Don't:
+- Hand-build pill-shaped divs or spans for tags or filters; use Chip.
+
+### Badge
+
+`label: string` (required)
+
+Static, read-only labels such as counts and status labels. Not interactive.
+
+Don't:
+- Use Badge for removable or clickable items; use Chip.
+
+### Card (deprecated)
+
+Deprecated since 0.1.0; removed in 1.0.0. Use Surface. It is still exported so existing code compiles. Never use it in new code.
 
 ## Tokens
 

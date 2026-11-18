@@ -14,6 +14,12 @@
 
 - [Button](src/components/Button/Button.tsx): actions. variant: primary | secondary | destructive | ghost; size: sm | md
 - [Alert](src/components/Alert/Alert.tsx): inline status messages. intent: success | warning | danger
+- [Input](src/components/Input/Input.tsx): single-line text entry. label (required), error, hint
+- [Surface](src/components/Surface/Surface.tsx): content container. tone: default | subtle | tinted; padding: space.4 | space.5 | space.6
+- [Stack](src/components/Stack/Stack.tsx): layout spacing. direction: row | column; gap: space.1-space.7; align
+- [Chip](src/components/Chip/Chip.tsx): removable or selectable tags and filters. label, onRemove, selected, onToggle
+- [Badge](src/components/Badge/Badge.tsx): read-only counts and status labels. label
+- [Card](src/components/Card/Card.tsx): deprecated, use Surface
 
 ## Tokens
 

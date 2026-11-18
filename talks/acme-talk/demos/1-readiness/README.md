@@ -16,7 +16,7 @@ pnpm readiness:before        # audit before only (after extract)
 pnpm readiness:after         # audit after only
 ```
 
-Cached results: `cache/audit-before.json` (45.9), `cache/audit-after.json` (69.9).
+Cached results: `cache/audit-before.json` (47.9, Invested), `cache/audit-after.json` (71.9, AI-native). Re-measured Nov 18 after adding all 8 components.
 
 Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit
 
@@ -27,6 +27,6 @@ Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit
 | `cache/runs/20261118-062703-context-compare` | confirm-account-deletion × bare / agents-md / skill | 83.8 / 84.0 / 84.0 overall |
 | `cache/runs/20261118-062819-small` | 5 tasks × skill | 77.4, 83.6, 56.6, 92.1, 91.0 |
 
-Audit with run data: `cache/audit-after-with-run.json` (82.4, AI-native).
+Audit with run data: `cache/audit-after-with-run.json` (82.8, AI-native). The cached runs predate Input, Surface, Card, Chip, Badge and Stack; agents then had only Button and Alert.
 Cell `workspace/` folders are stripped from the cache; the agent's output is in each cell's `diff.patch` and `files/`.
 Runs are written inside `node_modules` by ODSB, so copy every finished run here.

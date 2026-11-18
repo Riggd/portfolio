@@ -17,7 +17,7 @@ Use only measured numbers. Placeholders in `[brackets]` get filled from `demos/*
 >
 > "I'm using an open-source tool called open-design-system-bench, ODSB for short. It does two things. It audits your system for what an agent can read, and it runs real coding tasks and grades the output."
 
-**On screen:** Acme playground, with the Buttons and Alerts.
+**On screen:** Acme playground, with all eight components.
 
 ### 2. Before audit (1:30)
 
@@ -28,7 +28,7 @@ pnpm readiness:before
 
 > "This is Acme as most teams ship it: typed components, tokens, a little documentation, and nothing written for agents."
 >
-> "The score is **45.9, Invested tier**."
+> "The score is **47.9, Invested tier**."
 
 Walk through four lines only:
 
@@ -37,7 +37,7 @@ Walk through four lines only:
 | Catalog quality | 90 | "The components themselves are fine. Typed props go a long way." |
 | Enablement surface | 20 | "Nothing tells an agent how to use the system: no AGENTS.md, no skill, no llms.txt." |
 | Docs greppability | 0 | "There are no docs an agent can search. Everything it knows, it has to guess from the code." |
-| Deprecation | 0 | "If we deprecate something, an agent has no way to know." |
+| Deprecation | 20 | "Card is marked deprecated in the code, but there's no changelog, so an agent has no migration path." |
 
 > "Notice what's good and what's missing. The code is readable. What's missing is the context: the why, the when, and the don't."
 
@@ -49,9 +49,9 @@ Walk through four lines only:
 
 **Run:** `pnpm readiness:after`
 
-> "Same components. The score goes from **45.9 to 69.9**. Enablement goes from 20 to 70, docs from 0 to 100, deprecation from 0 to 40."
+> "Same components. The score goes from **47.9 to 71.9**. Enablement goes from 20 to 70, docs from 0 to 100, deprecation from 20 to 60."
 >
-> "It's still Invested, a tenth of a point under AI-native. What's left isn't documentation: there's no MCP server, the token files aren't in a format tools can detect, and the prop names differ from what models expect. Those are real engineering work, and now we know where to spend it."
+> "That crosses into AI-native, but only just. What's left isn't documentation: there's no MCP server, the token files aren't in a format tools can detect, and the prop names differ from what models expect. Those are real engineering work, and now we know where to spend it."
 
 ### 4. The run report (2:00)
 
@@ -79,7 +79,7 @@ Walk through four lines only:
 pnpm --filter demo-1-readiness run odsb audit --system acme --config systems.config.json --run cache/runs/20261118-062703-context-compare
 ```
 
-> "With behavior included, Acme scores **82.4: AI-native**. Docs got us close; real agent runs show where we actually stand."
+> "With behavior included, Acme scores **82.8: AI-native**. Docs got us over the line; real agent runs show where we actually stand."
 
 ### 5. Takeaway (0:30)
 

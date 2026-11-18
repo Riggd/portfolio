@@ -47,7 +47,7 @@
       ]
     },
     "Chip": {
-      "props": { "label": "string", "onRemove": "() => void (optional)", "selected": "boolean (optional)" },
+      "props": { "label": "string", "onRemove": "() => void (optional)", "selected": "boolean (optional)", "onToggle": "(selected: boolean) => void (optional)" },
       "guidance": "Compact, removable or selectable items: filters, tags, multi-select values.",
       "dont": ["Don't hand-build pill-shaped divs or spans for tags or filters; use Chip."]
     },
@@ -68,6 +68,7 @@
     "Card": {
       "deprecated": true,
       "replacement": "Surface",
+      "props": { "title": "string (optional)", "children": "ReactNode" },
       "guidance": "Deprecated in 0.1.0. Use Surface. Card will be removed in 1.0."
     },
     "Stack": {

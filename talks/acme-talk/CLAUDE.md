@@ -53,14 +53,14 @@ acme-talk/
 
   Switch between them with a flag, not by editing files on stage. `packages/acme` is the *after* state. `demos/1-readiness/scripts/make-before.mjs` copies it to `demos/1-readiness/.before/acme` (gitignored) without the files listed in `demos/1-readiness/before-state.json`, and ODSB audits both as systems `acme-before` and `acme`. Every new agent-context file must be added to `before-state.json`.
 
-  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18: before 45.9, after 69.9 (both Invested).
+  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18 with all 8 components: before 47.9 (Invested), after 71.9 (AI-native), after + context-compare run 82.8.
 
 ## Token naming notes
 
 - The starting state deliberately has `color.danger.*`, not `color.feedback.error.*`, and has no `color.feedback.info`. Demo 2's live change renames `color.danger` → `color.feedback.error`, changes `space.3` from 12 to 14, and adds `color.feedback.info`. Don't "fix" these ahead of time.
 - `color.brand.*` is for brand expression only. Using it on error or status UI is a seeded semantic-misuse trap.
 - Known starting-state inconsistencies (intentional, fix later as part of the demos; don't fix ahead of time):
-  - `alert.danger.*` in `component.json` and `token-danger-for-errors` / Input guidance in `acme.rules.json` reference `color.danger.*` directly. Demo 2's rename must update them, or the build breaks.
+  - `alert.danger.*`, `input.borderError` and `input.errorFg` in `component.json`, and `token-danger-for-errors` / Input guidance in `acme.rules.json` reference `color.danger.*` directly. Demo 2's rename must update them, or the build breaks.
   - `token-text-secondary-surface` says `text.secondary` fails on "tinted, subtle" surfaces; the token description (and the math: ~4.4:1 tinted, ~4.6:1 subtle) says only tinted fails.
 
 ## Schedule

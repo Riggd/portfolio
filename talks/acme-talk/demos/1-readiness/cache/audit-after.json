@@ -19,7 +19,7 @@
             },
             {
               "severity": "info",
-              "message": "llms.txt (local) is 0.9 KB."
+              "message": "llms.txt (local) is 1.5 KB."
             },
             {
               "severity": "info",
@@ -60,11 +60,11 @@
         {
           "id": "catalog-quality",
           "title": "Catalog quality",
-          "score": 90,
+          "score": 89.6,
           "findings": [
             {
               "severity": "info",
-              "message": "2 component dirs, 2 exports, 6 props documented."
+              "message": "8 component dirs, 8 exports, 23 props documented."
             }
           ]
         },
@@ -80,7 +80,7 @@
             },
             {
               "severity": "info",
-              "message": "2/2 component directories are reachable via the barrel or exports map."
+              "message": "1/1 component directory is reachable via the barrel or exports map."
             }
           ]
         },
@@ -91,7 +91,12 @@
           "findings": [
             {
               "severity": "info",
-              "message": "1 concept(s) aligned with convention, 2 covered under a different name, 37 not represented in this catalog (n/a)."
+              "message": "5 concept(s) aligned with convention, 7 covered under a different name, 28 not represented in this catalog (n/a)."
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"spacing\" (stack-gap): models invented this name 85 time(s) across the mined sample; this system covers it as \"gap\" instead.",
+              "fix": "Chakra vocabulary; gap elsewhere"
             },
             {
               "severity": "warn",
@@ -100,23 +105,43 @@
             },
             {
               "severity": "warn",
+              "message": "Component \"Box\" (layout-primitive): models invented this name 26 time(s) across the mined sample; this system covers it as \"Stack\" instead.",
+              "fix": "Chakra/MUI vocabulary; often Stack or View elsewhere"
+            },
+            {
+              "severity": "warn",
+              "message": "Component \"TextField\" (form-text-input): models invented this name 21 time(s) across the mined sample; this system covers it as \"Input\" instead.",
+              "fix": "MUI vocabulary; often Input elsewhere"
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"alignItems\" (stack-align): models invented this name 16 time(s) across the mined sample; this system covers it as \"align\" instead.",
+              "fix": "CSS vocabulary; align elsewhere"
+            },
+            {
+              "severity": "warn",
               "message": "Prop \"severity\" (alert-severity): models invented this name 9 time(s) across the mined sample; this system covers it as \"variant\" instead.",
               "fix": "MUI Alert vocabulary; variant/tone elsewhere"
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"isInvalid\" (form-error-state): models invented this name 6 time(s) across the mined sample; this system covers it as \"error\" instead.",
+              "fix": "Chakra vocabulary; error/invalid elsewhere"
             }
           ]
         },
         {
           "id": "tokens",
           "title": "Token machine-readability",
-          "score": 58,
+          "score": 58.6,
           "findings": [
             {
               "severity": "info",
-              "message": "130 CSS custom properties found."
+              "message": "137 CSS custom properties found."
             },
             {
               "severity": "info",
-              "message": "78/130 vars (60%) reference another var: a semantic layer over primitives."
+              "message": "85/137 vars (62%) reference another var: a semantic layer over primitives."
             },
             {
               "severity": "warn",
@@ -131,11 +156,11 @@
         {
           "id": "deprecation",
           "title": "Deprecation legibility",
-          "score": 40,
+          "score": 60,
           "findings": [
             {
               "severity": "info",
-              "message": "No @deprecated JSDoc annotations found (either nothing is deprecated, or deprecations are undocumented: static analysis can't tell which)."
+              "message": "2 @deprecated annotation(s) found across 1 file(s)."
             },
             {
               "severity": "info",
@@ -162,18 +187,18 @@
             },
             {
               "severity": "info",
-              "message": "2/2 components (100%) are mentioned in at least one markdown file."
+              "message": "8/8 components (100%) are mentioned in at least one markdown file."
             },
             {
               "severity": "info",
-              "message": "llms.txt lists 2/2 components (100%)."
+              "message": "llms.txt lists 8/8 components (100%)."
             }
           ]
         }
       ],
       "score": {
         "surface": {
-          "score": 69.9,
+          "score": 71.9,
           "checks": [
             {
               "id": "surface",
@@ -190,7 +215,7 @@
                 },
                 {
                   "severity": "info",
-                  "message": "llms.txt (local) is 0.9 KB."
+                  "message": "llms.txt (local) is 1.5 KB."
                 },
                 {
                   "severity": "info",
@@ -231,11 +256,11 @@
             {
               "id": "catalog-quality",
               "title": "Catalog quality",
-              "score": 90,
+              "score": 89.6,
               "findings": [
                 {
                   "severity": "info",
-                  "message": "2 component dirs, 2 exports, 6 props documented."
+                  "message": "8 component dirs, 8 exports, 23 props documented."
                 }
               ]
             },
@@ -251,7 +276,7 @@
                 },
                 {
                   "severity": "info",
-                  "message": "2/2 component directories are reachable via the barrel or exports map."
+                  "message": "1/1 component directory is reachable via the barrel or exports map."
                 }
               ]
             },
@@ -262,7 +287,12 @@
               "findings": [
                 {
                   "severity": "info",
-                  "message": "1 concept(s) aligned with convention, 2 covered under a different name, 37 not represented in this catalog (n/a)."
+                  "message": "5 concept(s) aligned with convention, 7 covered under a different name, 28 not represented in this catalog (n/a)."
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"spacing\" (stack-gap): models invented this name 85 time(s) across the mined sample; this system covers it as \"gap\" instead.",
+                  "fix": "Chakra vocabulary; gap elsewhere"
                 },
                 {
                   "severity": "warn",
@@ -271,23 +301,43 @@
                 },
                 {
                   "severity": "warn",
+                  "message": "Component \"Box\" (layout-primitive): models invented this name 26 time(s) across the mined sample; this system covers it as \"Stack\" instead.",
+                  "fix": "Chakra/MUI vocabulary; often Stack or View elsewhere"
+                },
+                {
+                  "severity": "warn",
+                  "message": "Component \"TextField\" (form-text-input): models invented this name 21 time(s) across the mined sample; this system covers it as \"Input\" instead.",
+                  "fix": "MUI vocabulary; often Input elsewhere"
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"alignItems\" (stack-align): models invented this name 16 time(s) across the mined sample; this system covers it as \"align\" instead.",
+                  "fix": "CSS vocabulary; align elsewhere"
+                },
+                {
+                  "severity": "warn",
                   "message": "Prop \"severity\" (alert-severity): models invented this name 9 time(s) across the mined sample; this system covers it as \"variant\" instead.",
                   "fix": "MUI Alert vocabulary; variant/tone elsewhere"
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"isInvalid\" (form-error-state): models invented this name 6 time(s) across the mined sample; this system covers it as \"error\" instead.",
+                  "fix": "Chakra vocabulary; error/invalid elsewhere"
                 }
               ]
             },
             {
               "id": "tokens",
               "title": "Token machine-readability",
-              "score": 58,
+              "score": 58.6,
               "findings": [
                 {
                   "severity": "info",
-                  "message": "130 CSS custom properties found."
+                  "message": "137 CSS custom properties found."
                 },
                 {
                   "severity": "info",
-                  "message": "78/130 vars (60%) reference another var: a semantic layer over primitives."
+                  "message": "85/137 vars (62%) reference another var: a semantic layer over primitives."
                 },
                 {
                   "severity": "warn",
@@ -302,11 +352,11 @@
             {
               "id": "deprecation",
               "title": "Deprecation legibility",
-              "score": 40,
+              "score": 60,
               "findings": [
                 {
                   "severity": "info",
-                  "message": "No @deprecated JSDoc annotations found (either nothing is deprecated, or deprecations are undocumented: static analysis can't tell which)."
+                  "message": "2 @deprecated annotation(s) found across 1 file(s)."
                 },
                 {
                   "severity": "info",
@@ -333,11 +383,11 @@
                 },
                 {
                   "severity": "info",
-                  "message": "2/2 components (100%) are mentioned in at least one markdown file."
+                  "message": "8/8 components (100%) are mentioned in at least one markdown file."
                 },
                 {
                   "severity": "info",
-                  "message": "llms.txt lists 2/2 components (100%)."
+                  "message": "llms.txt lists 8/8 components (100%)."
                 }
               ]
             }
@@ -359,10 +409,10 @@
           "score": null,
           "note": "TODO: pass --run <dir> to compute Vocabulary-behavioral from an actual benchmark run."
         },
-        "composite": 69.9,
+        "composite": 71.9,
         "basis": "surface-only",
-        "tier": "Invested",
-        "tierRationale": "composite 69.9 in [40, 70)"
+        "tier": "AI-native",
+        "tierRationale": "composite 71.9 >= 70"
       }
     }
   }
