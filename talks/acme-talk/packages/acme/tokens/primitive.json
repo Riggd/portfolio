@@ -1,0 +1,90 @@
+{
+  "color": {
+    "$type": "color",
+    "neutral": {
+      "0": { "$value": "#FFFFFF" },
+      "50": { "$value": "#F9FAFB" },
+      "100": { "$value": "#F3F4F6" },
+      "200": { "$value": "#E5E7EB" },
+      "300": { "$value": "#D1D5DB" },
+      "500": { "$value": "#6B7280" },
+      "700": { "$value": "#374151" },
+      "900": { "$value": "#111827" }
+    },
+    "blue": {
+      "50": { "$value": "#EFF6FF" },
+      "100": { "$value": "#DBEAFE" },
+      "500": { "$value": "#3B82F6" },
+      "600": { "$value": "#2563EB" },
+      "700": { "$value": "#1D4ED8" }
+    },
+    "red": {
+      "50": { "$value": "#FEF2F2" },
+      "500": { "$value": "#EF4444" },
+      "600": { "$value": "#DC2626" },
+      "700": { "$value": "#B91C1C" }
+    },
+    "green": {
+      "50": { "$value": "#F0FDF4" },
+      "500": { "$value": "#22C55E" },
+      "700": { "$value": "#15803D" }
+    },
+    "amber": {
+      "50": { "$value": "#FFFBEB" },
+      "500": { "$value": "#F59E0B" },
+      "700": { "$value": "#B45309" }
+    },
+    "violet": {
+      "50": { "$value": "#F5F3FF" },
+      "600": { "$value": "#7C3AED" },
+      "700": { "$value": "#6D28D9" }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "$description": "Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48. Any other spacing value is off-scale.",
+    "0": { "$value": "0px" },
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px", "$description": "Demo 2 changes this to 14px live. Do not change it ahead of time." },
+    "4": { "$value": "16px" },
+    "5": { "$value": "24px" },
+    "6": { "$value": "32px" },
+    "7": { "$value": "48px" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "none": { "$value": "0px" },
+    "sm": { "$value": "4px" },
+    "md": { "$value": "8px" },
+    "lg": { "$value": "12px" },
+    "full": { "$value": "9999px" }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": { "$value": ["Inter", "system-ui", "sans-serif"] },
+      "mono": { "$value": ["JetBrains Mono", "ui-monospace", "monospace"] }
+    },
+    "size": {
+      "$type": "dimension",
+      "xs": { "$value": "12px" },
+      "sm": { "$value": "14px" },
+      "md": { "$value": "16px" },
+      "lg": { "$value": "20px" },
+      "xl": { "$value": "24px" },
+      "2xl": { "$value": "32px" }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 }
+    },
+    "lineHeight": {
+      "$type": "number",
+      "tight": { "$value": 1.25 },
+      "normal": { "$value": 1.5 }
+    }
+  }
+}

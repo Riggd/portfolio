@@ -1,0 +1,5 @@
+packages:
+  - "packages/*"
+  - "demos/2-token-sync"
+  - "demos/3-adherence"
+# demos/1-readiness/odsb is the ODSB fork. It uses npm and stays out of this workspace.

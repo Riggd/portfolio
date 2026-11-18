@@ -1,0 +1,70 @@
+{
+  "button": {
+    "primary": {
+      "bg": { "$type": "color", "$value": "{color.action.primary.bg}" },
+      "bgHover": { "$type": "color", "$value": "{color.action.primary.bgHover}" },
+      "fg": { "$type": "color", "$value": "{color.action.primary.fg}" }
+    },
+    "secondary": {
+      "bg": { "$type": "color", "$value": "{color.action.secondary.bg}" },
+      "bgHover": { "$type": "color", "$value": "{color.action.secondary.bgHover}" },
+      "fg": { "$type": "color", "$value": "{color.action.secondary.fg}" },
+      "border": { "$type": "color", "$value": "{color.action.secondary.border}" }
+    },
+    "destructive": {
+      "bg": { "$type": "color", "$value": "{color.action.destructive.bg}" },
+      "bgHover": { "$type": "color", "$value": "{color.action.destructive.bgHover}" },
+      "fg": { "$type": "color", "$value": "{color.action.destructive.fg}" }
+    },
+    "ghost": {
+      "bgHover": { "$type": "color", "$value": "{color.action.ghost.bgHover}" },
+      "fg": { "$type": "color", "$value": "{color.action.ghost.fg}" }
+    },
+    "paddingX": { "$type": "dimension", "$value": "{space.4}" },
+    "paddingY": { "$type": "dimension", "$value": "{space.2}" },
+    "radius": { "$type": "dimension", "$value": "{radius.md}" }
+  },
+  "alert": {
+    "danger": {
+      "bg": { "$type": "color", "$value": "{color.danger.bg}" },
+      "fg": { "$type": "color", "$value": "{color.danger.fg}" },
+      "border": { "$type": "color", "$value": "{color.danger.border}" }
+    },
+    "success": {
+      "bg": { "$type": "color", "$value": "{color.feedback.success.bg}" },
+      "fg": { "$type": "color", "$value": "{color.feedback.success.fg}" },
+      "border": { "$type": "color", "$value": "{color.feedback.success.border}" }
+    },
+    "warning": {
+      "bg": { "$type": "color", "$value": "{color.feedback.warning.bg}" },
+      "fg": { "$type": "color", "$value": "{color.feedback.warning.fg}" },
+      "border": { "$type": "color", "$value": "{color.feedback.warning.border}" }
+    },
+    "padding": { "$type": "dimension", "$value": "{space.4}" },
+    "radius": { "$type": "dimension", "$value": "{radius.md}" }
+  },
+  "chip": {
+    "bg": { "$type": "color", "$value": "{color.surface.tinted}" },
+    "fg": { "$type": "color", "$value": "{color.text.primary}" },
+    "paddingX": { "$type": "dimension", "$value": "{space.3}" },
+    "radius": { "$type": "dimension", "$value": "{radius.full}" }
+  },
+  "badge": {
+    "bg": { "$type": "color", "$value": "{color.surface.tinted}" },
+    "fg": { "$type": "color", "$value": "{color.text.primary}" },
+    "paddingX": { "$type": "dimension", "$value": "{space.2}" },
+    "radius": { "$type": "dimension", "$value": "{radius.sm}" }
+  },
+  "input": {
+    "border": { "$type": "color", "$value": "{color.border.strong}" },
+    "borderFocus": { "$type": "color", "$value": "{color.border.focus}" },
+    "padding": { "$type": "dimension", "$value": "{space.3}" },
+    "radius": { "$type": "dimension", "$value": "{radius.md}" }
+  },
+  "surface": {
+    "bg": { "$type": "color", "$value": "{color.surface.default}" },
+    "border": { "$type": "color", "$value": "{color.border.default}" },
+    "padding": { "$type": "dimension", "$value": "{space.5}" },
+    "radius": { "$type": "dimension", "$value": "{radius.lg}" }
+  }
+}

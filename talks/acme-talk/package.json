@@ -1,0 +1,15 @@
+{
+  "name": "acme-talk",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Mock design system (Acme DS) and three demos for a talk on where AI fits in the design system lifecycle.",
+  "license": "MIT",
+  "packageManager": "pnpm@9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "tokens": "pnpm --filter @acme/ds run tokens",
+    "bench": "pnpm --filter demo-3-adherence run bench"
+  }
+}
