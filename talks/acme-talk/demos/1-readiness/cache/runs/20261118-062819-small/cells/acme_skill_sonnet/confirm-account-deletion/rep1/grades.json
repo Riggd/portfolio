@@ -1,0 +1,72 @@
+{
+  "overall": 83.575,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 85,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "a11yStatic",
+          "message": "autoFocus on <input> in src/task/index.tsx:86",
+          "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+        }
+      ]
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 50.25,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "uses-confirmation-pattern: The confirmation is built inline: a plain div with role=\"alertdialog\" rendered within the section, using the DS Alert and Button components. It is not an overlay or the design system's dialog/modal pattern. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern. It is closer to an inline warning block than to a dialog, and the semantic role alone does not satisfy the rubric."
+        },
+        {
+          "dimension": "judgment",
+          "message": "destructive-not-default: Partial support. The final 'Permanently delete account' button uses variant=\"destructive\" and is disabled until the user types DELETE, and focus lands on the text input via autoFocus rather than on the destructive button. Cancel is a secondary button. However, the destructive button is the main committing action in the confirm row and is the most visually prominent control there, so it is not clearly non-primary. The evidence is ambiguous, so this does not pass."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "a11yStatic",
+      "message": "autoFocus on <input> in src/task/index.tsx:86",
+      "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+    },
+    {
+      "dimension": "judgment",
+      "message": "uses-confirmation-pattern: The confirmation is built inline: a plain div with role=\"alertdialog\" rendered within the section, using the DS Alert and Button components. It is not an overlay or the design system's dialog/modal pattern. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern. It is closer to an inline warning block than to a dialog, and the semantic role alone does not satisfy the rubric."
+    },
+    {
+      "dimension": "judgment",
+      "message": "destructive-not-default: Partial support. The final 'Permanently delete account' button uses variant=\"destructive\" and is disabled until the user types DELETE, and focus lands on the text input via autoFocus rather than on the destructive button. Cancel is a secondary button. However, the destructive button is the main committing action in the confirm row and is the most visually prominent control there, so it is not clearly non-primary. The evidence is ambiguous, so this does not pass."
+    }
+  ]
+}

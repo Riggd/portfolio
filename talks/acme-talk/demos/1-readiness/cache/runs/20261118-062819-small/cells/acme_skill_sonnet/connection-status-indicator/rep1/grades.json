@@ -1,0 +1,53 @@
+{
+  "overall": 91,
+  "gate": "pass",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 70,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "system-typography: The diff sets no typography utility class or typography token on status text. The only typographic styling is the h2 heading, which sets margin and color only. Status text (the Alert titles and bodies, and the HEALTH_LABEL strings) is passed as plain children and props with no visible typography utility. Any typography comes from inside Alert, which the diff does not show, so the rubric item cannot be verified from the diff."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "judgment",
+      "message": "system-typography: The diff sets no typography utility class or typography token on status text. The only typographic styling is the h2 heading, which sets margin and color only. Status text (the Alert titles and bodies, and the HEALTH_LABEL strings) is passed as plain children and props with no visible typography utility. Any typography comes from inside Alert, which the diff does not show, so the rubric item cannot be verified from the diff."
+    }
+  ]
+}

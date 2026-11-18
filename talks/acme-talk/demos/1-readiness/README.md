@@ -19,3 +19,14 @@ pnpm readiness:after         # audit after only
 Cached results: `cache/audit-before.json` (45.9), `cache/audit-after.json` (69.9).
 
 Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit
+
+## Benchmark runs (cached)
+
+| Run | Cells | Result |
+|---|---|---|
+| `cache/runs/20261118-062703-context-compare` | confirm-account-deletion × bare / agents-md / skill | 83.8 / 84.0 / 84.0 overall |
+| `cache/runs/20261118-062819-small` | 5 tasks × skill | 77.4, 83.6, 56.6, 92.1, 91.0 |
+
+Audit with run data: `cache/audit-after-with-run.json` (82.4, AI-native).
+Cell `workspace/` folders are stripped from the cache; the agent's output is in each cell's `diff.patch` and `files/`.
+Runs are written inside `node_modules` by ODSB, so copy every finished run here.

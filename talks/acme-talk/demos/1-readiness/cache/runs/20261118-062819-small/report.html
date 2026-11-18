@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="open-design-system-bench v1.5">
+<title>open-design-system-bench · small</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  color-scheme:light dark;
+  --bg:#F4F7FB; --surface:#FFFFFF; --surface-2:#EBF0F7; --surface-3:#F8FAFC;
+  --border:#D3DCE9; --border-strong:#A9BCD4;
+  --ink:#16233D; --muted:#4B5C74;
+  --accent:#1E40AF; --accent-strong:#17337E; --accent-ink:#1E40AF; --accent-soft:#E1EAFF;
+  --warm:#9A5B00; --warm-bg:#FFF1C9;
+  --green:#0F7038; --green-bg:#DFF5E6;
+  --yellow:#8A5A00; --yellow-bg:#FFF1C9;
+  --red:#B42335; --red-bg:#FFE3E8;
+  --bar-track:rgb(22 35 61/.13);
+  --font-display:"Fira Sans",-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-body:"Fira Sans",-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-mono:"Fira Code",ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-full:9999px;
+  --shadow:0 1px 2px rgb(22 35 61/.06),0 4px 14px rgb(22 35 61/.05);
+}
+/* Dark follows the operating system, with no toggle and no stored choice:
+   the reader's preference is the preference. Pairs are chosen as sets
+   (text tone on its own tinted background) for 4.5:1 contrast on the dark
+   surfaces, mirroring the light pairs above rather than inverting them. */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0A0F1E; --surface:#111A2E; --surface-2:#1A2742; --surface-3:#0D1526;
+    --border:#263650; --border-strong:#41577A;
+    --ink:#E8EEF9; --muted:#A6B5CC;
+    --accent:#8FAEFF; --accent-strong:#B9CBFF; --accent-ink:#9DB4FF; --accent-soft:#1D3465;
+    --warm:#F2C14E; --warm-bg:#38300F;
+    --green:#55D68E; --green-bg:#14301F;
+    --yellow:#F2C14E; --yellow-bg:#38300F;
+    --red:#FF8A99; --red-bg:#3D1620;
+    --bar-track:rgb(232 238 249/.18);
+    --shadow:0 1px 2px rgb(0 0 0/.45),0 4px 14px rgb(0 0 0/.35);
+  }
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:14.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;letter-spacing:-.01em}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:hover{color:var(--accent-strong)}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:3px}
+.wrap{max-width:1320px;margin:0 auto;padding:28px 28px 80px}
+.kicker{display:inline-block;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:var(--r-full);padding:3px 9px;margin-bottom:8px}
+
+header.top{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 22px 18px;margin-bottom:26px}
+header.top h1{font-size:26px;font-weight:700;line-height:1.2}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:16px}
+.meta-item{background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-md);padding:11px 13px}
+.meta-item .label{color:var(--accent);font-family:var(--font-mono);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.meta-item .value{margin-top:4px;font-size:15px;font-weight:650}
+.meta-item .sub{margin-top:2px;color:var(--muted);font-size:12px;font-family:var(--font-mono)}
+
+section{margin-top:34px}
+section>h2{font-size:19px;font-weight:650;margin-bottom:4px;padding-bottom:6px;border-bottom:2px solid var(--accent);display:inline-block}
+section>p.lede{color:var(--muted);max-width:74ch;margin:8px 0 14px;font-size:13.5px}
+
+.score-legend{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-family:var(--font-mono);font-size:11px;color:var(--muted);margin:0 0 12px}
+.score-legend .sw{display:inline-block;width:22px;height:12px;border-radius:3px;border:1px solid var(--border-strong);vertical-align:-2px;margin-right:5px}
+.sw-green{background:var(--green-bg)} .sw-yellow{background:var(--yellow-bg)} .sw-red{background:var(--red-bg)} .sw-gray{background:var(--surface-2)}
+.score-bar{display:block;width:100%;max-width:110px;height:4px;border-radius:var(--r-full);background:var(--bar-track);overflow:hidden;margin-top:5px}
+.score-bar-fill{display:block;height:100%;border-radius:var(--r-full)}
+.score-bar.tone-green .score-bar-fill{background:var(--green)}
+.score-bar.tone-yellow .score-bar-fill{background:#D97706}
+.score-bar.tone-red .score-bar-fill{background:var(--red)}
+
+.chip{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-full);border:1px solid;white-space:nowrap}
+.chip-pass{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,transparent);background:var(--green-bg)}
+.chip-review{color:var(--yellow);border-color:color-mix(in srgb,#D97706 55%,transparent);background:var(--yellow-bg)}
+.chip-fail{color:var(--red);border-color:color-mix(in srgb,var(--red) 45%,transparent);background:var(--red-bg)}
+.chip-skip{color:var(--muted);border-color:var(--border);background:var(--surface-2)}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.card>h3{padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface-3);font-size:14.5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.card .body{padding:14px 16px}
+
+.scroll-x{overflow-x:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{color:var(--muted);font-weight:600;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em}
+td.num{font-family:var(--font-mono);text-align:right}
+tbody tr{transition:background 120ms ease}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent-soft) 45%,transparent)}
+tr:last-child td{border-bottom:0}
+
+.matrix th, .matrix td{text-align:center}
+.matrix td.task-name, .matrix th.task-name{text-align:left;white-space:normal;min-width:170px;position:sticky;left:0;background:var(--surface);z-index:1;box-shadow:1px 0 0 var(--border)}
+.matrix thead th{background:var(--surface-2);position:sticky;top:0;z-index:2;border-bottom:2px solid var(--border-strong)}
+.matrix thead th.task-name{z-index:3;background:var(--surface-2)}
+.matrix tfoot td{font-weight:600;background:var(--accent-soft);position:sticky;bottom:0;border-top:2px solid var(--border-strong)}
+.matrix tfoot .score-bar{margin-left:auto;margin-right:auto}
+.matrix-system{margin-bottom:8px}
+.matrix-system>h3{font-family:var(--font-mono);font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-ink)}
+.matrix-system + .drilldowns{margin-top:10px;margin-bottom:18px}
+
+.mx-cell{cursor:pointer;border:1px solid var(--border);border-radius:8px;background:var(--surface-3);padding:7px 10px;width:100%;font:inherit;color:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:52px;justify-content:center}
+.mx-cell:hover{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.mx-cell.tone-green{background:var(--green-bg);border-color:color-mix(in srgb,var(--green) 38%,transparent)}
+.mx-cell.tone-yellow{background:var(--yellow-bg);border-color:color-mix(in srgb,#D97706 42%,transparent)}
+.mx-cell.tone-red{background:var(--red-bg);border-color:color-mix(in srgb,var(--red) 38%,transparent)}
+.mx-cell.tone-gray{background:var(--surface-2)}
+span.mx-cell{cursor:default}
+/* Hover/selection is a state change, so it gets a short transition rather than
+   snapping. Kept under 200ms: the reader is scanning a matrix, not watching it. */
+@media (prefers-reduced-motion: no-preference){
+  .mx-cell{transition:border-color 140ms cubic-bezier(0.16,1,0.3,1),box-shadow 140ms cubic-bezier(0.16,1,0.3,1)}
+  a{transition:color 140ms cubic-bezier(0.16,1,0.3,1)}
+}
+.mx-score{font-family:var(--font-mono);font-weight:700;font-size:14.5px}
+.mx-cell.tone-green .mx-score{color:var(--green)}
+.mx-cell.tone-yellow .mx-score{color:var(--yellow)}
+.mx-cell.tone-red .mx-score{color:var(--red)}
+.mx-cell.tone-gray .mx-score{color:var(--muted)}
+.mx-cell .score-bar{max-width:72px;margin-top:1px}
+.mx-n{font-family:var(--font-mono);font-size:10px;color:var(--muted)}
+
+.drilldowns{margin-top:18px}
+.drill{border:1px solid var(--border-strong);border-radius:var(--r-md);background:var(--surface);box-shadow:var(--shadow);margin-bottom:12px;padding:14px 16px}
+.drill[hidden]{display:none}
+.drill h4{font-size:14px;margin-bottom:6px}
+.drill .agg-line{color:var(--muted);font-family:var(--font-mono);font-size:12px;margin-bottom:10px}
+.rep-card{border-top:1px dashed var(--border-strong);padding-top:10px;margin-top:10px}
+.rep-card:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.rep-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:600;font-size:13px}
+.diff-row .msg{white-space:normal;max-width:46ch}
+.diff-row .fix{white-space:normal;max-width:40ch;color:var(--muted)}
+.judge-note{background:var(--warm-bg);border:1px solid color-mix(in srgb,#D97706 40%,transparent);border-radius:var(--r-sm);padding:9px 11px;margin-top:8px;font-size:13px;white-space:normal}
+.links{margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px}
+.na{color:var(--muted);font-family:var(--font-mono);font-size:12px}
+
+.delta-up{color:var(--green);font-family:var(--font-mono)}
+.delta-down{color:var(--red);font-family:var(--font-mono)}
+.delta-flat{color:var(--muted);font-family:var(--font-mono)}
+
+footer.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+@media (max-width:720px){.wrap{padding:18px 16px 60px}header.top{padding:16px}header.top h1{font-size:22px}}
+@media print{
+  /* Print is always the light theme, whatever the system preference: the
+     printed page is the PDF's twin, and dark surfaces waste ink. */
+  :root{
+    --bg:#F4F7FB; --surface:#FFFFFF; --surface-2:#EBF0F7; --surface-3:#F8FAFC;
+    --border:#D3DCE9; --border-strong:#A9BCD4;
+    --ink:#16233D; --muted:#4B5C74;
+    --accent:#1E40AF; --accent-strong:#17337E; --accent-ink:#1E40AF; --accent-soft:#E1EAFF;
+    --warm:#9A5B00; --warm-bg:#FFF1C9;
+    --green:#0F7038; --green-bg:#DFF5E6;
+    --yellow:#8A5A00; --yellow-bg:#FFF1C9;
+    --red:#B42335; --red-bg:#FFE3E8;
+    --bar-track:rgb(22 35 61/.13);
+    --shadow:none;
+  }
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff}
+  .wrap{max-width:none;padding:0}
+  header.top,.card,.drill{box-shadow:none}
+  .mx-cell{cursor:default}
+  .card,.drill,.rep-card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="kicker">Benchmark run</div>
+    <h1>small</h1>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="label">Run</div><div class="value">20261118-062819-small</div><div class="sub">profile: small</div></div>
+      <div class="meta-item"><div class="label">Window</div><div class="value">2026-11-18 06:28:19Z</div><div class="sub">&rarr; 2026-11-18 06:30:04Z</div></div>
+      <div class="meta-item"><div class="label">Wall clock</div><div class="value">1m 45s</div></div>
+      <div class="meta-item"><div class="label">Total cost</div><div class="value">$0.43</div></div>
+      
+      <div class="meta-item"><div class="label">Judge</div><div class="value">haiku x1</div><div class="sub">5 of 5 ok cells judged</div></div>
+      <div class="meta-item"><div class="label">System commits</div><div class="value" style="font-size:12.5px">acme @ 751fe6a310</div></div>
+      <div class="meta-item"><div class="label">Benchmark</div><div class="value">open-design-system-bench v1.5</div></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Benchmark matrix</h2>
+    <p class="lede">One table per system. Rows are tasks, columns are context &times; model. Each cell is the mean
+      overall score across ok reps; colour follows the score (green &ge;85, yellow &ge;60, red below).
+      Gate (pass / review / fail) lives in the drill-down, not on the grid. The column summary row &mdash;
+      mean of means, total cost, average duration &mdash; is the headline comparison across context levels.
+      Click any cell to expand per-rep detail.</p>
+    <div class="score-legend" aria-label="Score legend">
+      <span><span class="sw sw-green"></span>85 and up</span>
+      <span><span class="sw sw-yellow"></span>60 to 84</span>
+      <span><span class="sw sw-red"></span>below 60</span>
+      <span><span class="sw sw-gray"></span>no data</span>
+      <span>Every cell prints its number; colour is never the only signal.</span>
+    </div>
+    <div class="card matrix-system">
+    <h3>acme</h3>
+    <div class="scroll-x">
+      <table class="matrix">
+        <thead><tr>
+    <th class="task-name">task</th>
+    <th>skill<br><span class="mono" style="color:var(--muted)">sonnet</span></th>
+  </tr></thead>
+        <tbody><tr><td class="task-name">cancel-plan-action-hierarchy</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=review" aria-label="92.1, n=1" aria-expanded="false" aria-controls="drill_cancel-plan-action-hierarchy__acme_skill_sonnet" onclick="toggleDrill('drill_cancel-plan-action-hierarchy__acme_skill_sonnet', this)">
+      <span class="mx-score">92.1</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:92.1%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">confirm-account-deletion</td><td><button type="button" class="mx-cell tone-yellow" title="n=1 · std=0.0 · gate=review" aria-label="83.6, n=1" aria-expanded="false" aria-controls="drill_confirm-account-deletion__acme_skill_sonnet" onclick="toggleDrill('drill_confirm-account-deletion__acme_skill_sonnet', this)">
+      <span class="mx-score">83.6</span>
+      <span class="score-bar tone-yellow" aria-hidden="true"><span class="score-bar-fill" style="width:83.6%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">connection-status-indicator</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=pass" aria-label="91.0, n=1" aria-expanded="false" aria-controls="drill_connection-status-indicator__acme_skill_sonnet" onclick="toggleDrill('drill_connection-status-indicator__acme_skill_sonnet', this)">
+      <span class="mx-score">91.0</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:91.0%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">settings-toggle-section</td><td><button type="button" class="mx-cell tone-red" title="n=1 · std=0.0 · gate=fail" aria-label="56.6, n=1, fail" aria-expanded="false" aria-controls="drill_settings-toggle-section__acme_skill_sonnet" onclick="toggleDrill('drill_settings-toggle-section__acme_skill_sonnet', this)">
+      <span class="mx-score">56.6</span>
+      <span class="score-bar tone-red" aria-hidden="true"><span class="score-bar-fill" style="width:56.6%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">success-feedback</td><td><button type="button" class="mx-cell tone-yellow" title="n=1 · std=0.0 · gate=fail" aria-label="77.4, n=1, fail" aria-expanded="false" aria-controls="drill_success-feedback__acme_skill_sonnet" onclick="toggleDrill('drill_success-feedback__acme_skill_sonnet', this)">
+      <span class="mx-score">77.4</span>
+      <span class="score-bar tone-yellow" aria-hidden="true"><span class="score-bar-fill" style="width:77.4%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr></tbody>
+        <tfoot><tr>
+    <td class="task-name">column mean &middot; cost &middot; avg duration</td>
+    <td>
+      <div class="mono" style="font-weight:700">80.1</div>
+      <span class="score-bar tone-yellow" aria-hidden="true"><span class="score-bar-fill" style="width:80.1%"></span></span>
+      <div class="mx-n">$0.43 &middot; 24.5s</div>
+    </td>
+  </tr></tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="drilldowns"><div class="drill" id="drill_cancel-plan-action-hierarchy__acme_skill_sonnet" hidden>
+    <h4>cancel-plan-action-hierarchy <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 92.1 · std 0.0 · n=1 · gate review · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=73.8</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-review">review</span> <span class="mono">92.1</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 21.9s &middot; $0.07 &middot; 8 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">73.8</td><td><span class="chip chip-review">review</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>judgment</td><td class="msg">three-emphasis-levels: The three primary actions map to three different variants: Keep is &#39;primary&#39;, Switch to cheaper is &#39;secondary&#39;, and Cancel is &#39;ghost&#39;. That gives three distinct levels. However, the diff does not show that this mapping matches the system&#39;s action hierarchy. The API lists a &#39;destructive&#39; variant, and the code&#39;s own comment calls cancellation &#39;not destructive (reversible)&#39;, which is a judgment call. The confirmation step also uses &#39;ghost&#39; for the &#39;Yes, cancel subscription&#39; button, which is the consequential action, so the hierarchy is applied inconsistently. Because correctness against the system hierarchy cannot be verified from the diff, this does not clearly pass.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>three-emphasis-levels: The three primary actions map to three different variants: Keep is &#39;primary&#39;, Switch to cheaper is &#39;secondary&#39;, and Cancel is &#39;ghost&#39;. That gives three distinct levels. However, the diff does not show that this mapping matches the system&#39;s action hierarchy. The API lists a &#39;destructive&#39; variant, and the code&#39;s own comment calls cancellation &#39;not destructive (reversible)&#39;, which is a judgment call. The confirmation step also uses &#39;ghost&#39; for the &#39;Yes, cancel subscription&#39; button, which is the consequential action, so the hierarchy is applied inconsistently. Because correctness against the system hierarchy cannot be verified from the diff, this does not clearly pass.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_confirm-account-deletion__acme_skill_sonnet" hidden>
+    <h4>confirm-account-deletion <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 83.6 · std 0.0 · n=1 · gate review · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=85.0, compile=100.0, judgment=50.3</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-review">review</span> <span class="mono">83.6</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 25.5s &middot; $0.09 &middot; 10 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">85.0</td><td><span class="chip chip-review">review</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">50.3</td><td><span class="chip chip-review">review</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>a11yStatic</td><td class="msg">autoFocus on &lt;input&gt; in src/task/index.tsx:86</td><td class="fix">Remove autoFocus; it disorients screen-reader and keyboard users.</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">uses-confirmation-pattern: The confirmation is built inline: a plain div with role=&quot;alertdialog&quot; rendered within the section, using the DS Alert and Button components. It is not an overlay or the design system&#39;s dialog/modal pattern. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern. It is closer to an inline warning block than to a dialog, and the semantic role alone does not satisfy the rubric.</td><td class="fix">n/a</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">destructive-not-default: Partial support. The final &#39;Permanently delete account&#39; button uses variant=&quot;destructive&quot; and is disabled until the user types DELETE, and focus lands on the text input via autoFocus rather than on the destructive button. Cancel is a secondary button. However, the destructive button is the main committing action in the confirm row and is the most visually prominent control there, so it is not clearly non-primary. The evidence is ambiguous, so this does not pass.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>uses-confirmation-pattern: The confirmation is built inline: a plain div with role=&quot;alertdialog&quot; rendered within the section, using the DS Alert and Button components. It is not an overlay or the design system&#39;s dialog/modal pattern. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern. It is closer to an inline warning block than to a dialog, and the semantic role alone does not satisfy the rubric.</li><li>destructive-not-default: Partial support. The final &#39;Permanently delete account&#39; button uses variant=&quot;destructive&quot; and is disabled until the user types DELETE, and focus lands on the text input via autoFocus rather than on the destructive button. Cancel is a secondary button. However, the destructive button is the main committing action in the confirm row and is the most visually prominent control there, so it is not clearly non-primary. The evidence is ambiguous, so this does not pass.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/confirm-account-deletion/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/confirm-account-deletion/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/confirm-account-deletion/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_connection-status-indicator__acme_skill_sonnet" hidden>
+    <h4>connection-status-indicator <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 91.0 · std 0.0 · n=1 · gate pass · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=70.0</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-pass">pass</span> <span class="mono">91.0</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 26.5s &middot; $0.10 &middot; 11 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">70.0</td><td><span class="chip chip-pass">pass</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>judgment</td><td class="msg">system-typography: The diff sets no typography utility class or typography token on status text. The only typographic styling is the h2 heading, which sets margin and color only. Status text (the Alert titles and bodies, and the HEALTH_LABEL strings) is passed as plain children and props with no visible typography utility. Any typography comes from inside Alert, which the diff does not show, so the rubric item cannot be verified from the diff.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>system-typography: The diff sets no typography utility class or typography token on status text. The only typographic styling is the h2 heading, which sets margin and color only. Status text (the Alert titles and bodies, and the HEALTH_LABEL strings) is passed as plain children and props with no visible typography utility. Any typography comes from inside Alert, which the diff does not show, so the rubric item cannot be verified from the diff.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/connection-status-indicator/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/connection-status-indicator/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/connection-status-indicator/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_settings-toggle-section__acme_skill_sonnet" hidden>
+    <h4>settings-toggle-section <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 56.6 · std 0.0 · n=1 · gate fail · dims: imports=100.0, apiFidelity=0.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=38.8</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-fail">fail</span> <span class="mono">56.6</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 27.4s &middot; $0.09 &middot; 11 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">0.0</td><td><span class="chip chip-fail">fail</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">38.8</td><td><span class="chip chip-pass">pass</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>apiFidelity</td><td class="msg">no design-system components used</td><td class="fix">n/a</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">switch-not-checkbox: The control is a native `&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;` visually restyled as a toggle inside a span. The diff&#39;s own comment says &#39;Acme DS has no Switch/Toggle component yet, so this is built from a native checkbox.&#39; The change therefore does not use a system on/off switch control; it hand-builds one on top of a checkbox. The ARIA role and visual treatment get partial credit, but the underlying control is the checkbox the rubric excludes.</td><td class="fix">n/a</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">label-description: Each setting renders a title span (Email digests / Push alerts / Product announcements) and a secondary description span, linked to the control via aria-labelledby and aria-describedby. That satisfies the title-plus-description shape. However, the rubric also requires following the system&#39;s settings-row pattern, and the diff contains no reference to any system settings-row component or documented pattern. It builds its own row with inline flex styles, so conformance to the system pattern cannot be verified and is not clearly met.</td><td class="fix">n/a</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">system-layout: The section, list, and row are laid out with inline `style` objects using flexbox and `var(--space-*)` gap and padding tokens. Spacing does use design tokens, but the grouping is ad-hoc: there is no import or use of system layout primitives (e.g., Stack, Box, Inline, Grid). The rubric asks for system primitives rather than ad-hoc layout, so this fails.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>switch-not-checkbox: The control is a native `&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;` visually restyled as a toggle inside a span. The diff&#39;s own comment says &#39;Acme DS has no Switch/Toggle component yet, so this is built from a native checkbox.&#39; The change therefore does not use a system on/off switch control; it hand-builds one on top of a checkbox. The ARIA role and visual treatment get partial credit, but the underlying control is the checkbox the rubric excludes.</li><li>label-description: Each setting renders a title span (Email digests / Push alerts / Product announcements) and a secondary description span, linked to the control via aria-labelledby and aria-describedby. That satisfies the title-plus-description shape. However, the rubric also requires following the system&#39;s settings-row pattern, and the diff contains no reference to any system settings-row component or documented pattern. It builds its own row with inline flex styles, so conformance to the system pattern cannot be verified and is not clearly met.</li><li>system-layout: The section, list, and row are laid out with inline `style` objects using flexbox and `var(--space-*)` gap and padding tokens. Spacing does use design tokens, but the grouping is ad-hoc: there is no import or use of system layout primitives (e.g., Stack, Box, Inline, Grid). The rubric asks for system primitives rather than ad-hoc layout, so this fails.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/settings-toggle-section/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/settings-toggle-section/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/settings-toggle-section/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_success-feedback__acme_skill_sonnet" hidden>
+    <h4>success-feedback <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 77.4 · std 0.0 · n=1 · gate fail · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=0.0, judgment=58.0</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-fail">fail</span> <span class="mono">77.4</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 21.1s &middot; $0.07 &middot; 8 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">0.0</td><td><span class="chip chip-fail">fail</span></td></tr><tr><td>judgment</td><td class="num">58.0</td><td><span class="chip chip-review">review</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>compile</td><td class="msg">src/task/index.tsx(20,17): error TS2554: Expected 1 arguments, but got 0.</td><td class="fix">n/a</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">transient-pattern: The success message is an Alert component rendered inline inside the form&#39;s layout flow, not an overlay, dialog, or toast. It does auto-dismiss after 4 seconds via setTimeout, which gives it some transient quality. However, the API reference lists no toast or snackbar component, so the diff does not show that it uses the design system&#39;s transient feedback pattern. Placing it inline also pushes page content around. Because the transient pattern cannot be verified from the diff, this item does not clearly pass.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>transient-pattern: The success message is an Alert component rendered inline inside the form&#39;s layout flow, not an overlay, dialog, or toast. It does auto-dismiss after 4 seconds via setTimeout, which gives it some transient quality. However, the API reference lists no toast or snackbar component, so the diff does not show that it uses the design system&#39;s transient feedback pattern. Placing it inline also pushes page content around. Because the transient pattern cannot be verified from the diff, this item does not clearly pass.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/success-feedback/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/success-feedback/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/success-feedback/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div></div>
+  </section>
+
+  <footer class="foot">
+    Run <code>20261118-062819-small</code> &middot; 5 record(s) &middot;
+    5 aggregate(s). Generated by <code>open-design-system-bench v1.5</code>.
+  </footer>
+</main>
+<script type="application/json" id="report-data">{"runId":"20261118-062819-small","manifest":{"runId":"20261118-062819-small","label":"small","profile":"small","startedAt":"2026-11-18T06:28:19.367Z","nodeVersion":"v22.23.5","adapters":{"claude-code":{"version":"2.1.327 (Claude Code)"}},"systems":{"acme":{"root":"/home/user/portfolio/talks/acme-talk/packages/acme","commit":"751fe6a3100be9ba1ce3ae717d797706b500aa4e","catalogSrcHash":"1e894eade7bfff8a70502be77026cdd0e5aad9ed6b2025049a0362ce1c381944","tokensCssHash":"d329830121be014d5a3c7c9a6d2aac97ae990192770027a86cd802df7e5406b3"}},"cells":[{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"confirm-account-deletion","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"success-feedback","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"settings-toggle-section","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"cancel-plan-action-hierarchy","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"connection-status-indicator","rep":1},"status":"ok"}],"totalCostUsd":0.4254319999999999,"finishedAt":"2026-11-18T06:30:04.164Z","wallClockMs":104797,"paused":false},"records":[{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"success-feedback","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/success-feedback/rep1","transcript":"cells/acme_skill_sonnet/success-feedback/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/success-feedback/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/success-feedback/rep1/judge.json"},"agentMeta":{"durationMs":21050,"costUsd":0.07157569999999999,"numTurns":8},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":77.4,"gate":"fail","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":0,"gate":"fail","diffs":[{"dimension":"compile","message":"src/task/index.tsx(20,17): error TS2554: Expected 1 arguments, but got 0."}]},"judgment":{"dimension":"judgment","score":58,"gate":"review","diffs":[{"dimension":"judgment","message":"transient-pattern: The success message is an Alert component rendered inline inside the form's layout flow, not an overlay, dialog, or toast. It does auto-dismiss after 4 seconds via setTimeout, which gives it some transient quality. However, the API reference lists no toast or snackbar component, so the diff does not show that it uses the design system's transient feedback pattern. Placing it inline also pushes page content around. Because the transient pattern cannot be verified from the diff, this item does not clearly pass."}]}},"diffs":[{"dimension":"compile","message":"src/task/index.tsx(20,17): error TS2554: Expected 1 arguments, but got 0."},{"dimension":"judgment","message":"transient-pattern: The success message is an Alert component rendered inline inside the form's layout flow, not an overlay, dialog, or toast. It does auto-dismiss after 4 seconds via setTimeout, which gives it some transient quality. However, the API reference lists no toast or snackbar component, so the diff does not show that it uses the design system's transient feedback pattern. Placing it inline also pushes page content around. Because the transient pattern cannot be verified from the diff, this item does not clearly pass."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"confirm-account-deletion","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/confirm-account-deletion/rep1","transcript":"cells/acme_skill_sonnet/confirm-account-deletion/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/confirm-account-deletion/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/confirm-account-deletion/rep1/judge.json"},"agentMeta":{"durationMs":25458,"costUsd":0.08555939999999998,"numTurns":10},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":83.575,"gate":"review","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":85,"gate":"review","diffs":[{"dimension":"a11yStatic","message":"autoFocus on \u003cinput> in src/task/index.tsx:86","fix":"Remove autoFocus; it disorients screen-reader and keyboard users."}]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[]},"judgment":{"dimension":"judgment","score":50.25,"gate":"review","diffs":[{"dimension":"judgment","message":"uses-confirmation-pattern: The confirmation is built inline: a plain div with role=\"alertdialog\" rendered within the section, using the DS Alert and Button components. It is not an overlay or the design system's dialog/modal pattern. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern. It is closer to an inline warning block than to a dialog, and the semantic role alone does not satisfy the rubric."},{"dimension":"judgment","message":"destructive-not-default: Partial support. The final 'Permanently delete account' button uses variant=\"destructive\" and is disabled until the user types DELETE, and focus lands on the text input via autoFocus rather than on the destructive button. Cancel is a secondary button. However, the destructive button is the main committing action in the confirm row and is the most visually prominent control there, so it is not clearly non-primary. The evidence is ambiguous, so this does not pass."}]}},"diffs":[{"dimension":"a11yStatic","message":"autoFocus on \u003cinput> in src/task/index.tsx:86","fix":"Remove autoFocus; it disorients screen-reader and keyboard users."},{"dimension":"judgment","message":"uses-confirmation-pattern: The confirmation is built inline: a plain div with role=\"alertdialog\" rendered within the section, using the DS Alert and Button components. It is not an overlay or the design system's dialog/modal pattern. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern. It is closer to an inline warning block than to a dialog, and the semantic role alone does not satisfy the rubric."},{"dimension":"judgment","message":"destructive-not-default: Partial support. The final 'Permanently delete account' button uses variant=\"destructive\" and is disabled until the user types DELETE, and focus lands on the text input via autoFocus rather than on the destructive button. Cancel is a secondary button. However, the destructive button is the main committing action in the confirm row and is the most visually prominent control there, so it is not clearly non-primary. The evidence is ambiguous, so this does not pass."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"settings-toggle-section","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/settings-toggle-section/rep1","transcript":"cells/acme_skill_sonnet/settings-toggle-section/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/settings-toggle-section/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/settings-toggle-section/rep1/judge.json"},"agentMeta":{"durationMs":27380,"costUsd":0.09370490000000001,"numTurns":11},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":56.625,"gate":"fail","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":0,"gate":"fail","diffs":[{"dimension":"apiFidelity","message":"no design-system components used"}]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[]},"judgment":{"dimension":"judgment","score":38.75,"gate":"pass","diffs":[{"dimension":"judgment","message":"switch-not-checkbox: The control is a native `\u003cinput type=\"checkbox\" role=\"switch\">` visually restyled as a toggle inside a span. The diff's own comment says 'Acme DS has no Switch/Toggle component yet, so this is built from a native checkbox.' The change therefore does not use a system on/off switch control; it hand-builds one on top of a checkbox. The ARIA role and visual treatment get partial credit, but the underlying control is the checkbox the rubric excludes."},{"dimension":"judgment","message":"label-description: Each setting renders a title span (Email digests / Push alerts / Product announcements) and a secondary description span, linked to the control via aria-labelledby and aria-describedby. That satisfies the title-plus-description shape. However, the rubric also requires following the system's settings-row pattern, and the diff contains no reference to any system settings-row component or documented pattern. It builds its own row with inline flex styles, so conformance to the system pattern cannot be verified and is not clearly met."},{"dimension":"judgment","message":"system-layout: The section, list, and row are laid out with inline `style` objects using flexbox and `var(--space-*)` gap and padding tokens. Spacing does use design tokens, but the grouping is ad-hoc: there is no import or use of system layout primitives (e.g., Stack, Box, Inline, Grid). The rubric asks for system primitives rather than ad-hoc layout, so this fails."}]}},"diffs":[{"dimension":"apiFidelity","message":"no design-system components used"},{"dimension":"judgment","message":"switch-not-checkbox: The control is a native `\u003cinput type=\"checkbox\" role=\"switch\">` visually restyled as a toggle inside a span. The diff's own comment says 'Acme DS has no Switch/Toggle component yet, so this is built from a native checkbox.' The change therefore does not use a system on/off switch control; it hand-builds one on top of a checkbox. The ARIA role and visual treatment get partial credit, but the underlying control is the checkbox the rubric excludes."},{"dimension":"judgment","message":"label-description: Each setting renders a title span (Email digests / Push alerts / Product announcements) and a secondary description span, linked to the control via aria-labelledby and aria-describedby. That satisfies the title-plus-description shape. However, the rubric also requires following the system's settings-row pattern, and the diff contains no reference to any system settings-row component or documented pattern. It builds its own row with inline flex styles, so conformance to the system pattern cannot be verified and is not clearly met."},{"dimension":"judgment","message":"system-layout: The section, list, and row are laid out with inline `style` objects using flexbox and `var(--space-*)` gap and padding tokens. Spacing does use design tokens, but the grouping is ad-hoc: there is no import or use of system layout primitives (e.g., Stack, Box, Inline, Grid). The rubric asks for system primitives rather than ad-hoc layout, so this fails."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"cancel-plan-action-hierarchy","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1","transcript":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/judge.json"},"agentMeta":{"durationMs":21854,"costUsd":0.073761,"numTurns":8},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":92.125,"gate":"review","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[]},"judgment":{"dimension":"judgment","score":73.75,"gate":"review","diffs":[{"dimension":"judgment","message":"three-emphasis-levels: The three primary actions map to three different variants: Keep is 'primary', Switch to cheaper is 'secondary', and Cancel is 'ghost'. That gives three distinct levels. However, the diff does not show that this mapping matches the system's action hierarchy. The API lists a 'destructive' variant, and the code's own comment calls cancellation 'not destructive (reversible)', which is a judgment call. The confirmation step also uses 'ghost' for the 'Yes, cancel subscription' button, which is the consequential action, so the hierarchy is applied inconsistently. Because correctness against the system hierarchy cannot be verified from the diff, this does not clearly pass."}]}},"diffs":[{"dimension":"judgment","message":"three-emphasis-levels: The three primary actions map to three different variants: Keep is 'primary', Switch to cheaper is 'secondary', and Cancel is 'ghost'. That gives three distinct levels. However, the diff does not show that this mapping matches the system's action hierarchy. The API lists a 'destructive' variant, and the code's own comment calls cancellation 'not destructive (reversible)', which is a judgment call. The confirmation step also uses 'ghost' for the 'Yes, cancel subscription' button, which is the consequential action, so the hierarchy is applied inconsistently. Because correctness against the system hierarchy cannot be verified from the diff, this does not clearly pass."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"connection-status-indicator","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/connection-status-indicator/rep1","transcript":"cells/acme_skill_sonnet/connection-status-indicator/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/connection-status-indicator/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/connection-status-indicator/rep1/judge.json"},"agentMeta":{"durationMs":26517,"costUsd":0.10083099999999999,"numTurns":11},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":91,"gate":"pass","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[]},"judgment":{"dimension":"judgment","score":70,"gate":"pass","diffs":[{"dimension":"judgment","message":"system-typography: The diff sets no typography utility class or typography token on status text. The only typographic styling is the h2 heading, which sets margin and color only. Status text (the Alert titles and bodies, and the HEALTH_LABEL strings) is passed as plain children and props with no visible typography utility. Any typography comes from inside Alert, which the diff does not show, so the rubric item cannot be verified from the diff."}]}},"diffs":[{"dimension":"judgment","message":"system-typography: The diff sets no typography utility class or typography token on status text. The only typographic styling is the h2 heading, which sets margin and color only. Status text (the Alert titles and bodies, and the HEALTH_LABEL strings) is passed as plain children and props with no visible typography utility. Any typography comes from inside Alert, which the diff does not show, so the rubric item cannot be verified from the diff."}]}}],"aggregates":[{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"success-feedback","n":1,"meanOverall":77.4,"stdOverall":0,"worstGate":"fail","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":0,"judgment":58}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"confirm-account-deletion","n":1,"meanOverall":83.575,"stdOverall":0,"worstGate":"review","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":85,"compile":100,"judgment":50.25}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"settings-toggle-section","n":1,"meanOverall":56.625,"stdOverall":0,"worstGate":"fail","meanDimensions":{"imports":100,"apiFidelity":0,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":38.75}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"cancel-plan-action-hierarchy","n":1,"meanOverall":92.125,"stdOverall":0,"worstGate":"review","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":73.75}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"connection-status-indicator","n":1,"meanOverall":91,"stdOverall":0,"worstGate":"pass","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":70}}]}</script>
+<script>
+
+function toggleDrill(id, btn) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.hidden = !el.hidden;
+  var expanded = String(!el.hidden);
+  var control = btn || document.querySelector('[aria-controls="' + id + '"]');
+  if (control) control.setAttribute('aria-expanded', expanded);
+  if (!el.hidden && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+</script>
+</body>
+</html>

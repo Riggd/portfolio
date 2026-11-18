@@ -1,0 +1,62 @@
+{
+  "overall": 77.4,
+  "gate": "fail",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 0,
+      "gate": "fail",
+      "diffs": [
+        {
+          "dimension": "compile",
+          "message": "src/task/index.tsx(20,17): error TS2554: Expected 1 arguments, but got 0."
+        }
+      ]
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 58,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "transient-pattern: The success message is an Alert component rendered inline inside the form's layout flow, not an overlay, dialog, or toast. It does auto-dismiss after 4 seconds via setTimeout, which gives it some transient quality. However, the API reference lists no toast or snackbar component, so the diff does not show that it uses the design system's transient feedback pattern. Placing it inline also pushes page content around. Because the transient pattern cannot be verified from the diff, this item does not clearly pass."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "compile",
+      "message": "src/task/index.tsx(20,17): error TS2554: Expected 1 arguments, but got 0."
+    },
+    {
+      "dimension": "judgment",
+      "message": "transient-pattern: The success message is an Alert component rendered inline inside the form's layout flow, not an overlay, dialog, or toast. It does auto-dismiss after 4 seconds via setTimeout, which gives it some transient quality. However, the API reference lists no toast or snackbar component, so the diff does not show that it uses the design system's transient feedback pattern. Placing it inline also pushes page content around. Because the transient pattern cannot be verified from the diff, this item does not clearly pass."
+    }
+  ]
+}

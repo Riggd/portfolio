@@ -55,15 +55,31 @@ Walk through four lines only:
 
 ### 4. The run report (2:00)
 
-**Show:** cached `small` run report (`demos/1-readiness/cache/`).
+**Show:** `demos/1-readiness/cache/runs/20261118-062703-context-compare/report.html`
 
-> "The audit only checks what's on disk. This next part checks behavior. ODSB gave an agent real tasks, like 'add a way to permanently delete this account'. The task never names a component; the agent has to choose."
+> "The audit only checks what's on disk. This next part checks behavior. ODSB gave an agent a real task: 'users can delete their account; add a step so they don't do it by accident.' The task never names a component; the agent has to choose."
 >
-> "Here's the same task at each context level."
+> "Here's the same task at three context levels."
 
-Point at one cell:
+| | No context | AGENTS.md | Skill |
+|---|---:|---:|---:|
+| Overall | 83.8 | 84.0 | 84.0 |
+| Token discipline | 60 | 100 | 100 |
+| Judgment | 66 | 46.75 | 46.75 |
+| Time | 49 s | 20 s | 21 s |
+| Cost | $0.21 | $0.06 | $0.08 |
 
-> "With no context, the agent [what it did, e.g. used a primary Button for delete]. With the skill, it [what it did, e.g. used destructive and added a confirmation]. That's the difference context makes, and now we can measure it."
+> "The total barely moves, but look underneath. With no context, the agent hardcoded widths and borders. With context, every value is a token, and it finished twice as fast at a third of the cost."
+>
+> "But judgment went *down*. Acme has no Dialog component, and our AGENTS.md says to use Acme components before building custom UI. So the guided agent built an inline confirmation instead of a modal. That's not a docs problem: it's a missing component. The benchmark just told us what to build next."
+
+**Then:** re-run the audit with the run attached.
+
+```bash
+pnpm --filter demo-1-readiness run odsb audit --system acme --config systems.config.json --run cache/runs/20261118-062703-context-compare
+```
+
+> "With behavior included, Acme scores **82.4: AI-native**. Docs got us close; real agent runs show where we actually stand."
 
 ### 5. Takeaway (0:30)
 

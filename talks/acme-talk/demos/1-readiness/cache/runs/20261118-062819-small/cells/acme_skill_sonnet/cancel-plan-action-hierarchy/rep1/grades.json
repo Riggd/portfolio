@@ -1,0 +1,53 @@
+{
+  "overall": 92.125,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 73.75,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "three-emphasis-levels: The three primary actions map to three different variants: Keep is 'primary', Switch to cheaper is 'secondary', and Cancel is 'ghost'. That gives three distinct levels. However, the diff does not show that this mapping matches the system's action hierarchy. The API lists a 'destructive' variant, and the code's own comment calls cancellation 'not destructive (reversible)', which is a judgment call. The confirmation step also uses 'ghost' for the 'Yes, cancel subscription' button, which is the consequential action, so the hierarchy is applied inconsistently. Because correctness against the system hierarchy cannot be verified from the diff, this does not clearly pass."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "judgment",
+      "message": "three-emphasis-levels: The three primary actions map to three different variants: Keep is 'primary', Switch to cheaper is 'secondary', and Cancel is 'ghost'. That gives three distinct levels. However, the diff does not show that this mapping matches the system's action hierarchy. The API lists a 'destructive' variant, and the code's own comment calls cancellation 'not destructive (reversible)', which is a judgment call. The confirmation step also uses 'ghost' for the 'Yes, cancel subscription' button, which is the consequential action, so the hierarchy is applied inconsistently. Because correctness against the system hierarchy cannot be verified from the diff, this does not clearly pass."
+    }
+  ]
+}
