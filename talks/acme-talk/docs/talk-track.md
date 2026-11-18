@@ -30,7 +30,7 @@ pnpm readiness:before
 >
 > "The score is **45.9, Invested tier**."
 
-Walk through three lines only:
+Walk through four lines only:
 
 | Check | Score | Say |
 |---|---|---|
