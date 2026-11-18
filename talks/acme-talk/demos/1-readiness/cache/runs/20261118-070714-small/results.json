@@ -1,0 +1,632 @@
+{
+  "runId": "20261118-070714-small",
+  "manifest": {
+    "runId": "20261118-070714-small",
+    "label": "small",
+    "profile": "small",
+    "startedAt": "2026-11-18T07:07:14.960Z",
+    "nodeVersion": "v22.23.5",
+    "adapters": {
+      "claude-code": {
+        "version": "2.1.327 (Claude Code)"
+      }
+    },
+    "systems": {
+      "acme": {
+        "root": "/home/user/portfolio/talks/acme-talk/packages/acme",
+        "commit": "ccfed6a0f5e989bcb5219a443d33f090a1994149",
+        "catalogSrcHash": "791fd0aadfda5dc9af7eec3395eed2e4dde2af62c081769c1bee49a9d19b3390",
+        "tokensCssHash": "fffb37235ebfe3baa3baa0fb06a1899ffa4691d75e57703202caeec71b932149"
+      }
+    },
+    "cells": [
+      {
+        "spec": {
+          "system": "acme",
+          "context": "skill",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "confirm-account-deletion",
+          "rep": 1
+        },
+        "status": "ok"
+      },
+      {
+        "spec": {
+          "system": "acme",
+          "context": "skill",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "success-feedback",
+          "rep": 1
+        },
+        "status": "ok"
+      },
+      {
+        "spec": {
+          "system": "acme",
+          "context": "skill",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "settings-toggle-section",
+          "rep": 1
+        },
+        "status": "ok"
+      },
+      {
+        "spec": {
+          "system": "acme",
+          "context": "skill",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "cancel-plan-action-hierarchy",
+          "rep": 1
+        },
+        "status": "ok"
+      },
+      {
+        "spec": {
+          "system": "acme",
+          "context": "skill",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "connection-status-indicator",
+          "rep": 1
+        },
+        "status": "ok"
+      }
+    ],
+    "totalCostUsd": 0.3697264,
+    "finishedAt": "2026-11-18T07:08:41.555Z",
+    "wallClockMs": 86595,
+    "paused": false
+  },
+  "records": [
+    {
+      "cell": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "success-feedback",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_skill_sonnet/success-feedback/rep1",
+        "transcript": "cells/acme_skill_sonnet/success-feedback/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_skill_sonnet/success-feedback/rep1/diff.patch",
+        "judgeJson": "cells/acme_skill_sonnet/success-feedback/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 18296,
+        "costUsd": 0.06564060000000001,
+        "numTurns": 6
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 88.15,
+        "gate": "review",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 60.5,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "transient-pattern: The success message is an inline <Alert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "transient-pattern: The success message is an inline <Alert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."
+          }
+        ]
+      }
+    },
+    {
+      "cell": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "confirm-account-deletion",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_skill_sonnet/confirm-account-deletion/rep1",
+        "transcript": "cells/acme_skill_sonnet/confirm-account-deletion/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_skill_sonnet/confirm-account-deletion/rep1/diff.patch",
+        "judgeJson": "cells/acme_skill_sonnet/confirm-account-deletion/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 17638,
+        "costUsd": 0.07066700000000001,
+        "numTurns": 8
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 85.9,
+        "gate": "review",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 53,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "uses-confirmation-pattern: The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system's confirmation dialog pattern cannot be verified as used. The change matches the 'inline warning' approach the rubric excludes."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "uses-confirmation-pattern: The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system's confirmation dialog pattern cannot be verified as used. The change matches the 'inline warning' approach the rubric excludes."
+          }
+        ]
+      }
+    },
+    {
+      "cell": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "settings-toggle-section",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_skill_sonnet/settings-toggle-section/rep1",
+        "transcript": "cells/acme_skill_sonnet/settings-toggle-section/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_skill_sonnet/settings-toggle-section/rep1/diff.patch",
+        "judgeJson": "cells/acme_skill_sonnet/settings-toggle-section/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 21427,
+        "costUsd": 0.0771644,
+        "numTurns": 9
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 86.275,
+        "gate": "pass",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 54.25,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "switch-not-checkbox: The toggle is an <input type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."
+              },
+              {
+                "dimension": "judgment",
+                "message": "label-description: Each setting has a title (a <label> with the setting name) and a supporting description (a <span> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "switch-not-checkbox: The toggle is an <input type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."
+          },
+          {
+            "dimension": "judgment",
+            "message": "label-description: Each setting has a title (a <label> with the setting name) and a supporting description (a <span> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."
+          }
+        ]
+      }
+    },
+    {
+      "cell": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "cancel-plan-action-hierarchy",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1",
+        "transcript": "cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/diff.patch",
+        "judgeJson": "cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 22739,
+        "costUsd": 0.0796447,
+        "numTurns": 8
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 94.675,
+        "gate": "pass",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 82.25,
+            "gate": "pass",
+            "diffs": []
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          }
+        ]
+      }
+    },
+    {
+      "cell": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "connection-status-indicator",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_skill_sonnet/connection-status-indicator/rep1",
+        "transcript": "cells/acme_skill_sonnet/connection-status-indicator/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_skill_sonnet/connection-status-indicator/rep1/diff.patch",
+        "judgeJson": "cells/acme_skill_sonnet/connection-status-indicator/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 20923,
+        "costUsd": 0.0766097,
+        "numTurns": 9
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 91.6,
+        "gate": "pass",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 72,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare <h2> and the integration names are bare <span> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare <h2> and the integration names are bare <span> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."
+          }
+        ]
+      }
+    }
+  ],
+  "aggregates": [
+    {
+      "cellKey": "acme_skill_sonnet",
+      "system": "acme",
+      "context": "skill",
+      "model": "sonnet",
+      "taskId": "success-feedback",
+      "n": 1,
+      "meanOverall": 88.15,
+      "stdOverall": 0,
+      "worstGate": "review",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 100,
+        "compile": 100,
+        "judgment": 60.5
+      }
+    },
+    {
+      "cellKey": "acme_skill_sonnet",
+      "system": "acme",
+      "context": "skill",
+      "model": "sonnet",
+      "taskId": "confirm-account-deletion",
+      "n": 1,
+      "meanOverall": 85.9,
+      "stdOverall": 0,
+      "worstGate": "review",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 100,
+        "compile": 100,
+        "judgment": 53
+      }
+    },
+    {
+      "cellKey": "acme_skill_sonnet",
+      "system": "acme",
+      "context": "skill",
+      "model": "sonnet",
+      "taskId": "settings-toggle-section",
+      "n": 1,
+      "meanOverall": 86.275,
+      "stdOverall": 0,
+      "worstGate": "pass",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 100,
+        "compile": 100,
+        "judgment": 54.25
+      }
+    },
+    {
+      "cellKey": "acme_skill_sonnet",
+      "system": "acme",
+      "context": "skill",
+      "model": "sonnet",
+      "taskId": "cancel-plan-action-hierarchy",
+      "n": 1,
+      "meanOverall": 94.675,
+      "stdOverall": 0,
+      "worstGate": "pass",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 100,
+        "compile": 100,
+        "judgment": 82.25
+      }
+    },
+    {
+      "cellKey": "acme_skill_sonnet",
+      "system": "acme",
+      "context": "skill",
+      "model": "sonnet",
+      "taskId": "connection-status-indicator",
+      "n": 1,
+      "meanOverall": 91.6,
+      "stdOverall": 0,
+      "worstGate": "pass",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 100,
+        "compile": 100,
+        "judgment": 72
+      }
+    }
+  ]
+}

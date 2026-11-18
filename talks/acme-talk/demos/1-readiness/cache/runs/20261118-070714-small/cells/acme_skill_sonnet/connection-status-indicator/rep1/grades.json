@@ -1,0 +1,64 @@
+{
+  "overall": 91.6,
+  "gate": "pass",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "compile",
+          "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+          "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+        }
+      ]
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 72,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare <h2> and the integration names are bare <span> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "compile",
+      "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+      "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+    },
+    {
+      "dimension": "judgment",
+      "message": "system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare <h2> and the integration names are bare <span> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."
+    }
+  ]
+}

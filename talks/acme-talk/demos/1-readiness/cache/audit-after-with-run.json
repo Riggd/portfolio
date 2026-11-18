@@ -1,6 +1,6 @@
 {
   "systemsConfigPath": "/home/user/portfolio/talks/acme-talk/demos/1-readiness/systems.config.json",
-  "run": "cache/runs/20261118-062703-context-compare",
+  "run": "cache/runs/20261118-070601-context-compare",
   "systems": {
     "acme": {
       "checks": [
@@ -394,9 +394,9 @@
           ]
         },
         "lift": {
-          "score": 50.2,
-          "raw": 0.2,
-          "note": "paired over 2 system/model/task pair(s): mean guided-minus-bare +0.2 points; 0 guided and 0 bare cell(s) without a partner left out."
+          "score": 48.4,
+          "raw": -1.6,
+          "note": "paired over 2 system/model/task pair(s): mean guided-minus-bare -1.6 points; 0 guided and 0 bare cell(s) without a partner left out."
         },
         "ceiling": {
           "score": 92,
@@ -410,10 +410,10 @@
           "score": 100,
           "note": "No hallucinated components/invented props in this run. Nothing to attribute."
         },
-        "composite": 82.8,
+        "composite": 82.5,
         "basis": "full-behavioral",
         "tier": "AI-native",
-        "tierRationale": "composite 82.8 >= 70"
+        "tierRationale": "composite 82.5 >= 70"
       }
     }
   }

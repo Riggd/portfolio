@@ -1,0 +1,89 @@
+import { useState } from 'react';
+import '@acme/ds/foundations.css';
+import { Alert, Button, Input, Stack, Surface, tokens } from '@acme/ds';
+
+const CONFIRM_PHRASE = 'DELETE';
+
+export function TaskScreen() {
+  const [confirming, setConfirming] = useState(false);
+  const [phrase, setPhrase] = useState('');
+  const [touched, setTouched] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+
+  const matches = phrase.trim() === CONFIRM_PHRASE;
+  const showError = touched && !matches && phrase.length > 0;
+
+  const close = () => {
+    setConfirming(false);
+    setPhrase('');
+    setTouched(false);
+  };
+
+  const deleteAccount = () => {
+    setTouched(true);
+    if (!matches) return;
+    // Hook up the real deletion request here.
+    setDeleted(true);
+    close();
+  };
+
+  return (
+    <Stack gap="space.5">
+      <h1 style={{ color: tokens.color.text.primary }}>Account settings</h1>
+
+      {deleted && (
+        <Alert intent="success" title="Account deleted">
+          Your account and its data have been permanently deleted.
+        </Alert>
+      )}
+
+      <Surface tone="subtle">
+        <Stack gap="space.4">
+          <Stack gap="space.2">
+            <h2 style={{ color: tokens.color.text.primary }}>Delete account</h2>
+            <p style={{ color: tokens.color.text.primary }}>
+              Permanently delete your account and all of its data. This can't be undone.
+            </p>
+          </Stack>
+
+          {!confirming ? (
+            <Stack direction="row" gap="space.3">
+              <Button variant="destructive" onClick={() => setConfirming(true)} disabled={deleted}>
+                Delete account
+              </Button>
+            </Stack>
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                deleteAccount();
+              }}
+            >
+              <Stack gap="space.4">
+                <Alert intent="warning" title="This is permanent">
+                  Deleting your account removes your profile and data for good. We can't restore it.
+                </Alert>
+                <Input
+                  label={`Type ${CONFIRM_PHRASE} to confirm`}
+                  value={phrase}
+                  onChange={(e) => setPhrase(e.target.value)}
+                  onBlur={() => setTouched(true)}
+                  autoComplete="off"
+                  error={showError ? `Type ${CONFIRM_PHRASE} exactly as shown.` : undefined}
+                />
+                <Stack direction="row" gap="space.3">
+                  <Button type="button" variant="secondary" onClick={close}>
+                    Cancel
+                  </Button>
+                  <Button type="submit" variant="destructive" disabled={!matches}>
+                    Permanently delete account
+                  </Button>
+                </Stack>
+              </Stack>
+            </form>
+          )}
+        </Stack>
+      </Surface>
+    </Stack>
+  );
+}

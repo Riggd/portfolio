@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "uses-confirmation-pattern",
+        "pass": false,
+        "score": 0.15,
+        "reasoning": "The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system's confirmation dialog pattern cannot be verified as used. The change matches the 'inline warning' approach the rubric excludes."
+      },
+      {
+        "rubricId": "destructive-not-default",
+        "pass": true,
+        "score": 0.7,
+        "reasoning": "Both destructive actions use variant=\"destructive\", which is visually distinct from the primary variant. Nothing is autofocused: the confirmation input has no autoFocus, and the Cancel button is variant=\"secondary\". The final 'Permanently delete account' button is disabled until the phrase matches, so it cannot be triggered by default. Partial deduction because, within the confirm panel, the destructive button is the most visually emphasized action."
+      },
+      {
+        "rubricId": "easy-backout",
+        "pass": true,
+        "score": 0.9,
+        "reasoning": "A Cancel button sits beside the destructive button and resets the state (confirming=false, typed cleared), so the user returns to the initial view. The copy is plain about the permanent consequence: 'Permanently delete your account and all associated data. This cannot be undone.' and, in the confirm step, 'Your account and all your data will be deleted and cannot be recovered.' No Escape-key handling is present, which is a minor gap."
+      }
+    ],
+    "overallNotes": "The change adds a typed-phrase gate before account deletion, with a disabled destructive button, a Cancel option, and clear permanence copy. The main shortfall is the confirmation mechanism: it is an inline expanding panel with a warning Alert rather than the design system's confirmation dialog, and the API reference does not show a dialog component to confirm that pattern exists. The destructive-emphasis and back-out criteria are met, the former with some ambiguity because the destructive button is the most prominent control in the confirm panel."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "uses-confirmation-pattern",
+          "pass": false,
+          "score": 0.15,
+          "reasoning": "The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system's confirmation dialog pattern cannot be verified as used. The change matches the 'inline warning' approach the rubric excludes."
+        },
+        {
+          "rubricId": "destructive-not-default",
+          "pass": true,
+          "score": 0.7,
+          "reasoning": "Both destructive actions use variant=\"destructive\", which is visually distinct from the primary variant. Nothing is autofocused: the confirmation input has no autoFocus, and the Cancel button is variant=\"secondary\". The final 'Permanently delete account' button is disabled until the phrase matches, so it cannot be triggered by default. Partial deduction because, within the confirm panel, the destructive button is the most visually emphasized action."
+        },
+        {
+          "rubricId": "easy-backout",
+          "pass": true,
+          "score": 0.9,
+          "reasoning": "A Cancel button sits beside the destructive button and resets the state (confirming=false, typed cleared), so the user returns to the initial view. The copy is plain about the permanent consequence: 'Permanently delete your account and all associated data. This cannot be undone.' and, in the confirm step, 'Your account and all your data will be deleted and cannot be recovered.' No Escape-key handling is present, which is a minor gap."
+        }
+      ],
+      "overallNotes": "The change adds a typed-phrase gate before account deletion, with a disabled destructive button, a Cancel option, and clear permanence copy. The main shortfall is the confirmation mechanism: it is an inline expanding panel with a warning Alert rather than the design system's confirmation dialog, and the API reference does not show a dialog component to confirm that pattern exists. The destructive-emphasis and back-out criteria are met, the former with some ambiguity because the destructive button is the most prominent control in the confirm panel."
+    }
+  ]
+}

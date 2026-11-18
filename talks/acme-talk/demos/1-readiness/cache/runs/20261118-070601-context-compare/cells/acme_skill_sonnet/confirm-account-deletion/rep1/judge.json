@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "uses-confirmation-pattern",
+        "pass": false,
+        "score": 0.2,
+        "reasoning": "The change does not use a confirmation dialog. It expands the delete card inline: an Alert with intent=\"warning\" plus a text Input, rendered inside the same Surface. The API reference lists no Dialog or Modal component, so the diff gives no evidence of a design-system confirmation dialog pattern. This is closer to the inline-warning approach the rubric excludes, though the change does not use a browser confirm() or a generic overlay."
+      },
+      {
+        "rubricId": "destructive-not-default",
+        "pass": false,
+        "score": 0.5,
+        "reasoning": "The final confirm button is variant=\"destructive\" and is visually distinct from the secondary Cancel button. It is disabled until the phrase matches and is not autofocused. However, it is the only prominent action in the confirmation step, and it is the form's submit button, so it is arguably the visually primary action. Pressing Enter in the input will submit once the phrase matches. The rubric's requirement that the destructive action not be the visually primary action is therefore not clearly met."
+      },
+      {
+        "rubricId": "easy-backout",
+        "pass": true,
+        "score": 0.85,
+        "reasoning": "A visible secondary \"Cancel\" button is present in the confirm step. It calls close(), which hides the confirmation and resets the phrase and touched state. The copy states the consequence plainly: \"Permanently delete your account and all of its data. This can't be undone.\" and \"We can't restore it.\" The change has no Escape-key handling, which is a minor gap but does not block the Cancel path."
+      }
+    ],
+    "overallNotes": "The change adds a type-to-confirm step (\"DELETE\") with a warning alert, a disabled destructive submit button until the phrase matches, and a Cancel button. Back-out and permanence copy are clear. It does not use a dialog component from the design system; it expands inline, so the confirmation-pattern item fails. The destructive button is clearly styled as destructive and is not autofocused, but it is the dominant action in the confirmation step, so the \"not visually primary\" item is not clearly satisfied."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "uses-confirmation-pattern",
+          "pass": false,
+          "score": 0.2,
+          "reasoning": "The change does not use a confirmation dialog. It expands the delete card inline: an Alert with intent=\"warning\" plus a text Input, rendered inside the same Surface. The API reference lists no Dialog or Modal component, so the diff gives no evidence of a design-system confirmation dialog pattern. This is closer to the inline-warning approach the rubric excludes, though the change does not use a browser confirm() or a generic overlay."
+        },
+        {
+          "rubricId": "destructive-not-default",
+          "pass": false,
+          "score": 0.5,
+          "reasoning": "The final confirm button is variant=\"destructive\" and is visually distinct from the secondary Cancel button. It is disabled until the phrase matches and is not autofocused. However, it is the only prominent action in the confirmation step, and it is the form's submit button, so it is arguably the visually primary action. Pressing Enter in the input will submit once the phrase matches. The rubric's requirement that the destructive action not be the visually primary action is therefore not clearly met."
+        },
+        {
+          "rubricId": "easy-backout",
+          "pass": true,
+          "score": 0.85,
+          "reasoning": "A visible secondary \"Cancel\" button is present in the confirm step. It calls close(), which hides the confirmation and resets the phrase and touched state. The copy states the consequence plainly: \"Permanently delete your account and all of its data. This can't be undone.\" and \"We can't restore it.\" The change has no Escape-key handling, which is a minor gap but does not block the Cancel path."
+        }
+      ],
+      "overallNotes": "The change adds a type-to-confirm step (\"DELETE\") with a warning alert, a disabled destructive submit button until the phrase matches, and a Cancel button. Back-out and permanence copy are clear. It does not use a dialog component from the design system; it expands inline, so the confirmation-pattern item fails. The destructive button is clearly styled as destructive and is not autofocused, but it is the dominant action in the confirmation step, so the \"not visually primary\" item is not clearly satisfied."
+    }
+  ]
+}

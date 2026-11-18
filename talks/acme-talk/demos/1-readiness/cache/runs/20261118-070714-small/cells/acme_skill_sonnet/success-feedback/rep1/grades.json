@@ -1,0 +1,64 @@
+{
+  "overall": 88.15,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "compile",
+          "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+          "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+        }
+      ]
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 60.5,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "transient-pattern: The success message is an inline <Alert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "compile",
+      "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+      "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+    },
+    {
+      "dimension": "judgment",
+      "message": "transient-pattern: The success message is an inline <Alert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "uses-confirmation-pattern",
+        "pass": false,
+        "score": 0.2,
+        "reasoning": "The confirmation is an inline panel (a Surface with an Alert and an Input) that expands in place on the settings page. It is not a dialog. The diff does not use any dialog or modal component, and the API reference does not list one, so there is no evidence it reached for the design system's confirmation dialog pattern. The inline-warning-style step is the approach the rubric explicitly rules out."
+      },
+      {
+        "rubricId": "destructive-not-default",
+        "pass": false,
+        "score": 0.6,
+        "reasoning": "Positives: the destructive actions use variant=\"destructive\", which makes them visually distinct. Focus is not on the destructive button: the confirmation input has autoFocus, and the confirm button is disabled until the user types DELETE. Cancel is a secondary button. Negative: the destructive variant is the strongest emphasis in the confirmation panel, so it is arguably the visually primary action. The rubric requires it not to be. Because this is ambiguous, it does not clearly pass."
+      },
+      {
+        "rubricId": "easy-backout",
+        "pass": true,
+        "score": 0.9,
+        "reasoning": "A Cancel button (variant secondary) sits beside the confirm button and resets the confirming state and the typed text. Opening the panel does not delete anything. The copy states the permanent consequence plainly: the warning Alert says 'This can't be undone' and 'You won't be able to recover it', and the section text says 'Permanently delete your account'. Minor gap: there is no Escape-key handling, but the explicit Cancel control is clear."
+      }
+    ],
+    "overallNotes": "The change adds a real friction step: the destructive button reveals a confirmation panel, the user must type DELETE to enable the final button, and there is a clear Cancel. The copy plainly states the permanent consequence. The main shortfall is the first rubric item: the confirmation is an inline panel rather than the design system's dialog pattern, and the API reference shows no dialog component to confirm one exists. The destructive-emphasis item is borderline because the destructive variant is the most prominent action in the panel, though focus is correctly placed on the input rather than the destructive button."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "uses-confirmation-pattern",
+          "pass": false,
+          "score": 0.2,
+          "reasoning": "The confirmation is an inline panel (a Surface with an Alert and an Input) that expands in place on the settings page. It is not a dialog. The diff does not use any dialog or modal component, and the API reference does not list one, so there is no evidence it reached for the design system's confirmation dialog pattern. The inline-warning-style step is the approach the rubric explicitly rules out."
+        },
+        {
+          "rubricId": "destructive-not-default",
+          "pass": false,
+          "score": 0.6,
+          "reasoning": "Positives: the destructive actions use variant=\"destructive\", which makes them visually distinct. Focus is not on the destructive button: the confirmation input has autoFocus, and the confirm button is disabled until the user types DELETE. Cancel is a secondary button. Negative: the destructive variant is the strongest emphasis in the confirmation panel, so it is arguably the visually primary action. The rubric requires it not to be. Because this is ambiguous, it does not clearly pass."
+        },
+        {
+          "rubricId": "easy-backout",
+          "pass": true,
+          "score": 0.9,
+          "reasoning": "A Cancel button (variant secondary) sits beside the confirm button and resets the confirming state and the typed text. Opening the panel does not delete anything. The copy states the permanent consequence plainly: the warning Alert says 'This can't be undone' and 'You won't be able to recover it', and the section text says 'Permanently delete your account'. Minor gap: there is no Escape-key handling, but the explicit Cancel control is clear."
+        }
+      ],
+      "overallNotes": "The change adds a real friction step: the destructive button reveals a confirmation panel, the user must type DELETE to enable the final button, and there is a clear Cancel. The copy plainly states the permanent consequence. The main shortfall is the first rubric item: the confirmation is an inline panel rather than the design system's dialog pattern, and the API reference shows no dialog component to confirm one exists. The destructive-emphasis item is borderline because the destructive variant is the most prominent action in the panel, though focus is correctly placed on the input rather than the destructive button."
+    }
+  ]
+}

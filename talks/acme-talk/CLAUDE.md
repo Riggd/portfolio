@@ -53,7 +53,7 @@ acme-talk/
 
   Switch between them with a flag, not by editing files on stage. `packages/acme` is the *after* state. `demos/1-readiness/scripts/make-before.mjs` copies it to `demos/1-readiness/.before/acme` (gitignored) without the files listed in `demos/1-readiness/before-state.json`, and ODSB audits both as systems `acme-before` and `acme`. Every new agent-context file must be added to `before-state.json`.
 
-  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18 with all 8 components: before 47.9 (Invested), after 71.9 (AI-native), after + context-compare run 82.8.
+  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18 with all 8 components: before 47.9 (Invested), after 71.9 (AI-native), after + context-compare run 82.5.
 
 ## Token naming notes
 

@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "uses-confirmation-pattern",
+        "pass": false,
+        "score": 0.15,
+        "reasoning": "The diff does not use a confirmation dialog component. The confirmation step is an inline <form> rendered inside the settings card, with an inline Alert (intent=\"warning\") and an Input. Nothing in the diff imports or renders a dialog/modal. The API reference lists no dialog component, so it cannot be verified that the design system's confirmation pattern was used. The change matches the rubric's 'inline warning' alternative more than the dialog pattern."
+      },
+      {
+        "rubricId": "destructive-not-default",
+        "pass": true,
+        "score": 0.85,
+        "reasoning": "The final action 'Permanently delete account' uses variant=\"destructive\", and the entry 'Delete account…' button is also destructive. The primary-variant default is not used for either. The autoFocus goes to the confirmation Input, not to the destructive button. The destructive submit is disabled until the phrase matches, and the 'Cancel' button is 'secondary', so the destructive action is neither default-focused nor the visually primary choice."
+      },
+      {
+        "rubricId": "easy-backout",
+        "pass": true,
+        "score": 0.85,
+        "reasoning": "A visible 'Cancel' button (variant=\"secondary\") resets step, typed, and touched back to the idle state, so backing out takes one click. The copy states the consequence plainly: 'Permanently delete your account and all of its data. This can't be undone.' and, in the confirmation step, 'We can't recover it afterwards.' Minor gap: no Escape-key handling is shown, but the explicit cancel path is clear."
+      }
+    ],
+    "overallNotes": "The change adds a typed-confirmation step (type DELETE, then a destructive submit that stays disabled until it matches). It handles the destructive emphasis and back-out well, with clear permanence copy and a secondary Cancel. Its main weakness against the rubric is the confirmation mechanism: it is an inline form with an inline warning Alert rather than the design system's confirmation dialog pattern, and the API reference provided does not show a dialog component, so that item fails."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "uses-confirmation-pattern",
+          "pass": false,
+          "score": 0.15,
+          "reasoning": "The diff does not use a confirmation dialog component. The confirmation step is an inline <form> rendered inside the settings card, with an inline Alert (intent=\"warning\") and an Input. Nothing in the diff imports or renders a dialog/modal. The API reference lists no dialog component, so it cannot be verified that the design system's confirmation pattern was used. The change matches the rubric's 'inline warning' alternative more than the dialog pattern."
+        },
+        {
+          "rubricId": "destructive-not-default",
+          "pass": true,
+          "score": 0.85,
+          "reasoning": "The final action 'Permanently delete account' uses variant=\"destructive\", and the entry 'Delete account…' button is also destructive. The primary-variant default is not used for either. The autoFocus goes to the confirmation Input, not to the destructive button. The destructive submit is disabled until the phrase matches, and the 'Cancel' button is 'secondary', so the destructive action is neither default-focused nor the visually primary choice."
+        },
+        {
+          "rubricId": "easy-backout",
+          "pass": true,
+          "score": 0.85,
+          "reasoning": "A visible 'Cancel' button (variant=\"secondary\") resets step, typed, and touched back to the idle state, so backing out takes one click. The copy states the consequence plainly: 'Permanently delete your account and all of its data. This can't be undone.' and, in the confirmation step, 'We can't recover it afterwards.' Minor gap: no Escape-key handling is shown, but the explicit cancel path is clear."
+        }
+      ],
+      "overallNotes": "The change adds a typed-confirmation step (type DELETE, then a destructive submit that stays disabled until it matches). It handles the destructive emphasis and back-out well, with clear permanence copy and a secondary Cancel. Its main weakness against the rubric is the confirmation mechanism: it is an inline form with an inline warning Alert rather than the design system's confirmation dialog pattern, and the API reference provided does not show a dialog component, so that item fails."
+    }
+  ]
+}

@@ -24,9 +24,16 @@ Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit
 
 | Run | Cells | Result |
 |---|---|---|
-| `cache/runs/20261118-062703-context-compare` | confirm-account-deletion × bare / agents-md / skill | 83.8 / 84.0 / 84.0 overall |
-| `cache/runs/20261118-062819-small` | 5 tasks × skill | 77.4, 83.6, 56.6, 92.1, 91.0 |
+| `cache/runs/20261118-070601-context-compare` | confirm-account-deletion × bare / agents-md / skill | 85.6 / 84.0 / 84.0 overall |
+| `cache/runs/20261118-070714-small` | 5 tasks × skill | 88.2, 85.9, 86.3, 94.7, 91.6 |
 
-Audit with run data: `cache/audit-after-with-run.json` (82.8, AI-native). The cached runs predate Input, Surface, Card, Chip, Badge and Stack; agents then had only Button and Alert.
+Both runs use all 8 components (re-run Nov 18). Commands:
+
+```bash
+pnpm run odsb run --config systems.config.json --profile smoke --systems acme --contexts bare,agents-md,skill --tasks confirm-account-deletion --label context-compare --non-interactive
+pnpm run odsb run --config systems.config.json --profile small --systems acme --contexts skill --label small --non-interactive
+```
+
+Audit with run data: `cache/audit-after-with-run.json` (82.5, AI-native; lift 48.4, ceiling 92), from the context-compare run.
 Cell `workspace/` folders are stripped from the cache; the agent's output is in each cell's `diff.patch` and `files/`.
 Runs are written inside `node_modules` by ODSB, so copy every finished run here.

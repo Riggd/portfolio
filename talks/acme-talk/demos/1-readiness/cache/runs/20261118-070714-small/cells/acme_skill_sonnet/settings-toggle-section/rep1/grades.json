@@ -1,0 +1,72 @@
+{
+  "overall": 86.275,
+  "gate": "pass",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "compile",
+          "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+          "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+        }
+      ]
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 54.25,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "switch-not-checkbox: The toggle is an <input type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."
+        },
+        {
+          "dimension": "judgment",
+          "message": "label-description: Each setting has a title (a <label> with the setting name) and a supporting description (a <span> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "compile",
+      "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+      "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+    },
+    {
+      "dimension": "judgment",
+      "message": "switch-not-checkbox: The toggle is an <input type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."
+    },
+    {
+      "dimension": "judgment",
+      "message": "label-description: Each setting has a title (a <label> with the setting name) and a supporting description (a <span> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."
+    }
+  ]
+}

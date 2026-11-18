@@ -1,0 +1,431 @@
+{
+  "runId": "20261118-070601-context-compare",
+  "manifest": {
+    "runId": "20261118-070601-context-compare",
+    "label": "context-compare",
+    "profile": "smoke",
+    "startedAt": "2026-11-18T07:06:01.191Z",
+    "nodeVersion": "v22.23.5",
+    "adapters": {
+      "claude-code": {
+        "version": "2.1.327 (Claude Code)"
+      }
+    },
+    "systems": {
+      "acme": {
+        "root": "/home/user/portfolio/talks/acme-talk/packages/acme",
+        "commit": "ccfed6a0f5e989bcb5219a443d33f090a1994149",
+        "catalogSrcHash": "791fd0aadfda5dc9af7eec3395eed2e4dde2af62c081769c1bee49a9d19b3390",
+        "tokensCssHash": "fffb37235ebfe3baa3baa0fb06a1899ffa4691d75e57703202caeec71b932149"
+      }
+    },
+    "cells": [
+      {
+        "spec": {
+          "system": "acme",
+          "context": "bare",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "confirm-account-deletion",
+          "rep": 1
+        },
+        "status": "ok"
+      },
+      {
+        "spec": {
+          "system": "acme",
+          "context": "agents-md",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "confirm-account-deletion",
+          "rep": 1
+        },
+        "status": "ok"
+      },
+      {
+        "spec": {
+          "system": "acme",
+          "context": "skill",
+          "model": "sonnet",
+          "agent": "claude-code",
+          "taskId": "confirm-account-deletion",
+          "rep": 1
+        },
+        "status": "ok"
+      }
+    ],
+    "totalCostUsd": 0.3116193,
+    "finishedAt": "2026-11-18T07:07:12.505Z",
+    "wallClockMs": 71314,
+    "paused": false
+  },
+  "records": [
+    {
+      "cell": {
+        "system": "acme",
+        "context": "agents-md",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "confirm-account-deletion",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_agents-md_sonnet/confirm-account-deletion/rep1",
+        "transcript": "cells/acme_agents-md_sonnet/confirm-account-deletion/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_agents-md_sonnet/confirm-account-deletion/rep1/diff.patch",
+        "judgeJson": "cells/acme_agents-md_sonnet/confirm-account-deletion/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 21245,
+        "costUsd": 0.0718464,
+        "numTurns": 7
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 83.95,
+        "gate": "review",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 85,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "a11yStatic",
+                "message": "autoFocus on <Input> in src/task/index.tsx:62",
+                "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+              }
+            ]
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 51.5,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "uses-confirmation-pattern: The confirmation is an inline panel (a Surface with an Alert and an Input) that expands in place on the settings page. It is not a dialog. The diff does not use any dialog or modal component, and the API reference does not list one, so there is no evidence it reached for the design system's confirmation dialog pattern. The inline-warning-style step is the approach the rubric explicitly rules out."
+              },
+              {
+                "dimension": "judgment",
+                "message": "destructive-not-default: Positives: the destructive actions use variant=\"destructive\", which makes them visually distinct. Focus is not on the destructive button: the confirmation input has autoFocus, and the confirm button is disabled until the user types DELETE. Cancel is a secondary button. Negative: the destructive variant is the strongest emphasis in the confirmation panel, so it is arguably the visually primary action. The rubric requires it not to be. Because this is ambiguous, it does not clearly pass."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "a11yStatic",
+            "message": "autoFocus on <Input> in src/task/index.tsx:62",
+            "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+          },
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "uses-confirmation-pattern: The confirmation is an inline panel (a Surface with an Alert and an Input) that expands in place on the settings page. It is not a dialog. The diff does not use any dialog or modal component, and the API reference does not list one, so there is no evidence it reached for the design system's confirmation dialog pattern. The inline-warning-style step is the approach the rubric explicitly rules out."
+          },
+          {
+            "dimension": "judgment",
+            "message": "destructive-not-default: Positives: the destructive actions use variant=\"destructive\", which makes them visually distinct. Focus is not on the destructive button: the confirmation input has autoFocus, and the confirm button is disabled until the user types DELETE. Cancel is a secondary button. Negative: the destructive variant is the strongest emphasis in the confirmation panel, so it is arguably the visually primary action. The rubric requires it not to be. Because this is ambiguous, it does not clearly pass."
+          }
+        ]
+      }
+    },
+    {
+      "cell": {
+        "system": "acme",
+        "context": "bare",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "confirm-account-deletion",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_bare_sonnet/confirm-account-deletion/rep1",
+        "transcript": "cells/acme_bare_sonnet/confirm-account-deletion/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_bare_sonnet/confirm-account-deletion/rep1/diff.patch",
+        "judgeJson": "cells/acme_bare_sonnet/confirm-account-deletion/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 37181,
+        "costUsd": 0.1663163,
+        "numTurns": 24
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 85.6,
+        "gate": "review",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 85,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "a11yStatic",
+                "message": "autoFocus on <Input> in src/task/index.tsx:65",
+                "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+              }
+            ]
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 57,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "uses-confirmation-pattern: The diff does not use a confirmation dialog component. The confirmation step is an inline <form> rendered inside the settings card, with an inline Alert (intent=\"warning\") and an Input. Nothing in the diff imports or renders a dialog/modal. The API reference lists no dialog component, so it cannot be verified that the design system's confirmation pattern was used. The change matches the rubric's 'inline warning' alternative more than the dialog pattern."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "a11yStatic",
+            "message": "autoFocus on <Input> in src/task/index.tsx:65",
+            "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+          },
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "uses-confirmation-pattern: The diff does not use a confirmation dialog component. The confirmation step is an inline <form> rendered inside the settings card, with an inline Alert (intent=\"warning\") and an Input. Nothing in the diff imports or renders a dialog/modal. The API reference lists no dialog component, so it cannot be verified that the design system's confirmation pattern was used. The change matches the rubric's 'inline warning' alternative more than the dialog pattern."
+          }
+        ]
+      }
+    },
+    {
+      "cell": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code"
+      },
+      "taskId": "confirm-account-deletion",
+      "rep": 1,
+      "status": "ok",
+      "artifacts": {
+        "dir": "cells/acme_skill_sonnet/confirm-account-deletion/rep1",
+        "transcript": "cells/acme_skill_sonnet/confirm-account-deletion/rep1/transcript.jsonl",
+        "diffPatch": "cells/acme_skill_sonnet/confirm-account-deletion/rep1/diff.patch",
+        "judgeJson": "cells/acme_skill_sonnet/confirm-account-deletion/rep1/judge.json"
+      },
+      "agentMeta": {
+        "durationMs": 20035,
+        "costUsd": 0.0734566,
+        "numTurns": 8
+      },
+      "judgedBy": {
+        "model": "haiku",
+        "samples": 1
+      },
+      "result": {
+        "overall": 84.025,
+        "gate": "review",
+        "dimensions": {
+          "imports": {
+            "dimension": "imports",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "apiFidelity": {
+            "dimension": "apiFidelity",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "tokenDiscipline": {
+            "dimension": "tokenDiscipline",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "a11yStatic": {
+            "dimension": "a11yStatic",
+            "score": 100,
+            "gate": "pass",
+            "diffs": []
+          },
+          "compile": {
+            "dimension": "compile",
+            "score": 100,
+            "gate": "pass",
+            "diffs": [
+              {
+                "dimension": "compile",
+                "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+                "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+              }
+            ]
+          },
+          "judgment": {
+            "dimension": "judgment",
+            "score": 46.75,
+            "gate": "review",
+            "diffs": [
+              {
+                "dimension": "judgment",
+                "message": "uses-confirmation-pattern: The change does not use a confirmation dialog. It expands the delete card inline: an Alert with intent=\"warning\" plus a text Input, rendered inside the same Surface. The API reference lists no Dialog or Modal component, so the diff gives no evidence of a design-system confirmation dialog pattern. This is closer to the inline-warning approach the rubric excludes, though the change does not use a browser confirm() or a generic overlay."
+              },
+              {
+                "dimension": "judgment",
+                "message": "destructive-not-default: The final confirm button is variant=\"destructive\" and is visually distinct from the secondary Cancel button. It is disabled until the phrase matches and is not autofocused. However, it is the only prominent action in the confirmation step, and it is the form's submit button, so it is arguably the visually primary action. Pressing Enter in the input will submit once the phrase matches. The rubric's requirement that the destructive action not be the visually primary action is therefore not clearly met."
+              }
+            ]
+          }
+        },
+        "diffs": [
+          {
+            "dimension": "compile",
+            "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+            "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+          },
+          {
+            "dimension": "judgment",
+            "message": "uses-confirmation-pattern: The change does not use a confirmation dialog. It expands the delete card inline: an Alert with intent=\"warning\" plus a text Input, rendered inside the same Surface. The API reference lists no Dialog or Modal component, so the diff gives no evidence of a design-system confirmation dialog pattern. This is closer to the inline-warning approach the rubric excludes, though the change does not use a browser confirm() or a generic overlay."
+          },
+          {
+            "dimension": "judgment",
+            "message": "destructive-not-default: The final confirm button is variant=\"destructive\" and is visually distinct from the secondary Cancel button. It is disabled until the phrase matches and is not autofocused. However, it is the only prominent action in the confirmation step, and it is the form's submit button, so it is arguably the visually primary action. Pressing Enter in the input will submit once the phrase matches. The rubric's requirement that the destructive action not be the visually primary action is therefore not clearly met."
+          }
+        ]
+      }
+    }
+  ],
+  "aggregates": [
+    {
+      "cellKey": "acme_agents-md_sonnet",
+      "system": "acme",
+      "context": "agents-md",
+      "model": "sonnet",
+      "taskId": "confirm-account-deletion",
+      "n": 1,
+      "meanOverall": 83.95,
+      "stdOverall": 0,
+      "worstGate": "review",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 85,
+        "compile": 100,
+        "judgment": 51.5
+      }
+    },
+    {
+      "cellKey": "acme_bare_sonnet",
+      "system": "acme",
+      "context": "bare",
+      "model": "sonnet",
+      "taskId": "confirm-account-deletion",
+      "n": 1,
+      "meanOverall": 85.6,
+      "stdOverall": 0,
+      "worstGate": "review",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 85,
+        "compile": 100,
+        "judgment": 57
+      }
+    },
+    {
+      "cellKey": "acme_skill_sonnet",
+      "system": "acme",
+      "context": "skill",
+      "model": "sonnet",
+      "taskId": "confirm-account-deletion",
+      "n": 1,
+      "meanOverall": 84.025,
+      "stdOverall": 0,
+      "worstGate": "review",
+      "meanDimensions": {
+        "imports": 100,
+        "apiFidelity": 100,
+        "tokenDiscipline": 100,
+        "a11yStatic": 100,
+        "compile": 100,
+        "judgment": 46.75
+      }
+    }
+  ]
+}

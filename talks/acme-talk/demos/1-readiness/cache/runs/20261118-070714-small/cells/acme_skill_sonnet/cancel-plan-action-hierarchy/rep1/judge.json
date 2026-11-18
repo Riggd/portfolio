@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "three-emphasis-levels",
+        "pass": true,
+        "score": 0.75,
+        "reasoning": "The three closing-area actions use three different levels: 'Keep Pro plan' is variant=\"primary\", 'Switch to Basic' is variant=\"secondary\", and 'Cancel subscription' is variant=\"ghost\" with size=\"sm\". The levels are distinct and step down in a coherent order. Some doubt remains about correctness, because cancellation is a destructive action and the diff never uses the available 'destructive' variant for it, so the pass is not unambiguous."
+      },
+      {
+        "rubricId": "cancel-not-primary",
+        "pass": true,
+        "score": 0.9,
+        "reasoning": "Cancellation is the quietest control in the closing area: a ghost button at size sm, placed last under the line 'Need to stop completely?'. It is never primary or secondary, and it is not styled as a prominent destructive button. This matches the 'quiet' option requirement."
+      },
+      {
+        "rubricId": "order-supports",
+        "pass": true,
+        "score": 0.85,
+        "reasoning": "The layout reads top to bottom as keep (first, primary), then switch (second, secondary), then cancel. The two plan options sit in matching subtle Surface cards, so they are grouped as peers. Cancel is set apart in its own row with a lead-in sentence, which keeps it from competing with the plan choices and supports the intended hierarchy."
+      }
+    ],
+    "overallNotes": "The closing area uses primary for keeping the plan, secondary for switching to Basic, and ghost (small) for cancelling. Cancel is visually subordinate and separated from the plan options, which fits the brief of making choices clear without pushing users toward cancelling. The main reservation is that cancellation is a destructive action but is not given the system's destructive variant, so the emphasis-level correctness is only partly demonstrated. The confirmation step also uses secondary for the destructive confirm, which is outside the three-action area but relevant to the same convention."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "three-emphasis-levels",
+          "pass": true,
+          "score": 0.75,
+          "reasoning": "The three closing-area actions use three different levels: 'Keep Pro plan' is variant=\"primary\", 'Switch to Basic' is variant=\"secondary\", and 'Cancel subscription' is variant=\"ghost\" with size=\"sm\". The levels are distinct and step down in a coherent order. Some doubt remains about correctness, because cancellation is a destructive action and the diff never uses the available 'destructive' variant for it, so the pass is not unambiguous."
+        },
+        {
+          "rubricId": "cancel-not-primary",
+          "pass": true,
+          "score": 0.9,
+          "reasoning": "Cancellation is the quietest control in the closing area: a ghost button at size sm, placed last under the line 'Need to stop completely?'. It is never primary or secondary, and it is not styled as a prominent destructive button. This matches the 'quiet' option requirement."
+        },
+        {
+          "rubricId": "order-supports",
+          "pass": true,
+          "score": 0.85,
+          "reasoning": "The layout reads top to bottom as keep (first, primary), then switch (second, secondary), then cancel. The two plan options sit in matching subtle Surface cards, so they are grouped as peers. Cancel is set apart in its own row with a lead-in sentence, which keeps it from competing with the plan choices and supports the intended hierarchy."
+        }
+      ],
+      "overallNotes": "The closing area uses primary for keeping the plan, secondary for switching to Basic, and ghost (small) for cancelling. Cancel is visually subordinate and separated from the plan options, which fits the brief of making choices clear without pushing users toward cancelling. The main reservation is that cancellation is a destructive action but is not given the system's destructive variant, so the emphasis-level correctness is only partly demonstrated. The confirmation step also uses secondary for the destructive confirm, which is outside the three-action area but relevant to the same convention."
+    }
+  ]
+}

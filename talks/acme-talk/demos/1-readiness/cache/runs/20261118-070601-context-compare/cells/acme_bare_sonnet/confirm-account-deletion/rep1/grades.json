@@ -1,0 +1,75 @@
+{
+  "overall": 85.6,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 85,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "a11yStatic",
+          "message": "autoFocus on <Input> in src/task/index.tsx:65",
+          "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+        }
+      ]
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "compile",
+          "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+          "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+        }
+      ]
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 57,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "uses-confirmation-pattern: The diff does not use a confirmation dialog component. The confirmation step is an inline <form> rendered inside the settings card, with an inline Alert (intent=\"warning\") and an Input. Nothing in the diff imports or renders a dialog/modal. The API reference lists no dialog component, so it cannot be verified that the design system's confirmation pattern was used. The change matches the rubric's 'inline warning' alternative more than the dialog pattern."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "a11yStatic",
+      "message": "autoFocus on <Input> in src/task/index.tsx:65",
+      "fix": "Remove autoFocus; it disorients screen-reader and keyboard users."
+    },
+    {
+      "dimension": "compile",
+      "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+      "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+    },
+    {
+      "dimension": "judgment",
+      "message": "uses-confirmation-pattern: The diff does not use a confirmation dialog component. The confirmation step is an inline <form> rendered inside the settings card, with an inline Alert (intent=\"warning\") and an Input. Nothing in the diff imports or renders a dialog/modal. The API reference lists no dialog component, so it cannot be verified that the design system's confirmation pattern was used. The change matches the rubric's 'inline warning' alternative more than the dialog pattern."
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="open-design-system-bench v1.5">
+<title>open-design-system-bench · small</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  color-scheme:light dark;
+  --bg:#F4F7FB; --surface:#FFFFFF; --surface-2:#EBF0F7; --surface-3:#F8FAFC;
+  --border:#D3DCE9; --border-strong:#A9BCD4;
+  --ink:#16233D; --muted:#4B5C74;
+  --accent:#1E40AF; --accent-strong:#17337E; --accent-ink:#1E40AF; --accent-soft:#E1EAFF;
+  --warm:#9A5B00; --warm-bg:#FFF1C9;
+  --green:#0F7038; --green-bg:#DFF5E6;
+  --yellow:#8A5A00; --yellow-bg:#FFF1C9;
+  --red:#B42335; --red-bg:#FFE3E8;
+  --bar-track:rgb(22 35 61/.13);
+  --font-display:"Fira Sans",-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-body:"Fira Sans",-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-mono:"Fira Code",ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-full:9999px;
+  --shadow:0 1px 2px rgb(22 35 61/.06),0 4px 14px rgb(22 35 61/.05);
+}
+/* Dark follows the operating system, with no toggle and no stored choice:
+   the reader's preference is the preference. Pairs are chosen as sets
+   (text tone on its own tinted background) for 4.5:1 contrast on the dark
+   surfaces, mirroring the light pairs above rather than inverting them. */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0A0F1E; --surface:#111A2E; --surface-2:#1A2742; --surface-3:#0D1526;
+    --border:#263650; --border-strong:#41577A;
+    --ink:#E8EEF9; --muted:#A6B5CC;
+    --accent:#8FAEFF; --accent-strong:#B9CBFF; --accent-ink:#9DB4FF; --accent-soft:#1D3465;
+    --warm:#F2C14E; --warm-bg:#38300F;
+    --green:#55D68E; --green-bg:#14301F;
+    --yellow:#F2C14E; --yellow-bg:#38300F;
+    --red:#FF8A99; --red-bg:#3D1620;
+    --bar-track:rgb(232 238 249/.18);
+    --shadow:0 1px 2px rgb(0 0 0/.45),0 4px 14px rgb(0 0 0/.35);
+  }
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:14.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;letter-spacing:-.01em}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:hover{color:var(--accent-strong)}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:3px}
+.wrap{max-width:1320px;margin:0 auto;padding:28px 28px 80px}
+.kicker{display:inline-block;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:var(--r-full);padding:3px 9px;margin-bottom:8px}
+
+header.top{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 22px 18px;margin-bottom:26px}
+header.top h1{font-size:26px;font-weight:700;line-height:1.2}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:16px}
+.meta-item{background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-md);padding:11px 13px}
+.meta-item .label{color:var(--accent);font-family:var(--font-mono);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.meta-item .value{margin-top:4px;font-size:15px;font-weight:650}
+.meta-item .sub{margin-top:2px;color:var(--muted);font-size:12px;font-family:var(--font-mono)}
+
+section{margin-top:34px}
+section>h2{font-size:19px;font-weight:650;margin-bottom:4px;padding-bottom:6px;border-bottom:2px solid var(--accent);display:inline-block}
+section>p.lede{color:var(--muted);max-width:74ch;margin:8px 0 14px;font-size:13.5px}
+
+.score-legend{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-family:var(--font-mono);font-size:11px;color:var(--muted);margin:0 0 12px}
+.score-legend .sw{display:inline-block;width:22px;height:12px;border-radius:3px;border:1px solid var(--border-strong);vertical-align:-2px;margin-right:5px}
+.sw-green{background:var(--green-bg)} .sw-yellow{background:var(--yellow-bg)} .sw-red{background:var(--red-bg)} .sw-gray{background:var(--surface-2)}
+.score-bar{display:block;width:100%;max-width:110px;height:4px;border-radius:var(--r-full);background:var(--bar-track);overflow:hidden;margin-top:5px}
+.score-bar-fill{display:block;height:100%;border-radius:var(--r-full)}
+.score-bar.tone-green .score-bar-fill{background:var(--green)}
+.score-bar.tone-yellow .score-bar-fill{background:#D97706}
+.score-bar.tone-red .score-bar-fill{background:var(--red)}
+
+.chip{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-full);border:1px solid;white-space:nowrap}
+.chip-pass{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,transparent);background:var(--green-bg)}
+.chip-review{color:var(--yellow);border-color:color-mix(in srgb,#D97706 55%,transparent);background:var(--yellow-bg)}
+.chip-fail{color:var(--red);border-color:color-mix(in srgb,var(--red) 45%,transparent);background:var(--red-bg)}
+.chip-skip{color:var(--muted);border-color:var(--border);background:var(--surface-2)}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.card>h3{padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface-3);font-size:14.5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.card .body{padding:14px 16px}
+
+.scroll-x{overflow-x:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{color:var(--muted);font-weight:600;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em}
+td.num{font-family:var(--font-mono);text-align:right}
+tbody tr{transition:background 120ms ease}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent-soft) 45%,transparent)}
+tr:last-child td{border-bottom:0}
+
+.matrix th, .matrix td{text-align:center}
+.matrix td.task-name, .matrix th.task-name{text-align:left;white-space:normal;min-width:170px;position:sticky;left:0;background:var(--surface);z-index:1;box-shadow:1px 0 0 var(--border)}
+.matrix thead th{background:var(--surface-2);position:sticky;top:0;z-index:2;border-bottom:2px solid var(--border-strong)}
+.matrix thead th.task-name{z-index:3;background:var(--surface-2)}
+.matrix tfoot td{font-weight:600;background:var(--accent-soft);position:sticky;bottom:0;border-top:2px solid var(--border-strong)}
+.matrix tfoot .score-bar{margin-left:auto;margin-right:auto}
+.matrix-system{margin-bottom:8px}
+.matrix-system>h3{font-family:var(--font-mono);font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-ink)}
+.matrix-system + .drilldowns{margin-top:10px;margin-bottom:18px}
+
+.mx-cell{cursor:pointer;border:1px solid var(--border);border-radius:8px;background:var(--surface-3);padding:7px 10px;width:100%;font:inherit;color:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:52px;justify-content:center}
+.mx-cell:hover{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.mx-cell.tone-green{background:var(--green-bg);border-color:color-mix(in srgb,var(--green) 38%,transparent)}
+.mx-cell.tone-yellow{background:var(--yellow-bg);border-color:color-mix(in srgb,#D97706 42%,transparent)}
+.mx-cell.tone-red{background:var(--red-bg);border-color:color-mix(in srgb,var(--red) 38%,transparent)}
+.mx-cell.tone-gray{background:var(--surface-2)}
+span.mx-cell{cursor:default}
+/* Hover/selection is a state change, so it gets a short transition rather than
+   snapping. Kept under 200ms: the reader is scanning a matrix, not watching it. */
+@media (prefers-reduced-motion: no-preference){
+  .mx-cell{transition:border-color 140ms cubic-bezier(0.16,1,0.3,1),box-shadow 140ms cubic-bezier(0.16,1,0.3,1)}
+  a{transition:color 140ms cubic-bezier(0.16,1,0.3,1)}
+}
+.mx-score{font-family:var(--font-mono);font-weight:700;font-size:14.5px}
+.mx-cell.tone-green .mx-score{color:var(--green)}
+.mx-cell.tone-yellow .mx-score{color:var(--yellow)}
+.mx-cell.tone-red .mx-score{color:var(--red)}
+.mx-cell.tone-gray .mx-score{color:var(--muted)}
+.mx-cell .score-bar{max-width:72px;margin-top:1px}
+.mx-n{font-family:var(--font-mono);font-size:10px;color:var(--muted)}
+
+.drilldowns{margin-top:18px}
+.drill{border:1px solid var(--border-strong);border-radius:var(--r-md);background:var(--surface);box-shadow:var(--shadow);margin-bottom:12px;padding:14px 16px}
+.drill[hidden]{display:none}
+.drill h4{font-size:14px;margin-bottom:6px}
+.drill .agg-line{color:var(--muted);font-family:var(--font-mono);font-size:12px;margin-bottom:10px}
+.rep-card{border-top:1px dashed var(--border-strong);padding-top:10px;margin-top:10px}
+.rep-card:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.rep-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:600;font-size:13px}
+.diff-row .msg{white-space:normal;max-width:46ch}
+.diff-row .fix{white-space:normal;max-width:40ch;color:var(--muted)}
+.judge-note{background:var(--warm-bg);border:1px solid color-mix(in srgb,#D97706 40%,transparent);border-radius:var(--r-sm);padding:9px 11px;margin-top:8px;font-size:13px;white-space:normal}
+.links{margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px}
+.na{color:var(--muted);font-family:var(--font-mono);font-size:12px}
+
+.delta-up{color:var(--green);font-family:var(--font-mono)}
+.delta-down{color:var(--red);font-family:var(--font-mono)}
+.delta-flat{color:var(--muted);font-family:var(--font-mono)}
+
+footer.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+@media (max-width:720px){.wrap{padding:18px 16px 60px}header.top{padding:16px}header.top h1{font-size:22px}}
+@media print{
+  /* Print is always the light theme, whatever the system preference: the
+     printed page is the PDF's twin, and dark surfaces waste ink. */
+  :root{
+    --bg:#F4F7FB; --surface:#FFFFFF; --surface-2:#EBF0F7; --surface-3:#F8FAFC;
+    --border:#D3DCE9; --border-strong:#A9BCD4;
+    --ink:#16233D; --muted:#4B5C74;
+    --accent:#1E40AF; --accent-strong:#17337E; --accent-ink:#1E40AF; --accent-soft:#E1EAFF;
+    --warm:#9A5B00; --warm-bg:#FFF1C9;
+    --green:#0F7038; --green-bg:#DFF5E6;
+    --yellow:#8A5A00; --yellow-bg:#FFF1C9;
+    --red:#B42335; --red-bg:#FFE3E8;
+    --bar-track:rgb(22 35 61/.13);
+    --shadow:none;
+  }
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff}
+  .wrap{max-width:none;padding:0}
+  header.top,.card,.drill{box-shadow:none}
+  .mx-cell{cursor:default}
+  .card,.drill,.rep-card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="kicker">Benchmark run</div>
+    <h1>small</h1>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="label">Run</div><div class="value">20261118-070714-small</div><div class="sub">profile: small</div></div>
+      <div class="meta-item"><div class="label">Window</div><div class="value">2026-11-18 07:07:14Z</div><div class="sub">&rarr; 2026-11-18 07:08:41Z</div></div>
+      <div class="meta-item"><div class="label">Wall clock</div><div class="value">1m 27s</div></div>
+      <div class="meta-item"><div class="label">Total cost</div><div class="value">$0.37</div></div>
+      
+      <div class="meta-item"><div class="label">Judge</div><div class="value">haiku x1</div><div class="sub">5 of 5 ok cells judged</div></div>
+      <div class="meta-item"><div class="label">System commits</div><div class="value" style="font-size:12.5px">acme @ ccfed6a0f5</div></div>
+      <div class="meta-item"><div class="label">Benchmark</div><div class="value">open-design-system-bench v1.5</div></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Benchmark matrix</h2>
+    <p class="lede">One table per system. Rows are tasks, columns are context &times; model. Each cell is the mean
+      overall score across ok reps; colour follows the score (green &ge;85, yellow &ge;60, red below).
+      Gate (pass / review / fail) lives in the drill-down, not on the grid. The column summary row &mdash;
+      mean of means, total cost, average duration &mdash; is the headline comparison across context levels.
+      Click any cell to expand per-rep detail.</p>
+    <div class="score-legend" aria-label="Score legend">
+      <span><span class="sw sw-green"></span>85 and up</span>
+      <span><span class="sw sw-yellow"></span>60 to 84</span>
+      <span><span class="sw sw-red"></span>below 60</span>
+      <span><span class="sw sw-gray"></span>no data</span>
+      <span>Every cell prints its number; colour is never the only signal.</span>
+    </div>
+    <div class="card matrix-system">
+    <h3>acme</h3>
+    <div class="scroll-x">
+      <table class="matrix">
+        <thead><tr>
+    <th class="task-name">task</th>
+    <th>skill<br><span class="mono" style="color:var(--muted)">sonnet</span></th>
+  </tr></thead>
+        <tbody><tr><td class="task-name">cancel-plan-action-hierarchy</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=pass" aria-label="94.7, n=1" aria-expanded="false" aria-controls="drill_cancel-plan-action-hierarchy__acme_skill_sonnet" onclick="toggleDrill('drill_cancel-plan-action-hierarchy__acme_skill_sonnet', this)">
+      <span class="mx-score">94.7</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:94.7%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">confirm-account-deletion</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=review" aria-label="85.9, n=1" aria-expanded="false" aria-controls="drill_confirm-account-deletion__acme_skill_sonnet" onclick="toggleDrill('drill_confirm-account-deletion__acme_skill_sonnet', this)">
+      <span class="mx-score">85.9</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:85.9%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">connection-status-indicator</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=pass" aria-label="91.6, n=1" aria-expanded="false" aria-controls="drill_connection-status-indicator__acme_skill_sonnet" onclick="toggleDrill('drill_connection-status-indicator__acme_skill_sonnet', this)">
+      <span class="mx-score">91.6</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:91.6%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">settings-toggle-section</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=pass" aria-label="86.3, n=1" aria-expanded="false" aria-controls="drill_settings-toggle-section__acme_skill_sonnet" onclick="toggleDrill('drill_settings-toggle-section__acme_skill_sonnet', this)">
+      <span class="mx-score">86.3</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:86.3%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr><tr><td class="task-name">success-feedback</td><td><button type="button" class="mx-cell tone-green" title="n=1 · std=0.0 · gate=review" aria-label="88.2, n=1" aria-expanded="false" aria-controls="drill_success-feedback__acme_skill_sonnet" onclick="toggleDrill('drill_success-feedback__acme_skill_sonnet', this)">
+      <span class="mx-score">88.2</span>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:88.2%"></span></span>
+      <span class="mx-n">n=1</span>
+    </button></td></tr></tbody>
+        <tfoot><tr>
+    <td class="task-name">column mean &middot; cost &middot; avg duration</td>
+    <td>
+      <div class="mono" style="font-weight:700">89.3</div>
+      <span class="score-bar tone-green" aria-hidden="true"><span class="score-bar-fill" style="width:89.3%"></span></span>
+      <div class="mx-n">$0.37 &middot; 20.2s</div>
+    </td>
+  </tr></tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="drilldowns"><div class="drill" id="drill_cancel-plan-action-hierarchy__acme_skill_sonnet" hidden>
+    <h4>cancel-plan-action-hierarchy <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 94.7 · std 0.0 · n=1 · gate pass · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=82.3</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-pass">pass</span> <span class="mono">94.7</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 22.7s &middot; $0.08 &middot; 8 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">82.3</td><td><span class="chip chip-pass">pass</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>compile</td><td class="msg">setup, not the agent: 1 type error(s) outside the workspace, in the system&#39;s own source under the fixture&#39;s compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface &#39;ChipProps&#39; incorrectly extends interface &#39;Omit&lt;HTMLAttributes&lt;HTMLSpanElement&gt;, &quot;children&quot; | &quot;onClick&quot;&gt;&#39;.</td><td class="fix">these never gate; they mean the fixture compiles this system&#39;s source differently from the system&#39;s own build</td></tr></tbody></table></div>
+    
+    <div class="links"><a href="cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_confirm-account-deletion__acme_skill_sonnet" hidden>
+    <h4>confirm-account-deletion <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 85.9 · std 0.0 · n=1 · gate review · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=53.0</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-review">review</span> <span class="mono">85.9</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 17.6s &middot; $0.07 &middot; 8 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">53.0</td><td><span class="chip chip-review">review</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>compile</td><td class="msg">setup, not the agent: 1 type error(s) outside the workspace, in the system&#39;s own source under the fixture&#39;s compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface &#39;ChipProps&#39; incorrectly extends interface &#39;Omit&lt;HTMLAttributes&lt;HTMLSpanElement&gt;, &quot;children&quot; | &quot;onClick&quot;&gt;&#39;.</td><td class="fix">these never gate; they mean the fixture compiles this system&#39;s source differently from the system&#39;s own build</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">uses-confirmation-pattern: The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system&#39;s confirmation dialog pattern cannot be verified as used. The change matches the &#39;inline warning&#39; approach the rubric excludes.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>uses-confirmation-pattern: The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system&#39;s confirmation dialog pattern cannot be verified as used. The change matches the &#39;inline warning&#39; approach the rubric excludes.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/confirm-account-deletion/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/confirm-account-deletion/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/confirm-account-deletion/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_connection-status-indicator__acme_skill_sonnet" hidden>
+    <h4>connection-status-indicator <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 91.6 · std 0.0 · n=1 · gate pass · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=72.0</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-pass">pass</span> <span class="mono">91.6</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 20.9s &middot; $0.08 &middot; 9 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">72.0</td><td><span class="chip chip-pass">pass</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>compile</td><td class="msg">setup, not the agent: 1 type error(s) outside the workspace, in the system&#39;s own source under the fixture&#39;s compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface &#39;ChipProps&#39; incorrectly extends interface &#39;Omit&lt;HTMLAttributes&lt;HTMLSpanElement&gt;, &quot;children&quot; | &quot;onClick&quot;&gt;&#39;.</td><td class="fix">these never gate; they mean the fixture compiles this system&#39;s source differently from the system&#39;s own build</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare &lt;h2&gt; and the integration names are bare &lt;span&gt; elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare &lt;h2&gt; and the integration names are bare &lt;span&gt; elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/connection-status-indicator/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/connection-status-indicator/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/connection-status-indicator/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_settings-toggle-section__acme_skill_sonnet" hidden>
+    <h4>settings-toggle-section <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 86.3 · std 0.0 · n=1 · gate pass · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=54.3</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-pass">pass</span> <span class="mono">86.3</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 21.4s &middot; $0.08 &middot; 9 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">54.3</td><td><span class="chip chip-pass">pass</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>compile</td><td class="msg">setup, not the agent: 1 type error(s) outside the workspace, in the system&#39;s own source under the fixture&#39;s compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface &#39;ChipProps&#39; incorrectly extends interface &#39;Omit&lt;HTMLAttributes&lt;HTMLSpanElement&gt;, &quot;children&quot; | &quot;onClick&quot;&gt;&#39;.</td><td class="fix">these never gate; they mean the fixture compiles this system&#39;s source differently from the system&#39;s own build</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">switch-not-checkbox: The toggle is an &lt;input type=&quot;checkbox&quot;&gt; with role=&quot;switch&quot; added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the &#39;system&#39;s on/off switch control, not checkboxes&#39; requirement.</td><td class="fix">n/a</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">label-description: Each setting has a title (a &lt;label&gt; with the setting name) and a supporting description (a &lt;span&gt; linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to &#39;the system&#39;s settings-row pattern&#39; cannot be verified from the diff. The row is hand-assembled from Stack, label, and span.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>switch-not-checkbox: The toggle is an &lt;input type=&quot;checkbox&quot;&gt; with role=&quot;switch&quot; added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the &#39;system&#39;s on/off switch control, not checkboxes&#39; requirement.</li><li>label-description: Each setting has a title (a &lt;label&gt; with the setting name) and a supporting description (a &lt;span&gt; linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to &#39;the system&#39;s settings-row pattern&#39; cannot be verified from the diff. The row is hand-assembled from Stack, label, and span.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/settings-toggle-section/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/settings-toggle-section/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/settings-toggle-section/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div><div class="drill" id="drill_success-feedback__acme_skill_sonnet" hidden>
+    <h4>success-feedback <span class="mono" style="color:var(--muted)">&middot; acme_skill_sonnet</span></h4>
+    <div class="agg-line">mean 88.2 · std 0.0 · n=1 · gate review · dims: imports=100.0, apiFidelity=100.0, tokenDiscipline=100.0, a11yStatic=100.0, compile=100.0, judgment=60.5</div>
+    <div class="rep-card">
+    <div class="rep-head">rep 1 <span class="chip chip-pass">ok</span> <span class="chip chip-review">review</span> <span class="mono">88.2</span> <span class="mono" style="color:var(--muted);font-weight:400">&middot; 18.3s &middot; $0.07 &middot; 6 turns</span></div>
+    
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th class="num">score</th><th>gate</th></tr></thead>
+        <tbody><tr><td>imports</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>apiFidelity</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>tokenDiscipline</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>a11yStatic</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>compile</td><td class="num">100.0</td><td><span class="chip chip-pass">pass</span></td></tr><tr><td>judgment</td><td class="num">60.5</td><td><span class="chip chip-review">review</span></td></tr></tbody></table></div>
+    <div class="scroll-x"><table><thead><tr><th>dimension</th><th>message</th><th>fix</th></tr></thead>
+        <tbody><tr class="diff-row"><td>compile</td><td class="msg">setup, not the agent: 1 type error(s) outside the workspace, in the system&#39;s own source under the fixture&#39;s compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface &#39;ChipProps&#39; incorrectly extends interface &#39;Omit&lt;HTMLAttributes&lt;HTMLSpanElement&gt;, &quot;children&quot; | &quot;onClick&quot;&gt;&#39;.</td><td class="fix">these never gate; they mean the fixture compiles this system&#39;s source differently from the system&#39;s own build</td></tr><tr class="diff-row"><td>judgment</td><td class="msg">transient-pattern: The success message is an inline &lt;Alert intent=&quot;success&quot;&gt; rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system&#39;s transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass.</td><td class="fix">n/a</td></tr></tbody></table></div>
+    <div class="judge-note"><b>Judge reasoning</b><ul style="margin:6px 0 0;padding-left:18px"><li>transient-pattern: The success message is an inline &lt;Alert intent=&quot;success&quot;&gt; rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system&#39;s transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass.</li></ul></div>
+    <div class="links"><a href="cells/acme_skill_sonnet/success-feedback/rep1">artifacts/</a><a href="cells/acme_skill_sonnet/success-feedback/rep1/diff.patch">diff.patch</a><a href="cells/acme_skill_sonnet/success-feedback/rep1/transcript.jsonl">transcript.jsonl</a></div>
+  </div>
+  </div></div>
+  </section>
+
+  <footer class="foot">
+    Run <code>20261118-070714-small</code> &middot; 5 record(s) &middot;
+    5 aggregate(s). Generated by <code>open-design-system-bench v1.5</code>.
+  </footer>
+</main>
+<script type="application/json" id="report-data">{"runId":"20261118-070714-small","manifest":{"runId":"20261118-070714-small","label":"small","profile":"small","startedAt":"2026-11-18T07:07:14.960Z","nodeVersion":"v22.23.5","adapters":{"claude-code":{"version":"2.1.327 (Claude Code)"}},"systems":{"acme":{"root":"/home/user/portfolio/talks/acme-talk/packages/acme","commit":"ccfed6a0f5e989bcb5219a443d33f090a1994149","catalogSrcHash":"791fd0aadfda5dc9af7eec3395eed2e4dde2af62c081769c1bee49a9d19b3390","tokensCssHash":"fffb37235ebfe3baa3baa0fb06a1899ffa4691d75e57703202caeec71b932149"}},"cells":[{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"confirm-account-deletion","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"success-feedback","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"settings-toggle-section","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"cancel-plan-action-hierarchy","rep":1},"status":"ok"},{"spec":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code","taskId":"connection-status-indicator","rep":1},"status":"ok"}],"totalCostUsd":0.3697264,"finishedAt":"2026-11-18T07:08:41.555Z","wallClockMs":86595,"paused":false},"records":[{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"success-feedback","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/success-feedback/rep1","transcript":"cells/acme_skill_sonnet/success-feedback/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/success-feedback/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/success-feedback/rep1/judge.json"},"agentMeta":{"durationMs":18296,"costUsd":0.06564060000000001,"numTurns":6},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":88.15,"gate":"review","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"}]},"judgment":{"dimension":"judgment","score":60.5,"gate":"review","diffs":[{"dimension":"judgment","message":"transient-pattern: The success message is an inline \u003cAlert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."}]}},"diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"},{"dimension":"judgment","message":"transient-pattern: The success message is an inline \u003cAlert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"confirm-account-deletion","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/confirm-account-deletion/rep1","transcript":"cells/acme_skill_sonnet/confirm-account-deletion/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/confirm-account-deletion/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/confirm-account-deletion/rep1/judge.json"},"agentMeta":{"durationMs":17638,"costUsd":0.07066700000000001,"numTurns":8},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":85.9,"gate":"review","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"}]},"judgment":{"dimension":"judgment","score":53,"gate":"review","diffs":[{"dimension":"judgment","message":"uses-confirmation-pattern: The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system's confirmation dialog pattern cannot be verified as used. The change matches the 'inline warning' approach the rubric excludes."}]}},"diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"},{"dimension":"judgment","message":"uses-confirmation-pattern: The confirmation is built inline: the Delete account Surface expands in place, with a warning Alert and a text Input. The diff does not use a modal or dialog component. The API reference lists no dialog or confirmation component, so the design system's confirmation dialog pattern cannot be verified as used. The change matches the 'inline warning' approach the rubric excludes."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"settings-toggle-section","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/settings-toggle-section/rep1","transcript":"cells/acme_skill_sonnet/settings-toggle-section/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/settings-toggle-section/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/settings-toggle-section/rep1/judge.json"},"agentMeta":{"durationMs":21427,"costUsd":0.0771644,"numTurns":9},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":86.275,"gate":"pass","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"}]},"judgment":{"dimension":"judgment","score":54.25,"gate":"pass","diffs":[{"dimension":"judgment","message":"switch-not-checkbox: The toggle is an \u003cinput type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."},{"dimension":"judgment","message":"label-description: Each setting has a title (a \u003clabel> with the setting name) and a supporting description (a \u003cspan> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."}]}},"diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"},{"dimension":"judgment","message":"switch-not-checkbox: The toggle is an \u003cinput type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."},{"dimension":"judgment","message":"label-description: Each setting has a title (a \u003clabel> with the setting name) and a supporting description (a \u003cspan> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"cancel-plan-action-hierarchy","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1","transcript":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/cancel-plan-action-hierarchy/rep1/judge.json"},"agentMeta":{"durationMs":22739,"costUsd":0.0796447,"numTurns":8},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":94.675,"gate":"pass","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"}]},"judgment":{"dimension":"judgment","score":82.25,"gate":"pass","diffs":[]}},"diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"}]}},{"cell":{"system":"acme","context":"skill","model":"sonnet","agent":"claude-code"},"taskId":"connection-status-indicator","rep":1,"status":"ok","artifacts":{"dir":"cells/acme_skill_sonnet/connection-status-indicator/rep1","transcript":"cells/acme_skill_sonnet/connection-status-indicator/rep1/transcript.jsonl","diffPatch":"cells/acme_skill_sonnet/connection-status-indicator/rep1/diff.patch","judgeJson":"cells/acme_skill_sonnet/connection-status-indicator/rep1/judge.json"},"agentMeta":{"durationMs":20923,"costUsd":0.0766097,"numTurns":9},"judgedBy":{"model":"haiku","samples":1},"result":{"overall":91.6,"gate":"pass","dimensions":{"imports":{"dimension":"imports","score":100,"gate":"pass","diffs":[]},"apiFidelity":{"dimension":"apiFidelity","score":100,"gate":"pass","diffs":[]},"tokenDiscipline":{"dimension":"tokenDiscipline","score":100,"gate":"pass","diffs":[]},"a11yStatic":{"dimension":"a11yStatic","score":100,"gate":"pass","diffs":[]},"compile":{"dimension":"compile","score":100,"gate":"pass","diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"}]},"judgment":{"dimension":"judgment","score":72,"gate":"pass","diffs":[{"dimension":"judgment","message":"system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare \u003ch2> and the integration names are bare \u003cspan> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."}]}},"diffs":[{"dimension":"compile","message":"setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit\u003cHTMLAttributes\u003cHTMLSpanElement>, \"children\" | \"onClick\">'.","fix":"these never gate; they mean the fixture compiles this system's source differently from the system's own build"},{"dimension":"judgment","message":"system-typography: The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare \u003ch2> and the integration names are bare \u003cspan> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."}]}}],"aggregates":[{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"success-feedback","n":1,"meanOverall":88.15,"stdOverall":0,"worstGate":"review","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":60.5}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"confirm-account-deletion","n":1,"meanOverall":85.9,"stdOverall":0,"worstGate":"review","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":53}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"settings-toggle-section","n":1,"meanOverall":86.275,"stdOverall":0,"worstGate":"pass","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":54.25}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"cancel-plan-action-hierarchy","n":1,"meanOverall":94.675,"stdOverall":0,"worstGate":"pass","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":82.25}},{"cellKey":"acme_skill_sonnet","system":"acme","context":"skill","model":"sonnet","taskId":"connection-status-indicator","n":1,"meanOverall":91.6,"stdOverall":0,"worstGate":"pass","meanDimensions":{"imports":100,"apiFidelity":100,"tokenDiscipline":100,"a11yStatic":100,"compile":100,"judgment":72}}]}</script>
+<script>
+
+function toggleDrill(id, btn) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.hidden = !el.hidden;
+  var expanded = String(!el.hidden);
+  var control = btn || document.querySelector('[aria-controls="' + id + '"]');
+  if (control) control.setAttribute('aria-expanded', expanded);
+  if (!el.hidden && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+</script>
+</body>
+</html>

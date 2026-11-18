@@ -55,7 +55,7 @@ Walk through four lines only:
 
 ### 4. The run report (2:00)
 
-**Show:** `demos/1-readiness/cache/runs/20261118-062703-context-compare/report.html`
+**Show:** `demos/1-readiness/cache/runs/20261118-070601-context-compare/report.html`
 
 > "The audit only checks what's on disk. This next part checks behavior. ODSB gave an agent a real task: 'users can delete their account; add a step so they don't do it by accident.' The task never names a component; the agent has to choose."
 >
@@ -63,23 +63,25 @@ Walk through four lines only:
 
 | | No context | AGENTS.md | Skill |
 |---|---:|---:|---:|
-| Overall | 83.8 | 84.0 | 84.0 |
-| Token discipline | 60 | 100 | 100 |
-| Judgment | 66 | 46.75 | 46.75 |
-| Time | 49 s | 20 s | 21 s |
-| Cost | $0.21 | $0.06 | $0.08 |
+| Overall | 85.6 | 84.0 | 84.0 |
+| Token discipline | 100 | 100 | 100 |
+| Judgment | 57 | 51.5 | 46.75 |
+| Time | 37 s | 21 s | 20 s |
+| Cost | $0.17 | $0.07 | $0.07 |
 
-> "The total barely moves, but look underneath. With no context, the agent hardcoded widths and borders. With context, every value is a token, and it finished twice as fast at a third of the cost."
+> "Token discipline is perfect even with no context. Acme has Stack and Surface, so the agent never had to write its own CSS. Good components do the work that docs would otherwise have to do."
 >
-> "But judgment went *down*. Acme has no Dialog component, and our AGENTS.md says to use Acme components before building custom UI. So the guided agent built an inline confirmation instead of a modal. That's not a docs problem: it's a missing component. The benchmark just told us what to build next."
+> "With context, the agent got the same result in half the time at under half the cost."
+>
+> "But judgment went *down*, and none of the three built a modal. Acme has no Dialog component, so every agent built an inline confirmation, and the more guidance it had, the harder it leaned on the destructive button. That's not a docs problem: it's a missing component. The benchmark just told us what to build next."
 
 **Then:** re-run the audit with the run attached.
 
 ```bash
-pnpm --filter demo-1-readiness run odsb audit --system acme --config systems.config.json --run cache/runs/20261118-062703-context-compare
+pnpm --filter demo-1-readiness run odsb audit --system acme --config systems.config.json --run cache/runs/20261118-070601-context-compare
 ```
 
-> "With behavior included, Acme scores **82.8: AI-native**. Docs got us over the line; real agent runs show where we actually stand."
+> "With behavior included, Acme scores **82.5: AI-native**. Docs got us over the line; real agent runs show where we actually stand."
 
 ### 5. Takeaway (0:30)
 

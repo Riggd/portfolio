@@ -1,0 +1,94 @@
+diff --git a/src/task/index.tsx b/src/task/index.tsx
+index c355cf1..baeea7a 100644
+--- a/src/task/index.tsx
++++ b/src/task/index.tsx
+@@ -1,4 +1,87 @@
++import { useState } from 'react';
++import '@acme/ds/foundations.css';
++import { Alert, Button, Input, Stack, Surface } from '@acme/ds';
++
++const CONFIRM_PHRASE = 'DELETE';
++
+ export function TaskScreen() {
+-  // Implement the task here.
+-  return null;
++  const [confirming, setConfirming] = useState(false);
++  const [typed, setTyped] = useState('');
++  const [deleted, setDeleted] = useState(false);
++
++  const matches = typed.trim() === CONFIRM_PHRASE;
++
++  const cancel = () => {
++    setConfirming(false);
++    setTyped('');
++  };
++
++  const confirmDelete = () => {
++    if (!matches) return;
++    // Hook up the real account deletion request here.
++    setDeleted(true);
++    setConfirming(false);
++    setTyped('');
++  };
++
++  if (deleted) {
++    return (
++      <Surface>
++        <Alert intent="success" title="Account deleted">
++          Your account and its data have been permanently deleted.
++        </Alert>
++      </Surface>
++    );
++  }
++
++  return (
++    <Surface>
++      <Stack gap="space.5">
++        <h1>Account settings</h1>
++
++        <Stack gap="space.4">
++          <h2>Delete account</h2>
++          <p>Permanently delete your account and all associated data.</p>
++
++          {!confirming && (
++            <Stack direction="row" align="start">
++              <Button variant="destructive" onClick={() => setConfirming(true)}>
++                Delete account
++              </Button>
++            </Stack>
++          )}
++        </Stack>
++
++        {confirming && (
++          <Surface tone="subtle" padding="space.5">
++            <Stack gap="space.4">
++              <Alert intent="warning" title="This can't be undone">
++                Deleting your account permanently removes your profile, settings and all
++                saved data. You won't be able to recover it.
++              </Alert>
++              <Input
++                label={`Type ${CONFIRM_PHRASE} to confirm`}
++                value={typed}
++                onChange={(e) => setTyped(e.target.value)}
++                autoComplete="off"
++                autoFocus
++              />
++              <Stack direction="row" gap="space.3" align="center">
++                <Button variant="secondary" onClick={cancel}>
++                  Cancel
++                </Button>
++                <Button
++                  variant="destructive"
++                  disabled={!matches}
++                  onClick={confirmDelete}
++                >
++                  Permanently delete account
++                </Button>
++              </Stack>
++            </Stack>
++          </Surface>
++        )}
++      </Stack>
++    </Surface>
++  );
+ }

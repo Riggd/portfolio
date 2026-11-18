@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "switch-not-checkbox",
+        "pass": false,
+        "score": 0.3,
+        "reasoning": "The toggle is an <input type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."
+      },
+      {
+        "rubricId": "label-description",
+        "pass": false,
+        "score": 0.6,
+        "reasoning": "Each setting has a title (a <label> with the setting name) and a supporting description (a <span> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."
+      },
+      {
+        "rubricId": "system-layout",
+        "pass": true,
+        "score": 0.85,
+        "reasoning": "The section is built from the system's layout primitives: Surface wraps the content, and Stack with gap tokens (space.5, space.4, space.1) handles the vertical and horizontal grouping and spacing of the header, rows, and text pair. No ad-hoc margins or padding values are used for spacing. Minor deduction because the heading uses an inline style for margin and colour rather than a primitive."
+      }
+    ],
+    "overallNotes": "The change does build the three independent settings with title and description, using Surface and Stack for layout, which is the strongest part of the diff. The control is the weak point: it is a native checkbox with role=\"switch\", not a design-system switch component, and the API reference offers no switch to use. The settings-row pattern cannot be checked because the diff does not reference one. Only system-layout passes clearly."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "switch-not-checkbox",
+          "pass": false,
+          "score": 0.3,
+          "reasoning": "The toggle is an <input type=\"checkbox\"> with role=\"switch\" added. The API reference lists no Switch component, so the diff does not use a design-system switch control. It relies on a native checkbox with an ARIA role override, which is a checkbox underneath and does not clearly meet the 'system's on/off switch control, not checkboxes' requirement."
+        },
+        {
+          "rubricId": "label-description",
+          "pass": false,
+          "score": 0.6,
+          "reasoning": "Each setting has a title (a <label> with the setting name) and a supporting description (a <span> linked via aria-describedby), which matches the general title-plus-description shape. However, the diff does not show or reuse any system settings-row component or pattern, so conformance to 'the system's settings-row pattern' cannot be verified from the diff. The row is hand-assembled from Stack, label, and span."
+        },
+        {
+          "rubricId": "system-layout",
+          "pass": true,
+          "score": 0.85,
+          "reasoning": "The section is built from the system's layout primitives: Surface wraps the content, and Stack with gap tokens (space.5, space.4, space.1) handles the vertical and horizontal grouping and spacing of the header, rows, and text pair. No ad-hoc margins or padding values are used for spacing. Minor deduction because the heading uses an inline style for margin and colour rather than a primitive."
+        }
+      ],
+      "overallNotes": "The change does build the three independent settings with title and description, using Surface and Stack for layout, which is the strongest part of the diff. The control is the weak point: it is a native checkbox with role=\"switch\", not a design-system switch component, and the API reference offers no switch to use. The settings-row pattern cannot be checked because the diff does not reference one. Only system-layout passes clearly."
+    }
+  ]
+}

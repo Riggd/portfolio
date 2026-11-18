@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "transient-pattern",
+        "pass": false,
+        "score": 0.35,
+        "reasoning": "The success message is an inline <Alert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."
+      },
+      {
+        "rubricId": "non-intrusive",
+        "pass": true,
+        "score": 0.9,
+        "reasoning": "The message sits in a <div role=\"status\" aria-live=\"polite\"> that stays mounted, so screen readers announce it politely without interrupting. Nothing calls focus() or moves focus to the alert, and the feedback is non-modal and non-blocking. It clears itself after DISMISS_MS, and the email and chip inputs remain usable throughout."
+      },
+      {
+        "rubricId": "concise-copy",
+        "pass": true,
+        "score": 0.8,
+        "reasoning": "The title \"Preferences saved\" is short and specific about what succeeded. The body \"Your notification preferences have been updated.\" is slightly redundant with the title but still brief and clear. Overall it meets the concise and specific bar."
+      }
+    ],
+    "overallNotes": "The change adds post-save feedback that auto-dismisses after 4 seconds and uses a polite live region, so it is non-blocking and accessible. Its weak point is the transient-pattern item: the feedback is an inline Alert inside the form, not a clearly identified design-system transient component such as a toast, and the diff does not show one exists. Focus is not moved, and the copy is short and specific."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "transient-pattern",
+          "pass": false,
+          "score": 0.35,
+          "reasoning": "The success message is an inline <Alert intent=\"success\"> rendered inside the form layout, not a toast or other dedicated transient component. The API reference lists no toast/notification component, so the diff cannot be verified as using the design system's transient feedback pattern. It does auto-clear after 4s and does not block the UI, which partly matches the intent, but the inline-banner placement is closer to the inline pattern the rubric excludes. Not a clear pass."
+        },
+        {
+          "rubricId": "non-intrusive",
+          "pass": true,
+          "score": 0.9,
+          "reasoning": "The message sits in a <div role=\"status\" aria-live=\"polite\"> that stays mounted, so screen readers announce it politely without interrupting. Nothing calls focus() or moves focus to the alert, and the feedback is non-modal and non-blocking. It clears itself after DISMISS_MS, and the email and chip inputs remain usable throughout."
+        },
+        {
+          "rubricId": "concise-copy",
+          "pass": true,
+          "score": 0.8,
+          "reasoning": "The title \"Preferences saved\" is short and specific about what succeeded. The body \"Your notification preferences have been updated.\" is slightly redundant with the title but still brief and clear. Overall it meets the concise and specific bar."
+        }
+      ],
+      "overallNotes": "The change adds post-save feedback that auto-dismisses after 4 seconds and uses a polite live region, so it is non-blocking and accessible. Its weak point is the transient-pattern item: the feedback is an inline Alert inside the form, not a clearly identified design-system transient component such as a toast, and the diff does not show one exists. Focus is not moved, and the copy is short and specific."
+    }
+  ]
+}

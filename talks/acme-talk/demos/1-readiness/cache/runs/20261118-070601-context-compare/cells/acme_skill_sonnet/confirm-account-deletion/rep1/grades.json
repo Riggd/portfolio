@@ -1,0 +1,72 @@
+{
+  "overall": 84.025,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": [
+        {
+          "dimension": "compile",
+          "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+          "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+        }
+      ]
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 46.75,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "uses-confirmation-pattern: The change does not use a confirmation dialog. It expands the delete card inline: an Alert with intent=\"warning\" plus a text Input, rendered inside the same Surface. The API reference lists no Dialog or Modal component, so the diff gives no evidence of a design-system confirmation dialog pattern. This is closer to the inline-warning approach the rubric excludes, though the change does not use a browser confirm() or a generic overlay."
+        },
+        {
+          "dimension": "judgment",
+          "message": "destructive-not-default: The final confirm button is variant=\"destructive\" and is visually distinct from the secondary Cancel button. It is disabled until the phrase matches and is not autofocused. However, it is the only prominent action in the confirmation step, and it is the form's submit button, so it is arguably the visually primary action. Pressing Enter in the input will submit once the phrase matches. The rubric's requirement that the destructive action not be the visually primary action is therefore not clearly met."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "compile",
+      "message": "setup, not the agent: 1 type error(s) outside the workspace, in the system's own source under the fixture's compiler options. First: ../../../../../../../../../../../../packages/acme/src/components/Chip/Chip.tsx(3,18): error TS2430: Interface 'ChipProps' incorrectly extends interface 'Omit<HTMLAttributes<HTMLSpanElement>, \"children\" | \"onClick\">'.",
+      "fix": "these never gate; they mean the fixture compiles this system's source differently from the system's own build"
+    },
+    {
+      "dimension": "judgment",
+      "message": "uses-confirmation-pattern: The change does not use a confirmation dialog. It expands the delete card inline: an Alert with intent=\"warning\" plus a text Input, rendered inside the same Surface. The API reference lists no Dialog or Modal component, so the diff gives no evidence of a design-system confirmation dialog pattern. This is closer to the inline-warning approach the rubric excludes, though the change does not use a browser confirm() or a generic overlay."
+    },
+    {
+      "dimension": "judgment",
+      "message": "destructive-not-default: The final confirm button is variant=\"destructive\" and is visually distinct from the secondary Cancel button. It is disabled until the phrase matches and is not autofocused. However, it is the only prominent action in the confirmation step, and it is the form's submit button, so it is arguably the visually primary action. Pressing Enter in the input will submit once the phrase matches. The rubric's requirement that the destructive action not be the visually primary action is therefore not clearly met."
+    }
+  ]
+}

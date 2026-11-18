@@ -1,0 +1,50 @@
+{
+  "output": {
+    "verdicts": [
+      {
+        "rubricId": "system-status-components",
+        "pass": true,
+        "score": 0.8,
+        "reasoning": "Sync status is rendered with the design system's Alert (intent success/warning/danger) and integration health with the Badge component. There are no hand-colored dots, no color values, and no custom status CSS. The only inline style is list layout (listStyle, margin, padding), not color. Semantic token colors are applied implicitly through the components rather than referenced explicitly in the diff, so the score is not 1."
+      },
+      {
+        "rubricId": "not-color-only",
+        "pass": true,
+        "score": 0.95,
+        "reasoning": "Each sync state carries a text title ('Sync online', 'Sync reconnecting', 'Sync offline') and a descriptive message, and each integration health is shown as a text Badge label ('Operational', 'Degraded', 'Down'). The meaning is conveyed by text, not color alone."
+      },
+      {
+        "rubricId": "system-typography",
+        "pass": false,
+        "score": 0.3,
+        "reasoning": "The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare <h2> and the integration names are bare <span> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."
+      }
+    ],
+    "overallNotes": "The change builds the sync banner and integration health list from design-system primitives (Alert, Badge, Stack, Surface) and uses intent-based props rather than hand-colored markup, which supports the component-usage rubric. Status is conveyed by text labels as well as color, so it is not color-only. The typography rubric is not evidenced: the diff uses no system typography utilities for status text, and the raw h2 and span elements are unstyled."
+  },
+  "rawSamples": [
+    {
+      "verdicts": [
+        {
+          "rubricId": "system-status-components",
+          "pass": true,
+          "score": 0.8,
+          "reasoning": "Sync status is rendered with the design system's Alert (intent success/warning/danger) and integration health with the Badge component. There are no hand-colored dots, no color values, and no custom status CSS. The only inline style is list layout (listStyle, margin, padding), not color. Semantic token colors are applied implicitly through the components rather than referenced explicitly in the diff, so the score is not 1."
+        },
+        {
+          "rubricId": "not-color-only",
+          "pass": true,
+          "score": 0.95,
+          "reasoning": "Each sync state carries a text title ('Sync online', 'Sync reconnecting', 'Sync offline') and a descriptive message, and each integration health is shown as a text Badge label ('Operational', 'Degraded', 'Down'). The meaning is conveyed by text, not color alone."
+        },
+        {
+          "rubricId": "system-typography",
+          "pass": false,
+          "score": 0.3,
+          "reasoning": "The diff applies no typography utilities or type-scale classes to status text. The integrations heading is a bare <h2> and the integration names are bare <span> elements with no styling. Any typography on the Alert and Badge text is handled inside those components and is not visible in the diff, so the rubric cannot be verified as satisfied."
+        }
+      ],
+      "overallNotes": "The change builds the sync banner and integration health list from design-system primitives (Alert, Badge, Stack, Surface) and uses intent-based props rather than hand-colored markup, which supports the component-usage rubric. Status is conveyed by text labels as well as color, so it is not color-only. The typography rubric is not evidenced: the diff uses no system typography utilities for status text, and the raw h2 and span elements are unstyled."
+    }
+  ]
+}
