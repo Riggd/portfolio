@@ -1,0 +1,61 @@
+{
+  "overall": 84.025,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 46.75,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "uses-confirmation-pattern: The confirmation is an inline expansion: a role=\"alertdialog\" div rendered inside the existing section, using the DS Alert (intent=\"warning\") and Button. The API reference shows no dialog or modal component, and the diff does not use one. It is therefore closer to the 'inline warning' the rubric rejects than to a design-system confirmation dialog pattern. The ARIA role is a partial nod toward a dialog but does not establish that the DS dialog pattern was used."
+        },
+        {
+          "dimension": "judgment",
+          "message": "destructive-not-default: The confirm-step destructive button is visually distinct (variant=\"destructive\") and is disabled until the 'I understand' checkbox is checked, and no autoFocus is set, so it is not default-focused. However, within the confirmation step it is the only emphasized action, with Cancel as the secondary button, so it can reasonably be read as the visually primary action. The rubric requires it to be neither default-focused nor visually primary, and the diff does not clearly meet that, so this is not a clear pass."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "judgment",
+      "message": "uses-confirmation-pattern: The confirmation is an inline expansion: a role=\"alertdialog\" div rendered inside the existing section, using the DS Alert (intent=\"warning\") and Button. The API reference shows no dialog or modal component, and the diff does not use one. It is therefore closer to the 'inline warning' the rubric rejects than to a design-system confirmation dialog pattern. The ARIA role is a partial nod toward a dialog but does not establish that the DS dialog pattern was used."
+    },
+    {
+      "dimension": "judgment",
+      "message": "destructive-not-default: The confirm-step destructive button is visually distinct (variant=\"destructive\") and is disabled until the 'I understand' checkbox is checked, and no autoFocus is set, so it is not default-focused. However, within the confirmation step it is the only emphasized action, with Cancel as the secondary button, so it can reasonably be read as the visually primary action. The rubric requires it to be neither default-focused nor visually primary, and the diff does not clearly meet that, so this is not a clear pass."
+    }
+  ]
+}

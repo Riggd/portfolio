@@ -1,0 +1,61 @@
+{
+  "overall": 84.025,
+  "gate": "review",
+  "dimensions": {
+    "imports": {
+      "dimension": "imports",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "apiFidelity": {
+      "dimension": "apiFidelity",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "tokenDiscipline": {
+      "dimension": "tokenDiscipline",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "a11yStatic": {
+      "dimension": "a11yStatic",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "compile": {
+      "dimension": "compile",
+      "score": 100,
+      "gate": "pass",
+      "diffs": []
+    },
+    "judgment": {
+      "dimension": "judgment",
+      "score": 46.75,
+      "gate": "review",
+      "diffs": [
+        {
+          "dimension": "judgment",
+          "message": "uses-confirmation-pattern: The diff does not use a design-system dialog component. The confirmation step is a hand-built div with role=\"alertdialog\" that renders an inline Alert (intent=\"warning\") in the section, so it is an inline warning rather than an overlay dialog. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern, and nothing in it confirms that one exists."
+        },
+        {
+          "dimension": "judgment",
+          "message": "destructive-not-default: Neither confirm button has autoFocus, so nothing is default-focused, and the Cancel button is variant=\"secondary\". The destructive styling is distinct. However, the confirm button is the destructive variant while Cancel is secondary, so the destructive action is arguably the most visually prominent action in the step, which fails the 'not visually primary' part. The diff also never moves focus into the alertdialog after it opens, so the focus behaviour is unverified. Ambiguous, so not a pass."
+        }
+      ]
+    }
+  },
+  "diffs": [
+    {
+      "dimension": "judgment",
+      "message": "uses-confirmation-pattern: The diff does not use a design-system dialog component. The confirmation step is a hand-built div with role=\"alertdialog\" that renders an inline Alert (intent=\"warning\") in the section, so it is an inline warning rather than an overlay dialog. The API reference lists no dialog component, so the diff cannot be shown to use the DS confirmation pattern, and nothing in it confirms that one exists."
+    },
+    {
+      "dimension": "judgment",
+      "message": "destructive-not-default: Neither confirm button has autoFocus, so nothing is default-focused, and the Cancel button is variant=\"secondary\". The destructive styling is distinct. However, the confirm button is the destructive variant while Cancel is secondary, so the destructive action is arguably the most visually prominent action in the step, which fails the 'not visually primary' part. The diff also never moves focus into the alertdialog after it opens, so the focus behaviour is unverified. Ambiguous, so not a pass."
+    }
+  ]
+}
