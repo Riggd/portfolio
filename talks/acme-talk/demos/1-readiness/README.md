@@ -1,13 +1,21 @@
 # Demo 1: Readiness audit
 
-ODSB is installed from GitHub at a pinned commit (see `package.json`). Acme's entry is in `systems.config.json`.
-Cached audit and run outputs go in `cache/`.
+ODSB is installed from GitHub at a pinned commit (see `package.json`). Both Acme states are configured in `systems.config.json`:
+
+| System | Root | Agent context |
+|---|---|---|
+| `acme-before` | `.before/acme` (generated, gitignored) | none |
+| `acme` | `packages/acme` | AGENTS.md, llms.txt, CHANGELOG.md, `.claude/skills/acme` |
+
+`scripts/make-before.mjs` builds the before copy by removing the files listed in `before-state.json`. It runs before every `extract` and `doctor`.
 
 ```bash
-pnpm install                                   # from talks/acme-talk
-pnpm readiness                                 # build tokens, extract, audit
-pnpm --filter demo-1-readiness run doctor
-pnpm --silent --filter demo-1-readiness run audit:json > demos/1-readiness/cache/<name>.json
+pnpm install                 # from talks/acme-talk
+pnpm readiness               # build tokens, make before copy, extract, audit both
+pnpm readiness:before        # audit before only (after extract)
+pnpm readiness:after         # audit after only
 ```
+
+Cached results: `cache/audit-before.json` (52.9), `cache/audit-after.json` (68.9).
 
 Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit

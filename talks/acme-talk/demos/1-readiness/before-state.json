@@ -1,0 +1,4 @@
+{
+  "$comment": "Agent-context files that exist only in Acme's 'after' state. scripts/make-before.mjs copies packages/acme to .before/acme without them. Add every new agent-context file here.",
+  "exclude": ["AGENTS.md", "CLAUDE.md", "llms.txt", "CHANGELOG.md", ".claude"]
+}

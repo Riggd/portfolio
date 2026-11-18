@@ -1,0 +1,21 @@
+# Acme DS
+
+> React 18 + TypeScript design system. Components are styled only with design tokens (CSS variables).
+> Import components from `@acme/ds` and load `@acme/ds/foundations.css` once at the app root.
+
+## Docs
+
+- [Agent guide](AGENTS.md): setup, principles, component usage, token rules
+- [Usage rules](acme.rules.json): machine-readable guidance and review categories (source of truth)
+- [Changelog](CHANGELOG.md)
+- [Acme skill](.claude/skills/acme/SKILL.md): step-by-step workflow for building UI with Acme
+
+## Components
+
+- [Button](src/components/Button/Button.tsx): actions. variant: primary | secondary | destructive | ghost; size: sm | md
+- [Alert](src/components/Alert/Alert.tsx): inline status messages. intent: success | warning | danger
+
+## Tokens
+
+- [Primitive](tokens/primitive.json), [Semantic](tokens/semantic.json), [Component](tokens/component.json): DTCG JSON
+- Built output: `dist/tokens.css` (CSS variables), `dist/tokens.ts` (typed map)

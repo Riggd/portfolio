@@ -23,7 +23,7 @@ Use only measured numbers. Placeholders in `[brackets]` get filled from `demos/*
 
 **Run:**
 ```bash
-pnpm readiness
+pnpm readiness:before
 ```
 
 > "This is Acme as most teams ship it: typed components, tokens, a little documentation, and nothing written for agents."
@@ -42,13 +42,15 @@ Walk through three lines only:
 
 ### 3. Add agent context, re-audit (1:30)
 
-**Show:** `git checkout acme-after` (AGENTS.md, Acme skill, llms.txt, CHANGELOG, `@deprecated` on Card). Don't edit files on stage.
+**Show:** the four files in `packages/acme/`: `AGENTS.md`, `llms.txt`, `CHANGELOG.md`, `.claude/skills/acme/SKILL.md`. Nothing else differs between before and after. Don't edit files on stage.
 
 > "Now we add what a new teammate would get on day one: an AGENTS.md, a skill with our usage rules, and a changelog. We don't change a single component."
 
-**Run:** `pnpm readiness`
+**Run:** `pnpm readiness:after`
 
-> "Same components. The score goes from **52.9 to [after score], [tier]**."
+> "Same components. The score goes from **52.9 to 68.9**. Enablement goes from 20 to 65, docs from 70 to 100, deprecation from 0 to 40."
+>
+> "It's still Invested, just under AI-native. What's left isn't documentation: there's no MCP server, the token files aren't in a format tools can detect, and the prop names differ from what models expect. Those are real engineering work, and now we know where to spend it."
 
 ### 4. The run report (2:00)
 

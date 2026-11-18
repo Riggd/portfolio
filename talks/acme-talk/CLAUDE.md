@@ -51,7 +51,9 @@ acme-talk/
   - *before*: no AGENTS.md, no skill, thin docs
   - *after*: AGENTS.md, an Acme skill, and the rules file linked as docs
 
-  Switch between them with a git tag or a flag, not by editing files on stage.
+  Switch between them with a flag, not by editing files on stage. `packages/acme` is the *after* state. `demos/1-readiness/scripts/make-before.mjs` copies it to `demos/1-readiness/.before/acme` (gitignored) without the files listed in `demos/1-readiness/before-state.json`, and ODSB audits both as systems `acme-before` and `acme`. Every new agent-context file must be added to `before-state.json`.
+
+  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18: before 52.9, after 68.9 (both Invested).
 
 ## Token naming notes
 

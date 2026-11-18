@@ -2,7 +2,7 @@
   "systemsConfigPath": "/home/user/portfolio/talks/acme-talk/demos/1-readiness/systems.config.json",
   "run": null,
   "systems": {
-    "acme": {
+    "acme-before": {
       "checks": [
         {
           "id": "surface",

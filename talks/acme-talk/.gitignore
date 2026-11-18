@@ -5,3 +5,4 @@ dist/
 !.env.example
 # ODSB generated catalogs/tokens (cached outputs go in demos/*/cache/)
 demos/1-readiness/data/
+demos/1-readiness/.before/

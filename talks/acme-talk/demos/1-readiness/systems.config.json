@@ -1,6 +1,18 @@
 {
   "dataDir": "data",
   "systems": {
+    "acme-before": {
+      "root": ".before/acme",
+      "rootEnv": "ACME_DS_BEFORE_DIR",
+      "componentsSrc": "src/components",
+      "componentsPkg": "@acme/ds",
+      "foundationsPkg": "@acme/ds",
+      "foundationsCss": ["dist/tokens.css", "src/foundations.css"],
+      "catalogStrategy": "docgen",
+      "agentContext": {
+        "agentsMd": ["AGENTS.md"]
+      }
+    },
     "acme": {
       "root": "../../packages/acme",
       "rootEnv": "ACME_DS_DIR",
@@ -10,7 +22,9 @@
       "foundationsCss": ["dist/tokens.css", "src/foundations.css"],
       "catalogStrategy": "docgen",
       "agentContext": {
-        "agentsMd": ["AGENTS.md"]
+        "agentsMd": ["AGENTS.md"],
+        "skillDirs": [".claude/skills"],
+        "extraDocs": ["acme.rules.json", "llms.txt"]
       }
     }
   }
