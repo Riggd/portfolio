@@ -29,13 +29,13 @@ Full plan: `docs/build-plan.md`. Talk run-of-show: `docs/talk-outline.md`.
 
 ```
 acme-talk/
-  packages/acme/          tokens, components, rules, corpus, AGENTS.md
+  packages/acme/          tokens, components, rules, AGENTS.md, llms.txt, skill
     tokens/               DTCG JSON: primitive -> semantic -> component
     acme.rules.json       usage rules + the 7 error categories (single source of truth)
-    corpus/               30 TSX files + answers.json (see corpus/ERRORS.md)
   demos/1-readiness/      ODSB (pinned git dep) + Acme systems.config.json
   demos/2-token-sync/     Claude Code skill + prompt, Style Dictionary build
   demos/3-adherence/      lint rules, judge prompt, Decision 1 script, scoreboard
+    corpus/               30 TSX files + answers.json (see corpus/ERRORS.md). Kept out of packages/acme so agents in ODSB runs can't read the answer key.
   docs/                   build plan, talk outline, kickoff prompt
 ```
 
@@ -53,7 +53,7 @@ acme-talk/
 
   Switch between them with a flag, not by editing files on stage. `packages/acme` is the *after* state. `demos/1-readiness/scripts/make-before.mjs` copies it to `demos/1-readiness/.before/acme` (gitignored) without the files listed in `demos/1-readiness/before-state.json`, and ODSB audits both as systems `acme-before` and `acme`. Every new agent-context file must be added to `before-state.json`.
 
-  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18: before 52.9, after 68.9 (both Invested).
+  Commands (from `talks/acme-talk`): `pnpm readiness` (build tokens, extract, audit both), `pnpm readiness:before`, `pnpm readiness:after`. Measured Nov 18: before 45.9, after 69.9 (both Invested).
 
 ## Token naming notes
 

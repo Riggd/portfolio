@@ -16,6 +16,6 @@ pnpm readiness:before        # audit before only (after extract)
 pnpm readiness:after         # audit after only
 ```
 
-Cached results: `cache/audit-before.json` (52.9), `cache/audit-after.json` (68.9).
+Cached results: `cache/audit-before.json` (45.9), `cache/audit-after.json` (69.9).
 
 Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit

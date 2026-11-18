@@ -28,7 +28,8 @@ Acme DS (packages/acme)
 
 ```
 acme-talk/                pnpm workspaces
-  packages/acme           tokens, components, rules, corpus, AGENTS.md
+  packages/acme           tokens, components, rules, AGENTS.md
+  demos/3-adherence/corpus  seeded corpus + answer key (outside the package agents read)
   demos/1-readiness       ODSB (pinned git dep) + Acme config
   demos/2-token-sync      Claude Code skill + prompt, Style Dictionary build
   demos/3-adherence       lint rules, judge prompt, Decision 1 script, scoreboard
@@ -50,7 +51,7 @@ The spacing scale is 4 / 8 / 12 / 16 / 24 / 32 / 48 (`space.1` to `space.7`). St
 
 **Rules file.** `acme.rules.json` holds the usage guidance for each token and component, plus the 7 error categories. Both the Sonnet judge and Gemini Decision 1 read it as context.
 
-**Corpus.** 30 TSX screens and snippets: 20 with exactly one seeded error and 10 clean, to measure false positives. Generate the base screens against Acme, then plant the errors by hand. `answers.json` records file, line, category and expected verdict for each. The full spec is in `packages/acme/corpus/ERRORS.md`.
+**Corpus.** 30 TSX screens and snippets: 20 with exactly one seeded error and 10 clean, to measure false positives. Generate the base screens against Acme, then plant the errors by hand. `answers.json` records file, line, category and expected verdict for each. The full spec is in `demos/3-adherence/corpus/ERRORS.md`. The corpus lives outside `packages/acme` so agents in ODSB runs can't read the answer key.
 
 | Category | Example | Seeded files | Linter should catch |
 |----------|---------|--------------|---------------------|

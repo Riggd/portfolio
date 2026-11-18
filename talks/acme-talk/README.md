@@ -18,5 +18,5 @@ Start with `CLAUDE.md`, then `docs/kickoff-prompt.md`.
 | `docs/kickoff-prompt.md` | First prompt for Claude Code (the day-1 spike) |
 | `packages/acme/tokens/` | DTCG tokens in three tiers: primitive, semantic, component |
 | `packages/acme/acme.rules.json` | Usage rules + the 7 error categories |
-| `packages/acme/corpus/ERRORS.md` | Spec for the seeded corpus and the answer key |
+| `demos/3-adherence/corpus/ERRORS.md` | Spec for the seeded corpus and the answer key |
 | `demos/*/` | One folder per demo (empty until built) |

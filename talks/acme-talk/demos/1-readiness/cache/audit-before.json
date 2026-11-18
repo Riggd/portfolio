@@ -145,19 +145,24 @@
         {
           "id": "docs-greppability",
           "title": "Docs greppability",
-          "score": 70,
+          "score": 0,
           "findings": [
             {
               "severity": "info",
-              "message": "1 markdown file(s) found in the repo."
+              "message": "0 markdown file(s) found in the repo."
             },
             {
               "severity": "info",
               "message": "Catalog available: scoring per-component coverage mode."
             },
             {
-              "severity": "info",
-              "message": "2/2 components (100%) are mentioned in at least one markdown file."
+              "severity": "warn",
+              "message": "0/2 components (0%) are mentioned in at least one markdown file."
+            },
+            {
+              "severity": "warn",
+              "message": "2 component(s) have no markdown mention: Button, Alert.",
+              "fix": "A component with zero markdown reach is invisible to any docs-grepping or retrieval-based agent workflow."
             },
             {
               "severity": "warn",
@@ -168,7 +173,7 @@
       ],
       "score": {
         "surface": {
-          "score": 52.9,
+          "score": 45.9,
           "checks": [
             {
               "id": "surface",
@@ -311,19 +316,24 @@
             {
               "id": "docs-greppability",
               "title": "Docs greppability",
-              "score": 70,
+              "score": 0,
               "findings": [
                 {
                   "severity": "info",
-                  "message": "1 markdown file(s) found in the repo."
+                  "message": "0 markdown file(s) found in the repo."
                 },
                 {
                   "severity": "info",
                   "message": "Catalog available: scoring per-component coverage mode."
                 },
                 {
-                  "severity": "info",
-                  "message": "2/2 components (100%) are mentioned in at least one markdown file."
+                  "severity": "warn",
+                  "message": "0/2 components (0%) are mentioned in at least one markdown file."
+                },
+                {
+                  "severity": "warn",
+                  "message": "2 component(s) have no markdown mention: Button, Alert.",
+                  "fix": "A component with zero markdown reach is invisible to any docs-grepping or retrieval-based agent workflow."
                 },
                 {
                   "severity": "warn",
@@ -349,10 +359,10 @@
           "score": null,
           "note": "TODO: pass --run <dir> to compute Vocabulary-behavioral from an actual benchmark run."
         },
-        "composite": 52.9,
+        "composite": 45.9,
         "basis": "surface-only",
         "tier": "Invested",
-        "tierRationale": "composite 52.9 in [40, 70)"
+        "tierRationale": "composite 45.9 in [40, 70)"
       }
     }
   }

@@ -4,7 +4,7 @@ The corpus is the ground truth for Demo 3. Every score in the talk is checked ag
 
 ## Shape
 
-- **30 files** in `packages/acme/corpus/files/`, named `NN-short-slug.tsx` (`01-settings-page.tsx` … `30-…`).
+- **30 files** in `demos/3-adherence/corpus/files/`, named `NN-short-slug.tsx` (`01-settings-page.tsx` … `30-…`).
 - **20 seeded files:** exactly **one** error each.
 - **10 clean files:** zero errors. These measure false positives.
 - Each file is a realistic screen or component: 30–120 lines, using Acme components and tokens correctly everywhere except at the seeded error.
@@ -12,7 +12,7 @@ The corpus is the ground truth for Demo 3. Every score in the talk is checked ag
 
 ## Categories
 
-Category ids come from `../acme.rules.json` → `categories[]`. Don't invent new ids.
+Category ids come from `packages/acme/acme.rules.json` → `categories[]`. Don't invent new ids.
 
 | Category id | Seeded files | Subtle cases (min) | Linter should catch |
 |-------------|-------------:|-------------------:|--------------------|
