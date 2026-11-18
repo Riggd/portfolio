@@ -4,7 +4,7 @@
     "acme-before": {
       "root": ".before/acme",
       "rootEnv": "ACME_DS_BEFORE_DIR",
-      "componentsSrc": "src/components",
+      "componentsSrc": "src",
       "componentsPkg": "@acme/ds",
       "foundationsPkg": "@acme/ds",
       "foundationsCss": ["dist/tokens.css", "src/foundations.css"],
@@ -16,7 +16,7 @@
     "acme": {
       "root": "../../packages/acme",
       "rootEnv": "ACME_DS_DIR",
-      "componentsSrc": "src/components",
+      "componentsSrc": "src",
       "componentsPkg": "@acme/ds",
       "foundationsPkg": "@acme/ds",
       "foundationsCss": ["dist/tokens.css", "src/foundations.css"],

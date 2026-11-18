@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  open-design-system-bench:
+    hash: 02526ae9c97a41824a93756e62b17f12d6ffd5f2443e8cc08fc47cf5fd42ac32
+    path: patches/open-design-system-bench.patch
+
 importers:
 
   .: {}
@@ -12,7 +17,7 @@ importers:
     dependencies:
       open-design-system-bench:
         specifier: github:christophhdesign/open-design-system-bench#e88f11a697cf53ca9a31c191989ddaa63a67a05d
-        version: git+https://git@github.com:christophhdesign/open-design-system-bench.git#e88f11a697cf53ca9a31c191989ddaa63a67a05d(typescript@5.6.3)
+        version: git+https://git@github.com:christophhdesign/open-design-system-bench.git#e88f11a697cf53ca9a31c191989ddaa63a67a05d(patch_hash=02526ae9c97a41824a93756e62b17f12d6ffd5f2443e8cc08fc47cf5fd42ac32)(typescript@5.6.3)
       tsx:
         specifier: ^4.7.0
         version: 4.23.15
@@ -3568,7 +3573,7 @@ snapshots:
       define-properties: 1.2.1
       es-object-atoms: 1.1.2
 
-  open-design-system-bench@git+https://git@github.com:christophhdesign/open-design-system-bench.git#e88f11a697cf53ca9a31c191989ddaa63a67a05d(typescript@5.6.3):
+  open-design-system-bench@git+https://git@github.com:christophhdesign/open-design-system-bench.git#e88f11a697cf53ca9a31c191989ddaa63a67a05d(patch_hash=02526ae9c97a41824a93756e62b17f12d6ffd5f2443e8cc08fc47cf5fd42ac32)(typescript@5.6.3):
     dependencies:
       '@babel/parser': 7.29.14
       '@babel/traverse': 7.29.14

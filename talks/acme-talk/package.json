@@ -20,6 +20,9 @@
       "allowedVersions": {
         "typescript": "5"
       }
+    },
+    "patchedDependencies": {
+      "open-design-system-bench": "patches/open-design-system-bench.patch"
     }
   }
 }
