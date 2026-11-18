@@ -10,6 +10,14 @@
   },
   "scripts": {
     "tokens": "pnpm --filter @acme/ds run tokens",
+    "readiness": "pnpm run tokens && pnpm --filter demo-1-readiness run extract && pnpm --filter demo-1-readiness run audit",
     "bench": "pnpm --filter demo-3-adherence run bench"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "typescript": "5"
+      }
+    }
   }
 }

@@ -21,7 +21,7 @@ Full plan: `docs/build-plan.md`. Talk run-of-show: `docs/talk-outline.md`.
 - **Gemini Decision 1** is used in Demo 3 only, as the one checker that isn't an agent. It's called by a short direct script (~50 lines) against the Gemini Decisions API. Model id: `gemini-decision-1`. It's a preview model, released Nov 11, 2026, so pin the version and cache every response.
 - **LLM judge (Demo 3):** Claude Sonnet.
 - **Demo 2 classifier:** the Claude Code run itself, not Gemini.
-- **Demo 1 uses ODSB as-is:** https://github.com/christophhdesign/open-design-system-bench (MIT). It's forked into `demos/1-readiness/odsb`. ODSB uses npm and has its own `package.json`, so keep it **out of** the pnpm workspace.
+- **Demo 1 uses ODSB as-is:** https://github.com/christophhdesign/open-design-system-bench (MIT). It's a pinned GitHub dependency of `demos/1-readiness` (commit `e88f11a`), not a vendored copy. Our only config is `demos/1-readiness/systems.config.json`, passed with `--config`. TypeScript is pinned to 5.x (ODSB's docgen breaks on TS 7). `run` writes runs inside `node_modules`, so copy every finished run into `cache/`.
 - **Figma:** create an Acme file with variables in week 1. Export through the Figma MCP or a plugin. The Variables REST API may require an Enterprise plan; verify before relying on it.
 - **Out of scope:** Jev (TypeSafe) and the PR gate from the first draft.
 
@@ -33,7 +33,7 @@ acme-talk/
     tokens/               DTCG JSON: primitive -> semantic -> component
     acme.rules.json       usage rules + the 7 error categories (single source of truth)
     corpus/               30 TSX files + answers.json (see corpus/ERRORS.md)
-  demos/1-readiness/      ODSB fork + Acme entry in systems.config.json
+  demos/1-readiness/      ODSB (pinned git dep) + Acme systems.config.json
   demos/2-token-sync/     Claude Code skill + prompt, Style Dictionary build
   demos/3-adherence/      lint rules, judge prompt, Decision 1 script, scoreboard
   docs/                   build plan, talk outline, kickoff prompt

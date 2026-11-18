@@ -3,6 +3,5 @@ dist/
 .env
 .env.*
 !.env.example
-# ODSB generated data (keep demo caches under demos/*/cache/)
-demos/1-readiness/odsb/runs/
-demos/1-readiness/odsb/catalogs/
+# ODSB generated catalogs/tokens (cached outputs go in demos/*/cache/)
+demos/1-readiness/data/

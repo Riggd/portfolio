@@ -1,5 +1,7 @@
 # Kickoff prompt: day-1 spike
 
+> Done Nov 18. Since then ODSB is no longer forked: it's a pinned GitHub dependency of `demos/1-readiness` (see CLAUDE.md).
+
 Paste the block below into Claude Code from the repo root.
 
 ---

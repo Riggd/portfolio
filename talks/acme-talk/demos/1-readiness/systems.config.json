@@ -1,7 +1,8 @@
 {
+  "dataDir": "data",
   "systems": {
     "acme": {
-      "root": "../../../packages/acme",
+      "root": "../../packages/acme",
       "rootEnv": "ACME_DS_DIR",
       "componentsSrc": "src/components",
       "componentsPkg": "@acme/ds",

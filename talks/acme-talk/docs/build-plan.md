@@ -21,7 +21,7 @@ Everything is built around Acme in one repo. Demo 1 runs ODSB against it unchang
 
 ```
 Acme DS (packages/acme)
-  Components + AGENTS.md/skill ──> ODSB fork ──> Demo 1 · Readiness audit
+  Components + AGENTS.md/skill ──> ODSB (pinned) ──> Demo 1 · Readiness audit
   Tokens ───────────────────────────────────────> Demo 2 · Token sync (Claude Code)
   Rules file + Corpus/key ──────────────────────> Demo 3 · Adherence bench ──> Gemini Decision 1 script
 ```
@@ -29,7 +29,7 @@ Acme DS (packages/acme)
 ```
 acme-talk/                pnpm workspaces
   packages/acme           tokens, components, rules, corpus, AGENTS.md
-  demos/1-readiness       ODSB fork + Acme config
+  demos/1-readiness       ODSB (pinned git dep) + Acme config
   demos/2-token-sync      Claude Code skill + prompt, Style Dictionary build
   demos/3-adherence       lint rules, judge prompt, Decision 1 script, scoreboard
 ```
@@ -190,7 +190,7 @@ The biggest risk is Gemini Decision 1 itself: it's in preview (since Nov 11, 202
 ## Decisions
 
 - LLM judge: Claude Sonnet.
-- Repo: one public repo, three demo folders, ODSB forked into `demos/1-readiness`.
+- Repo: one public repo, three demo folders, ODSB installed as a pinned GitHub dependency of `demos/1-readiness`.
 - Figma: create an Acme file with variables in week 1.
 - Stack: TypeScript with pnpm workspaces, Vite and Style Dictionary.
 - Agents: every AI step runs as headless Claude Code (`claude -p`) pointed at the repo. No SDK layer.

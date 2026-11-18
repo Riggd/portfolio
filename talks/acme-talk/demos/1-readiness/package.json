@@ -1,0 +1,18 @@
+{
+  "name": "demo-1-readiness",
+  "private": true,
+  "type": "module",
+  "description": "Demo 1: ODSB readiness audit against Acme DS. ODSB is installed from GitHub at a pinned commit.",
+  "scripts": {
+    "odsb": "tsx node_modules/open-design-system-bench/src/cli.ts",
+    "doctor": "pnpm run odsb doctor --config systems.config.json",
+    "extract": "pnpm run odsb extract --config systems.config.json",
+    "audit": "pnpm run odsb audit --system acme --config systems.config.json",
+    "audit:json": "tsx node_modules/open-design-system-bench/src/cli.ts audit --system acme --config systems.config.json --json"
+  },
+  "dependencies": {
+    "open-design-system-bench": "github:christophhdesign/open-design-system-bench#e88f11a697cf53ca9a31c191989ddaa63a67a05d",
+    "tsx": "^4.7.0",
+    "typescript": "~5.6.3"
+  }
+}
