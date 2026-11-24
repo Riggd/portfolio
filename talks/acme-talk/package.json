@@ -13,7 +13,10 @@
     "readiness": "pnpm run tokens && pnpm --filter demo-1-readiness run extract && pnpm --filter demo-1-readiness run audit",
     "readiness:before": "pnpm --filter demo-1-readiness run audit:before",
     "readiness:after": "pnpm --filter demo-1-readiness run audit:after",
-    "bench": "pnpm --filter demo-3-adherence run bench"
+    "bench": "pnpm --filter demo-3-adherence run bench",
+    "sync": "pnpm --filter demo-2-token-sync run sync",
+    "sync:replay": "pnpm --filter demo-2-token-sync run sync:replay",
+    "sync:init": "pnpm --filter demo-2-token-sync run sync:init"
   },
   "pnpm": {
     "peerDependencyRules": {

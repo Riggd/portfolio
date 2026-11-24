@@ -1,0 +1,12 @@
+{
+  "name": "demo-2-token-sync",
+  "private": true,
+  "type": "module",
+  "description": "Demo 2: Figma variables -> DTCG diff -> claude -p classification and changelog -> Style Dictionary build -> PR.",
+  "scripts": {
+    "sync": "node scripts/sync.mjs",
+    "sync:replay": "node scripts/sync.mjs --replay",
+    "sync:init": "node scripts/sync.mjs --init",
+    "pr": "node scripts/open-pr.mjs"
+  }
+}

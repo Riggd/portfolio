@@ -1,0 +1,142 @@
+{
+  "summary": {
+    "added": 6,
+    "removed": 3,
+    "changed": 1,
+    "drift": 0
+  },
+  "added": {
+    "color.feedback.error.fg": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.red.700"
+      }
+    },
+    "color.feedback.error.bg": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.red.50"
+      }
+    },
+    "color.feedback.error.border": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.red.500"
+      }
+    },
+    "color.feedback.info.fg": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.blue.700"
+      }
+    },
+    "color.feedback.info.bg": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.blue.50"
+      }
+    },
+    "color.feedback.info.border": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.blue.500"
+      }
+    }
+  },
+  "removed": {
+    "color.danger.fg": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.red.700"
+      }
+    },
+    "color.danger.bg": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.red.50"
+      }
+    },
+    "color.danger.border": {
+      "tier": "semantic",
+      "type": "color",
+      "value": {
+        "alias": "color.red.500"
+      }
+    }
+  },
+  "changed": {
+    "space.3": {
+      "tier": "primitive",
+      "type": "dimension",
+      "value": 14,
+      "previous": 12
+    }
+  },
+  "drift": {},
+  "renameCandidates": [
+    {
+      "from": "color.danger.fg",
+      "to": "color.feedback.error.fg",
+      "evidence": "same value and same leaf name"
+    },
+    {
+      "from": "color.danger.bg",
+      "to": "color.feedback.error.bg",
+      "evidence": "same value and same leaf name"
+    },
+    {
+      "from": "color.danger.border",
+      "to": "color.feedback.error.border",
+      "evidence": "same value and same leaf name"
+    }
+  ],
+  "groupRenames": [
+    {
+      "from": "color.danger",
+      "to": "color.feedback.error",
+      "tokens": 3
+    }
+  ],
+  "usage": {
+    "color.danger.fg": [
+      {
+        "file": "tokens/component.json",
+        "count": 1
+      }
+    ],
+    "color.danger.bg": [
+      {
+        "file": "tokens/component.json",
+        "count": 1
+      }
+    ],
+    "color.danger.border": [
+      {
+        "file": "tokens/component.json",
+        "count": 1
+      }
+    ],
+    "space.3": [
+      {
+        "file": "acme.rules.json",
+        "count": 1
+      },
+      {
+        "file": "src/foundations.css",
+        "count": 1
+      },
+      {
+        "file": "tokens/component.json",
+        "count": 2
+      }
+    ]
+  }
+}

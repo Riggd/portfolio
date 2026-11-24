@@ -1,0 +1,543 @@
+{
+ "version": 1,
+ "source": "figma-mcp",
+ "collections": [
+  {
+   "name": "Primitive",
+   "modes": [
+    "Default"
+   ]
+  },
+  {
+   "name": "Semantic",
+   "modes": [
+    "Default"
+   ]
+  }
+ ],
+ "variables": [
+  {
+   "name": "color/neutral/0",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#FFFFFF"
+  },
+  {
+   "name": "color/neutral/50",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#F9FAFB"
+  },
+  {
+   "name": "color/neutral/100",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#F3F4F6"
+  },
+  {
+   "name": "color/neutral/200",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#E5E7EB"
+  },
+  {
+   "name": "color/neutral/300",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#D1D5DB"
+  },
+  {
+   "name": "color/neutral/500",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#6B7280"
+  },
+  {
+   "name": "color/neutral/700",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#374151"
+  },
+  {
+   "name": "color/neutral/900",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#111827"
+  },
+  {
+   "name": "color/blue/50",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#EFF6FF"
+  },
+  {
+   "name": "color/blue/100",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#DBEAFE"
+  },
+  {
+   "name": "color/blue/500",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#3B82F6"
+  },
+  {
+   "name": "color/blue/600",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#2563EB"
+  },
+  {
+   "name": "color/blue/700",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#1D4ED8"
+  },
+  {
+   "name": "color/red/50",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#FEF2F2"
+  },
+  {
+   "name": "color/red/500",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#EF4444"
+  },
+  {
+   "name": "color/red/600",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#DC2626"
+  },
+  {
+   "name": "color/red/700",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#B91C1C"
+  },
+  {
+   "name": "color/green/50",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#F0FDF4"
+  },
+  {
+   "name": "color/green/500",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#22C55E"
+  },
+  {
+   "name": "color/green/700",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#15803D"
+  },
+  {
+   "name": "color/amber/50",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#FFFBEB"
+  },
+  {
+   "name": "color/amber/500",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#F59E0B"
+  },
+  {
+   "name": "color/amber/700",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#B45309"
+  },
+  {
+   "name": "color/violet/50",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#F5F3FF"
+  },
+  {
+   "name": "color/violet/600",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#7C3AED"
+  },
+  {
+   "name": "color/violet/700",
+   "collection": "Primitive",
+   "type": "COLOR",
+   "value": "#6D28D9"
+  },
+  {
+   "name": "space/0",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 0
+  },
+  {
+   "name": "space/1",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 4
+  },
+  {
+   "name": "space/2",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 8
+  },
+  {
+   "name": "space/3",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 12
+  },
+  {
+   "name": "space/4",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 16
+  },
+  {
+   "name": "space/5",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 24
+  },
+  {
+   "name": "space/6",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 32
+  },
+  {
+   "name": "space/7",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 48
+  },
+  {
+   "name": "radius/none",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 0
+  },
+  {
+   "name": "radius/sm",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 4
+  },
+  {
+   "name": "radius/md",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 8
+  },
+  {
+   "name": "radius/lg",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 12
+  },
+  {
+   "name": "radius/full",
+   "collection": "Primitive",
+   "type": "FLOAT",
+   "value": 9999
+  },
+  {
+   "name": "color/text/primary",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/900"
+   }
+  },
+  {
+   "name": "color/text/secondary",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "description": "Only on color.surface.default. Fails 4.5:1 contrast on color.surface.tinted.",
+   "value": {
+    "alias": "color/neutral/500"
+   }
+  },
+  {
+   "name": "color/text/disabled",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/300"
+   }
+  },
+  {
+   "name": "color/text/inverse",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/0"
+   }
+  },
+  {
+   "name": "color/text/link",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/blue/600"
+   }
+  },
+  {
+   "name": "color/surface/default",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/0"
+   }
+  },
+  {
+   "name": "color/surface/subtle",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/50"
+   }
+  },
+  {
+   "name": "color/surface/tinted",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/100"
+   }
+  },
+  {
+   "name": "color/surface/inverse",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/900"
+   }
+  },
+  {
+   "name": "color/border/default",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/200"
+   }
+  },
+  {
+   "name": "color/border/strong",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/300"
+   }
+  },
+  {
+   "name": "color/border/focus",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/blue/500"
+   }
+  },
+  {
+   "name": "color/action/primary/bg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/blue/600"
+   }
+  },
+  {
+   "name": "color/action/primary/bgHover",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/blue/700"
+   }
+  },
+  {
+   "name": "color/action/primary/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/0"
+   }
+  },
+  {
+   "name": "color/action/secondary/bg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/0"
+   }
+  },
+  {
+   "name": "color/action/secondary/bgHover",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/50"
+   }
+  },
+  {
+   "name": "color/action/secondary/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/900"
+   }
+  },
+  {
+   "name": "color/action/secondary/border",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/300"
+   }
+  },
+  {
+   "name": "color/action/destructive/bg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/red/600"
+   }
+  },
+  {
+   "name": "color/action/destructive/bgHover",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/red/700"
+   }
+  },
+  {
+   "name": "color/action/destructive/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/0"
+   }
+  },
+  {
+   "name": "color/action/ghost/bgHover",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/neutral/100"
+   }
+  },
+  {
+   "name": "color/action/ghost/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/blue/700"
+   }
+  },
+  {
+   "name": "color/danger/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/red/700"
+   }
+  },
+  {
+   "name": "color/danger/bg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/red/50"
+   }
+  },
+  {
+   "name": "color/danger/border",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/red/500"
+   }
+  },
+  {
+   "name": "color/feedback/success/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/green/700"
+   }
+  },
+  {
+   "name": "color/feedback/success/bg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/green/50"
+   }
+  },
+  {
+   "name": "color/feedback/success/border",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/green/500"
+   }
+  },
+  {
+   "name": "color/feedback/warning/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/amber/700"
+   }
+  },
+  {
+   "name": "color/feedback/warning/bg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/amber/50"
+   }
+  },
+  {
+   "name": "color/feedback/warning/border",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/amber/500"
+   }
+  },
+  {
+   "name": "color/brand/primary",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/violet/600"
+   }
+  },
+  {
+   "name": "color/brand/subtle",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/violet/50"
+   }
+  },
+  {
+   "name": "color/brand/fg",
+   "collection": "Semantic",
+   "type": "COLOR",
+   "value": {
+    "alias": "color/violet/700"
+   }
+  }
+ ]
+}
