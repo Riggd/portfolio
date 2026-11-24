@@ -1,7 +1,7 @@
 // Writes the synced tokens into the repo, rewrites references for confirmed renames, and cuts a changelog entry.
 import fs from 'node:fs';
 import path from 'node:path';
-import { ACME, TOKEN_DIR, applyToDocs, writeTier } from './tokens.mjs';
+import { ACME, applyToDocs, writeTier } from './tokens.mjs';
 
 const REF_FILES = ['acme.rules.json', 'AGENTS.md', 'llms.txt', '.claude/skills/acme/SKILL.md', 'tokens/component.json', 'tokens/semantic.json', 'tokens/primitive.json', 'src/foundations.css'];
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -56,4 +56,18 @@ export function writeChangelog(entry) {
   const text = fs.readFileSync(file, 'utf8');
   const i = text.indexOf('\n## ');
   fs.writeFileSync(file, text.slice(0, i + 1) + entry + text.slice(i + 1));
+}
+
+// Everything an apply can touch, so a failed build can be rolled back.
+const SNAPSHOT_FILES = [...REF_FILES, 'package.json', 'CHANGELOG.md'];
+export function snapshot() {
+  const snap = {};
+  for (const rel of SNAPSHOT_FILES) {
+    const f = path.join(ACME, rel);
+    if (fs.existsSync(f)) snap[rel] = fs.readFileSync(f, 'utf8');
+  }
+  return snap;
+}
+export function restore(snap) {
+  for (const [rel, text] of Object.entries(snap)) fs.writeFileSync(path.join(ACME, rel), text);
 }

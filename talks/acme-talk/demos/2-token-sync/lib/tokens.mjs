@@ -58,6 +58,24 @@ export function loadRepo() {
   return { docs, tokens };
 }
 
+// Clear errors for a bad export instead of a stack trace.
+export function validateExport(exp, source = 'export') {
+  const errs = [];
+  if (!exp || typeof exp !== 'object' || !Array.isArray(exp.variables)) return [`${source}: expected an object with a "variables" array (see figma/export-snippet.js)`];
+  const seen = new Set();
+  exp.variables.forEach((v, i) => {
+    const at = `${source}: variables[${i}]${v && v.name ? ` (${v.name})` : ''}`;
+    if (!v || typeof v.name !== 'string' || !v.name) return errs.push(`${at}: missing "name"`);
+    if (!['Primitive', 'Semantic'].includes(v.collection)) errs.push(`${at}: "collection" must be "Primitive" or "Semantic", got ${JSON.stringify(v.collection)}`);
+    if (!['COLOR', 'FLOAT'].includes(v.type)) errs.push(`${at}: "type" must be "COLOR" or "FLOAT", got ${JSON.stringify(v.type)}`);
+    const ok = v.value && typeof v.value === 'object' ? typeof v.value.alias === 'string' : v.type === 'COLOR' ? /^#[0-9a-fA-F]{6}$/.test(v.value) : typeof v.value === 'number';
+    if (!ok) errs.push(`${at}: "value" is not a valid ${v.type} value or {alias}: ${JSON.stringify(v.value)}`);
+    if (seen.has(v.name)) errs.push(`${at}: duplicate name`);
+    seen.add(v.name);
+  });
+  return errs;
+}
+
 // Figma export (see figma/export-snippet.js) -> same flat shape as flattenDtcg.
 export function normalizeFigma(exp) {
   const out = {};
