@@ -25,6 +25,8 @@ importers:
         specifier: ~5.6.3
         version: 5.6.3
 
+  demos/2-token-sync: {}
+
   packages/acme:
     devDependencies:
       '@types/node':

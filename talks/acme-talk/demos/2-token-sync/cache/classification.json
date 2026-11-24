@@ -1,0 +1,53 @@
+{
+  "diffHash": "e14b57125af5",
+  "meta": {
+    "model": "sonnet",
+    "cost_usd": 0.024959399999999996,
+    "duration_ms": 10369
+  },
+  "classification": {
+    "changes": [
+      {
+        "id": "c1",
+        "change_type": "rename",
+        "tokens": [
+          "color.danger"
+        ],
+        "to": "color.feedback.error",
+        "is_breaking": true,
+        "semver": "major",
+        "is_drift": false,
+        "rationale": "All 3 tokens (fg, bg, border) moved as a group with identical values and leaf names, so the meaning carries over, but the 3 references in tokens/component.json break until updated."
+      },
+      {
+        "id": "c2",
+        "change_type": "add",
+        "tokens": [
+          "color.feedback.info.fg",
+          "color.feedback.info.bg",
+          "color.feedback.info.border"
+        ],
+        "to": "",
+        "is_breaking": false,
+        "semver": "minor",
+        "is_drift": false,
+        "rationale": "Three new info tokens (blue 700/50/500) with no previous name, so nothing existing is affected."
+      },
+      {
+        "id": "c3",
+        "change_type": "value_change",
+        "tokens": [
+          "space.3"
+        ],
+        "to": "",
+        "is_breaking": true,
+        "semver": "major",
+        "is_drift": false,
+        "rationale": "space.3 goes from 12 to 14, which is off the 4/8/12/16/24/32/48 scale, and it is used in 4 places (acme.rules.json, src/foundations.css, and tokens/component.json twice), so this changes layout meaning and needs a person to confirm it."
+      }
+    ],
+    "overall_semver": "major",
+    "changelog_md": "### Added\n- `color.feedback.info.fg`, `color.feedback.info.bg` and `color.feedback.info.border` for informational status UI.\n\n### Changed\n- Renamed the `color.danger` group to `color.feedback.error` (`fg`, `bg`, `border`). Values are unchanged.\n- `space.3` changed from 12 to 14. 14 is not on the spacing scale (4/8/12/16/24/32/48).",
+    "migration_notes_md": "#### Rename `color.danger` to `color.feedback.error`\nBefore: `color.danger.fg`, `color.danger.bg`, `color.danger.border`\nAfter: `color.feedback.error.fg`, `color.feedback.error.bg`, `color.feedback.error.border`\n\nAffected: `tokens/component.json` (1 reference each to fg, bg and border). Update these references or the build breaks.\n\n#### `space.3` changed from 12 to 14\nBefore: `space.3` = 12\nAfter: `space.3` = 14\n\nAffected: `acme.rules.json` (1), `src/foundations.css` (1), `tokens/component.json` (2). 14 is off the spacing scale (4/8/12/16/24/32/48). Confirm it is intended. If it is, update the scale in `acme.rules.json`. If not, revert to 12."
+  }
+}
