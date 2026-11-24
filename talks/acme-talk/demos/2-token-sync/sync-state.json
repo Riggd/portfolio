@@ -147,8 +147,7 @@
   "space.3": {
     "tier": "primitive",
     "type": "dimension",
-    "value": 12,
-    "description": "Demo 2 changes this to 14px live. Do not change it ahead of time."
+    "value": 14
   },
   "space.4": {
     "tier": "primitive",
@@ -364,27 +363,6 @@
       "alias": "color.blue.700"
     }
   },
-  "color.danger.fg": {
-    "tier": "semantic",
-    "type": "color",
-    "value": {
-      "alias": "color.red.700"
-    }
-  },
-  "color.danger.bg": {
-    "tier": "semantic",
-    "type": "color",
-    "value": {
-      "alias": "color.red.50"
-    }
-  },
-  "color.danger.border": {
-    "tier": "semantic",
-    "type": "color",
-    "value": {
-      "alias": "color.red.500"
-    }
-  },
   "color.feedback.success.fg": {
     "tier": "semantic",
     "type": "color",
@@ -425,6 +403,48 @@
     "type": "color",
     "value": {
       "alias": "color.amber.500"
+    }
+  },
+  "color.feedback.error.fg": {
+    "tier": "semantic",
+    "type": "color",
+    "value": {
+      "alias": "color.red.700"
+    }
+  },
+  "color.feedback.error.bg": {
+    "tier": "semantic",
+    "type": "color",
+    "value": {
+      "alias": "color.red.50"
+    }
+  },
+  "color.feedback.error.border": {
+    "tier": "semantic",
+    "type": "color",
+    "value": {
+      "alias": "color.red.500"
+    }
+  },
+  "color.feedback.info.fg": {
+    "tier": "semantic",
+    "type": "color",
+    "value": {
+      "alias": "color.blue.700"
+    }
+  },
+  "color.feedback.info.bg": {
+    "tier": "semantic",
+    "type": "color",
+    "value": {
+      "alias": "color.blue.50"
+    }
+  },
+  "color.feedback.info.border": {
+    "tier": "semantic",
+    "type": "color",
+    "value": {
+      "alias": "color.blue.500"
     }
   },
   "color.brand.primary": {

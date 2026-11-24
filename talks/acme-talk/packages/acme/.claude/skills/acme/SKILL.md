@@ -20,7 +20,7 @@ Read `AGENTS.md` at the package root first. The full rules are in `acme.rules.js
    - Supporting action next to it (Cancel, Back) → `secondary`. Dense toolbars and inline edits → `ghost`.
 3. **Pick the Alert intent by state.** Error or failure → `danger`. Done successfully → `success`. Needs attention → `warning`. A neutral message ("Saved as draft") isn't success.
 4. **Pick tokens by meaning.**
-   - Errors: `color.danger.*`. Success: `color.feedback.success.*`. Warnings: `color.feedback.warning.*`.
+   - Errors: `color.feedback.error.*`. Success: `color.feedback.success.*`. Warnings: `color.feedback.warning.*`.
    - Never `color.brand.*` on errors, status, validation or actions.
    - `color.text.secondary` only on `color.surface.default`.
    - Spacing only from `--space-0`…`--space-7` (0 / 4 / 8 / 12 / 16 / 24 / 32 / 48 px).

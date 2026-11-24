@@ -61,7 +61,7 @@ CSS variables from `foundations.css`, or the typed map: `tokens.color.text.prima
 - Spacing scale (padding, margin, gap, inset): `--space-0`…`--space-7` = 0 / 4 / 8 / 12 / 16 / 24 / 32 / 48 px. No other values.
 - Text: `color.text.primary`, `secondary`, `disabled`, `inverse`, `link`. `color.text.secondary` is only for text on `color.surface.default`. On tinted, subtle, or colored surfaces, use `color.text.primary`.
 - Surfaces: `color.surface.default`, `subtle`, `tinted`, `inverse`.
-- Errors and failures: `color.danger.*`. Success: `color.feedback.success.*`. Warnings: `color.feedback.warning.*`.
+- Errors and failures: `color.feedback.error.*`. Success: `color.feedback.success.*`. Warnings: `color.feedback.warning.*`.
 - Interactive controls: `color.action.*`. Don't reuse action tokens for static decoration.
 - `color.brand.*`: brand moments only (hero highlights, logo lockups, marketing callouts). Never for errors, status, validation, or action buttons.
 

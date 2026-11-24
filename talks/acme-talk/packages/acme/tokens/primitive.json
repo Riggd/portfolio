@@ -46,7 +46,7 @@
     "0": { "$value": "0px" },
     "1": { "$value": "4px" },
     "2": { "$value": "8px" },
-    "3": { "$value": "12px", "$description": "Demo 2 changes this to 14px live. Do not change it ahead of time." },
+    "3": { "$value": "14px" },
     "4": { "$value": "16px" },
     "5": { "$value": "24px" },
     "6": { "$value": "32px" },

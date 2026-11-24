@@ -26,9 +26,9 @@
   },
   "alert": {
     "danger": {
-      "bg": { "$type": "color", "$value": "{color.danger.bg}" },
-      "fg": { "$type": "color", "$value": "{color.danger.fg}" },
-      "border": { "$type": "color", "$value": "{color.danger.border}" }
+      "bg": { "$type": "color", "$value": "{color.feedback.error.bg}" },
+      "fg": { "$type": "color", "$value": "{color.feedback.error.fg}" },
+      "border": { "$type": "color", "$value": "{color.feedback.error.border}" }
     },
     "success": {
       "bg": { "$type": "color", "$value": "{color.feedback.success.bg}" },

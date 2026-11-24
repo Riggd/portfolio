@@ -41,14 +41,7 @@
         "fg": { "$value": "{color.blue.700}" }
       }
     },
-    "danger": {
-      "$description": "Starting-state name. Demo 2 renames this group to color.feedback.error live. Do not rename ahead of time.",
-      "fg": { "$value": "{color.red.700}" },
-      "bg": { "$value": "{color.red.50}" },
-      "border": { "$value": "{color.red.500}" }
-    },
     "feedback": {
-      "$description": "No info group in the starting state. Demo 2 adds color.feedback.info live.",
       "success": {
         "fg": { "$value": "{color.green.700}" },
         "bg": { "$value": "{color.green.50}" },
@@ -58,6 +51,16 @@
         "fg": { "$value": "{color.amber.700}" },
         "bg": { "$value": "{color.amber.50}" },
         "border": { "$value": "{color.amber.500}" }
+      },
+      "error": {
+        "fg": { "$value": "{color.red.700}" },
+        "bg": { "$value": "{color.red.50}" },
+        "border": { "$value": "{color.red.500}" }
+      },
+      "info": {
+        "fg": { "$value": "{color.blue.700}" },
+        "bg": { "$value": "{color.blue.50}" },
+        "border": { "$value": "{color.blue.500}" }
       }
     },
     "brand": {

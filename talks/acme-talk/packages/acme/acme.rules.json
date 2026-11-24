@@ -17,7 +17,7 @@
       { "id": "token-no-raw-color", "rule": "Colors must come from tokens (CSS variables or the TS token map). No hex, rgb(), hsl(), or named colors.", "category": "hardcoded-value" },
       { "id": "token-spacing-scale", "rule": "padding, margin, gap, and inset values must use space.* tokens. Raw px values are allowed only if they are on the spacing scale, and tokens are still preferred.", "category": "off-scale-spacing" },
       { "id": "token-text-secondary-surface", "rule": "color.text.secondary is only for text on color.surface.default. On tinted, subtle, or colored surfaces, use color.text.primary.", "category": "contrast-failure" },
-      { "id": "token-danger-for-errors", "rule": "Error and failure states use color.danger.*. Success uses color.feedback.success.*; warnings use color.feedback.warning.*.", "category": "semantic-misuse" },
+      { "id": "token-danger-for-errors", "rule": "Error and failure states use color.feedback.error.*. Success uses color.feedback.success.*; warnings use color.feedback.warning.*.", "category": "semantic-misuse" },
       { "id": "token-brand-scope", "rule": "color.brand.* is for brand moments only (hero highlights, logo lockups, marketing callouts). Never use it for errors, status, validation, or action buttons.", "category": "semantic-misuse" },
       { "id": "token-action-for-actions", "rule": "Interactive controls use color.action.* tokens. Don't reuse action tokens for static decoration.", "category": "semantic-misuse" }
     ]
@@ -58,7 +58,7 @@
     },
     "Input": {
       "props": { "label": "string", "error": "string (optional)", "hint": "string (optional)" },
-      "guidance": "Single-line text entry. Always has a visible label. Errors go through the error prop, which uses color.danger.*.",
+      "guidance": "Single-line text entry. Always has a visible label. Errors go through the error prop, which uses color.feedback.error.*.",
       "dont": ["Don't render a raw <input> with custom styles."]
     },
     "Surface": {
