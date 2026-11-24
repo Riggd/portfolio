@@ -75,4 +75,6 @@ acme-talk/
 
 ## Current status
 
-The planning is done. Starter files exist for tokens, rules and the corpus spec. **Next step: the day-1 spike** in `docs/kickoff-prompt.md`.
+**Demo 1 (readiness audit) and Demo 2 (token sync) are built**, with cached runs and replay modes. Demo 3 (adherence bench) is not built: only `corpus/ERRORS.md` and the cache folder exist. **Next step: Demo 3**, due Dec 2.
+
+Demo 2 commands: `pnpm sync`, `pnpm sync:replay`, `pnpm sync:init` (see `demos/2-token-sync/README.md`). The synced result (tokens at v0.2.0) is deliberately not on this branch; it lives on `token-sync/v0.2.0`.

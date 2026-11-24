@@ -21,7 +21,7 @@ Start with `CLAUDE.md`, then `docs/kickoff-prompt.md`.
 | `demos/3-adherence/corpus/ERRORS.md` | Spec for the seeded corpus and the answer key |
 | `docs/talk-track.md` | Talk track |
 | `demos/1-readiness/` | Demo 1: ODSB audit of Acme before/after agent context (built) |
-| `demos/2-token-sync/` | Demo 2: token sync + change classifier (cache only, not built yet) |
+| `demos/2-token-sync/` | Demo 2: Figma token sync + change classifier (built; fixtures, cached run, `figma/` snippets) |
 | `demos/3-adherence/` | Demo 3: adherence bench (corpus spec and cache only, not built yet) |
 | `patches/` | Patch applied to `open-design-system-bench` via pnpm |
 
@@ -46,6 +46,10 @@ Run from this directory.
 | `pnpm readiness` | Build tokens, extract, audit before and after |
 | `pnpm readiness:before` | Audit the before state only |
 | `pnpm readiness:after` | Audit the after state only |
+| `pnpm sync` | Demo 2: sync tokens from `demos/2-token-sync/figma/export.json` (live `claude -p`). Pass `-- --figma <file>` for another export |
+| `pnpm sync:replay` | Demo 2: same, with the cached classification (no model call) |
+| `pnpm sync:init` | Demo 2: reset `sync-state.json` to the repo as it is now |
+| `pnpm --filter demo-2-token-sync run pr` | Demo 2: open a PR from the last sync (`-- --dry-run` to preview) |
 | `pnpm bench` | Demo 3 adherence bench (not runnable yet: no demo-3 package) |
 
 Cached Demo 1 results: `demos/1-readiness/cache/` (before 45.9, after 69.9).

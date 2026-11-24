@@ -24,7 +24,7 @@ Outputs land in `out/` (gitignored): `diff.json`, `classification.json`, `CHANGE
 | `--no-build` | Skip the Style Dictionary build |
 | `--init` | Reset `sync-state.json` (the last-synced baseline) to the repo as it is now |
 
-`pnpm pr -- --dry-run` previews the branch, title and PR body. Without `--dry-run` it creates a `token-sync/...` branch, commits, pushes and runs `gh pr create`.
+`pnpm pr -- --dry-run` previews the base, branch, title and PR body. Without `--dry-run` it creates a timestamped `token-sync/...` branch, stages only the files the sync wrote (`out/touched.json`), pushes, and runs `gh pr create` against the branch you ran the sync on (`--base <branch>` to override). That branch must already be on `origin`.
 
 ## The demo (about 5 min)
 
@@ -45,10 +45,12 @@ Starting state must stay as committed: `color.danger`, `space.3` = 12, no `color
 | Write tokens, propagate confirmed renames, bump version, update `CHANGELOG.md` | `lib/apply.mjs` | no |
 | Build | `pnpm --filter @acme/ds tokens` | no |
 
-- **Figma owns** `color.*`, `space.*` and `radius.*` (primitive and semantic tiers). Fonts and the component tier stay in code.
+- **Figma owns** `color.*`, `space.*` and `radius.*` (primitive and semantic tiers). Fonts and the component tier stay in code. Any other Figma variable is ignored, and the run says how many.
 - **Drift:** a token that changed in code but not in Figma since the last sync is reported in `diff.json` and never overwritten.
 - **Renames:** references are only rewritten for renames the classifier confirmed. A rename it doesn't confirm lands as remove + add, and the build fails on the dangling references. That is intended.
-- **Build failure rolls back.** If Style Dictionary fails (for example after an unconfirmed rename), tokens, references, version and changelog are restored and `sync-state.json` is not written.
+- **Any failure rolls back.** If applying throws, an old name survives a confirmed rename (checked in docs, CSS and TypeScript, which Style Dictionary can't see), or the Style Dictionary build fails (for example after an unconfirmed rename), tokens, references, version and changelog are restored and `sync-state.json` is not written.
+- **Model run:** `claude -p` has a 180 s timeout (`TOKEN_SYNC_TIMEOUT_MS`). A missing CLI, a timeout or an error response stops with a message pointing at `--replay`.
+- **Replay cache:** keyed on the token changes only, so editing docs that mention a token doesn't invalidate it.
 - **Input checks:** a malformed export or an unknown flag stops with a plain message listing what is wrong.
 - **Versioning:** pre-1.0, `major` bumps the minor version and everything else bumps the patch.
 - **Figma access:** the Variables REST API is Enterprise-only, so on Pro the export goes through the Figma MCP (`figma/export-snippet.js`). The export has the same shape either way.

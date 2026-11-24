@@ -1,5 +1,5 @@
 {
-  "systemsConfigPath": "/home/user/portfolio/talks/acme-talk/demos/1-readiness/systems.config.json",
+  "systemsConfigPath": "./demos/1-readiness/systems.config.json",
   "run": "cache/runs/20261118-062703-context-compare",
   "systems": {
     "acme": {

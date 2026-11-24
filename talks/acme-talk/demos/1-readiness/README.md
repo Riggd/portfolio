@@ -30,3 +30,5 @@ Plan: docs/build-plan.md#demo-1-where-you-are-ai-readiness-audit
 Audit with run data: `cache/audit-after-with-run.json` (82.4, AI-native).
 Cache is trimmed to `results.json`, `manifest.json`, `report.html` and one `diff.patch` per cell (transcripts, `files/`, grades, judge output and PDFs dropped; `results.json` holds the scores). `audit --run` and `report --run` both work from this.
 Runs are written inside `node_modules` by ODSB, so copy every finished run here.
+
+Cached files must not hold absolute machine paths. After copying a finished run into `cache/`, run `pnpm --filter demo-1-readiness run scrub`.
