@@ -10,6 +10,7 @@ export const ACME = path.join(ROOT, 'packages/acme');
 export const TOKEN_DIR = path.join(ACME, 'tokens');
 // Figma owns these top-level groups. Fonts and the component tier stay code-only.
 const OWNED = new Set(['color', 'space', 'radius']);
+export const isOwned = (dottedOrSlashed) => OWNED.has(dottedOrSlashed.split(/[./]/)[0]);
 const TIER_FILES = { primitive: 'primitive.json', semantic: 'semantic.json' };
 
 const isLeaf = (v) => v && typeof v === 'object' && !Array.isArray(v) && '$value' in v;
@@ -66,12 +67,13 @@ export function validateExport(exp, source = 'export') {
   exp.variables.forEach((v, i) => {
     const at = `${source}: variables[${i}]${v && v.name ? ` (${v.name})` : ''}`;
     if (!v || typeof v.name !== 'string' || !v.name) return errs.push(`${at}: missing "name"`);
+    if (seen.has(v.name)) errs.push(`${at}: duplicate name`);
+    seen.add(v.name);
+    if (!isOwned(v.name)) return; // fonts, motion, extra collections: ignored, so not checked
     if (!['Primitive', 'Semantic'].includes(v.collection)) errs.push(`${at}: "collection" must be "Primitive" or "Semantic", got ${JSON.stringify(v.collection)}`);
     if (!['COLOR', 'FLOAT'].includes(v.type)) errs.push(`${at}: "type" must be "COLOR" or "FLOAT", got ${JSON.stringify(v.type)}`);
     const ok = v.value && typeof v.value === 'object' ? typeof v.value.alias === 'string' : v.type === 'COLOR' ? /^#[0-9a-fA-F]{6}$/.test(v.value) : typeof v.value === 'number';
     if (!ok) errs.push(`${at}: "value" is not a valid ${v.type} value or {alias}: ${JSON.stringify(v.value)}`);
-    if (seen.has(v.name)) errs.push(`${at}: duplicate name`);
-    seen.add(v.name);
   });
   return errs;
 }
@@ -80,6 +82,7 @@ export function validateExport(exp, source = 'export') {
 export function normalizeFigma(exp) {
   const out = {};
   for (const v of exp.variables) {
+    if (!isOwned(v.name)) continue; // Figma owns color, space and radius only
     const name = v.name.split('/').join('.');
     const type = v.type === 'COLOR' ? 'color' : 'dimension';
     const value = v.value && v.value.alias ? { alias: v.value.alias.split('/').join('.') } : typeof v.value === 'string' ? v.value.toUpperCase() : v.value;
@@ -87,6 +90,8 @@ export function normalizeFigma(exp) {
   }
   return out;
 }
+
+export const ignoredVariables = (exp) => exp.variables.filter((v) => !isOwned(v.name)).map((v) => v.name);
 
 export const sameValue = (a, b) => JSON.stringify(a.value) === JSON.stringify(b.value);
 
@@ -129,8 +134,10 @@ export function applyToDocs(docs, { removed, added, changed }) {
       if (typeof node.$description === 'string' && /starting state|Demo 2/.test(node.$description)) delete node.$description;
     }
     const prev = node[segs[segs.length - 1]];
+    // Keep the existing guidance on a value change, unless it is demo scaffolding that no longer holds.
     const leaf = { ...(prev && prev.$type ? { $type: prev.$type } : {}), $value: denormValue(entry) };
-    if (entry.description) leaf.$description = entry.description;
+    const desc = entry.description || (prev && prev.$description);
+    if (desc && !/starting state|Demo 2/.test(desc)) leaf.$description = desc;
     node[segs[segs.length - 1]] = leaf;
   }
 }

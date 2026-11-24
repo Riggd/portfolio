@@ -25,7 +25,7 @@ export function findUsage(names) {
   const usage = {};
   for (const name of names) {
     const dotted = new RegExp(`(?<![\\w.-])${name.replace(/\./g, '\\.')}(?![\\w-])`, 'g');
-    const css = new RegExp(`--${name.replace(/\./g, '-')}(?![\\w-])`, 'g');
+    const css = new RegExp(`--${name.replace(/\./g, '-')}(?![A-Za-z0-9_])`, 'g');
     const hits = [];
     for (const { f, text } of files) {
       const n = (text.match(dotted) || []).length + (text.match(css) || []).length;
@@ -38,6 +38,9 @@ export function findUsage(names) {
 
 const parentOf = (n) => n.split('.').slice(0, -1).join('.');
 const leafOf = (n) => n.split('.').pop();
+
+// The part of a diff that decides what the model is asked. `usage` depends on file contents elsewhere, so it is left out.
+export const diffFingerprint = (d) => JSON.stringify({ added: d.added, removed: d.removed, changed: d.changed, drift: d.drift, renameCandidates: d.renameCandidates, groupRenames: d.groupRenames });
 
 export function diffTokens({ base, code, figma }) {
   const names = new Set([...Object.keys(code), ...Object.keys(figma)]);

@@ -11,7 +11,7 @@
   },
   "systems": {
     "acme": {
-      "root": "/home/user/portfolio/talks/acme-talk/packages/acme",
+      "root": "./packages/acme",
       "commit": "751fe6a3100be9ba1ce3ae717d797706b500aa4e",
       "catalogSrcHash": "1e894eade7bfff8a70502be77026cdd0e5aad9ed6b2025049a0362ce1c381944",
       "tokensCssHash": "d329830121be014d5a3c7c9a6d2aac97ae990192770027a86cd802df7e5406b3"
