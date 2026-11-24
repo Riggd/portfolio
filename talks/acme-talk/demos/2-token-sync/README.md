@@ -17,7 +17,7 @@ Outputs land in `out/` (gitignored): `diff.json`, `classification.json`, `CHANGE
 
 | Flag | Effect |
 |---|---|
-| `--figma <file>` | Figma export to sync from. Default `figma/export.json` |
+| `--figma <file>` | Figma export to sync from. Default `figma/export.json`. Relative paths try the current directory, then this folder |
 | `--replay` | Use `cache/classification.json` instead of calling the model. Fails if the diff changed (`--force` overrides) |
 | `--save-cache` | Copy this run's outputs into `cache/` |
 | `--no-apply` | Stop after writing `out/`. Repo untouched |
@@ -48,6 +48,8 @@ Starting state must stay as committed: `color.danger`, `space.3` = 12, no `color
 - **Figma owns** `color.*`, `space.*` and `radius.*` (primitive and semantic tiers). Fonts and the component tier stay in code.
 - **Drift:** a token that changed in code but not in Figma since the last sync is reported in `diff.json` and never overwritten.
 - **Renames:** references are only rewritten for renames the classifier confirmed. A rename it doesn't confirm lands as remove + add, and the build fails on the dangling references. That is intended.
+- **Build failure rolls back.** If Style Dictionary fails (for example after an unconfirmed rename), tokens, references, version and changelog are restored and `sync-state.json` is not written.
+- **Input checks:** a malformed export or an unknown flag stops with a plain message listing what is wrong.
 - **Versioning:** pre-1.0, `major` bumps the minor version and everything else bumps the patch.
 - **Figma access:** the Variables REST API is Enterprise-only, so on Pro the export goes through the Figma MCP (`figma/export-snippet.js`). The export has the same shape either way.
 

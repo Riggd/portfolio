@@ -5,15 +5,23 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { DEMO_DIR, ROOT, loadRepo, normalizeFigma } from '../lib/tokens.mjs';
+import { DEMO_DIR, ROOT, loadRepo, normalizeFigma, validateExport } from '../lib/tokens.mjs';
 import { diffTokens } from '../lib/diff.mjs';
 import { classifyLive } from '../lib/classify.mjs';
 import { validateClassification } from '../lib/schema.mjs';
-import { applyTokens, confirmedRenames, rewriteRefs, nextVersion, writeVersion, changelogEntry, writeChangelog } from '../lib/apply.mjs';
+import { applyTokens, confirmedRenames, rewriteRefs, nextVersion, writeVersion, changelogEntry, writeChangelog, snapshot, restore } from '../lib/apply.mjs';
 
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(`--${n}`);
-const opt = (n, d) => (args.includes(`--${n}`) ? args[args.indexOf(`--${n}`) + 1] : d);
+const fail = (m) => { console.error(m); process.exit(1); };
+const KNOWN = new Set(['figma', 'replay', 'save-cache', 'no-apply', 'no-build', 'init', 'force']);
+for (const a of args.filter((x) => x.startsWith('--') && x !== '--')) if (!KNOWN.has(a.slice(2))) fail(`Unknown flag ${a}. Flags: ${[...KNOWN].map((k) => '--' + k).join(' ')}`);
+const opt = (n, d) => {
+  if (!args.includes(`--${n}`)) return d;
+  const v = args[args.indexOf(`--${n}`) + 1];
+  if (!v || v.startsWith('--')) fail(`--${n} needs a value`);
+  return v;
+};
 const P = (...p) => path.join(DEMO_DIR, ...p);
 const writeJson = (f, o) => fs.writeFileSync(f, JSON.stringify(o, null, 2) + '\n');
 const log = (m) => console.log(m);
@@ -27,9 +35,15 @@ if (flag('init')) {
   process.exit(0);
 }
 
-const figmaPath = path.resolve(DEMO_DIR, opt('figma', 'figma/export.json'));
-if (!fs.existsSync(figmaPath)) { console.error(`No Figma export at ${figmaPath}. Export it with figma/export-snippet.js, or pass --figma fixtures/export-after.json.`); process.exit(1); }
-const figma = normalizeFigma(JSON.parse(fs.readFileSync(figmaPath, 'utf8')));
+// A relative --figma path is tried against the current directory first, then the demo folder.
+const figmaArg = opt('figma', 'figma/export.json');
+const figmaPath = [path.resolve(figmaArg), path.resolve(DEMO_DIR, figmaArg)].find((p) => fs.existsSync(p));
+if (!figmaPath) fail(`No Figma export at ${figmaArg} (tried the current directory and ${DEMO_DIR}). Export it with figma/export-snippet.js, or pass --figma fixtures/export-after.json.`);
+let exported;
+try { exported = JSON.parse(fs.readFileSync(figmaPath, 'utf8')); } catch (e) { fail(`${figmaPath}: not valid JSON (${e.message})`); }
+const exportErrors = validateExport(exported, path.relative(process.cwd(), figmaPath) || figmaPath);
+if (exportErrors.length) fail(`Invalid Figma export:\n  ${exportErrors.slice(0, 10).join('\n  ')}${exportErrors.length > 10 ? `\n  ... and ${exportErrors.length - 10} more` : ''}`);
+const figma = normalizeFigma(exported);
 const base = fs.existsSync(statePath) ? JSON.parse(fs.readFileSync(statePath, 'utf8')) : repo.tokens;
 
 fs.mkdirSync(P('out'), { recursive: true });
@@ -71,7 +85,8 @@ if (flag('save-cache')) {
 }
 if (flag('no-apply')) { log('--no-apply: repo untouched.'); process.exit(0); }
 
-// 3. Write into the repo.
+// 3. Write into the repo. If the build fails, roll everything back so the repo and sync-state never disagree.
+const snap = snapshot();
 const renames = confirmedRenames(classification);
 applyTokens(repo.docs, diff);
 const touched = rewriteRefs(renames);
@@ -79,14 +94,17 @@ writeVersion(version);
 writeChangelog(entry);
 log(`4. applied: tokens written, ${renames.length} rename${renames.length === 1 ? '' : 's'} propagated to ${touched.length} file${touched.length === 1 ? '' : 's'}, version ${version}`);
 
+// 4. Build. Fails loudly if a rename was left half-propagated.
+if (!flag('no-build')) {
+  const r = spawnSync('pnpm', ['--filter', '@acme/ds', 'run', 'tokens'], { cwd: ROOT, stdio: 'inherit' });
+  if (r.status !== 0) {
+    restore(snap);
+    fail('Style Dictionary build failed. Rolled back: tokens, references, version and changelog are as before; sync-state.json was not touched.');
+  }
+  log('5. build: Style Dictionary OK');
+}
+
 // New baseline: the repo as it is now, except drift, which keeps its old base so it keeps being flagged.
 const after = loadRepo().tokens;
 for (const n of Object.keys(diff.drift)) { if (base[n]) after[n] = base[n]; else delete after[n]; }
 writeJson(statePath, after);
-
-// 4. Build. Fails loudly if a rename was left half-propagated.
-if (!flag('no-build')) {
-  const r = spawnSync('pnpm', ['--filter', '@acme/ds', 'run', 'tokens'], { cwd: ROOT, stdio: 'inherit' });
-  if (r.status !== 0) { console.error('Style Dictionary build failed.'); process.exit(r.status ?? 1); }
-  log('5. build: Style Dictionary OK');
-}
