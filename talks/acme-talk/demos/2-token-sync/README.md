@@ -13,13 +13,13 @@ pnpm sync -- --figma fixtures/export-after.json          # live claude -p run (c
 pnpm sync                                       # reads figma/export.json (a fresh export from Figma)
 ```
 
-Outputs land in `out/` (gitignored): `diff.json`, `classification.json`, `CHANGELOG.md`. The cached copies are in `cache/`.
+Outputs land in `out/` (gitignored): `diff.json`, `classification.json`, `CHANGELOG.md`. Only the model's answer is cached (`cache/classification.json`). The diff and changelog are rebuilt from it on every run, so they aren't committed.
 
 | Flag | Effect |
 |---|---|
 | `--figma <file>` | Figma export to sync from. Default `figma/export.json`. Relative paths try the current directory, then this folder |
 | `--replay` | Use `cache/classification.json` instead of calling the model. Fails if the diff changed (`--force` overrides) |
-| `--save-cache` | Copy this run's outputs into `cache/` |
+| `--save-cache` | Save this run's classification to `cache/classification.json` |
 | `--no-apply` | Stop after writing `out/`. Repo untouched |
 | `--no-build` | Skip the Style Dictionary build |
 | `--init` | Reset `sync-state.json` (the last-synced baseline) to the repo as it is now |

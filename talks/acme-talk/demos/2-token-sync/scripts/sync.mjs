@@ -79,9 +79,8 @@ log(`3. changelog: ${version} (${classification.overall_semver}) -> out/CHANGELO
 
 if (flag('save-cache')) {
   fs.mkdirSync(P('cache'), { recursive: true });
-  for (const f of ['diff.json', 'classification.json', 'CHANGELOG.md']) fs.copyFileSync(P('out', f), P('cache', f));
   writeJson(P('cache/classification.json'), { diffHash, meta, classification });
-  log('   saved to cache/');
+  log('   saved cache/classification.json');
 }
 if (flag('no-apply')) { log('--no-apply: repo untouched.'); process.exit(0); }
 
