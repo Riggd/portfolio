@@ -1,0 +1,134 @@
+{
+  "system": "Acme DS",
+  "version": "0.1.0",
+  "notes": "Single source of truth for Acme usage guidance and the 7 error categories. The linter rules, the Sonnet judge prompt, and the Gemini Decision 1 questions are all derived from this file. Change categories here and nowhere else.",
+
+  "principles": [
+    "Use Acme components before building custom UI. If a component exists for the job, use it.",
+    "Style only with tokens. Never use raw color values, and never use spacing values outside the scale.",
+    "Pick tokens by meaning, not by look. A token that happens to be the right color is still wrong if its purpose is different.",
+    "Destructive styling is reserved for irreversible or data-losing actions.",
+    "Brand color is for brand expression, never for status, errors, or actions."
+  ],
+
+  "tokens": {
+    "spacingScale": ["0px", "4px", "8px", "12px", "16px", "24px", "32px", "48px"],
+    "rules": [
+      { "id": "token-no-raw-color", "rule": "Colors must come from tokens (CSS variables or the TS token map). No hex, rgb(), hsl(), or named colors.", "category": "hardcoded-value" },
+      { "id": "token-spacing-scale", "rule": "padding, margin, gap, and inset values must use space.* tokens. Raw px values are allowed only if they are on the spacing scale, and tokens are still preferred.", "category": "off-scale-spacing" },
+      { "id": "token-text-secondary-surface", "rule": "color.text.secondary is only for text on color.surface.default. On tinted, subtle, or colored surfaces, use color.text.primary.", "category": "contrast-failure" },
+      { "id": "token-danger-for-errors", "rule": "Error and failure states use color.danger.*. Success uses color.feedback.success.*; warnings use color.feedback.warning.*.", "category": "semantic-misuse" },
+      { "id": "token-brand-scope", "rule": "color.brand.* is for brand moments only (hero highlights, logo lockups, marketing callouts). Never use it for errors, status, validation, or action buttons.", "category": "semantic-misuse" },
+      { "id": "token-action-for-actions", "rule": "Interactive controls use color.action.* tokens. Don't reuse action tokens for static decoration.", "category": "semantic-misuse" }
+    ]
+  },
+
+  "components": {
+    "Button": {
+      "props": { "variant": ["primary", "secondary", "destructive", "ghost"], "size": ["sm", "md"] },
+      "guidance": {
+        "primary": "The single most important action in a view. At most one primary Button per view or dialog.",
+        "secondary": "Supporting actions next to a primary action, such as Cancel or Back.",
+        "destructive": "Irreversible or data-losing actions: delete, remove permanently, revoke access. Pair it with a confirmation.",
+        "ghost": "Low-emphasis actions in dense UI, such as toolbars and inline edits."
+      },
+      "dont": [
+        "Don't use primary for destructive actions, even when they're the main action in a dialog.",
+        "Don't use destructive for reversible actions like Archive or Sign out.",
+        "Don't put two primary Buttons in one view."
+      ]
+    },
+    "Alert": {
+      "props": { "intent": ["success", "warning", "danger"], "title": "string", "children": "ReactNode" },
+      "guidance": "Inline, persistent messages about the state of a page or form. Danger is for errors and failures.",
+      "dont": [
+        "Don't restyle an Alert with brand or action tokens.",
+        "Don't build alert-like boxes from Surface plus custom colors; use Alert."
+      ]
+    },
+    "Chip": {
+      "props": { "label": "string", "onRemove": "() => void (optional)", "selected": "boolean (optional)" },
+      "guidance": "Compact, removable or selectable items: filters, tags, multi-select values.",
+      "dont": ["Don't hand-build pill-shaped divs or spans for tags or filters; use Chip."]
+    },
+    "Badge": {
+      "props": { "label": "string" },
+      "guidance": "Static, read-only labels such as counts and status labels. Not interactive.",
+      "dont": ["Don't use Badge for removable or clickable items; use Chip."]
+    },
+    "Input": {
+      "props": { "label": "string", "error": "string (optional)", "hint": "string (optional)" },
+      "guidance": "Single-line text entry. Always has a visible label. Errors go through the error prop, which uses color.danger.*.",
+      "dont": ["Don't render a raw <input> with custom styles."]
+    },
+    "Surface": {
+      "props": { "tone": ["default", "subtle", "tinted"], "padding": ["space.4", "space.5", "space.6"] },
+      "guidance": "Container for grouped content. Replaces Card."
+    },
+    "Card": {
+      "deprecated": true,
+      "replacement": "Surface",
+      "guidance": "Deprecated in 0.1.0. Use Surface. Card will be removed in 1.0."
+    },
+    "Stack": {
+      "props": { "direction": ["row", "column"], "gap": ["space.1", "space.2", "space.3", "space.4", "space.5", "space.6", "space.7"], "align": ["start", "center", "end", "stretch"] },
+      "guidance": "Layout spacing between children. Prefer Stack gap over margins on children."
+    }
+  },
+
+  "deprecated": [
+    { "name": "Card", "replacement": "Surface", "since": "0.1.0", "removeIn": "1.0.0" }
+  ],
+
+  "categories": [
+    {
+      "id": "hardcoded-value",
+      "name": "Hardcoded value",
+      "question": "Does this file use a raw color value (hex, rgb, hsl, or named color) instead of an Acme token?",
+      "linterDetectable": "yes",
+      "example": "style={{ color: '#1A73E8' }}"
+    },
+    {
+      "id": "off-scale-spacing",
+      "name": "Off-scale spacing",
+      "question": "Does this file use a padding, margin, gap, or inset value that is not on the Acme spacing scale (4, 8, 12, 16, 24, 32, 48 px)?",
+      "linterDetectable": "yes",
+      "example": "padding: '13px'"
+    },
+    {
+      "id": "deprecated-component",
+      "name": "Deprecated component",
+      "question": "Does this file import or render a deprecated Acme component, such as Card?",
+      "linterDetectable": "yes",
+      "example": "import { Card } from '@acme/ds'"
+    },
+    {
+      "id": "contrast-failure",
+      "name": "Contrast failure",
+      "question": "Does this file put a text token on a surface where it fails the contrast rules, such as color.text.secondary on a tinted or colored surface?",
+      "linterDetectable": "partly",
+      "example": "color.text.secondary text inside <Surface tone='tinted'>"
+    },
+    {
+      "id": "semantic-misuse",
+      "name": "Semantic misuse",
+      "question": "Does this file use a token whose meaning doesn't match its purpose, such as a brand or action token on an error, status, or validation message?",
+      "linterDetectable": "no",
+      "example": "An error message colored with color.brand.primary"
+    },
+    {
+      "id": "wrong-variant",
+      "name": "Wrong variant",
+      "question": "Does this file use an Acme component with a variant or intent that contradicts its guidance, such as a primary Button for an irreversible delete?",
+      "linterDetectable": "no",
+      "example": "<Button variant='primary'>Delete account</Button>"
+    },
+    {
+      "id": "wrong-component",
+      "name": "Wrong component",
+      "question": "Does this file hand-build UI that an existing Acme component already provides, or use a component meant for a different job?",
+      "linterDetectable": "no",
+      "example": "A pill-shaped <span> with an x button instead of <Chip onRemove>"
+    }
+  ]
+}

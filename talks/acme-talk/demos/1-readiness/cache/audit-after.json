@@ -1,0 +1,369 @@
+{
+  "systemsConfigPath": "./demos/1-readiness/systems.config.json",
+  "run": null,
+  "systems": {
+    "acme": {
+      "checks": [
+        {
+          "id": "surface",
+          "title": "Enablement surface",
+          "score": 70,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "AGENTS.md present at system root."
+            },
+            {
+              "severity": "info",
+              "message": "llms.txt present at system root."
+            },
+            {
+              "severity": "info",
+              "message": "llms.txt (local) is 0.9 KB."
+            },
+            {
+              "severity": "info",
+              "message": "Hosted surface not probed (no docsUrl configured)."
+            },
+            {
+              "severity": "info",
+              "message": "Machine-readable catalog found: pre-extracted catalog snapshot."
+            },
+            {
+              "severity": "warn",
+              "message": "No MCP server hint found (no mcp.json, no .well-known/mcp, no \"mcp\" script/bin/dependency, and no workspace package name/deps/scripts/bin suggesting one).",
+              "fix": "MCP adoption is 95% among AI-native systems in the survey: the highest-adoption asset of the whole checklist."
+            },
+            {
+              "severity": "info",
+              "message": "Skill bundles found: .claude/skills (1 skills)."
+            },
+            {
+              "severity": "info",
+              "message": "No editor rules file (.cursorrules, .cursor/rules, .github/copilot-instructions.md)."
+            },
+            {
+              "severity": "info",
+              "message": "No Code Connect files (*.figma.ts[x]) found.",
+              "fix": "Only 10% of systems in the survey have Code Connect mappings: lowest-adoption asset, but it unlocks the Tier-3 Figma-to-code eval."
+            },
+            {
+              "severity": "info",
+              "message": "No registry hint found (registry.json, publishConfig.registry)."
+            },
+            {
+              "severity": "info",
+              "message": "Enablement docs are as new as or newer than the newest component source change (git history)."
+            }
+          ]
+        },
+        {
+          "id": "catalog-quality",
+          "title": "Catalog quality",
+          "score": 90,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "2 component dirs, 2 exports, 6 props documented."
+            }
+          ]
+        },
+        {
+          "id": "export-hygiene",
+          "title": "Export hygiene",
+          "score": 85,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "Entry points target raw source, not built output: main=\"./src/index.ts\", exports[\".\"]=\"./src/index.ts\".",
+              "fix": "A package usable outside its own monorepo (by an external agent workspace via npm install) needs a built entry (dist/, esm/, cjs/, lib/, …), not a source-aliased .ts/.tsx path."
+            },
+            {
+              "severity": "info",
+              "message": "2/2 component directories are reachable via the barrel or exports map."
+            }
+          ]
+        },
+        {
+          "id": "vocabulary",
+          "title": "Vocabulary convention-distance",
+          "score": 35.6,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "1 concept(s) aligned with convention, 2 covered under a different name, 37 not represented in this catalog (n/a)."
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"color\" (semantic-emphasis): models invented this name 49 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+              "fix": "often variant/tone elsewhere"
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"severity\" (alert-severity): models invented this name 9 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+              "fix": "MUI Alert vocabulary; variant/tone elsewhere"
+            }
+          ]
+        },
+        {
+          "id": "tokens",
+          "title": "Token machine-readability",
+          "score": 58,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "130 CSS custom properties found."
+            },
+            {
+              "severity": "info",
+              "message": "78/130 vars (60%) reference another var: a semantic layer over primitives."
+            },
+            {
+              "severity": "warn",
+              "message": "No light/dark theming signal found in foundationsCss."
+            },
+            {
+              "severity": "info",
+              "message": "No DTCG (*.tokens.json / tokens.json with \"$value\") files found."
+            }
+          ]
+        },
+        {
+          "id": "deprecation",
+          "title": "Deprecation legibility",
+          "score": 40,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "No @deprecated JSDoc annotations found (either nothing is deprecated, or deprecations are undocumented: static analysis can't tell which)."
+            },
+            {
+              "severity": "info",
+              "message": "CHANGELOG.md present (changelog) with 1 machine-readable version heading(s)."
+            },
+            {
+              "severity": "info",
+              "message": "No codemods hint found."
+            }
+          ]
+        },
+        {
+          "id": "docs-greppability",
+          "title": "Docs greppability",
+          "score": 100,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "2 markdown file(s) found in the repo."
+            },
+            {
+              "severity": "info",
+              "message": "Catalog available: scoring per-component coverage mode."
+            },
+            {
+              "severity": "info",
+              "message": "2/2 components (100%) are mentioned in at least one markdown file."
+            },
+            {
+              "severity": "info",
+              "message": "llms.txt lists 2/2 components (100%)."
+            }
+          ]
+        }
+      ],
+      "score": {
+        "surface": {
+          "score": 69.9,
+          "checks": [
+            {
+              "id": "surface",
+              "title": "Enablement surface",
+              "score": 70,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "AGENTS.md present at system root."
+                },
+                {
+                  "severity": "info",
+                  "message": "llms.txt present at system root."
+                },
+                {
+                  "severity": "info",
+                  "message": "llms.txt (local) is 0.9 KB."
+                },
+                {
+                  "severity": "info",
+                  "message": "Hosted surface not probed (no docsUrl configured)."
+                },
+                {
+                  "severity": "info",
+                  "message": "Machine-readable catalog found: pre-extracted catalog snapshot."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No MCP server hint found (no mcp.json, no .well-known/mcp, no \"mcp\" script/bin/dependency, and no workspace package name/deps/scripts/bin suggesting one).",
+                  "fix": "MCP adoption is 95% among AI-native systems in the survey: the highest-adoption asset of the whole checklist."
+                },
+                {
+                  "severity": "info",
+                  "message": "Skill bundles found: .claude/skills (1 skills)."
+                },
+                {
+                  "severity": "info",
+                  "message": "No editor rules file (.cursorrules, .cursor/rules, .github/copilot-instructions.md)."
+                },
+                {
+                  "severity": "info",
+                  "message": "No Code Connect files (*.figma.ts[x]) found.",
+                  "fix": "Only 10% of systems in the survey have Code Connect mappings: lowest-adoption asset, but it unlocks the Tier-3 Figma-to-code eval."
+                },
+                {
+                  "severity": "info",
+                  "message": "No registry hint found (registry.json, publishConfig.registry)."
+                },
+                {
+                  "severity": "info",
+                  "message": "Enablement docs are as new as or newer than the newest component source change (git history)."
+                }
+              ]
+            },
+            {
+              "id": "catalog-quality",
+              "title": "Catalog quality",
+              "score": 90,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "2 component dirs, 2 exports, 6 props documented."
+                }
+              ]
+            },
+            {
+              "id": "export-hygiene",
+              "title": "Export hygiene",
+              "score": 85,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "Entry points target raw source, not built output: main=\"./src/index.ts\", exports[\".\"]=\"./src/index.ts\".",
+                  "fix": "A package usable outside its own monorepo (by an external agent workspace via npm install) needs a built entry (dist/, esm/, cjs/, lib/, …), not a source-aliased .ts/.tsx path."
+                },
+                {
+                  "severity": "info",
+                  "message": "2/2 component directories are reachable via the barrel or exports map."
+                }
+              ]
+            },
+            {
+              "id": "vocabulary",
+              "title": "Vocabulary convention-distance",
+              "score": 35.6,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "1 concept(s) aligned with convention, 2 covered under a different name, 37 not represented in this catalog (n/a)."
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"color\" (semantic-emphasis): models invented this name 49 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+                  "fix": "often variant/tone elsewhere"
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"severity\" (alert-severity): models invented this name 9 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+                  "fix": "MUI Alert vocabulary; variant/tone elsewhere"
+                }
+              ]
+            },
+            {
+              "id": "tokens",
+              "title": "Token machine-readability",
+              "score": 58,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "130 CSS custom properties found."
+                },
+                {
+                  "severity": "info",
+                  "message": "78/130 vars (60%) reference another var: a semantic layer over primitives."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No light/dark theming signal found in foundationsCss."
+                },
+                {
+                  "severity": "info",
+                  "message": "No DTCG (*.tokens.json / tokens.json with \"$value\") files found."
+                }
+              ]
+            },
+            {
+              "id": "deprecation",
+              "title": "Deprecation legibility",
+              "score": 40,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "No @deprecated JSDoc annotations found (either nothing is deprecated, or deprecations are undocumented: static analysis can't tell which)."
+                },
+                {
+                  "severity": "info",
+                  "message": "CHANGELOG.md present (changelog) with 1 machine-readable version heading(s)."
+                },
+                {
+                  "severity": "info",
+                  "message": "No codemods hint found."
+                }
+              ]
+            },
+            {
+              "id": "docs-greppability",
+              "title": "Docs greppability",
+              "score": 100,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "2 markdown file(s) found in the repo."
+                },
+                {
+                  "severity": "info",
+                  "message": "Catalog available: scoring per-component coverage mode."
+                },
+                {
+                  "severity": "info",
+                  "message": "2/2 components (100%) are mentioned in at least one markdown file."
+                },
+                {
+                  "severity": "info",
+                  "message": "llms.txt lists 2/2 components (100%)."
+                }
+              ]
+            }
+          ]
+        },
+        "lift": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Lift from an actual benchmark run."
+        },
+        "ceiling": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Ceiling from an actual benchmark run."
+        },
+        "engagement": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Engagement from an actual benchmark run."
+        },
+        "vocabularyBehavioral": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Vocabulary-behavioral from an actual benchmark run."
+        },
+        "composite": 69.9,
+        "basis": "surface-only",
+        "tier": "Invested",
+        "tierRationale": "composite 69.9 in [40, 70)"
+      }
+    }
+  }
+}

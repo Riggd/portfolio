@@ -1,0 +1,5 @@
+packages:
+  - "packages/*"
+  - "demos/1-readiness"
+  - "demos/2-token-sync"
+  - "demos/3-adherence"

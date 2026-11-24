@@ -1,0 +1,369 @@
+{
+  "systemsConfigPath": "./demos/1-readiness/systems.config.json",
+  "run": null,
+  "systems": {
+    "acme-before": {
+      "checks": [
+        {
+          "id": "surface",
+          "title": "Enablement surface",
+          "score": 20,
+          "findings": [
+            {
+              "severity": "fail",
+              "message": "No AGENTS.md or CLAUDE.md at the system root.",
+              "fix": "Add an AGENTS.md. It is the single highest-leverage asset: every guided context level agents are graded under starts from it."
+            },
+            {
+              "severity": "warn",
+              "message": "No llms.txt at the system root.",
+              "fix": "Ship an llms.txt listing the component set: the most commonly cited gap in the mid-2026 AI-readiness survey."
+            },
+            {
+              "severity": "info",
+              "message": "Hosted surface not probed (no docsUrl configured)."
+            },
+            {
+              "severity": "info",
+              "message": "Machine-readable catalog found: pre-extracted catalog snapshot."
+            },
+            {
+              "severity": "warn",
+              "message": "No MCP server hint found (no mcp.json, no .well-known/mcp, no \"mcp\" script/bin/dependency, and no workspace package name/deps/scripts/bin suggesting one).",
+              "fix": "MCP adoption is 95% among AI-native systems in the survey: the highest-adoption asset of the whole checklist."
+            },
+            {
+              "severity": "warn",
+              "message": "No agent skill bundles found (.agents/skills, .claude/skills, or configured skillDirs)."
+            },
+            {
+              "severity": "info",
+              "message": "No editor rules file (.cursorrules, .cursor/rules, .github/copilot-instructions.md)."
+            },
+            {
+              "severity": "info",
+              "message": "No Code Connect files (*.figma.ts[x]) found.",
+              "fix": "Only 10% of systems in the survey have Code Connect mappings: lowest-adoption asset, but it unlocks the Tier-3 Figma-to-code eval."
+            },
+            {
+              "severity": "info",
+              "message": "No registry hint found (registry.json, publishConfig.registry)."
+            }
+          ]
+        },
+        {
+          "id": "catalog-quality",
+          "title": "Catalog quality",
+          "score": 90,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "2 component dirs, 2 exports, 6 props documented."
+            }
+          ]
+        },
+        {
+          "id": "export-hygiene",
+          "title": "Export hygiene",
+          "score": 85,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "Entry points target raw source, not built output: main=\"./src/index.ts\", exports[\".\"]=\"./src/index.ts\".",
+              "fix": "A package usable outside its own monorepo (by an external agent workspace via npm install) needs a built entry (dist/, esm/, cjs/, lib/, …), not a source-aliased .ts/.tsx path."
+            },
+            {
+              "severity": "info",
+              "message": "2/2 component directories are reachable via the barrel or exports map."
+            }
+          ]
+        },
+        {
+          "id": "vocabulary",
+          "title": "Vocabulary convention-distance",
+          "score": 35.6,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "1 concept(s) aligned with convention, 2 covered under a different name, 37 not represented in this catalog (n/a)."
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"color\" (semantic-emphasis): models invented this name 49 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+              "fix": "often variant/tone elsewhere"
+            },
+            {
+              "severity": "warn",
+              "message": "Prop \"severity\" (alert-severity): models invented this name 9 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+              "fix": "MUI Alert vocabulary; variant/tone elsewhere"
+            }
+          ]
+        },
+        {
+          "id": "tokens",
+          "title": "Token machine-readability",
+          "score": 58,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "130 CSS custom properties found."
+            },
+            {
+              "severity": "info",
+              "message": "78/130 vars (60%) reference another var: a semantic layer over primitives."
+            },
+            {
+              "severity": "warn",
+              "message": "No light/dark theming signal found in foundationsCss."
+            },
+            {
+              "severity": "info",
+              "message": "No DTCG (*.tokens.json / tokens.json with \"$value\") files found."
+            }
+          ]
+        },
+        {
+          "id": "deprecation",
+          "title": "Deprecation legibility",
+          "score": 0,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "No @deprecated JSDoc annotations found (either nothing is deprecated, or deprecations are undocumented: static analysis can't tell which)."
+            },
+            {
+              "severity": "warn",
+              "message": "No CHANGELOG*.md, MIGRATION*.md or UPGRADING*.md at the system root, the components package dir, or any workspace package.",
+              "fix": "A machine-readable changelog or migration guide is a Tier-1 migration eval prerequisite."
+            },
+            {
+              "severity": "info",
+              "message": "No codemods hint found."
+            }
+          ]
+        },
+        {
+          "id": "docs-greppability",
+          "title": "Docs greppability",
+          "score": 0,
+          "findings": [
+            {
+              "severity": "info",
+              "message": "0 markdown file(s) found in the repo."
+            },
+            {
+              "severity": "info",
+              "message": "Catalog available: scoring per-component coverage mode."
+            },
+            {
+              "severity": "warn",
+              "message": "0/2 components (0%) are mentioned in at least one markdown file."
+            },
+            {
+              "severity": "warn",
+              "message": "2 component(s) have no markdown mention: Button, Alert.",
+              "fix": "A component with zero markdown reach is invisible to any docs-grepping or retrieval-based agent workflow."
+            },
+            {
+              "severity": "warn",
+              "message": "No llms.txt found. Component list is not machine-listable in the ecosystem-standard location."
+            }
+          ]
+        }
+      ],
+      "score": {
+        "surface": {
+          "score": 45.9,
+          "checks": [
+            {
+              "id": "surface",
+              "title": "Enablement surface",
+              "score": 20,
+              "findings": [
+                {
+                  "severity": "fail",
+                  "message": "No AGENTS.md or CLAUDE.md at the system root.",
+                  "fix": "Add an AGENTS.md. It is the single highest-leverage asset: every guided context level agents are graded under starts from it."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No llms.txt at the system root.",
+                  "fix": "Ship an llms.txt listing the component set: the most commonly cited gap in the mid-2026 AI-readiness survey."
+                },
+                {
+                  "severity": "info",
+                  "message": "Hosted surface not probed (no docsUrl configured)."
+                },
+                {
+                  "severity": "info",
+                  "message": "Machine-readable catalog found: pre-extracted catalog snapshot."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No MCP server hint found (no mcp.json, no .well-known/mcp, no \"mcp\" script/bin/dependency, and no workspace package name/deps/scripts/bin suggesting one).",
+                  "fix": "MCP adoption is 95% among AI-native systems in the survey: the highest-adoption asset of the whole checklist."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No agent skill bundles found (.agents/skills, .claude/skills, or configured skillDirs)."
+                },
+                {
+                  "severity": "info",
+                  "message": "No editor rules file (.cursorrules, .cursor/rules, .github/copilot-instructions.md)."
+                },
+                {
+                  "severity": "info",
+                  "message": "No Code Connect files (*.figma.ts[x]) found.",
+                  "fix": "Only 10% of systems in the survey have Code Connect mappings: lowest-adoption asset, but it unlocks the Tier-3 Figma-to-code eval."
+                },
+                {
+                  "severity": "info",
+                  "message": "No registry hint found (registry.json, publishConfig.registry)."
+                }
+              ]
+            },
+            {
+              "id": "catalog-quality",
+              "title": "Catalog quality",
+              "score": 90,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "2 component dirs, 2 exports, 6 props documented."
+                }
+              ]
+            },
+            {
+              "id": "export-hygiene",
+              "title": "Export hygiene",
+              "score": 85,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "Entry points target raw source, not built output: main=\"./src/index.ts\", exports[\".\"]=\"./src/index.ts\".",
+                  "fix": "A package usable outside its own monorepo (by an external agent workspace via npm install) needs a built entry (dist/, esm/, cjs/, lib/, …), not a source-aliased .ts/.tsx path."
+                },
+                {
+                  "severity": "info",
+                  "message": "2/2 component directories are reachable via the barrel or exports map."
+                }
+              ]
+            },
+            {
+              "id": "vocabulary",
+              "title": "Vocabulary convention-distance",
+              "score": 35.6,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "1 concept(s) aligned with convention, 2 covered under a different name, 37 not represented in this catalog (n/a)."
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"color\" (semantic-emphasis): models invented this name 49 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+                  "fix": "often variant/tone elsewhere"
+                },
+                {
+                  "severity": "warn",
+                  "message": "Prop \"severity\" (alert-severity): models invented this name 9 time(s) across the mined sample; this system covers it as \"variant\" instead.",
+                  "fix": "MUI Alert vocabulary; variant/tone elsewhere"
+                }
+              ]
+            },
+            {
+              "id": "tokens",
+              "title": "Token machine-readability",
+              "score": 58,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "130 CSS custom properties found."
+                },
+                {
+                  "severity": "info",
+                  "message": "78/130 vars (60%) reference another var: a semantic layer over primitives."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No light/dark theming signal found in foundationsCss."
+                },
+                {
+                  "severity": "info",
+                  "message": "No DTCG (*.tokens.json / tokens.json with \"$value\") files found."
+                }
+              ]
+            },
+            {
+              "id": "deprecation",
+              "title": "Deprecation legibility",
+              "score": 0,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "No @deprecated JSDoc annotations found (either nothing is deprecated, or deprecations are undocumented: static analysis can't tell which)."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No CHANGELOG*.md, MIGRATION*.md or UPGRADING*.md at the system root, the components package dir, or any workspace package.",
+                  "fix": "A machine-readable changelog or migration guide is a Tier-1 migration eval prerequisite."
+                },
+                {
+                  "severity": "info",
+                  "message": "No codemods hint found."
+                }
+              ]
+            },
+            {
+              "id": "docs-greppability",
+              "title": "Docs greppability",
+              "score": 0,
+              "findings": [
+                {
+                  "severity": "info",
+                  "message": "0 markdown file(s) found in the repo."
+                },
+                {
+                  "severity": "info",
+                  "message": "Catalog available: scoring per-component coverage mode."
+                },
+                {
+                  "severity": "warn",
+                  "message": "0/2 components (0%) are mentioned in at least one markdown file."
+                },
+                {
+                  "severity": "warn",
+                  "message": "2 component(s) have no markdown mention: Button, Alert.",
+                  "fix": "A component with zero markdown reach is invisible to any docs-grepping or retrieval-based agent workflow."
+                },
+                {
+                  "severity": "warn",
+                  "message": "No llms.txt found. Component list is not machine-listable in the ecosystem-standard location."
+                }
+              ]
+            }
+          ]
+        },
+        "lift": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Lift from an actual benchmark run."
+        },
+        "ceiling": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Ceiling from an actual benchmark run."
+        },
+        "engagement": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Engagement from an actual benchmark run."
+        },
+        "vocabularyBehavioral": {
+          "score": null,
+          "note": "TODO: pass --run <dir> to compute Vocabulary-behavioral from an actual benchmark run."
+        },
+        "composite": 45.9,
+        "basis": "surface-only",
+        "tier": "Invested",
+        "tierRationale": "composite 45.9 in [40, 70)"
+      }
+    }
+  }
+}

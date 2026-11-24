@@ -1,0 +1,81 @@
+{
+  "runId": "20261118-062819-small",
+  "label": "small",
+  "profile": "small",
+  "startedAt": "2026-11-18T06:28:19.367Z",
+  "nodeVersion": "v22.23.5",
+  "adapters": {
+    "claude-code": {
+      "version": "2.1.327 (Claude Code)"
+    }
+  },
+  "systems": {
+    "acme": {
+      "root": "./packages/acme",
+      "commit": "751fe6a3100be9ba1ce3ae717d797706b500aa4e",
+      "catalogSrcHash": "1e894eade7bfff8a70502be77026cdd0e5aad9ed6b2025049a0362ce1c381944",
+      "tokensCssHash": "d329830121be014d5a3c7c9a6d2aac97ae990192770027a86cd802df7e5406b3"
+    }
+  },
+  "cells": [
+    {
+      "spec": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code",
+        "taskId": "confirm-account-deletion",
+        "rep": 1
+      },
+      "status": "ok"
+    },
+    {
+      "spec": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code",
+        "taskId": "success-feedback",
+        "rep": 1
+      },
+      "status": "ok"
+    },
+    {
+      "spec": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code",
+        "taskId": "settings-toggle-section",
+        "rep": 1
+      },
+      "status": "ok"
+    },
+    {
+      "spec": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code",
+        "taskId": "cancel-plan-action-hierarchy",
+        "rep": 1
+      },
+      "status": "ok"
+    },
+    {
+      "spec": {
+        "system": "acme",
+        "context": "skill",
+        "model": "sonnet",
+        "agent": "claude-code",
+        "taskId": "connection-status-indicator",
+        "rep": 1
+      },
+      "status": "ok"
+    }
+  ],
+  "totalCostUsd": 0.4254319999999999,
+  "finishedAt": "2026-11-18T06:30:04.164Z",
+  "wallClockMs": 104797,
+  "paused": false
+}

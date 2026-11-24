@@ -1,0 +1,17 @@
+diff --git a/src/run/fixture.ts b/src/run/fixture.ts
+--- a/src/run/fixture.ts
++++ b/src/run/fixture.ts
+@@ -35,1 +35,1 @@
+-import { basename, dirname, join, resolve, sep } from 'node:path';
++import { basename, dirname, join, relative, resolve, sep } from 'node:path';
+@@ -485,7 +485,9 @@ export function copyTemplate(templateDirPath: string, destDir: string): void {
+   mkdirSync(destDir, { recursive: true });
+   cpSync(templateDirPath, destDir, {
+     recursive: true,
+-    filter: (src) => !src.split(sep).includes('node_modules'),
++    // acme-talk patch: test only the path inside the template, so the copy still
++    // works when ODSB itself is installed under node_modules.
++    filter: (src) => !relative(templateDirPath, src).split(sep).includes('node_modules'),
+   });
+   writeFileSync(join(destDir, 'README.md'), WORKSPACE_README);
+ }

@@ -1,0 +1,31 @@
+{
+  "name": "acme-talk",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Mock design system (Acme DS) and three demos for a talk on where AI fits in the design system lifecycle.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "tokens": "pnpm --filter @acme/ds run tokens",
+    "readiness": "pnpm run tokens && pnpm --filter demo-1-readiness run extract && pnpm --filter demo-1-readiness run audit",
+    "readiness:before": "pnpm --filter demo-1-readiness run audit:before",
+    "readiness:after": "pnpm --filter demo-1-readiness run audit:after",
+    "bench": "pnpm --filter demo-3-adherence run bench",
+    "sync": "pnpm --filter demo-2-token-sync run sync",
+    "sync:replay": "pnpm --filter demo-2-token-sync run sync:replay",
+    "sync:init": "pnpm --filter demo-2-token-sync run sync:init"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "typescript": "5"
+      }
+    },
+    "patchedDependencies": {
+      "open-design-system-bench": "patches/open-design-system-bench.patch"
+    }
+  }
+}

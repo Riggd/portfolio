@@ -1,0 +1,70 @@
+{
+  "color": {
+    "$type": "color",
+    "text": {
+      "primary": { "$value": "{color.neutral.900}" },
+      "secondary": { "$value": "{color.neutral.500}", "$description": "Only on color.surface.default. Fails 4.5:1 contrast on color.surface.tinted." },
+      "disabled": { "$value": "{color.neutral.300}" },
+      "inverse": { "$value": "{color.neutral.0}" },
+      "link": { "$value": "{color.blue.600}" }
+    },
+    "surface": {
+      "default": { "$value": "{color.neutral.0}" },
+      "subtle": { "$value": "{color.neutral.50}" },
+      "tinted": { "$value": "{color.neutral.100}" },
+      "inverse": { "$value": "{color.neutral.900}" }
+    },
+    "border": {
+      "default": { "$value": "{color.neutral.200}" },
+      "strong": { "$value": "{color.neutral.300}" },
+      "focus": { "$value": "{color.blue.500}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{color.blue.600}" },
+        "bgHover": { "$value": "{color.blue.700}" },
+        "fg": { "$value": "{color.neutral.0}" }
+      },
+      "secondary": {
+        "bg": { "$value": "{color.neutral.0}" },
+        "bgHover": { "$value": "{color.neutral.50}" },
+        "fg": { "$value": "{color.neutral.900}" },
+        "border": { "$value": "{color.neutral.300}" }
+      },
+      "destructive": {
+        "bg": { "$value": "{color.red.600}" },
+        "bgHover": { "$value": "{color.red.700}" },
+        "fg": { "$value": "{color.neutral.0}" }
+      },
+      "ghost": {
+        "bgHover": { "$value": "{color.neutral.100}" },
+        "fg": { "$value": "{color.blue.700}" }
+      }
+    },
+    "danger": {
+      "$description": "Starting-state name. Demo 2 renames this group to color.feedback.error live. Do not rename ahead of time.",
+      "fg": { "$value": "{color.red.700}" },
+      "bg": { "$value": "{color.red.50}" },
+      "border": { "$value": "{color.red.500}" }
+    },
+    "feedback": {
+      "$description": "No info group in the starting state. Demo 2 adds color.feedback.info live.",
+      "success": {
+        "fg": { "$value": "{color.green.700}" },
+        "bg": { "$value": "{color.green.50}" },
+        "border": { "$value": "{color.green.500}" }
+      },
+      "warning": {
+        "fg": { "$value": "{color.amber.700}" },
+        "bg": { "$value": "{color.amber.50}" },
+        "border": { "$value": "{color.amber.500}" }
+      }
+    },
+    "brand": {
+      "$description": "Brand expression only (marketing moments, logo lockups, highlights). Never on error, status, or destructive UI.",
+      "primary": { "$value": "{color.violet.600}" },
+      "subtle": { "$value": "{color.violet.50}" },
+      "fg": { "$value": "{color.violet.700}" }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+# ODSB generated catalogs/tokens (cached outputs go in demos/*/cache/)
+demos/1-readiness/data/
+demos/1-readiness/.before/
+demos/2-token-sync/out/
