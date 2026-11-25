@@ -15,6 +15,7 @@
     "tokens": "node scripts/build-tokens.mjs",
     "dev": "pnpm run tokens && vite",
     "build": "pnpm run tokens && tsc --noEmit && vite build",
+    "build:playground": "pnpm run tokens && vite build -c vite.playground.config.ts",
     "typecheck": "pnpm run tokens && tsc --noEmit"
   },
   "peerDependencies": {

@@ -1,0 +1,30 @@
+<style>
+.talk { max-width: 52rem; padding: 2rem 1rem; }
+.talk h1 { font-size: 2.5rem; font-weight: 600; margin: 0 0 .5rem; }
+.talk .muted { opacity: .7; }
+.talk-links { list-style: none; padding: 0; display: grid; gap: 1rem; margin-top: 2rem; }
+.talk-links a { display: block; padding: 1rem 1.25rem; border: 1px solid currentColor; border-radius: 8px; text-decoration: none; }
+.talk-links strong, .talk-links span { display: block; }
+.talk-links span { opacity: .7; margin-top: .25rem; }
+.talk .scores { display: flex; align-items: center; gap: 2rem; margin: 1.5rem 0; text-align: center; }
+.talk .big { font-size: 3.5rem; font-weight: 600; }
+.talk .arrow { font-size: 2.5rem; }
+.talk table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.talk th, .talk td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid rgba(128,128,128,.4); vertical-align: top; }
+.talk td.up { font-weight: 600; }
+.talk pre { white-space: pre-wrap; padding: 1rem; border: 1px solid rgba(128,128,128,.4); border-radius: 6px; }
+.talk .cta { font-weight: 600; }
+.talk { min-width: 0; box-sizing: border-box; }
+.talk pre, .talk td, .talk code { overflow-wrap: anywhere; }
+@media (max-width: 650px) {
+  .talk h1 { font-size: 1.75rem; }
+  .talk .big { font-size: 2.5rem; }
+  .talk .scores { gap: 1rem; }
+  /* Stack table rows as labelled cards so nothing forces horizontal scroll (which pushed the fixed nav off-screen) */
+  .talk table.stack, .talk table.stack tbody, .talk table.stack tr, .talk table.stack td { display: block; width: 100%; box-sizing: border-box; }
+  .talk table.stack thead { display: none; }
+  .talk table.stack tr { border: 1px solid rgba(128,128,128,.4); border-radius: 6px; margin-bottom: 1rem; padding: .25rem 0; }
+  .talk table.stack td { border: 0; padding: .35rem .75rem; }
+  .talk table.stack td::before { content: attr(data-label); display: block; font-size: .75rem; text-transform: uppercase; opacity: .6; }
+}
+</style>
