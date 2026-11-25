@@ -8,3 +8,6 @@ lowercase-assets.sh
 # Local Netlify folder
 .netlify
 deno.lock
+
+# Claude Code worktrees
+.claude/worktrees/
