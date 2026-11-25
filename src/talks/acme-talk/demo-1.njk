@@ -1,0 +1,27 @@
+---
+title: "Demo 1: Readiness audit"
+layout: "base.njk"
+templateEngineOverride: njk
+description: How well agents already use Acme DS, before and after adding agent context
+permalink: /talks/acme-talk/demo-1/
+---
+{% include "talks-style.njk" %}
+<div class="fade-in talk">
+    <p><a href="/talks/acme-talk/">← Talk hub</a></p>
+    <h1>Demo 1: Readiness audit</h1>
+    <p class="muted">Audited with open-design-system-bench. Composite score, tier: {{ acmeTalk.readiness.tier }}.</p>
+    <div class="scores">
+        <div><span class="big">{{ acmeTalk.readiness.before }}</span><br>before</div>
+        <div class="arrow">→</div>
+        <div><span class="big">{{ acmeTalk.readiness.after }}</span><br>after</div>
+    </div>
+    <table>
+        <thead><tr><th>Check</th><th>Before</th><th>After</th></tr></thead>
+        <tbody>
+        {% for c in acmeTalk.readiness.checks %}
+            <tr><td>{{ c.title }}</td><td>{{ c.before }}</td><td class="{{ 'up' if c.after > c.before }}">{{ c.after }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p><a class="cta" href="/talks/acme-talk/demo-1/report/report.html">Open the agent context comparison report →</a></p>
+</div>

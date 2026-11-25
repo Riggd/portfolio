@@ -1,0 +1,17 @@
+---
+title: Where AI fits in the design system lifecycle
+layout: "base.njk"
+templateEngineOverride: njk
+description: Live demo hub for the Acme DS talk
+permalink: /talks/acme-talk/
+---
+{% include "talks-style.njk" %}
+<div class="fade-in talk">
+    <h1>Where AI fits in the design system lifecycle</h1>
+    <p class="muted">Live demos run against Acme DS, a mock design system.</p>
+    <ol class="talk-links">
+        <li><a href="/talks/acme-talk/demo-1/"><strong>Demo 1: Readiness audit</strong><span>Score {{ acmeTalk.readiness.before }} → {{ acmeTalk.readiness.after }} after adding agent context</span></a></li>
+        <li><a href="/talks/acme-talk/demo-2/"><strong>Demo 2: Token sync</strong><span>Claude classifies a Figma token change: semver, breaking, rationale</span></a></li>
+        <li><a href="/talks/acme-talk/playground/"><strong>Acme DS playground</strong><span>The system the demos act on</span></a></li>
+    </ol>
+</div>

@@ -22,6 +22,13 @@ export default function (eleventyConfig) {
     // Passthrough copy
     eleventyConfig.addPassthroughCopy("src/assets");
 
+    // Live-demo static pages (talks/acme-talk). Playground is a committed Vite build
+    // (regenerate: pnpm --dir talks/acme-talk/packages/acme run build:playground, copy dist/playground).
+    eleventyConfig.addPassthroughCopy("src/talks/acme-talk/playground");
+    eleventyConfig.addPassthroughCopy({
+        "talks/acme-talk/demos/1-readiness/cache/runs/20261118-062703-context-compare": "talks/acme-talk/demo-1/report",
+    });
+
     // Shortcodes
     eleventyConfig.addShortcode('year', year);
     eleventyConfig.addShortcode('convertTime', convertTime);
