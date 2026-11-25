@@ -10,16 +10,16 @@ permalink: /talks/acme-talk/demo-2/
     <p><a href="/talks/acme-talk/">← Talk hub</a></p>
     <h1>Demo 2: Token sync</h1>
     <p class="muted">A scripted sync diffs the Figma export; Claude Code classifies each change. Overall bump: <strong>{{ acmeTalk.sync.overall_semver }}</strong>.</p>
-    <table>
+    <table class="stack">
         <thead><tr><th>Change</th><th>Tokens</th><th>Semver</th><th>Breaking</th><th>Rationale</th></tr></thead>
         <tbody>
         {% for c in acmeTalk.sync.changes %}
             <tr>
-                <td>{{ c.change_type }}{% if c.to %}<br><code>→ {{ c.to }}</code>{% endif %}</td>
-                <td>{% for t in c.tokens %}<code>{{ t }}</code><br>{% endfor %}</td>
-                <td>{{ c.semver }}</td>
-                <td>{{ 'yes' if c.is_breaking else 'no' }}</td>
-                <td>{{ c.rationale }}</td>
+                <td data-label="Change">{{ c.change_type }}{% if c.to %}<br><code>→ {{ c.to }}</code>{% endif %}</td>
+                <td data-label="Tokens">{% for t in c.tokens %}<code>{{ t }}</code><br>{% endfor %}</td>
+                <td data-label="Semver">{{ c.semver }}</td>
+                <td data-label="Breaking">{{ "yes" if c.is_breaking else "no" }}</td>
+                <td data-label="Rationale">{{ c.rationale }}</td>
             </tr>
         {% endfor %}
         </tbody>
