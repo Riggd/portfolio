@@ -20,7 +20,7 @@ Personal portfolio. Eleventy v3 static site, SCSS, esbuild for JS, deployed on N
 
 ## Project rules
 - Follow `.agent/rules.md` (design/performance/accessibility standards, asset and commit protocol).
-- Asset filenames: lowercase with hyphens; run `bash lowercase-assets.sh` after adding to `src/assets/`. Warn if an image exceeds 500KB.
+- Asset filenames: lowercase with hyphens; `.agent/rules.md` references `lowercase-assets.sh`, which is not in the repo; rename manually. Warn if an image exceeds 500KB.
 - New interactive elements need both `:hover` and `:focus-visible` styles.
 - `.env` is loaded via dotenv and exposed as global `env`; never commit secrets.
 
