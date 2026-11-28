@@ -27,7 +27,8 @@ Personal portfolio. Eleventy v3 static site, SCSS, esbuild for JS, deployed on N
 # Personal Working Rules
 
 ## Git
-- Start every task on a fresh branch off main. Never commit to main.
+- Never commit on `main` or the default branch. If on it, create a fresh task branch off it before any edit. If already on a task branch, use it.
+- Branch before editing, not after.
 - Commit in small, logical units. Don't push or open PRs unless asked.
 
 ## Planning
