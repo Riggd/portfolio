@@ -1,5 +1,7 @@
 # Portfolio (derekonay.com)
 
+> **Before any edit:** run `git branch --show-current`. If it is `main`, run `git switch -c <task-branch>` first. Never edit or commit on `main`.
+
 Personal portfolio. Eleventy v3 static site, SCSS, esbuild for JS, deployed on Netlify (plus a Raspberry Pi workflow in `.github/workflows/deploy-rpi.yml`).
 
 ## Commands
@@ -27,8 +29,8 @@ Personal portfolio. Eleventy v3 static site, SCSS, esbuild for JS, deployed on N
 # Personal Working Rules
 
 ## Git
-- Never commit on `main` or the default branch. If on it, create a fresh task branch off it before any edit. If already on a task branch, use it.
-- Branch before editing, not after.
+- First step of any task that edits files: run `git branch --show-current`. If it is `main` or the default branch, run `git switch -c <task-branch>` before touching any file. Never edit or commit on `main`.
+- If already on a task branch, stay on it.
 - Commit in small, logical units. Don't push or open PRs unless asked.
 
 ## Planning
